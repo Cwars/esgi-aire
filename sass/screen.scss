@@ -1,20 +1,136 @@
 
 //@import "compass/reset";
 @import "_variables.scss";
+@import "mixin";
 
-body{
-  font-family: 'Jaldi', sans-serif;
-  background-color: $background-color;
-  text-align: center;
-  margin: 0;
+*{
   padding: 0;
+  margin: 0;
+  font-family: 'Jaldi', sans-serif;
+}
+body{
+  background: lighten($dark-background-color, 20%);
+}
+.center {
+  display: block;
+  margin: auto;
+}
+.text-center{
+  text-align: center;
+}
+.container {
+  margin: 0 15%;
+}
+p {
+  padding: 10px;
+  font-size: 1.2em;
+  text-align: justify;
+}
+.top-image {
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  background: url(../images/header.png) no-repeat center fixed;
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
+}
+h1 {
+  font-size: 80px;
+}
+.slide-label
+{
+  position: absolute;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 50vh;
   width: 100%;
 }
+/* small devices (large desktops, 768 and up) */
+@media (max-width: $screen-sm-min) {
+  .container {
+    margin: 0 5%;
+  }
 
-.content {
-  width: 75%;
-  margin:auto;
+  .col {
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  .cinq, .deux {
+    .col {
+      margin-left: 2%;
+      width: 94%;
+    }
+  }
+
+  .quatre {
+    .col {
+      margin-left: 2%;
+      width: 44%;
+    }
+  }
 }
+@media (max-width: $screen-lg-min) {
+  .container {
+    margin: 0 8%;
+  }
+}
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: $screen-lg-min) {
+
+  .col {
+    float: left;
+    margin-left: 2%;
+    padding: 1%;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  .firstcol {
+    margin-left: 0!important;
+  }
+
+  .cinq {
+    @include conteneur();
+
+    .col {
+
+      @include widthCols(5, 2, 2, false);
+    }
+  }
+
+  .quatre {
+    @include conteneur();
+
+    .col {
+
+      @include widthCols(4, 2, 2, false);
+    }
+  }
+
+  .deux {
+    @include conteneur();
+
+    .col {
+
+      @include widthCols(2, 2, 2, false);
+    }
+  }
+
+  .un {
+    @include conteneur();
+
+    .col1 {
+      width: 100%;
+      float: left;
+      padding: 1%;
+    }
+  }
+}
+
 
 .col-33 {
   width: 31%;
@@ -115,13 +231,23 @@ p{
 
 
 footer{
+  //width: 100%;
+  //height: 500px;
+  //margin-left: auto;
+  //margin-right: auto;
+  //background: url(#{$footer-image}) no-repeat;
+  //background-size: 100% 700px;
+  position: absolute;
   width: 100%;
-  height: 500px;
+  height: 400px;
   margin-left: auto;
   margin-right: auto;
-  background: url(#{$footer-image}) no-repeat;
+  background: url(../images/footer.png) no-repeat;
   background-size: 100% 700px;
-  position: absolute;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   p
   {
     font-size: 20px;
@@ -141,23 +267,24 @@ footer{
     background-color: lighten($dark-background-color, 10%);
 
   }
-  #slideshow {
+  /*#slideshow {
     position: relative;
-    width: $home-slider-width; /* limite en largeur (1 élément du slideshow) */
-    height: $home-slider-height; /* limite en hauteur */
+    width: $home-slider-width; !* limite en largeur (1 élément du slideshow) *!
+    height: $home-slider-height; !* limite en hauteur *!
     overflow: hidden;
     margin: auto;
+    text-align: center;
     z-index: 9998;
     box-shadow: 0 0 10px 1px $light-background-color;
 
     #sContent {
-      position: absolute; /* on sort l'élément du flux */
-      top: 0; /* on le positionne précisément dans... */
-      left: 0; /* l'angle haut gauche de son parent positionné */
+      position: absolute; !* on sort l'élément du flux *!
+      top: 0; !* on le positionne précisément dans... *!
+      left: 0; !* l'angle haut gauche de son parent positionné *!
       margin: 0;
       padding: 0;
-      width: 100%; /* ou 200% (car deux éléments) */
-      /* CSS3 Transition */
+      width: 100%; !* ou 200% (car deux éléments) *!
+      !* CSS3 Transition *!
       transition: left 1s;
       display: flex;
 
@@ -200,5 +327,31 @@ footer{
   .right-button
   {
     right: 10%;
+  }*/
+
+
+  @keyframes slidy {
+    0% { left: 0%; }
+    20% { left: 0%; }
+    25% { left: -100%; }
+    45% { left: -100%; }
+    50% { left: -200%; }
+    70% { left: -200%; }
+    75% { left: -300%; }
+    95% { left: -300%; }
+    100% { left: -400%; }
+  }
+
+  body { margin: 0; }
+  div#slider { overflow: hidden; }
+  div#slider figure img { width: 20%; float: left;max-height: 500px; }
+  div#slider figure {
+    position: relative;
+    width: 500%;
+    margin: 0;
+    left: 0;
+    text-align: left;
+    font-size: 0;
+    animation: 30s slidy infinite;
   }
 }

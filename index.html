@@ -9,7 +9,7 @@
 <body>
 
 <header>
-    <div class="content">
+    <div class="nav-container">
         <nav>
             <ul>
                 <li><img src="images/logo.png" id="logo" alt="logo"></li>
@@ -22,17 +22,20 @@
                 <li><a href="">Galerie</a></li>
             </ul>
         </nav>
-        <img src="images/header.png" width="100%" alt="header">
+    </div>
+    <div class="top-image">
+        <!--<img src="images/header.png" width="100%" alt="header">-->
+        <h1 class="slide-label">LOREM IPSUM</h1>
     </div>
 </header>
 
-<section id="Dedicaces">
-    <div class="content">
-        <div class="col-33">
+<section class="deux" id="Dedicaces">
+    <div class="container">
+        <div class="col firstcol">
             <img src="images/Dedicaces.png" alt="" class="img-responsive">
         </div>
 
-        <div class="col-66">
+        <div class="col">
             <h2>Dédicaces à venir</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, asperiores autem deserunt, dolor et facere inventore laudantium maxime modi nisi non, reiciendis suscipit. Consequatur dolor itaque, mollitia pariatur quia sed.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, asperiores autem deserunt, dolor et facere inventore laudantium maxime modi nisi non, reiciendis suscipit. Consequatur dolor itaque, mollitia pariatur quia sed.</p>
         </div>
@@ -40,40 +43,51 @@
 
 </section>
 
-<section id="Events">
-    <h2>Evenements à venir</h2>
-    <div class="content">
-        <img src="images/events.png" alt="events">
-        <p>Mardi 3 Janvier 2017 Galerie Arts Factory / Bastille</p>
-        <div class="bouton"><a href="#">En savoir plus</a></div>
+<section class="un" id="Events">
+    <div class="container">
+        <h2 class="text-center">Evenements à venir</h2>
+        <div class="col1 firstcol">
+            <img class="center img-responsive" src="images/events.png" alt="events">
+            <p class="text-center">Mardi 3 Janvier 2017 Galerie Arts Factory / Bastille</p>
+            <div class="bouton"><a href="#">En savoir plus</a></div>
+        </div>
     </div>
 </section>
 
 <section id="Travaux">
-    <h2>Travaux récents</h2>
+    <h2 class="text-center">Travaux récents</h2>
     <div class="content">
 
-        <div id="slideshow">
+<!--     Ancien slider   <div id="slideshow">
             <ul id="sContent">
                 <li>
-                    <img src="images/travaux1.png" alt="Image 1" />
+                    <img class="img-responsive" src="images/travaux1.png" alt="Image 1" />
                     <span class="slide-label">Lorem Ipsum</span>
                 </li>
                 <li>
-                    <img src="images/travaux2.png" alt="Image 2" />
+                    <img class="img-responsive" src="images/travaux1.png" alt="Image 2" />
                     <span class="slide-label">Lorem Ipsum dolor</span>
                 </li>
             </ul>
         </div>
         <a href="#sContent" class="left-button"><</a> - <a href="#slideshow" class="right-button">></a>
+    </div>-->
+
+    <div id="slider">
+        <figure>
+            <img src="images/travaux1.png" alt>
+            <img src="images/travaux1.png" alt>
+            <img src="images/travaux1.png" alt>
+            <img src="images/travaux1.png" alt>
+        </figure>
     </div>
 </section>
 
 <footer>
-    <h2>Contact</h2>
+    <h2 class="text-center">Contact</h2>
 
     <div class="content">
-        <p>Groupe IW1 <br>
+        <p class="text-center">Groupe IW1 <br>
             ESGI-AIRE <br><br>
             242 Rue du Faubourg Saint-Antoine <br>
             75012 Paris <br>
