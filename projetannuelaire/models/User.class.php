@@ -6,8 +6,12 @@
         public $email;
         public $pwd;
         public $firstname;
+        public $Username;
         public $lastname;
         public $status;
+        public $birthday;
+        public $age;
+        public $pwd;                
         public $permission;
         public $date_inserted;
         public $date_updated;
@@ -49,12 +53,40 @@
             $this->lastname = ($lastname);
         }
 
+        public function setUsername($Username) {
+            $this->Username = ($Username);
+        }
+
+        public function getUsername($Username) {
+            return $this->Username;
+        }               
+
         public function setStatus($status) {
             $this->status = $status;
         }
 
         public function setPermission($permission) {
             $this->permission = $permission;
+        }
+
+        public function setPassword($pwd) {
+            $this->pwd = password_hash($pwd, PASSWORD_DEFAULT);;
+        }
+
+        public function setAge($birthday){
+        $date = DateTime::createFromFormat(
+            (strstr($birthday,"/")?'d/m/Y':"Y-m-d") 
+            , $birthday);
+        $DateError = DateTime::getLastErrors();
+
+        if($DateError["warning_count"]+$DateError["error_count"] == 0){
+
+            $dateNow = new DateTime("now");
+            $this->age = date_diff($date, $dateNow)->format('%y');
+        }
+
+        public function getAge() {
+            return $this->age ;
         }
 
         public function getForm() {

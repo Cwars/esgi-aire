@@ -57,27 +57,4 @@
             echo $this->$date_updated;
         }
 
-        public function getForm() {
-            return [
-                "options" => [
-                    "method" => "POST",
-                    "action" => "article/add",
-                    "class" => "form-group",
-                    "id" => "monformulaire"
-                ],
-                "struct" => [
-                    "email" => [
-                        "type" => "email",
-                        "placeholder" => "Votre email",
-                        "required" => true
-                    ],
-                    "pwd" => [
-                        "type" => "password",
-                        "placeholder" => "Votre mot de passe",
-                        "required" => true
-                    ]
-                ]
-            ];
-        }
-
     }

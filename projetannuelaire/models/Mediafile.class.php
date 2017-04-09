@@ -1,17 +1,17 @@
 <?php
 
-    class Events extends BaseSql  {
+    class Mediafile extends BaseSql  {
 
         public $id = -1;
         public $name;
         public $description;
-        public $date;
+        public $path;
         public $status;
         public $date_inserted;
-        public $date_updated;
+        public $date_uppathd;
 
 
-        public function __construct($id = -1, $description = null, $date = null, $status = 0) {
+        public function __construct($id = -1, $description = null, $path = null, $status = 0) {
             parent::__construct();
         }
 
@@ -41,12 +41,12 @@
             echo $this->description;
         }
 
-        public function setdate($date) {
-            $this->date = $date;
+        public function setpath($path) {
+            $this->path = trim($path);
         }
 
-        public function getdate() {
-            echo $this->date;
+        public function getpath() {
+            echo $this->path;
         }
 
         public function setStatus($status) {
@@ -58,11 +58,11 @@
         }
 
         public function getdate_inserted() {
-            echo $this->$date_inserted;
+            echo $this->$path_inserted;
         }
 
-        public function getdate_updated() {
-            echo $this->$date_updated;
+        public function getdate_uppathd() {
+            echo $this->$path_uppathd;
         }
 
     }

@@ -3,14 +3,14 @@
     class Article extends BaseSql  {
 
         public $id = -1;
-        public $text;
+        public $content;
         public $author;
         public $status;
         public $date_inserted;
         public $date_updated;
 
 
-        public function __construct($id = -1, $text = null, $author = null, $status = 0) {
+        public function __construct($id = -1, $content = null, $author = null, $status = 0) {
             parent::__construct();
         }
 
@@ -23,12 +23,12 @@
             echo $this->id;
         }
 
-        public function settext($text) {
-            $this->text = trim($text);
+        public function setcontent($content) {
+            $this->content = trim($content);
         }
 
-        public function gettext() {
-            echo $this->text;
+        public function getcontent() {
+            echo $this->content;
         }
 
         public function setauthor($author) {
@@ -49,29 +49,6 @@
 
         public function getdate_updated() {
             echo $this->$date_updated;
-        }
-
-        public function getForm() {
-            return [
-                "options" => [
-                    "method" => "POST",
-                    "action" => "article/add",
-                    "class" => "form-group",
-                    "id" => "monformulaire"
-                ],
-                "struct" => [
-                    "email" => [
-                        "type" => "email",
-                        "placeholder" => "Votre email",
-                        "required" => true
-                    ],
-                    "pwd" => [
-                        "type" => "password",
-                        "placeholder" => "Votre mot de passe",
-                        "required" => true
-                    ]
-                ]
-            ];
         }
 
     }
