@@ -11,7 +11,6 @@
         public $status;
         public $birthday;
         public $age;
-        public $pwd;                
         public $permission;
         public $date_inserted;
         public $date_updated;
@@ -73,16 +72,18 @@
             $this->pwd = password_hash($pwd, PASSWORD_DEFAULT);;
         }
 
-        public function setAge($birthday){
-        $date = DateTime::createFromFormat(
-            (strstr($birthday,"/")?'d/m/Y':"Y-m-d") 
-            , $birthday);
-        $DateError = DateTime::getLastErrors();
+        public function setAge($birthday)
+        {
+            $date = DateTime::createFromFormat(
+                (strstr($birthday, "/") ? 'd/m/Y' : "Y-m-d")
+                , $birthday);
+            $DateError = DateTime::getLastErrors();
 
-        if($DateError["warning_count"]+$DateError["error_count"] == 0){
+            if ($DateError["warning_count"] + $DateError["error_count"] == 0) {
 
-            $dateNow = new DateTime("now");
-            $this->age = date_diff($date, $dateNow)->format('%y');
+                $dateNow = new DateTime("now");
+                $this->age = date_diff($date, $dateNow)->format('%y');
+            }
         }
 
         public function getAge() {

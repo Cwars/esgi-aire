@@ -44,11 +44,11 @@
         }
 
         public function getdate_inserted() {
-            echo $this->$date_inserted;
+            echo $this->date_inserted;
         }
 
         public function getdate_updated() {
-            echo $this->$date_updated;
+            echo $this->date_updated;
         }
 
     }

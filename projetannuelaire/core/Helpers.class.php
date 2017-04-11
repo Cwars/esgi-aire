@@ -1,22 +1,34 @@
 <?php
+class Helpers{
 
-class Helpers {
-    /*
-    Consigne : Vérification en amont de l'existence d'un fichier et dossier de log
-    Ecriture dans ce fichier du contenu du message avec la date et l'heure
-    */
-    public static function createLogExist() {
 
+    //Vérification en amont de l'existance d'un fichier et dossier de log
+    public static function createLogExist(){
+        if (is_dir('log')){
+            if (file_exists('log/log.txt')){
+                return true;
+            }else {
+                $g = fopen("log/log.txt", "x+");
+            }
+        }else {
+            mkdir("log");
+            $f = fopen("log/log.txt", "x+");
+        }
     }
-
-    public static function log($msg) {
-
-    }
-
-    // Coder la fonction mais ne pas l'appeler, on passera par un cron
+    //Ecriture au sein de ce fichier le
     //
-    public static function purgeLog() {
+    // contenu de $msg avec la date et l'heure
+    public static function log($msg){
+        self::createLogExist();
 
+        $fichier = fopen('log/log.txt', 'r+');
+        fputs($fichier, $msg);
+    }
+
+    //Coder la fonction mais ne l'appelez pas, on passera par un cron
+    //limite de taille : 5mo
+    public static function purgeLog(){
+        $fichier = fopen('log/log.txt', 'w');
     }
 
 }
