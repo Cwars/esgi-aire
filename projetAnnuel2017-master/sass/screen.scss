@@ -8,6 +8,16 @@
   margin: 0;
   font-family: 'Jaldi', sans-serif;
 }
+
+section{
+  padding: 50px 0;
+}
+nav {
+  position: fixed;
+  z-index: 99999;
+  width: 70%;
+  left: 15%
+}
 body{
   background: lighten($dark-background-color, 20%);
 }
@@ -37,7 +47,7 @@ p {
 h1 {
   font-size: 80px;
 }
-.slide-label
+.image-label
 {
   position: absolute;
   color: #fff;
@@ -51,6 +61,7 @@ h1 {
   .container {
     margin: 0 5%;
   }
+
 
   .col {
     margin-left: 1%;
@@ -70,13 +81,45 @@ h1 {
       width: 44%;
     }
   }
+
+  .trois {
+    .col {
+      margin-left: 2%;
+      margin-top: 30px;
+    }
+  }
 }
 @media (max-width: $screen-lg-min) {
   .container {
     margin: 0 8%;
   }
+  nav
+  {
+    width: 84%;
+    left: 8%;
+  }
+  #Travaux img {
+    margin-top: 50px;
+  }
 }
-/* Large devices (large desktops, 1200px and up) */
+
+.slide-label
+{
+  position: absolute;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 50vh;
+  width: 100%;
+}
+
+@media (max-width: $screen-md-min) {
+  nav {
+    width: 100%;
+    left: 0;
+  }
+}
+
 @media (min-width: $screen-lg-min) {
 
   .col {
@@ -111,6 +154,15 @@ h1 {
     }
   }
 
+  .trois {
+    @include conteneur();
+
+    .col {
+
+      @include widthCols(3, 2, 2, false);
+    }
+  }
+
   .deux {
     @include conteneur();
 
@@ -126,7 +178,6 @@ h1 {
     .col1 {
       width: 100%;
       float: left;
-      padding: 1%;
     }
   }
 }
@@ -177,7 +228,7 @@ header{
           display: block;
           color: white;
           text-align: center;
-          padding:21px 30px;
+          padding:21px 25px;
           text-decoration: none;
 
           &:hover {
@@ -259,99 +310,17 @@ footer{
 
 #Travaux
 {
-  background-color: $dark-background-color;
-  position: relative;
-  width: 100%;
-  margin:auto;
   h2 {
     background-color: lighten($dark-background-color, 10%);
-
+    margin-bottom: 50px;
   }
-  /*#slideshow {
-    position: relative;
-    width: $home-slider-width; !* limite en largeur (1 élément du slideshow) *!
-    height: $home-slider-height; !* limite en hauteur *!
-    overflow: hidden;
-    margin: auto;
-    text-align: center;
-    z-index: 9998;
-    box-shadow: 0 0 10px 1px $light-background-color;
+}
 
-    #sContent {
-      position: absolute; !* on sort l'élément du flux *!
-      top: 0; !* on le positionne précisément dans... *!
-      left: 0; !* l'angle haut gauche de son parent positionné *!
-      margin: 0;
-      padding: 0;
-      width: 100%; !* ou 200% (car deux éléments) *!
-      !* CSS3 Transition *!
-      transition: left 1s;
-      display: flex;
-
-      li {
-        display: inline;
-        .slide-label
-        {
-          position: relative;
-          bottom: 10%;
-          color: $light-background-color;
-          background-color: rgba(40, 40, 40, 0.7);
-          padding: 10px;
-          font-size: 20px;
-          font-weight: bold;
-        }
-      }
+@media (max-width: 1200px)
+{
+  .col {
+    &:last-of-type {
+      padding-bottom: 40px;
     }
-    &:target #sContent {
-      left: -100%;
-    }
-  }
-  .left-button, .right-button
-  {
-    background-color: white;
-    padding: 0 30px 5px 30px;
-    font-size: 50px;
-    font-weight: bold;
-    color: #000;
-    border-radius: 50px;
-    text-decoration: none;
-    outline:none;
-    z-index: 9999;
-    position: absolute;
-    top: 45%;
-  }
-  .left-button
-  {
-    left: 10%;
-  }
-  .right-button
-  {
-    right: 10%;
-  }*/
-
-
-  @keyframes slidy {
-    0% { left: 0%; }
-    20% { left: 0%; }
-    25% { left: -100%; }
-    45% { left: -100%; }
-    50% { left: -200%; }
-    70% { left: -200%; }
-    75% { left: -300%; }
-    95% { left: -300%; }
-    100% { left: -400%; }
-  }
-
-  body { margin: 0; }
-  div#slider { overflow: hidden; }
-  div#slider figure img { width: 20%; float: left;max-height: 500px; }
-  div#slider figure {
-    position: relative;
-    width: 500%;
-    margin: 0;
-    left: 0;
-    text-align: left;
-    font-size: 0;
-    animation: 30s slidy infinite;
   }
 }
