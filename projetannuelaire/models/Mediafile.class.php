@@ -58,11 +58,11 @@
         }
 
         public function getdate_inserted() {
-            echo $this->$path_inserted;
+            echo $this->path_inserted;
         }
 
         public function getdate_uppathd() {
-            echo $this->$path_uppathd;
+            echo $this->path_uppathd;
         }
 
     }

@@ -5,8 +5,8 @@
         public $id = -1;
         public $content;
         public $author;
-        public $parentID
-        public $parentType
+        public $parentID;
+        public $parentType;
         public $status;
         public $date_inserted;
         public $date_updated;
@@ -50,11 +50,11 @@
         }
 
         public function getdate_inserted() {
-            echo $this->$date_inserted;
+            echo $this->date_inserted;
         }
 
         public function getdate_updated() {
-            echo $this->$date_updated;
+            echo $this->date_updated;
         }
 
     }
