@@ -66,7 +66,7 @@
 
         public function getOneBy($search = [], $returnQuery = false) {
 
-            // $search = ['id' => 8, 'name' => 'pham ngoc']
+            // $search = ['id' => 8]
             foreach ($search as $key => $value) {
                 $where[] = $key.'=:'.$key;
             }

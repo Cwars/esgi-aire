@@ -3,17 +3,17 @@
 /**
  *
  */
-class UserController
+class ArticleController
 {
 
     public function articleAdd($content,$Title) {
 
-        $user = new User();
+        $article = new Article();
 
-        $user -> setEmail($content);
-        $user -> setPwd($Title);
+        $article -> setContent($content);
+        $article -> setTitle($Title);
 
-        $user ->save();
+        $article ->save();
     }
 
     public function articleDelete(){

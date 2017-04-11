@@ -2,13 +2,13 @@
 
     class Mediafile extends BaseSql  {
 
-        public $id = -1;
-        public $name;
-        public $description;
-        public $path;
-        public $status;
-        public $date_inserted;
-        public $date_uppathd;
+        private $id = -1;
+        private $name;
+        private $description;
+        private $path;
+        private $status;
+        private $date_inserted;
+        private $date_updated;
 
 
         public function __construct($id = -1, $description = null, $path = null, $status = 0) {
@@ -23,7 +23,6 @@
         public function getId() {
             echo $this->id;
         }
-
 
         public function setname($name) {
             $this->name = trim($name);
@@ -58,11 +57,11 @@
         }
 
         public function getdate_inserted() {
-            echo $this->path_inserted;
+            echo $this->date_inserted;
         }
 
-        public function getdate_uppathd() {
-            echo $this->path_uppathd;
+        public function getdate_updated() {
+            echo $this->date_updated;
         }
 
     }

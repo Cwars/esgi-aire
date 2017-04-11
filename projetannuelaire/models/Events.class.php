@@ -2,13 +2,13 @@
 
     class Events extends BaseSql  {
 
-        public $id = -1;
-        public $name;
-        public $description;
-        public $date;
-        public $status;
-        public $date_inserted;
-        public $date_updated;
+        private $id = -1;
+        private $name;
+        private $description;
+        private $date;
+        private $status;
+        private $date_inserted;
+        private $date_updated;
 
 
         public function __construct($id = -1, $description = null, $date = null, $status = 0) {

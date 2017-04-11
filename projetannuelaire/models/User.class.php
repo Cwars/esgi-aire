@@ -2,18 +2,19 @@
 
     class User extends BaseSql {
 
-        public $id = -1;
-        public $email;
-        public $pwd;
-        public $firstname;
-        public $Username;
-        public $lastname;
-        public $status;
-        public $birthday;
-        public $age;
-        public $permission;
-        public $date_inserted;
-        public $date_updated;
+        private $id = -1;
+        private $email;
+        private $pwd;
+        private $firstname;
+        private $Username;
+        private $lastname;
+        private $status;
+        private $birthday;
+        private $age;
+        private $profil;
+        private $permission;
+        private $date_inserted;
+        private $date_updated;
 
 
         public function __construct($id = -1, $email = null, $pwd = null, $firstname = null, $lastname = null, $status = 0, $permission = 0) {

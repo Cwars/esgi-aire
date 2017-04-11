@@ -2,12 +2,13 @@
 
     class Article extends BaseSql  {
 
-        public $id = -1;
-        public $content;
-        public $author;
-        public $status;
-        public $date_inserted;
-        public $date_updated;
+        private $id = -1;
+        private $content;
+        private $author;
+        private $status;
+        private $date_inserted;
+        private $date_updated;
+        private $title;
 
 
         public function __construct($id = -1, $content = null, $author = null, $status = 0) {
@@ -17,7 +18,6 @@
         public function setId($id) {
             $this->id = $id;
         }
-
 
         public function getId() {
             echo $this->id;
@@ -32,7 +32,9 @@
         }
 
         public function setauthor($author) {
-            $this->author = trim($author);
+            if (strlen($author)>55){
+                $this->author = trim($author);
+            }
         }
 
         public function getauthor() {
@@ -41,6 +43,16 @@
 
         public function setStatus($status) {
             $this->status = $status;
+        }
+
+        public function getTitle() {
+            echo $this->title;
+        }
+
+        public function setTitle($title) {
+            if (strlen($title)>55){
+                $this->title = trim($title);
+            }
         }
 
         public function getdate_inserted() {

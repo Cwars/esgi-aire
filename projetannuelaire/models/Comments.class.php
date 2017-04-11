@@ -2,14 +2,14 @@
 
     class Comments extends BaseSql  {
 
-        public $id = -1;
-        public $content;
-        public $author;
-        public $parentID;
-        public $parentType;
-        public $status;
-        public $date_inserted;
-        public $date_updated;
+        private $id = -1;
+        private $content;
+        private $author;
+        private $parentID;
+        private $parentType;
+        private $status;
+        private $date_inserted;
+        private $date_updated;
 
 
         public function __construct($id = -1, $description = null, $author = null, $status = 0) {
@@ -19,7 +19,6 @@
         public function setId($id) {
             $this->id = $id;
         }
-
 
         public function getId() {
             echo $this->id;
