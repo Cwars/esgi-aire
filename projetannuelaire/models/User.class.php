@@ -100,15 +100,95 @@
                     "id" => "monformulaire"
                 ],
                 "struct" => [
+                    "username" => [
+                        "type" => "text",
+                        "placeholder" => "Nom d'utilisateur",
+                        "required" => true
+                    ],
+/*                    "user_category" => [
+                        "type" => "???", // Comme plus bas select ou text
+                        "placeholder" => "Type d'utilisateur",
+                        "required" => true
+                    ],*/
+                    "newsletter" => [
+                        "type" => "checkbox", // Comme plus bas select ou text
+                        "placeholder" => "Inscrire à la newsletter",
+                        "required" => false
+                    ],
                     "email" => [
                         "type" => "email",
-                        "placeholder" => "Votre email",
+                        "placeholder" => "Adresse email",
                         "required" => true
                     ],
                     "pwd" => [
                         "type" => "password",
+                        "placeholder" => "Mot de passe",
+                        "required" => true
+                    ],
+                    "article_name" => [
+                        "type" => "text",
+                        "placeholder" => "Titre de l'article",
+                        "required" => true
+                    ],
+/*                    "category" => [
+                        "type" => "???", // Faire un select avec des catégorie pré enregistrée/ajoutée par l'utilisateur ou un champs text ?
                         "placeholder" => "Votre mot de passe",
                         "required" => true
+                    ],*/
+                    "date" => [
+                        "type" => "time",
+                        "placeholder" => "(Laisser vide pour date actuelle)",
+                        "required" => true
+                    ],
+                    "description" => [
+                        "type" => "text",
+                        "placeholder" => "Contenu de votre article",
+                        "required" => true
+                    ],
+                    "image" => [
+                        "type" => "file",
+                        "placeholder" => "Image à ajouté",
+                        "required" => true
+                    ],
+                    "image-title" => [
+                        "type" => "text",
+                        "placeholder" => "Image à ajouté",
+                        "required" => true
+                    ],
+                    "image-author" => [
+                        "type" => "text",
+                        "placeholder" => "Image à ajouté",
+                        "required" => true
+                    ],
+                    "image-description" => [
+                        "type" => "text",
+                        "placeholder" => "Image à ajouté",
+                        "required" => true
+                    ],
+                    "event_name" => [
+                        "type" => "text",
+                        "placeholder" => "Nom de l'évenement",
+                        "required" => true
+                    ],
+                    "date_start" => [
+                        "type" => "date",
+                        "placeholder" => "Début de l'évene ment",
+                        "required" => true
+                    ],
+                    "date_end" => [
+                        "type" => "date",
+                        "placeholder" => "Fin de l'évenement",
+                        "required" => true
+                    ],
+                    "event_details" => [
+                        "type" => "text",
+                        "placeholder" => "Détails sur l'évenement",
+                        "required" => true
+                    ],
+                    "artists_list" => [
+                        "type" => "text",
+                        "placeholder" => "Artistes présent lors de l'évenement",
+                        "required" => false
                     ]
                 ]
             ];
