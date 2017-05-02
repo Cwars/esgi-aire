@@ -1,5 +1,3 @@
-<?php print_r($config); ?>
-
 <form method="<?php echo $config["options"]["method"] ?>"
     action="<?php echo $config["options"]["action"] ?>"
     class="<?php echo $config["options"]["class"] ?>"
@@ -16,6 +14,14 @@
                 placeholder="<?php echo $attribute["placeholder"]; ?>"
             >
         <?php endif; ?>
+        <?php if(
+            $attribute['type'] == "select"
+        ) : ?>
+            <select name="<?php echo $config["options"]["optionName"] ?>">"><?php foreach ($config["struct"]["option"] as $name1 => $option):?>
+                <option value="<?php echo $option;?>"><?php echo $option;?></option>
+                <?php endforeach; ?>
+            </select>
+        <?php endif; ?>
     <?php endforeach; ?>
-
+    <input type="submit" value="Submit">
 </form>

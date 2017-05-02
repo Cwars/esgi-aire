@@ -1,1 +1,1 @@
-<h2>welcome <?php echo $pseudo; ?></h2>
+<?php $this->includeModal("form", $form); ?>

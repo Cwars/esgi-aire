@@ -3,7 +3,6 @@
     class BaseSql {
 
         private $db;
-
         private $table;
         private $columns = [];
 
@@ -22,8 +21,8 @@
         }
 
         // INSERT ou UPDATE
-        public function save() {
-            if ($this->id == -1) {
+        public function save($id) {
+            if ($id == -1) {
 
                 unset($this->columns['id']);
                 $sqlCol = null;

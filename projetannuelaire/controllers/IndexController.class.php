@@ -16,9 +16,6 @@ class IndexController
         // print_r($user2);
         // echo "</pre>";
 
-        $user2->save();
-        $user2->getEmail();
-
         $pseudo = "guillaume";
         $v = new View();
         $v->assign("pseudo", $pseudo);
@@ -26,13 +23,22 @@ class IndexController
     }
 
     public function welcomeAction($params) {
-        $pseudo = "guillaume";
+        $article1 = new News();
+
         $v = new View("welcome");
-        $v->assign("pseudo", $pseudo);
+        $v->assign("form", $article1->getForm());
     }
 
         public function homeAction($params) {
             $v = new View("home");
+    }
+
+    public function boNewsAction($params) {
+        $v = new View("actionNewsAdd");
+    }
+
+    public function contactAction($params) {
+        $v = new View("contact");
     }
 
 }

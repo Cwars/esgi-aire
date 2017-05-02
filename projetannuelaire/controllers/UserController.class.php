@@ -18,8 +18,8 @@ class UserController
         $user ->setStatus(1);
         $user ->setAge($birthday);
 
-
-        $user ->save();
+        $id1 = $user->getId();
+        $user ->save($id1);
     }
 
     public function userDelete(){

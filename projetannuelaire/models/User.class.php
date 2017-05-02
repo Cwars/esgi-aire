@@ -33,6 +33,11 @@
             $this->id = $id;
         }
 
+        public function getId() {
+            return $this->id;
+        }
+
+
         public function setEmail($email) {
             $this->email = trim($email);
         }
