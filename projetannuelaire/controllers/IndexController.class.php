@@ -33,7 +33,7 @@ class IndexController
             $v = new View("home");
     }
 
-    public function boNewsAction($params) {
+    public function actionNewsAddAction($params) {
         $v = new View("actionNewsAdd");
     }
 

@@ -93,14 +93,13 @@
                         "placeholder" => "Contenu de votre article",
                         "required" => true
                     ],
-                    "category" => [
+                    "Option" => [
                         "type" => "select",
-                        "placeholder" => "Type d'utilisateur",
-                        "required" => true ,
-                    ],
-                    "option" => [
-                        "option1" => "Blog",
-                        "option2" => "News"
+                        "option" => [
+                            "option1" => "Blog",
+                            "option2" => "News"
+                        ]
+
                     ]
                 ]
             ];

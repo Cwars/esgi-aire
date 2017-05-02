@@ -6,13 +6,11 @@
 class NewsController
 {
 
-    public function newsAdd($content,$Title,$Type) {
+    public function newsAdd($content,$title) {
 
         $article = new News();
-
         $article -> setContent($content);
-        $article -> setTitle($Title);
-
+        $article -> setTitle($title);
         $article ->save();
     }
 

@@ -17,7 +17,7 @@
         <?php if(
             $attribute['type'] == "select"
         ) : ?>
-            <select name="<?php echo $config["options"]["optionName"] ?>">"><?php foreach ($config["struct"]["option"] as $name1 => $option):?>
+            <select name="<?php echo $config["options"]["optionName"] ?>">"><?php foreach ($config["struct"]["Option"]["option"] as $name1 => $option):?>
                 <option value="<?php echo $option;?>"><?php echo $option;?></option>
                 <?php endforeach; ?>
             </select>
