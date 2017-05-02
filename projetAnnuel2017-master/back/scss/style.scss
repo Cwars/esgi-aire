@@ -1,0 +1,25 @@
+@import '../scss/variables'; // colors, fonts etc...
+
+.main-content {
+
+  .content-wrapper {
+    padding: 45px 5% 3em;
+
+    h1 {
+      text-align: center;
+      padding: 3em 0;
+      font-size: 2rem;
+    }
+  }
+
+  .content-wrapper {
+    margin-left: $navW;
+    padding-top: $headerH;
+
+    h1 {
+      padding: 4em 0;
+      font-size: 3.2rem;
+      font-weight: 300;
+    }
+  }
+}

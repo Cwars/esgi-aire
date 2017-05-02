@@ -1,0 +1,140 @@
+@import '../scss/variables'; // colors, fonts etc...
+
+/** Menu top  **/
+
+.nav-header {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  background: darken($blue, 5%);
+  box-shadow: 0 1px 3px rgba($black, .2);
+
+  @media only screen and (min-width: $S) {
+    position: fixed;
+    height: $headerH;
+  }
+}
+
+.logo {
+  float: left;
+  display: block;
+  width: $navW;
+  height: $headerH;
+  background: $white;
+  margin: 0;
+  padding: 0;
+
+  img {
+    display: block;
+    width: $imgW;
+    margin: auto;
+    padding-top: 15px;
+    transition: all .2s ease-in-out;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+}
+
+.nav-header-link {
+  display: block;
+  float: right;
+  height: 100%;
+}
+
+
+.nav-header-link-list {
+
+  height: 100%;
+
+  > li {
+    display: inline-block;
+    margin-right: 1.5em;
+    padding-top: 25%;
+
+    a {
+      display: block;
+      font-size: 1.4rem;
+      color: $white;
+
+      &:hover {
+        color: darken($white, 20%);
+      }
+      .fa {
+        font-size: 1.2em;
+      }
+    }
+
+  }
+}
+/** FIN MENU TOP **/
+
+/** MENU VERTICAL **/
+.side-nav {
+
+  position: fixed;
+  float: left;
+  top: auto;
+  width: $navW;
+  min-height: 100vh;
+  padding-top: $headerH;
+  /* reset style */
+  visibility: visible;
+  opacity: 1;
+  overflow: visible;
+  max-height: none;
+  background-color: $blue;
+
+  > ul {
+    /* reset style */
+    padding: 0;
+  }
+
+  .label {
+    display: none;
+  }
+
+  .menu-icon {
+    width: 100%;
+    transition: all .2s ease-in-out;
+    &:hover {
+      transform: scale(1.2);
+      background-color: darken($blue, 15%);
+    }
+  }
+
+
+  > ul > li {
+    padding: 20px 0 20px 0;
+    a {
+      display: block;
+      text-align: center;
+      font-size: 3.5em;
+      .fa {
+        color: $white;
+      }
+    }
+    .page {
+      text-align: center;
+      display: block;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: .8em;
+      padding-top: 5px;
+      color: $white;
+    }
+  }
+
+  .active > a {
+    /* current page */
+    box-shadow: inset 3px 0 0 $blue;
+    background-color: darken($blue, 5%);
+  }
+}
+
+
+/** FIN MENU VERTICAL **/
