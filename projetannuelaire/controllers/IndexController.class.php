@@ -9,13 +9,6 @@ class IndexController
     public function IndexAction($params) {
 
         $user2 = new User();
-
-        // $user2 = $user2->populate(['id' => 8]);
-        //
-        // echo "<pre>";
-        // print_r($user2);
-        // echo "</pre>";
-
         $pseudo = "guillaume";
         $v = new View();
         $v->assign("pseudo", $pseudo);

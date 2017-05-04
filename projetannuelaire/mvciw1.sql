@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 02 Mai 2017 à 09:39
--- Version du serveur :  10.1.19-MariaDB
--- Version de PHP :  5.6.28
+-- Généré le :  Mar 28 Mars 2017 à 16:31
+-- Version du serveur :  5.7.14
+-- Version de PHP :  5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,108 +23,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `calendar`
---
-
-CREATE TABLE `calendar` (
-  `id` int(11) NOT NULL,
-  `description` tinytext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `comment`
---
-
-CREATE TABLE `comment` (
-  `id` int(11) NOT NULL,
-  `content` tinyint(4) NOT NULL,
-  `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `dateUpdate` timestamp NULL DEFAULT NULL,
-  `idNews` int(11) NOT NULL,
-  `idUser` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `events`
---
-
-CREATE TABLE `events` (
-  `id` int(11) NOT NULL,
-  `name` varchar(45) NOT NULL,
-  `description` tinyint(4) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `dateUpdated` timestamp NULL DEFAULT NULL,
-  `isDeleted` binary(1) NOT NULL DEFAULT '\0',
-  `idUser` int(11) NOT NULL,
-  `idCalendar` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `gallery`
---
-
-CREATE TABLE `gallery` (
-  `id` int(11) NOT NULL,
-  `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `dateUpdated` timestamp NULL DEFAULT NULL,
-  `isDeleted` binary(1) NOT NULL DEFAULT '\0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `mediafile`
---
-
-CREATE TABLE `mediafile` (
-  `id` int(11) NOT NULL,
-  `path` varchar(45) NOT NULL,
-  `description` tinytext NOT NULL,
-  `isDeleted` binary(1) NOT NULL DEFAULT '\0',
-  `idUser` int(11) NOT NULL,
-  `idNews` int(11) NOT NULL,
-  `typeFile` varchar(15) NOT NULL,
-  `idGallery` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `news`
---
-
-CREATE TABLE `news` (
-  `id` int(11) NOT NULL,
-  `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `dateUpdated` timestamp NULL DEFAULT NULL,
-  `isDeleted` binary(1) NOT NULL DEFAULT '\0',
-  `content` longtext NOT NULL,
-  `idUser` int(11) NOT NULL,
-  `typeNews` binary(1) NOT NULL DEFAULT '\0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `newsletter`
---
-
-CREATE TABLE `newsletter` (
-  `id` int(11) NOT NULL,
-  `idUser` int(11) NOT NULL,
-  `isSubscribed` binary(1) NOT NULL DEFAULT '\0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `user`
 --
 
@@ -134,9 +32,8 @@ CREATE TABLE `user` (
   `pwd` char(60) NOT NULL,
   `firstname` varchar(50) NOT NULL,
   `lastname` varchar(50) NOT NULL,
-  `birthday` int(11) NOT NULL,
+  `permission` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
-  `isDeleted` binary(1) NOT NULL DEFAULT '\0',
   `date_inserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `date_updated` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -145,56 +42,22 @@ CREATE TABLE `user` (
 -- Contenu de la table `user`
 --
 
-INSERT INTO `user` (`id`, `email`, `pwd`, `firstname`, `lastname`, `birthday`, `status`, `isDeleted`, `date_inserted`, `date_updated`) VALUES
-(1, 'alexandre.ting@ymail.com', 'haha', 'Alex', 'Ting', 21, 0, 0x00, '2017-05-01 22:09:36', NULL),
-(12, '', '', '', '', 0, 0, 0x00, '2017-05-01 22:33:02', NULL),
-(13, '', '', '', '', 0, 0, 0x00, '2017-05-01 22:38:07', NULL);
+INSERT INTO `user` (`id`, `email`, `pwd`, `firstname`, `lastname`, `permission`, `status`, `date_inserted`, `date_updated`) VALUES
+(1, 'guillaumepn@free.fr', '$2y$10$vYVxbGtvw75PLlrnAOYUBuh9dFSOHySW5Q41gwnQ/fyyYtPqrhc6G', 'Bob', 'Pham ngoc', 4, 1, '2017-02-01 09:53:22', NULL),
+(2, 'guillaumepn@free.fr', '$2y$10$3sdMIfPGV6pmTJGnxwynHOskT3Zk.E9/RO1Lt20y6Ap0Yt//P1lBq', 'Guillaume', 'Pham ngoc', 3, 1, '2017-02-01 09:58:28', NULL),
+(3, 'guillaumepn@free.fr', '$2y$10$3sdMIfPGV6pmTJGnxwynHOskT3Zk.E9/RO1Lt20y6Ap0Yt//P1lBq', 'Guillaume', 'Pham ngoc', 3, 1, '2017-02-01 09:58:30', NULL),
+(4, 'guillaumepn@free.fr', '$2y$10$3sdMIfPGV6pmTJGnxwynHOskT3Zk.E9/RO1Lt20y6Ap0Yt//P1lBq', 'Guillaume', 'Pham ngoc', 3, 1, '2017-02-01 10:01:54', NULL),
+(5, 'guillaumepn@free.fr', '$2y$10$3sdMIfPGV6pmTJGnxwynHOskT3Zk.E9/RO1Lt20y6Ap0Yt//P1lBq', 'Guillaume', 'Pham ngoc', 3, 1, '2017-02-01 10:05:10', NULL),
+(6, 'guillaumepn@free.fr', '$2y$10$3sdMIfPGV6pmTJGnxwynHOskT3Zk.E9/RO1Lt20y6Ap0Yt//P1lBq', 'Guillaume', 'Pham ngoc', 3, 1, '2017-02-01 10:07:07', NULL),
+(7, 'guillaumepn@free.fr', '$2y$10$3sdMIfPGV6pmTJGnxwynHOskT3Zk.E9/RO1Lt20y6Ap0Yt//P1lBq', 'Guillaume', 'Pham ngoc', 3, 1, '2017-02-01 10:09:15', NULL),
+(8, 'henrypn@free.fr', '$2y$10$3sdMIfPGV6pmTJGnxwynHOskT3Zk.E9/RO1Lt20y6Ap0Yt//P1lBq', 'Henry', 'Pham ngoc', 3, 1, '2017-02-01 10:09:53', NULL),
+(9, 'guillaumepn@free.fr', '$2y$10$0X/cTEUv3AHzXPS8AL0uROKZeCyCy.LMrQCR4wdE74M8kty5snEey', 'Guillaume', 'Pham ngoc', 2, 1, '2017-02-01 10:10:22', NULL),
+(10, 'guillaumepn@free.fr', '$2y$10$brpG19madk54XlD0g9zqAupUksjHown0RDjFqq5iOhmIOguzcWeRG', 'Guillaume', 'Pham ngoc', 2, 1, '2017-02-01 10:10:40', NULL),
+(11, 'guillaumepn@free.fr', '$2y$10$nKtNeIMHuwkz/QBnjHActe2EuO5unFfG.8Rt0NAFVEMhLYB3kNegO', 'Guillaume', 'Pham ngoc', 2, 1, '2017-02-01 10:12:07', NULL);
 
 --
 -- Index pour les tables exportées
 --
-
---
--- Index pour la table `calendar`
---
-ALTER TABLE `calendar`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `comment`
---
-ALTER TABLE `comment`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `events`
---
-ALTER TABLE `events`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `gallery`
---
-ALTER TABLE `gallery`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `mediafile`
---
-ALTER TABLE `mediafile`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `news`
---
-ALTER TABLE `news`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `newsletter`
---
-ALTER TABLE `newsletter`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `user`
@@ -207,45 +70,10 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT pour la table `calendar`
---
-ALTER TABLE `calendar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `comment`
---
-ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `events`
---
-ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `gallery`
---
-ALTER TABLE `gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `mediafile`
---
-ALTER TABLE `mediafile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `news`
---
-ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `newsletter`
---
-ALTER TABLE `newsletter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -21,12 +21,12 @@
             echo $this->id;
         }
 
+        public function setId($id) {
+            $this->id = $id;
+        }
+
         public function setTypeNews($typeNews) {
-            if($typeNews == "blog"){
-                return 1;
-            }elseif ($typeNews == "news"){
-                return 0;
-            }
+            $this->typeNews = $typeNews;
         }
 
         public function setcontent($content) {
@@ -37,13 +37,13 @@
             echo $this->content;
         }
 
-        public function setauthor($author) {
-            if (strlen($author)>55){
+        public function setAuthor($author) {
+            if (strlen($author)<55){
                 $this->author = trim($author);
             }
         }
 
-        public function getauthor() {
+        public function getAuthor() {
             echo $this->author;
         }
 
@@ -60,7 +60,7 @@
         }
 
         public function setTitle($title) {
-            if (strlen($title)>55){
+            if (strlen($title)<55){
                 $this->title = trim($title);
             }
         }

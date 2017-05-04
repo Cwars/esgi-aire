@@ -23,7 +23,7 @@
         // INSERT ou UPDATE
         public function save($id) {
             if ($id == -1) {
-
+                echo "haha";
                 unset($this->columns['id']);
                 $sqlCol = null;
                 $sqlKey = null;
@@ -34,13 +34,12 @@
                 }
                 $sqlCol = trim($sqlCol, ",");
                 $sqlKey = trim($sqlKey, ",");
-                //var_dump($data);
+                var_dump($data);
                 $req = $this->db->prepare("INSERT INTO ".$this->table." (".$sqlCol.") VALUES (".$sqlKey.");");
                 $req->execute($data);
-                //echo "insert";
+                echo "insert";
 
             } else {
-
                 $sqlQuery = null;
                 foreach ($this->columns as $columns => $value) {
                     $data[$columns] = $this->$columns;

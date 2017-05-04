@@ -37,6 +37,18 @@ class Routing {
         unset($this->uriExploded[1]);
     }
 
+    public function setControllerBO() {
+        $this->controller = (empty($this->uriExploded[0])) ? "back" : $this->uriExploded[0];
+        $this->controllerName = $this->controller."Controller";
+        unset($this->uriExploded[0]);
+    }
+
+    public function setActionBO() {
+        $this->action = (empty($this->uriExploded[1])) ? "back" : $this->uriExploded[1];
+        $this->actionName = $this->action."Action";
+        unset($this->uriExploded[1]);
+    }
+
     public function setParams() {
         $this->params = array_merge(array_values($this->uriExploded), $_POST);
     }

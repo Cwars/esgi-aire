@@ -12,7 +12,6 @@ class ArticleController
 
         $article -> setContent($content);
         $article -> setTitle($Title);
-
         $article ->save();
     }
 

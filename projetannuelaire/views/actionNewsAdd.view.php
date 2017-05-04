@@ -2,6 +2,10 @@
 $news = new News();
 $news->setTitle($_POST['title']);
 $news->setcontent($_POST['content']);
-$news->setauthor("Alex");
+$news->setAuthor("Alex");
+$news->setId(-1);
+$news->setTypeNews(0);
 
-$action -> newsAdd($news->getcontent(),$news->getTitle(),$news->setTypeNews($_POST['type']));
+var_dump($news);
+
+$news->save($news->getId());
