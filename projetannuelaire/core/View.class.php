@@ -5,30 +5,52 @@ class View {
     private $view;
     private $template;
 
-    public function __construct($view = "index", $template = "frontend") {
+    public function __construct($view = "index") {
         $this->setView($view);
-        $this->setTemplate($template);
+        $this->setTemplate();
     }
 
-    public function setView($view) {
-        if (file_exists("views/".$view.".view.php")) {
-            $this->view = $view;
-        } else {
-            // logs
-
-            die("La vue n'existe pas");
-        }
-    }
-
-    public function setTemplate($template) {
-        if (file_exists("views/".$template.".view.php")) {
-            $this->template = $template;
+    public function setView($view)
+    {
+        if (file_exists("views/" . $view . ".view.php")) {
+                $this->view = $view;
         } else {
             // logs
 
             die("Le template n'existe pas");
         }
     }
+
+
+    public function setTemplate() {
+        if (strpos($this->view, 'back') !== false) {
+            if (file_exists("views/backend.view.php")) {
+                $this->template = "backend";
+            } else {
+                // logs
+
+                die("Le template n'existe pas");
+            }
+        } else{
+            if (file_exists("views/frontend.view.php")) {
+                $this->template = "frontend";
+            } else {
+                // logs
+
+                die("Le template n'existe pas");
+            }
+        }
+    }
+
+//    public function setTemplateBo($template) {
+//        if (file_exists("views/".$template.".view.php")) {
+//            $this->templateBack = $template;
+//        } else {
+//            // logs
+//
+//            die("Le template n'existe pas");
+//        }
+//    }
 
     public function assign($key, $value) {
         $this->data[$key] = $value;
