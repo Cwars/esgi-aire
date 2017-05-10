@@ -1,7 +1,7 @@
 <?php
 $news = new News();
 $news->setTitle($_POST['title']);
-$news->setcontent($_POST['content']);
+$news->setContent($_POST['content']);
 $news->setAuthor("Alex");
 $news->setId(-1);
 $news->setTypeNews(0);

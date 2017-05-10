@@ -37,7 +37,7 @@ class Routing {
         unset($this->uriExploded[1]);
     }
 
-    public function setControllerBo() {
+        public function setControllerBo() {
         $this->controller = (empty($this->uriExploded[0])) ? "back" : $this->uriExploded[0];
         $this->controllerName = $this->controller."Controller";
         unset($this->uriExploded[0]);

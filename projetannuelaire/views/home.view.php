@@ -1,10 +1,15 @@
-<section id="Dedicaces">
-    <div class="content">
-        <div class="col-33">
-            <img src="<?php echo PATH_RELATIVE ; ?>/images/Dedicaces.png" alt="" class="img-responsive">
+    <div class="top-image">
+        <!--<img src="images/header.png" width="100%" alt="header">-->
+        <h1 class="slide-label">LOREM IPSUM</h1>
+    </div>
+
+<section class="deux" id="Dedicaces">
+    <div class="container">
+        <div class="col firstcol">
+            <img src="<?php echo PATH_RELATIVE ; ?>/assets/front/images/Dedicaces.png" alt="" class="img-responsive">
         </div>
 
-        <div class="col-66">
+        <div class="col">
             <h2>Dédicaces à venir</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, asperiores autem deserunt, dolor et facere inventore laudantium maxime modi nisi non, reiciendis suscipit. Consequatur dolor itaque, mollitia pariatur quia sed.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, asperiores autem deserunt, dolor et facere inventore laudantium maxime modi nisi non, reiciendis suscipit. Consequatur dolor itaque, mollitia pariatur quia sed.</p>
         </div>
@@ -12,31 +17,30 @@
 
 </section>
 
-<section id="Events">
-    <h2>Evenements à venir</h2>
-    <div class="content">
-        <img src="<?php echo PATH_RELATIVE ; ?>/images/events.png" alt="events">
-        <p>Mardi 3 Janvier 2017 Galerie Arts Factory / Bastille</p>
-        <div class="bouton"><a href="#">En savoir plus</a></div>
+<section class="un" id="Events">
+    <div class="container">
+        <h2 class="text-center">Evenements à venir</h2>
+        <div class="col1 firstcol">
+            <img class="center img-responsive" src="<?php echo PATH_RELATIVE ; ?>/assets/front/images/events.png" alt="events">
+            <p class="text-center">Mardi 3 Janvier 2017 Galerie Arts Factory / Bastille</p>
+            <div class="bouton"><a href="#">En savoir plus</a></div>
+        </div>
     </div>
 </section>
 
-<section id="Travaux">
-    <h2>Travaux récents</h2>
-    <div class="content">
+<section class="trois" id="Travaux">
+    <h2 class="text-center">Travaux récents</h2>
+    <div class="container">
 
-        <div id="slideshow">
-            <ul id="sContent">
-                <li>
-                    <img src="<?php echo PATH_RELATIVE ; ?>/images/travaux1.png" alt="Image 1" />
-                    <span class="slide-label">Lorem Ipsum</span>
-                </li>
-                <li>
-                    <img src="<?php echo PATH_RELATIVE ; ?>/images/travaux2.png" alt="Image 2" />
-                    <span class="slide-label">Lorem Ipsum dolor</span>
-                </li>
-            </ul>
+        <div class="col">
+            <img class="center img-responsive" src="<?php echo PATH_RELATIVE ; ?>/assets/front/images/travaux1.png" alt>
         </div>
-        <a href="#sContent" class="left-button"><</a> - <a href="#slideshow" class="right-button">></a>
+        <div class="col">
+            <img class="center img-responsive" src="<?php echo PATH_RELATIVE ; ?>/assets/front/images/travaux1.png" alt>
+        </div>
+        <div class="col">
+            <img class="center img-responsive" src="<?php echo PATH_RELATIVE ; ?>/assets/front/images/travaux1.png" alt>
+        </div>
+
     </div>
 </section>

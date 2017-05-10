@@ -15,15 +15,16 @@
 
             $this->table = strtolower(get_class($this));
 
-            // Devoir : trouver solution pour columns
             $this->columns = array_diff_key(get_class_vars($this->table), get_class_vars(get_parent_class($this)));
 
         }
 
         // INSERT ou UPDATE
         public function save($id) {
+            var_dump($id);
+            die();
             if ($id == -1) {
-                echo "haha";
+                echo "insert";
                 unset($this->columns['id']);
                 $sqlCol = null;
                 $sqlKey = null;
@@ -37,20 +38,18 @@
                 var_dump($data);
                 $req = $this->db->prepare("INSERT INTO ".$this->table." (".$sqlCol.") VALUES (".$sqlKey.");");
                 $req->execute($data);
-                echo "insert";
 
             } else {
+                echo "update";
                 $sqlQuery = null;
                 foreach ($this->columns as $columns => $value) {
                     $data[$columns] = $this->$columns;
                     $sqlQuery .= $columns . " = :" . $columns . ", ";
                 }
                 $sqlQuery = trim($sqlQuery, ", ");
-                //var_dump($data);
+                var_dump($data);
                 $req = $this->db->prepare("UPDATE ".$this->table." SET ".$sqlQuery." WHERE id = :id;");
                 $req->execute($data);
-                //echo "update";
-
             }
         }
 

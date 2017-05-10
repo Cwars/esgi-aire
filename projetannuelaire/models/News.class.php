@@ -29,11 +29,11 @@
             $this->typeNews = $typeNews;
         }
 
-        public function setcontent($content) {
+        public function setContent($content) {
             $this->content = trim($content);
         }
 
-        public function getcontent() {
+        public function getContent() {
             echo $this->content;
         }
 

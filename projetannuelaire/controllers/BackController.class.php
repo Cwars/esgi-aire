@@ -30,4 +30,8 @@ class BackController
         $v->assign("formConnection", $user3->getFormConnection());
     }
 
+        public function backmenuAction($params) {
+        $v = new View("backmenu");
+    }
+
 }
