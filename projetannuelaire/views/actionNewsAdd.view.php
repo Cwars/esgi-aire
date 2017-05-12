@@ -1,11 +1,8 @@
 <?php
-$news = new News();
-$news->setTitle($_POST['title']);
-$news->setContent($_POST['content']);
-$news->setAuthor("Alex");
-$news->setId(-1);
-$news->setTypeNews(0);
+$param = new Param();
+$param->setAuthor($_POST['author']);
+$param->setContent($_POST['content']);
 
-var_dump($news);
+var_dump($param);
 
-$news->save($news->getId());
+$param->save();

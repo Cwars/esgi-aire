@@ -13,45 +13,49 @@
                 die("Erreur SQL : ".$e->getMessage());
             }
 
+            //Récupérer le nom de la table dynamiquement
             $this->table = strtolower(get_class($this));
 
-            $this->columns = array_diff_key(get_class_vars($this->table), get_class_vars(get_parent_class($this)));
-
+            //Récupérer le nom des colonnesde la table dynamiquement
+            $varObject = get_class_vars($this->table);
+            $varParent = get_class_vars(get_parent_class($this));
+            $this->columns = array_diff_key($varObject, $varParent);
         }
 
         // INSERT ou UPDATE
-        public function save($id) {
-            var_dump($id);
-            die();
-            if ($id == -1) {
-                echo "insert";
-                unset($this->columns['id']);
-                $sqlCol = null;
-                $sqlKey = null;
-                foreach ($this->columns as $columns => $value) {
-                    $data[$columns] = $this->$columns;
-                    $sqlCol .= ",".$columns;
-                    $sqlKey .= ", :".$columns;
-                }
-                $sqlCol = trim($sqlCol, ",");
-                $sqlKey = trim($sqlKey, ",");
-                var_dump($data);
+  public function save() {
+        if ($this->getId() === -1) {
+            $sqlCol = null;
+            $sqlKey = null;
+            unset($this->columns['id']);
+            foreach ($this->columns as $columns => $value) {
+                $data[$columns] = $this->$columns;
+                $sqlCol .= ",".$columns;
+                $sqlKey .= ", :".$columns;
+            }
+            $sqlCol = trim($sqlCol, ",");
+            $sqlKey = trim($sqlKey, ",");
+
+            var_dump($data);
+            var_dump($sqlCol);
+            var_dump($sqlKey);
+            try {
                 $req = $this->db->prepare("INSERT INTO ".$this->table." (".$sqlCol.") VALUES (".$sqlKey.");");
                 $req->execute($data);
-
-            } else {
-                echo "update";
-                $sqlQuery = null;
-                foreach ($this->columns as $columns => $value) {
-                    $data[$columns] = $this->$columns;
-                    $sqlQuery .= $columns . " = :" . $columns . ", ";
-                }
-                $sqlQuery = trim($sqlQuery, ", ");
-                var_dump($data);
-                $req = $this->db->prepare("UPDATE ".$this->table." SET ".$sqlQuery." WHERE id = :id;");
-                $req->execute($data);
+            } catch (Exception $e) {
+                die($e->getMessage());
             }
+        } else {
+            $sqlQuery = null;
+            foreach ($this->columns as $columns => $value) {
+                $data[$columns] = $this->$columns;
+                $sqlQuery .= $columns . " = :" . $columns . ", ";
+            }
+            $sqlQuery = trim($sqlQuery, ", ");
+            $req = $this->db->prepare("UPDATE ".$this->table." SET ".$sqlQuery." WHERE id = :id;");
+            $req->execute($data);
         }
+    }
 
         public function populate($search = []) {
             $query = $this->getOneBy($search, true);
@@ -79,4 +83,4 @@
             return $query->fetch(PDO::FETCH_ASSOC);
         }
 
-    }
+}

@@ -2,14 +2,14 @@
 
     class News extends BaseSql  {
 
-        private $id = -1;
-        private $content;
-        private $author;
-        private $isDeleted;
-        private $date_inserted;
-        private $date_updated;
-        private $title;
-        private $typeNews;
+        protected $id = -1;
+        protected $content;
+        protected $author;
+        protected $isDeleted;
+        protected $date_inserted;
+        protected $date_updated;
+        protected $title;
+        protected $typeNews;
 
 
 
@@ -18,7 +18,7 @@
         }
 
         public function getId() {
-            echo $this->id;
+            return $this->id;
         }
 
         public function setId($id) {
@@ -34,7 +34,7 @@
         }
 
         public function getContent() {
-            echo $this->content;
+            return $this->content;
         }
 
         public function setAuthor($author) {
@@ -44,7 +44,7 @@
         }
 
         public function getAuthor() {
-            echo $this->author;
+            return $this->author;
         }
 
         public function setIsDeleted() {
@@ -56,7 +56,7 @@
         }
 
         public function getTitle() {
-            echo $this->title;
+            return $this->title;
         }
 
         public function setTitle($title) {
@@ -66,11 +66,11 @@
         }
 
         public function getdate_inserted() {
-            echo $this->date_inserted;
+            return $this->date_inserted;
         }
 
         public function getdate_updated() {
-            echo $this->date_updated;
+            return $this->date_updated;
         }
 
         public function getForm() {

@@ -2,13 +2,13 @@
 
     class Mediafile extends BaseSql  {
 
-        private $id = -1;
-        private $name;
-        private $description;
-        private $path;
-        private $status;
-        private $date_inserted;
-        private $date_updated;
+        protected $id = -1;
+        protected $name;
+        protected $description;
+        protected $path;
+        protected $status;
+        protected $date_inserted;
+        protected $date_updated;
 
 
         public function __construct($id = -1, $description = null, $path = null, $status = 0) {

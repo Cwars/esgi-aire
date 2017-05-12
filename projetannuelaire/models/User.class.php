@@ -2,19 +2,19 @@
 
     class User extends BaseSql {
 
-        private $id = -1;
-        private $email;
-        private $pwd;
-        private $firstname;
-        private $Username;
-        private $lastname;
-        private $status;
-        private $birthday;
-        private $age;
-        private $profil;
-        private $permission;
-        private $date_inserted;
-        private $date_updated;
+        protected $id = -1;
+        protected $email;
+        protected $pwd;
+        protected $firstname;
+        protected $Username;
+        protected $lastname;
+        protected $status;
+        protected $birthday;
+        protected $age;
+        protected $profil;
+        protected $permission;
+        protected $date_inserted;
+        protected $date_updated;
 
 
         public function __construct($id = -1, $email = null, $pwd = null, $firstname = null, $lastname = null, $status = 0, $permission = 0) {
@@ -102,7 +102,7 @@
                 "options" => [
                     "method" => "POST",
                     //Créer la page action ex: Register.php (dans le dossier controller)
-                    "action" => "user/add", // Register.php
+                    "action" => "#", // Register.php
                     "class" => "form-group",
                     "id" => "monformulaire"
                 ],

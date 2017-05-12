@@ -9,17 +9,18 @@ class IndexController
     public function IndexAction($params) {
 
         $user2 = new User();
-        $pseudo = "guillaume";
         $v = new View();
-        $v->assign("pseudo", $pseudo);
-        $v->assign("form", $user2->getForm());
     }
 
     public function welcomeAction($params) {
-        $article1 = new News();
-
+        $user = new User();
         $v = new View("welcome");
-        $v->assign("form", $article1->getForm());
+        $v->assign("form", $user->getFormRegister());
+
+        if (isset($_REQUEST['submit'])) {
+            UserController::userAdd();
+        }
+
     }
 
         public function homeAction($params) {

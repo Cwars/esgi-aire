@@ -13,13 +13,12 @@ class UserController
         $user -> setEmail($email);
         $user -> setPwd($pwd);
         $user -> setFirstname($Firstname);
-        $user ->setUsername($Username);
-        $user ->setLastname($Lastname);
-        $user ->setStatus(1);
-        $user ->setAge($birthday);
+        $user -> setUsername($Username);
+        $user -> setLastname($Lastname);
+        $user -> setStatus(1);
+        $user -> setAge($birthday);
 
-        $id1 = $user->getId();
-        $user ->save($id1);
+        $user ->save();
     }
 
     public function userDelete(){

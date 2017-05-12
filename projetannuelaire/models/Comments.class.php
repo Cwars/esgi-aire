@@ -2,14 +2,14 @@
 
     class Comments extends BaseSql  {
 
-        private $id = -1;
-        private $content;
-        private $author;
-        private $parentID;
-        private $parentType;
-        private $status;
-        private $date_inserted;
-        private $date_updated;
+        protected $id = -1;
+        protected $content;
+        protected $author;
+        protected $parentID;
+        protected $parentType;
+        protected $status;
+        protected $date_inserted;
+        protected $date_updated;
 
 
         public function __construct($id = -1, $description = null, $author = null, $status = 0) {
