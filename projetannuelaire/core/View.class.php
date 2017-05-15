@@ -4,31 +4,34 @@ class View {
 
     private $view;
     private $template;
+    private $cat;
 
     public function __construct($view = "index") {
         $this->setView($view);
         $this->setTemplate();
     }
 
-    public function setView($view)
-    {
-        if (file_exists("views/" . $view . ".view.php")) {
-                $this->view = $view;
-        } else {
-            // logs
-
-            die("Le template n'existe pas");
+    public function setView($view) {
+        if (file_exists("views/front/" . $view . ".view.php")) {
+            $this->view = "front/".$view;
+            $this->cat = "front"; 
+        }
+            elseif (file_exists("views/back/" . $view . ".view.php")) {
+            $this->view = "back/".$view;
+            $this->cat = "back";
+        }
+        else{
+            //logs
+            die("La view n'existe pas");
         }
     }
 
-
     public function setTemplate() {
-        if (strpos($this->view, 'back') !== false) {
+        if ($this->cat === "back") {
             if (file_exists("views/backend.view.php")) {
                 $this->template = "backend";
             } else {
                 // logs
-
                 die("Le template n'existe pas");
             }
         } else{

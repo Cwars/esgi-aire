@@ -31,6 +31,6 @@
             // include "views/".$this->view.".view.php";
             include $this->view.".view.php";
          ?>
-         
+
 </body>
 </html>

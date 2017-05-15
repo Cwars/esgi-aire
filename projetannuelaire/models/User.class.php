@@ -20,13 +20,6 @@
         public function __construct($id = -1, $email = null, $pwd = null, $firstname = null, $lastname = null, $status = 0, $permission = 0) {
             parent::__construct();
 
-            // $this->setId($id);
-            // $this->setEmail($email);
-            // $this->setPwd($pwd);
-            // $this->setFirstname($firstname);
-            // $this->setLastname($lastname);
-            // $this->setStatus($status);
-            // $this->setPermission($permission);
         }
 
         public function setId($id) {
@@ -96,13 +89,14 @@
             return $this->age ;
         }
 
+
+        // Création d'un formulatire pour l'inscription d'un utilisateur pour le front
         public function getFormRegister()
         {
             return [
                 "options" => [
                     "method" => "POST",
-                    //Créer la page action ex: Register.php (dans le dossier controller)
-                    "action" => "#", // Register.php
+                    "action" => "#",
                     "class" => "form-group",
                     "id" => "monformulaire"
                 ],
@@ -132,6 +126,7 @@
                         "placeholder" => "Confirmation email",
                         "required" => true
                     ],
+                    
                     "pwd" => [
                         "type" => "password",
                         "placeholder" => "Mot de passe",
@@ -146,7 +141,9 @@
             ];
         }
 
-            public function getFormConnection() {
+
+        // Création d'un formulatire pour la connection d'un utilisateur pour le front
+        public function getFormConnection() {
                 return [
                     "options" => [
                         "method" => "POST",
