@@ -16,14 +16,9 @@ class IndexController
         $user = new User();
         $v = new View("welcome");
         $v->assign("form", $user->getFormRegister());
-
-        if (isset($_REQUEST['submit'])) {
-            UserController::userAdd();
-        }
-
     }
 
-        public function homeAction($params) {
+    public function homeAction($params) {
             $v = new View("home");
     }
 
@@ -34,5 +29,4 @@ class IndexController
     public function contactAction($params) {
         $v = new View("contact");
     }
-
 }

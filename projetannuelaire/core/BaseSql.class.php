@@ -17,9 +17,7 @@
             $this->table = strtolower(get_class($this));
 
             //Récupérer le nom des colonnesde la table dynamiquement
-            $varObject = get_class_vars($this->table);
-            $varParent = get_class_vars(get_parent_class($this));
-            $this->columns = array_diff_key($varObject, $varParent);
+            $this->columns = array_diff_key(get_class_vars($this->table), get_class_vars(get_parent_class($this)));
         }
 
         // INSERT ou UPDATE

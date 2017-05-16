@@ -147,7 +147,7 @@
                 return [
                     "options" => [
                         "method" => "POST",
-                        "action" => "user/add",
+                        "action" => "backActionConnection",
                         "class" => "form-group",
                         "id" => "monformulaire"
                     ],

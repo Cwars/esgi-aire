@@ -12,36 +12,50 @@ class View {
     }
 
     public function setView($view) {
-        if (file_exists("views/front/" . $view . ".view.php")) {
-            $this->view = "front/".$view;
-            $this->cat = "front"; 
-        }
-            elseif (file_exists("views/back/" . $view . ".view.php")) {
-            $this->view = "back/".$view;
-            $this->cat = "back";
-        }
-        else{
-            //logs
-            die("La view n'existe pas");
-        }
+    switch (true) {
+    case (file_exists("views/front/" . $view . ".view.php")):
+        $this->view = "front/".$view;
+        $this->cat = "front"; 
+        break;
+    case (file_exists("views/front/article/" . $view . ".view.php")):
+        $this->view = "front/article/".$view;
+        $this->cat = "front";
+        break;
+    case (file_exists("views/front/page/" . $view . ".view.php")):
+        $this->view = "front/page/".$view;
+        $this->cat = "front";
+        break;
+    case (file_exists("views/back/" . $view . ".view.php")):
+        $this->view = "back/".$view;
+        $this->cat = "back";
+        break;
+    case (file_exists("views/back/action/" . $view . ".view.php")):
+        $this->view = "back/action/".$view;
+        $this->cat = "back";
+        break;
     }
+}
 
     public function setTemplate() {
-        if ($this->cat === "back") {
-            if (file_exists("views/backend.view.php")) {
-                $this->template = "backend";
-            } else {
-                // logs
-                die("Le template n'existe pas");
-            }
-        } else{
-            if (file_exists("views/frontend.view.php")) {
-                $this->template = "frontend";
-            } else {
-                // logs
+        if ($this->view != "back/backconnection"){
+            if ($this->cat === "back") {
+                if (file_exists("views/backend.view.php")) {
+                    $this->template = "backend";
+                } else {
+                    // logs
+                    die("Le template n'existe pas");
+                }
+            } else{
+                if (file_exists("views/frontend.view.php")) {
+                    $this->template = "frontend";
+                } else {
+                    // logs
 
-                die("Le template n'existe pas");
+                    die("Le template n'existe pas");
+                }
             }
+        } else {
+            $this->template = "connection";
         }
     }
 
@@ -64,7 +78,6 @@ class View {
             include "views/modals/".$modal.".mod.php";
         } else {
             // logs
-
             die("Le modal n'existe pas");
         }
     }
