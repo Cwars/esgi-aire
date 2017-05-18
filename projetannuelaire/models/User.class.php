@@ -6,7 +6,7 @@
         protected $email;
         protected $pwd;
         protected $firstname;
-        protected $Username;
+        protected $username;
         protected $lastname;
         protected $status;
         protected $birthday;
@@ -51,12 +51,12 @@
             $this->lastname = ($lastname);
         }
 
-        public function setUsername($Username) {
-            $this->Username = ($Username);
+        public function setUsername($username) {
+            $this->username = ($username);
         }
 
         public function getUsername($Username) {
-            return $this->Username;
+            return $this->username;
         }               
 
         public function setStatus($status) {
@@ -69,6 +69,10 @@
 
         public function setPassword($pwd) {
             $this->pwd = password_hash($pwd, PASSWORD_DEFAULT);;
+        }
+
+        public function getPassword(){
+            return $this->pwd;
         }
 
         public function setAge($birthday)
@@ -96,7 +100,7 @@
             return [
                 "options" => [
                     "method" => "POST",
-                    "action" => "#",
+                    "action" => "backActionConnection",
                     "class" => "form-group",
                     "id" => "monformulaire"
                 ],
@@ -148,7 +152,7 @@
                     "options" => [
                         "method" => "POST",
                         "action" => "backActionConnection",
-                        "class" => "form-group",
+                        "class" => "login-form",
                         "id" => "monformulaire"
                     ],
                     "struct" => [

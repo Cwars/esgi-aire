@@ -21,17 +21,35 @@ class BackController
     }
 
     public function backconnectionAction($params) {
+        $user = new User();
+
+        if ($_POST) {
+        $username = $_POST['username'];
+        $password = $_POST['pwd'];
+        $user = $user->populate(array('username' => $username));
+        if (password_verify($password, $user->getPassword())) {
+            if (!isset($_SESSION)) session_start();
+            $_SESSION['username'] = $username;
+            $_SESSION['user_id'] = $user->getId();
+            echo "Vous êtes connecté !";
+        }
+            else {
+            echo "Erreur lors de la connexion";
+            }
+        }
+
+
         $v = new View("backconnection");
-
-        $user2 = new User();
-        $v->assign("formRegister", $user2->getFormRegister());
-
-        $user3 = new User();
-        $v->assign("formConnection", $user3->getFormConnection());
+        $v->assign("formConnection", $user->getFormConnection());
+    
     }
 
         public function backmenuAction($params) {
         $v = new View("backmenu");
+    }
+
+        public function backActionConnectionAction($params) {
+        $v = new View("backActionConnection");
     }
 
 }
