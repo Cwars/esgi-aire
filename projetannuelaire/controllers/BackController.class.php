@@ -8,11 +8,6 @@ class BackController
 
     public function IndexAction($params) {
 
-        $user2 = new User();
-        $pseudo = "guillaume";
-        $v = new View();
-        $v->assign("pseudo", $pseudo);
-        $v->assign("form", $user2->getForm());
     }
 
 
@@ -20,7 +15,7 @@ class BackController
         $v = new View("backhome");
     }
 
-    public function backconnectionAction($params) {
+    public function backConnectionAction($params) {
         $user = new User();
 
         if ($_POST) {
@@ -44,12 +39,25 @@ class BackController
     
     }
 
-        public function backmenuAction($params) {
+    public function backUserAddAction() {
+
+        $user = new User();
+
+        $v = new View('backUserAdd');
+        $v->assign("formRegister", $user->getFormRegister());
+    }
+
+
+    public function backmenuAction($params) {
         $v = new View("backmenu");
     }
 
-        public function backActionConnectionAction($params) {
+    public function backActionConnectionAction($params) {
         $v = new View("backActionConnection");
+    }
+
+    public function backActionUserAddAction($params) {
+        $v = new View("backActionUserAdd");
     }
 
 }

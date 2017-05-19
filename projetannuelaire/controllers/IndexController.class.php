@@ -13,9 +13,9 @@ class IndexController
     }
 
     public function welcomeAction($params) {
-        $user = new User();
+        $param = new Param();
         $v = new View("welcome");
-        $v->assign("form", $user->getFormRegister());
+        $v->assign("form", $param->getForm());
     }
 
     public function homeAction($params) {

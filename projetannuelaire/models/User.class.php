@@ -5,21 +5,18 @@
         protected $id = -1;
         protected $email;
         protected $pwd;
-        protected $firstname;
         protected $username;
+        protected $firstname;
         protected $lastname;
         protected $status;
         protected $birthday;
-        protected $age;
-        protected $profil;
-        protected $permission;
-        protected $date_inserted;
-        protected $date_updated;
+        protected $isDeleted;
+        protected $dateInserted;
+        protected $dateUpdated;
 
 
-        public function __construct($id = -1, $email = null, $pwd = null, $firstname = null, $lastname = null, $status = 0, $permission = 0) {
+        public function __construct($id = -1, $email = null, $pwd = null, $username = null, $firstname = null, $lastname = null, $status = null) {
             parent::__construct();
-
         }
 
         public function setId($id) {
@@ -30,13 +27,12 @@
             return $this->id;
         }
 
-
         public function setEmail($email) {
             $this->email = trim($email);
         }
 
         public function getEmail() {
-            echo "Son mail : ".$this->email;
+            return $this->email;
         }
 
         public function setPwd($pwd) {
@@ -44,15 +40,15 @@
         }
 
         public function setFirstname($firstname) {
-            $this->firstname = ($firstname);
+            $this->firstname = trim($firstname);
         }
 
         public function setLastname($lastname) {
-            $this->lastname = ($lastname);
+            $this->lastname = trim($lastname);
         }
 
         public function setUsername($username) {
-            $this->username = ($username);
+            $this->username = trim($username);
         }
 
         public function getUsername($Username) {
@@ -60,11 +56,23 @@
         }               
 
         public function setStatus($status) {
-            $this->status = $status;
+            $this->status = trim($status);
         }
 
-        public function setPermission($permission) {
-            $this->permission = $permission;
+        public function getStatus() {
+            return $this->status;
+        }
+
+        public function getDateInserted() {
+            return $this->dateInserted;
+        }
+
+        public function getDateUpdated() {
+            return $this->dateUpdated;
+        }
+
+        public function setIsDeleted($isDeleted) {
+            $this->isDeleted = $isDeleted;
         }
 
         public function setPassword($pwd) {
@@ -75,23 +83,24 @@
             return $this->pwd;
         }
 
-        public function setAge($birthday)
+        public function setBirthday($birthday)
         {
-            $date = DateTime::createFromFormat(
-                (strstr($birthday, "/") ? 'd/m/Y' : "Y-m-d")
-                , $birthday);
-            $DateError = DateTime::getLastErrors();
+        //     $date = DateTime::createFromFormat(
+        //         (strstr($birthday, "/") ? 'd/m/Y' : "Y-m-d")
+        //         , $birthday);
+        //     $DateError = DateTime::getLastErrors();
 
-            if ($DateError["warning_count"] + $DateError["error_count"] == 0) {
+        //     if ($DateError["warning_count"] + $DateError["error_count"] == 0) {
 
-                $dateNow = new DateTime("now");
-                $this->age = date_diff($date, $dateNow)->format('%y');
-            }
+        //         $dateNow = new DateTime("now");
+        //         $this->age = date_diff($date, $dateNow)->format('%y');
+        //     }
+                $this->birthday->$birthday;
         }
 
-        public function getAge() {
-            return $this->age ;
-        }
+        // public function getAge() {
+        //     return $this->age ;
+        // }
 
 
         // Création d'un formulatire pour l'inscription d'un utilisateur pour le front
@@ -100,9 +109,9 @@
             return [
                 "options" => [
                     "method" => "POST",
-                    "action" => "backActionConnection",
-                    "class" => "form-group",
-                    "id" => "monformulaire"
+                    "action" => "backActionUserAdd",
+                    "class" => "add-form",
+                    "id" => "Register"
                 ],
                 "struct" => [
                     "username" => [
@@ -125,12 +134,6 @@
                         "placeholder" => "Adresse email",
                         "required" => true
                     ],
-                    "email2" => [
-                        "type" => "email",
-                        "placeholder" => "Confirmation email",
-                        "required" => true
-                    ],
-                    
                     "pwd" => [
                         "type" => "password",
                         "placeholder" => "Mot de passe",
@@ -151,9 +154,9 @@
                 return [
                     "options" => [
                         "method" => "POST",
-                        "action" => "backActionConnection",
+                        "action" => "#",
                         "class" => "login-form",
-                        "id" => "monformulaire"
+                        "id" => "Connection"
                     ],
                     "struct" => [
                         "username" => [

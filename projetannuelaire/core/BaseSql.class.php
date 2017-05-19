@@ -81,4 +81,23 @@
             return $query->fetch(PDO::FETCH_ASSOC);
         }
 
+        public function getAll($search = [], $returnQuery = false) {
+
+            // $search = ['id' => 8]
+            foreach ($search as $key => $value) {
+                $where[] = $key.'=:'.$key;
+            }
+
+            // implode(" AND ", $where)
+            // id=:id AND name=:name
+            $query = $this->db->prepare("SELECT * FROM ".$this->table." WHERE ".implode(" AND ", $where));
+            $query->execute($search);
+
+            if ($returnQuery) {
+                return $query;
+            }
+            return $query->fetch(PDO::FETCH_ASSOC);
+        }
+
+
 }

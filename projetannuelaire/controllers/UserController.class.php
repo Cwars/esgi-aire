@@ -8,26 +8,6 @@ class UserController
 
     public function userAdd($email,$pwd,$firstname,$Username,$Lastname,$birthday) {
 
-         $user = new User();
-            $firstname = $_POST['firstname'];
-            $email = $_POST['email'];
-            $pwd = $_POST['pwd'];
-            $confpwd = $_POST['confpwd'];
-            
-            $usernameTaken = (new User())->getAllBy(['username' => $_POST['username']]);
-            $emailTaken = (new User())->getAllBy(['email' => $_POST['email']]);
-
-        $user -> setEmail($email);
-        $user -> setPwd($pwd);
-        $user -> setFirstname($firstname);
-        $user -> setUsername($username);
-        $user -> setLastname($lastname);
-        $user -> setStatus(1);
-        $user -> setAge($birthday);
-
-        $user ->save();
-
-        $v = new View('user.signup');
     }
 
     public function userDelete(){
