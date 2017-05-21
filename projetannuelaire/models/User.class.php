@@ -9,7 +9,7 @@
         protected $firstname;
         protected $lastname;
         protected $status;
-        protected $birthday;
+       // protected $birthday;
         protected $isDeleted;
         protected $dateInserted;
         protected $dateUpdated;
@@ -83,7 +83,7 @@
             return $this->pwd;
         }
 
-        public function setBirthday($birthday)
+       /* public function setBirthday($birthday)
         {
         //     $date = DateTime::createFromFormat(
         //         (strstr($birthday, "/") ? 'd/m/Y' : "Y-m-d")
@@ -97,6 +97,7 @@
         //     }
                 $this->birthday->$birthday;
         }
+        */
 
         // public function getAge() {
         //     return $this->age ;
