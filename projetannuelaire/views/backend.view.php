@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>/assets/back/scss/reset.css">
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>/assets/back/scss/menus.css">
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>/assets/back/scss/style.css">
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>/assets/back/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-
     <title>Back office</title>
 </head>
 <body>

@@ -104,7 +104,7 @@
         // }
 
 
-        // Création d'un formulatire pour l'inscription d'un utilisateur pour le front
+        // Création d'un formulaire pour l'inscription d'un utilisateur pour le front
         public function getFormRegister()
         {
             return [
@@ -117,32 +117,32 @@
                 "struct" => [
                     "username" => [
                         "type" => "text",
-                        "placeholder" => "Nom d'utilisateur",
+                        "placeholder" => "Username",
                         "required" => true
                     ],
                     "firstname" => [
                         "type" => "text",
-                        "placeholder" => "Prénom",
+                        "placeholder" => "Firstname",
                         "required" => true
                     ],
                     "lastname" => [
                         "type" => "text",
-                        "placeholder" => "Nom",
+                        "placeholder" => "Name",
                         "required" => true
                     ],
                     "email" => [
                         "type" => "email",
-                        "placeholder" => "Adresse email",
+                        "placeholder" => "Email",
                         "required" => true
                     ],
                     "pwd" => [
                         "type" => "password",
-                        "placeholder" => "Mot de passe",
+                        "placeholder" => "Password",
                         "required" => true
                     ],
                     "pwd2" => [
                         "type" => "password",
-                        "placeholder" => "Confirmation mot de passe",
+                        "placeholder" => "Confirm Password",
                         "required" => true
                     ],
                 ]
