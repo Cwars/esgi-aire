@@ -324,3 +324,21 @@ footer{
     }
   }
 }
+
+/* Articles */
+#Articles {
+  .container {
+    background-color: darken(#333333, 10%);
+    padding: 10px;
+    display: inline-block;
+  }
+
+  .metadatas{
+    display: inline-block;
+    width: 100%!important;
+    padding: 0;
+    margin: 0;
+    font-size: 0.8em;
+    font-style: italic;
+  }
+}
