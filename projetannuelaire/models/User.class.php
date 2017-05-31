@@ -51,7 +51,7 @@
             $this->username = trim($username);
         }
 
-        public function getUsername($Username) {
+        public function getUsername() {
             return $this->username;
         }               
 
@@ -104,7 +104,7 @@
         // }
 
 
-        // Création d'un formulaire pour l'inscription d'un utilisateur pour le front
+        // Création d'un formulatire pour l'inscription d'un utilisateur pour le front
         public function getFormRegister()
         {
             return [
@@ -117,32 +117,32 @@
                 "struct" => [
                     "username" => [
                         "type" => "text",
-                        "placeholder" => "Username",
+                        "placeholder" => "Nom d'utilisateur",
                         "required" => true
                     ],
                     "firstname" => [
                         "type" => "text",
-                        "placeholder" => "Firstname",
+                        "placeholder" => "Prénom",
                         "required" => true
                     ],
                     "lastname" => [
                         "type" => "text",
-                        "placeholder" => "Name",
+                        "placeholder" => "Nom",
                         "required" => true
                     ],
                     "email" => [
                         "type" => "email",
-                        "placeholder" => "Email",
+                        "placeholder" => "Adresse email",
                         "required" => true
                     ],
                     "pwd" => [
                         "type" => "password",
-                        "placeholder" => "Password",
+                        "placeholder" => "Mot de passe",
                         "required" => true
                     ],
                     "pwd2" => [
                         "type" => "password",
-                        "placeholder" => "Confirm Password",
+                        "placeholder" => "Confirmation mot de passe",
                         "required" => true
                     ],
                 ]

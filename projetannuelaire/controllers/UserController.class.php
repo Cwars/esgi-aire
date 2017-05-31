@@ -18,13 +18,14 @@ class UserController
 
     }
 
-    public function loginAction() {
+    public function loginAction()
+    {
         if ($_POST) {
             $user = new User();
             $username = $_POST['username'];
             $password = $_POST['pwd'];
             $user = $user->populate(array('username' => $username));
-            
+
             if (password_verify($password, $user->getPassword())) {
                 if (!isset($_SESSION)) session_start();
                 $_SESSION['username'] = $username;
@@ -33,10 +34,10 @@ class UserController
             } else {
                 echo "Erreur lors de la connexion";
             }
-        $v = new View("backconnection");
-        $v->assign("formRegister", $user->getFormRegister());
+            $v = new View("backconnection");
+            $v->assign("formRegister", $user->getFormRegister());
+        }
     }
-
 
 
 }

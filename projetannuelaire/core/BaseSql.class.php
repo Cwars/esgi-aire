@@ -16,7 +16,7 @@
             //Récupérer le nom de la table dynamiquement
             $this->table = strtolower(get_class($this));
 
-            //Récupérer le nom des colonnesde la table dynamiquement
+            //Récupérer le nom des colonnes de la table dynamiquement
             $this->columns = array_diff_key(get_class_vars($this->table), get_class_vars(get_parent_class($this)));
         }
 
@@ -34,9 +34,6 @@
             $sqlCol = trim($sqlCol, ",");
             $sqlKey = trim($sqlKey, ",");
 
-            var_dump($data);
-            var_dump($sqlCol);
-            var_dump($sqlKey);
             try {
                 $req = $this->db->prepare("INSERT INTO ".$this->table." (".$sqlCol.") VALUES (".$sqlKey.");");
                 $req->execute($data);
@@ -65,7 +62,7 @@
 
         public function getOneBy($search = [], $returnQuery = false) {
 
-            // $search = ['id' => 8]
+            // $search = ['id' => 8] exemple
             foreach ($search as $key => $value) {
                 $where[] = $key.'=:'.$key;
             }
@@ -81,23 +78,86 @@
             return $query->fetch(PDO::FETCH_ASSOC);
         }
 
-        public function getAll($search = [], $returnQuery = false) {
+        // Return every object of a table
+        public function getAll(){
+            $query = $this->db->prepare("SELECT * FROM ".$this->table);
+            $query->execute();
 
-            // $search = ['id' => 8]
-            foreach ($search as $key => $value) {
-                $where[] = $key.'=:'.$key;
+            $result = $query->fetchAll();
+
+            //Retourne result (Toutes les données de la table)
+            foreach($result as $obj){
+                foreach ($this->columns as $columns => $value){
+                    echo "<pre>";
+                    echo  $columns . " : " . $obj[$columns];
+                    echo "</pre>";
+                }
+                echo "\n";
             }
-
-            // implode(" AND ", $where)
-            // id=:id AND name=:name
-            $query = $this->db->prepare("SELECT * FROM ".$this->table." WHERE ".implode(" AND ", $where));
-            $query->execute($search);
-
-            if ($returnQuery) {
-                return $query;
-            }
-            return $query->fetch(PDO::FETCH_ASSOC);
         }
 
+        // Return every object of a table (only what we want)
+        public function getObj($search = []){
+
+            $stringSelect = '';
+
+            //Concatenation des parametres pour la requète
+            foreach ($search as $key => $value) {
+                 $stringSelect .= $value.",";
+            } 
+
+            //Supression de la dernière virgule + trim
+            $stringSelect = trim(rtrim($stringSelect,","));
+            echo $stringSelect;
+
+            //Requète par rapport aux paramètres que l'on a envoyé
+            $query = $this->db->prepare("SELECT ". $stringSelect ." FROM ".$this->table);
+            $query->execute();
+
+            $result = $query->fetchAll();
+
+            //Retourne result (Les données que l'on veut)
+            foreach($result as $obj){
+                foreach ($search as $key => $value){
+                    echo "<pre>";
+                    echo  $obj[$key];
+                    echo "</pre>";
+                }
+                echo "\n";
+            }
+
+        }
+
+        public function delete($idDelete){
+
+            $stringSelect = '';
+
+            //Concatenation des parametres pour la requète
+            foreach ($search as $key => $value) {
+                 $stringSelect .= $value.",";
+            } 
+
+            //Supression de la dernière virgule + trim
+            $stringSelect = trim(rtrim($stringSelect,","));
+            echo $stringSelect;
+
+            //Requète par rapport aux paramètres que l'on a envoyé
+            $query = $this->db->prepare("SELECT ". $stringSelect ." FROM ".$this->table);
+            $query->execute();
+
+            $result = $query->fetchAll();
+
+            //Retourne result (Les données que l'on veut)
+            foreach($result as $obj){
+                foreach ($search as $key => $value){
+                    echo "<pre>";
+                    echo  $obj[$key];
+                    echo "</pre>";
+                }
+                echo "\n";
+            }
+
+        }
 
 }
+

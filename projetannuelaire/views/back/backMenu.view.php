@@ -40,5 +40,14 @@
     </nav>
 
     <div class="content-wrapper">
-        <h1>Responsive Sidebar Navigation</h1>
+        <?php
+        $user = new User();
+        $username = "admin";
+
+        echo '<pre>';
+        $user->getObj(["username","firstname","lastname","email","status","dateInserted"]);
+        echo '</pre>';
+
+
+        ?>
     </div> <!-- .content-wrapper -->
