@@ -111,7 +111,7 @@
             echo $stringSelect;
 
             //Requète par rapport aux paramètres que l'on a envoyé
-            $query = $this->db->prepare("SELECT ". $stringSelect ." FROM ".$this->table);
+            $query = $this->db->prepare('SELECT '. $stringSelect .' FROM '.$this->table . ' WHERE isDeleted = 0' );
             $query->execute();
 
             $result = $query->fetchAll();
@@ -123,41 +123,41 @@
                     echo  $obj[$key];
                     echo "</pre>";
                 }
+                echo '<form method="POST" action="backAction'.ucfirst($this->table).'Update">';
+                echo '<input  name="idUpdate" type="hidden" value="'.$obj[id].'">';
+                echo '<input type="submit" id="btnUpdate" name="btnUpdate" value="Update"/>';
+                echo '</form>';
+
+                echo '<form method="POST" action="backAction'.ucfirst($this->table).'Update">';
+                echo '<input name="idDelete" type="hidden" value="'.$obj[id].'">';
+                echo '<input type="submit" id="btnDelete" name="btnDelete" value="Delete"/>';
+                echo '</form>';
+
                 echo "\n";
             }
 
         }
 
-        public function delete($idDelete){
+        public function getArchive($search = []){
 
             $stringSelect = '';
 
             //Concatenation des parametres pour la requète
             foreach ($search as $key => $value) {
-                 $stringSelect .= $value.",";
-            } 
+                $stringSelect .= $value.",";
+            }
 
             //Supression de la dernière virgule + trim
             $stringSelect = trim(rtrim($stringSelect,","));
             echo $stringSelect;
 
             //Requète par rapport aux paramètres que l'on a envoyé
-            $query = $this->db->prepare("SELECT ". $stringSelect ." FROM ".$this->table);
+            $query = $this->db->prepare('SELECT '. $stringSelect .' FROM '.$this->table . ' WHERE isDeleted = 1' );
             $query->execute();
 
-            $result = $query->fetchAll();
-
-            //Retourne result (Les données que l'on veut)
-            foreach($result as $obj){
-                foreach ($search as $key => $value){
-                    echo "<pre>";
-                    echo  $obj[$key];
-                    echo "</pre>";
-                }
-                echo "\n";
-            }
 
         }
+
 
 }
 

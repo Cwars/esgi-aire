@@ -10,9 +10,13 @@ class BackController
 
     }
 
-
+    /* ****************************  Home ***********************************/
     public function backhomeAction($params) {
         $v = new View("backhome");
+    }
+
+    public function backActionConnectionAction($params) {
+        $v = new View("backActionConnection");
     }
 
     public function backConnectionAction($params) {
@@ -21,25 +25,26 @@ class BackController
         $v->assign("formConnection", $user->getFormConnection());
     }
 
+    /* ****************************  User ***********************************/
     public function backUserAddAction() {
-
         $user = new User();
-
         $v = new View('backUserAdd');
         $v->assign("formRegister", $user->getFormRegister());
-    }
-
-
-    public function backmenuAction($params) {
-        $v = new View("backmenu");
-}
-
-    public function backActionConnectionAction($params) {
-        $v = new View("backActionConnection");
     }
 
     public function backActionUserAddAction($params) {
         $v = new View("backActionUserAdd");
     }
+
+    public function backActionUserUpdateAction($params) {
+        $v = new View("backActionUserUpdate");
+
+    }
+
+    /* **************************** Menu  ***********************************/
+    public function backmenuAction($params) {
+        $v = new View("backmenu");
+    }
+
 
 }

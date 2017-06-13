@@ -45,7 +45,7 @@
         $username = "admin";
 
         echo '<pre>';
-        $user->getObj(["username","firstname","lastname","email","status","dateInserted"]);
+        $user->getObj(["id","username","firstname","lastname","email","status","dateInserted"]);
         echo '</pre>';
 
 
