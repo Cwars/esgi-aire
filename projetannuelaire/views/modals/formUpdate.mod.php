@@ -12,6 +12,7 @@
             <input type="<?php echo $attribute["type"]; ?>"
                    name="<?php echo $name; ?>"
                    placeholder="<?php echo $attribute["placeholder"]; ?>"
+                   value ="<?php echo $attribute["value"]; ?>"
             >
         <?php endif; ?>
         <?php if(

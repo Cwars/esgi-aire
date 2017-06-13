@@ -6,7 +6,7 @@
         protected $name;
         protected $description;
         protected $path;
-        protected $status;
+        protected $isDeleted;
         protected $date_inserted;
         protected $date_updated;
 
@@ -48,8 +48,8 @@
             echo $this->path;
         }
 
-        public function setStatus($status) {
-            $this->status = $status;
+        public function setIsDeleted($isDeleted) {
+            $this->isDeleted = $isDeleted;
         }
 
         public function getStatus() {
@@ -62,6 +62,34 @@
 
         public function getdate_updated() {
             echo $this->date_updated;
+        }
+
+        public function getFormMediafile()
+        {
+            return [
+                "options" => [
+                    "method" => "POST",
+                    "action" => "backActionMediafileAdd",
+                    "class" => "add-form",
+                    "id" => "Register"
+                ],
+                "struct" => [
+                    "name" => [
+                        "type" => "text",
+                        "placeholder" => "Nom",
+                        "required" => true
+                    ],
+                    "description" => [
+                        "type" => "text",
+                        "placeholder" => "Description",
+                        "required" => true
+                    ],
+                    "file" => [
+                        "type" => "file",
+                        "required" => true
+                    ],
+                ]
+            ];
         }
 
     }

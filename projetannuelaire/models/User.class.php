@@ -53,7 +53,15 @@
 
         public function getUsername() {
             return $this->username;
-        }               
+        }
+
+        public function getFirstname() {
+            return $this->firstname;
+        }
+
+        public function getLastname() {
+            return $this->lastname;
+        }
 
         public function setStatus($status) {
             $this->status = trim($status);
@@ -149,13 +157,62 @@
             ];
         }
 
+        // Création d'un formulatire pour l'inscription d'un utilisateur pour le front
+        public function getFormUpdate($username,$firstname,$lastname,$email)
+        {
+            return [
+                "options" => [
+                    "method" => "POST",
+                    "action" => "backActionUserUpdate",
+                    "class" => "up-form",
+                    "id" => "Update"
+                ],
+                "struct" => [
+                    "username" => [
+                        "type" => "text",
+                        "placeholder" => "Nom d'utilisateur",
+                        "required" => true,
+                        "value" => " ".$username." "
+
+                    ],
+                    "firstname" => [
+                        "type" => "text",
+                        "placeholder" => "Prénom",
+                        "required" => true,
+                        "value" => " ".$firstname." "
+                    ],
+                    "lastname" => [
+                        "type" => "text",
+                        "placeholder" => "Nom",
+                        "required" => true,
+                        "value" => " ".$lastname." "
+                    ],
+                    "email" => [
+                        "type" => "email",
+                        "placeholder" => "Adresse email",
+                        "required" => true,
+                        "value" => " ".$email." "
+                    ],
+                    "pwd" => [
+                        "type" => "password",
+                        "placeholder" => "Mot de passe",
+                        "required" => true
+                    ],
+                    "pwd2" => [
+                        "type" => "password",
+                        "placeholder" => "Confirmation mot de passe",
+                        "required" => true
+                    ],
+                ]
+            ];
+        }
 
         // Création d'un formulatire pour la connection d'un utilisateur pour le front
         public function getFormConnection() {
                 return [
                     "options" => [
                         "method" => "POST",
-                        "action" => "#",
+                        "action" => "",
                         "class" => "login-form",
                         "id" => "Connection"
                     ],

@@ -1,8 +1,5 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
 
@@ -16,7 +13,7 @@ session_start();
 <body>
 
 <header class="nav-header"> <!--cd-main-header-->
-    <a href="#" class="logo"><img src="<?php echo PATH_RELATIVE ; ?>/assets/back/img/logo.png" alt="Logo"></a>
+    <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/backmenu" class="logo"><img src="<?php echo PATH_RELATIVE ; ?>/assets/back/img/logo.png" alt="Logo"></a>
 
 
     <!--<a href="#" class="nav-header-trigger">Menu<span></span></a>-->
@@ -36,33 +33,33 @@ session_start();
             <li class="label">Menu</li>
 
             <li class="menu-icon">
-                <a href="#"><i class="fa fa-tachometer" aria-hidden="true"></i></a>
+                <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/backmenu"><i class="fa fa-tachometer" aria-hidden="true"></i></a>
                 <span class="page">Dashboard</span>
             </li>
 
             <li class="menu-icon">
-                <a href="#"><i class="fa fa-clone" aria-hidden="true"></i></a>
+                <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/backpage"><i class="fa fa-clone" aria-hidden="true"></i></a>
                 <span class="page">Pages</span>
             </li>
 
             <li class="menu-icon">
-                <a href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i></a>
+                <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/backnews"><i class="fa fa-newspaper-o" aria-hidden="true"></i></a>
                 <span class="page">Articles</span>
             </li>
 
             <li class="menu-icon">
-                <a href="#"><i class="fa fa-user" aria-hidden="true"></i>
+                <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/backuser"><i class="fa fa-user" aria-hidden="true"></i>
                 </a>
                 <span class="page">Utilisateurs</span>
             </li>
 
             <li class="menu-icon">
-                <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+                <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/backevent"><i class="fa fa-calendar" aria-hidden="true"></i></a>
                 <span class="page">Evénements</span>
             </li>
 
             <li class="menu-icon">
-                <a href="#"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+                <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/backmediafile"><i class="fa fa-files-o" aria-hidden="true"></i></a>
                 <span class="page">Fichiers multimédias</span>
             </li>
 
@@ -70,12 +67,11 @@ session_start();
 
 
     </nav>
-    <?php
+        <?php
+            // include "views/".$this->view.".view.php";
+            include $this->view.".view.php";
+         ?>
 
-        include $this->view.".view.php";
-
-
-    ?>
 </main> <!-- .cd-main-content -->
 
 </body>

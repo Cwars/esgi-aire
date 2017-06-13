@@ -1,37 +1,42 @@
-  <div class="content-wrapper">
-        <h1>{Title}</h1>
 
-        <h4>{Subtitle + description}</h4>
+<div class="content-wrapper">
+    <h1>Utilisateur</h1>
+    <table>
 
-        <div class="action-button">
-            <a href="#" class="button">
-                Ajouter
-            </a>
-            <a href="#" class="button">
-                Retour
-            </a>
-        </div>
+        <?php
+        $datausers = new User();
 
-        <form>
-            <input type="text" placeholder="aa">
+        $search = ["id","username","firstname","lastname","email","status","dateInserted"];
 
-            <input type="text" placeholder="aa">
+        echo "<thead><tr>";
+        foreach ($search as $key){
+            echo "<th>";
+            echo $key;
+            echo "</th>";
+        }
+        echo "</tr></thead>";
 
-            <input type="date">
 
-            <input type="password">
+        foreach($datausers->getObj($search) as $user)
+        {
+            echo "<tr>";
 
-            <select>
-                <option>1</option>
-                <option>1</option>
-                <option>1</option>
-                <option>1</option>
-            </select>
+            foreach ($user as $u)
+            {
+                echo "<td>";
+                echo $u;
+                echo "</td>";
+            }
+            echo "<td>";
+            echo "<a href='backActionUserUpdate/" . $user['id'] . "'> Update </a>";
+            echo "</td>";
+            echo "<td>";
+            echo "<a href='backActionUserDelete/" . $user['id'] . "'> Delete </a>";
+            echo "</td>";
 
-            <input type="checkbox">
+            echo "</tr>";
+        }
+        ?>
 
-            <input type="button" value="Submit">
-        </form>
-
-    </div>
-    <!-- .content-wrapper -->
+    </table>
+</div> <!-- .content-wrapper -->
