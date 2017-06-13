@@ -200,3 +200,32 @@ input[type="submit"],input[type="button"] {
   color: $white;
   outline: none;
 }
+
+#Register {
+  background: #ffffff none repeat scroll 0 0;
+  margin: 0 auto 100px;
+  max-width: 360px;
+  padding: 45px;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+#username {
+  width: 500px;
+  background-color: green;
+}
+
+#submit {
+  width: 66%;
+}
+input {
+  background: #f2f2f2 none repeat scroll 0 0;
+  border: 0 none;
+  box-sizing: border-box;
+  font-family: "Roboto",sans-serif;
+  font-size: 14px;
+  margin: 0 0 15px;
+  outline: 0 none;
+  padding: 15px;
+  width: 100%;
+}

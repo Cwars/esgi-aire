@@ -1,4 +1,112 @@
-@import '../scss/variables'; // colors, fonts etc...
+@import "mixin";
+@import "variables";
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+@media (max-width: $screen-sm-min) {
+  .col {
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  .cinq, .deux {
+    .col {
+      margin-left: 2%;
+      width: 94%;
+    }
+  }
+
+  .quatre {
+    .col {
+      margin-left: 2%;
+      width: 44%;
+    }
+  }
+
+  .trois {
+    .col {
+      margin-left: 2%;
+      margin-top: 30px;
+    }
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+
+  .col {
+    float: left;
+    margin-left: 2%;
+    padding: 1%;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  .firstcol {
+    margin-left: 0!important;
+  }
+
+  .cinq {
+    @include conteneur();
+
+    .col {
+
+      @include widthCols(5, 2, 2, false);
+    }
+  }
+
+  .quatre {
+    @include conteneur();
+
+    .col {
+
+      @include widthCols(4, 2, 2, false);
+    }
+  }
+
+  .trois {
+    @include conteneur();
+
+    .col {
+
+      @include widthCols(3, 2, 2, false);
+    }
+  }
+
+  .deux {
+    @include conteneur();
+
+    .col {
+
+      @include widthCols(2, 2, 2, false);
+    }
+  }
+
+  .un {
+    @include conteneur();
+
+    .col1 {
+      width: 100%;
+      float: left;
+    }
+  }
+}
+
+
+.col-33 {
+  width: 31%;
+  display: inline-block;
+  padding: 40px 1%;
+  vertical-align: top;}
+.col-66 {
+  width: 64%;
+  display: inline-block;
+  padding: 40px 1%;
+  vertical-align: top;
+}
+
 
 .main-content {
 
@@ -17,9 +125,107 @@
     padding-top: $headerH;
 
     h1 {
-      padding: 4em 0;
-      font-size: 3.2rem;
+      padding: 1em 0;
+      font-size: 2.5rem;
       font-weight: 300;
     }
   }
+}
+
+.action-button {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+
+  }
+  .button {
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: $blue;
+    color: $white;
+    font-weight: bold;
+    margin-right: 20px;
+    border: 1px solid darken($blue, 10%);
+
+    &:hover {
+      background-color: darken($blue, 10%);
+      border: 1px solid darken($blue, 20%);
+    }
+  }
+}
+
+
+.data-table {
+  width: 100%;
+  background-color: #EFF1F2;
+
+
+  .table-button{
+    text-align: center;
+  }
+  tr, td {
+    border: solid 1px $blue;
+    padding: 5px;
+  }
+  .data-row {
+    &:hover {
+      background-color: darken(#EFF1F2, 5%);
+    }
+  }
+  thead, tfoot {
+    font-weight: bold;
+    background-color: lighten($blue, 50%);
+  }
+}
+
+/** form **/
+input {
+  display: block;
+  margin-bottom: 10px;
+}
+input[type="text"], input[type="password"], input[type="date"], input[type="email"], select{
+  border-radius: 5px;
+  border-color: lighten($blue, 15%);
+  padding: 5px;
+}
+input[type="submit"],input[type="button"] {
+  border-radius: 5px;
+  border-color: lighten($blue, 15%);
+  padding: 8px;
+  background-color: lighten($blue, 5%);
+  color: $white;
+  outline: none;
+}
+
+#Register {
+  background: #ffffff none repeat scroll 0 0;
+  margin: 0 auto 100px;
+  max-width: 360px;
+  padding: 45px;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+#username {
+  width: 500px;
+  background-color: green;
+}
+
+#submit {
+  width: 66%;
+}
+input {
+  background: #f2f2f2 none repeat scroll 0 0;
+  border: 0 none;
+  box-sizing: border-box;
+  font-family: "Roboto",sans-serif;
+  font-size: 14px;
+  margin: 0 0 15px;
+  outline: 0 none;
+  padding: 15px;
+  width: 100%;
 }
