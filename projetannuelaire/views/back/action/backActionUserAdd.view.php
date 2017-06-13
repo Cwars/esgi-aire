@@ -1,5 +1,4 @@
 <?php
-
 if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST['lastname']) && isset($_POST["email"]) && isset($_POST["pwd"]) && isset($_POST["pwd2"])) {
     $user = new User();
     $username = trim($_POST['username']);
@@ -15,7 +14,7 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
 
     //Le nom d'utilisateur est déjà utilisé
     if (strlen($username) == 1) {
-        //echo "Le nom d'utilisateur doit faire au moins 2 caractères";
+        //Le nom d'utilisateur doit faire au moins 2 caractères
         $listOfErrors[] = "1";
         $error = true;
     }
@@ -34,19 +33,19 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
     }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        //echo "Email incorrecte";
+        // Email incorrecte
         $listOfErrors[] = "4";
         $error = true;
     }
 
     if (strlen($pwd) < 8 || strlen($pwd) > 12) {
-        //echo "Le mot de passe doit faire entre 8 et 12 caractères";
+        //Le mot de passe doit faire entre 8 et 12 caractères
         $listOfErrors[] = "5";
         $error = true;
     }
 
     if ($pwd != $pwd2) {
-        //echo "Le mot de passe de confirmation ne correspond pas";
+        //Le mot de passe de confirmation ne correspond pas
         $listOfErrors[] = "6";
         $error = true;
     }
@@ -61,19 +60,23 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
         $user->setIsDeleted(0);
         // $user -> setBirthday($username);
 
-        var_dump($user);
-
         $user->save();
     }else{
         $_SESSION["form_error"] = $listOfErrors;
         $_SESSION["form_post"] = $_POST;
     }
-
 }else{
     $listOfErrors[] = "7";
     $_SESSION["form_error"] = $listOfErrors;
     $_SESSION["form_post"] = $_POST;
 }
-?>
-    <!-- .content-wrapper -->
 
+echo "<div class=\"content-wrapper\">";
+if( isset($_SESSION["form_error"]) ){
+    foreach ($_SESSION["form_error"] as $error) {
+        echo "<li>".$msgError[$error];
+    }
+}
+unset($_SESSION["form_post"]);
+unset($_SESSION["form_error"]);
+echo "</div>";

@@ -83,6 +83,8 @@ class View {
     }
 
     public function __destruct() {
+        global $msgError;
+
         extract($this->data);
         include "views/".$this->template.".view.php";
     }

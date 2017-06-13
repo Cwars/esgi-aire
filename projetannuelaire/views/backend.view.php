@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -67,24 +70,12 @@
 
 
     </nav>
-    <div class="content-wrapper">
-        <h1>Title</h1>
-        <?php
-            // include "views/".$this->view.".view.php";
+    <?php
 
-            require 'conf.inc.php';
-            include $this->view.".view.php";
+        include $this->view.".view.php";
 
 
-            if( isset($_SESSION["form_error"]) ){
-            foreach ($_SESSION["form_error"] as $error) {
-                echo "<li>".$msgError[$error];
-            }
-        }
-        unset($_SESSION["form_post"]);
-        unset($_SESSION["form_error"]);
-
-        ?></div>
+    ?>
 </main> <!-- .cd-main-content -->
 
 </body>
