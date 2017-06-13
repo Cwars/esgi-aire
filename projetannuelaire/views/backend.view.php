@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
 
@@ -67,12 +67,24 @@
 
 
     </nav>
-
+    <div class="content-wrapper">
+        <h1>Title</h1>
         <?php
             // include "views/".$this->view.".view.php";
-            include $this->view.".view.php";
-         ?>
 
+            require 'conf.inc.php';
+            include $this->view.".view.php";
+
+
+            if( isset($_SESSION["form_error"]) ){
+            foreach ($_SESSION["form_error"] as $error) {
+                echo "<li>".$msgError[$error];
+            }
+        }
+        unset($_SESSION["form_post"]);
+        unset($_SESSION["form_error"]);
+
+        ?></div>
 </main> <!-- .cd-main-content -->
 
 </body>
