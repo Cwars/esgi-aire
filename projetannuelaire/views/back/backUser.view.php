@@ -1,7 +1,10 @@
 
 <div class="content-wrapper">
     <h1>Utilisateur</h1>
-    <table>
+    <div>
+        <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/backUseradd" class="button-add">Ajouter</a>
+    </div>
+    <table class="table">
 
         <?php
         $datausers = new User();
@@ -14,6 +17,7 @@
             echo $key;
             echo "</th>";
         }
+        echo "<th colspan='2'>Actions</th>";
         echo "</tr></thead>";
 
 
@@ -28,10 +32,10 @@
                 echo "</td>";
             }
             echo "<td>";
-            echo "<a href='backActionUserUpdate/" . $user['id'] . "'> Update </a>";
+            echo "<a class='table-button' href='backActionUserUpdate/" . $user['id'] . "'> Update </a>";
             echo "</td>";
             echo "<td>";
-            echo "<a href='backActionUserDelete/" . $user['id'] . "'> Delete </a>";
+            echo "<a class='table-button' href='backActionUserDelete/" . $user['id'] . "'> Delete </a>";
             echo "</td>";
 
             echo "</tr>";
