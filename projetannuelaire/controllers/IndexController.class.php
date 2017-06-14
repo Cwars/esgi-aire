@@ -6,27 +6,27 @@
 class IndexController
 {
 
-    public function IndexAction($params) {
+    public function IndexAction() {
 
         $user2 = new User();
         $v = new View();
     }
 
-    public function welcomeAction($params) {
+    public function welcomeAction() {
         $param = new Param();
         $v = new View("welcome");
         $v->assign("form", $param->getForm());
     }
 
-    public function homeAction($params) {
+    public function homeAction() {
             $v = new View("home");
     }
 
-    public function actionNewsAddAction($params) {
+    public function actionNewsAddAction() {
         $v = new View("actionNewsAdd");
     }
 
-    public function contactAction($params) {
+    public function contactAction() {
         $v = new View("contact");
     }
 }
