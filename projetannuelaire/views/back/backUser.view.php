@@ -32,7 +32,7 @@
                 echo "</td>";
             }
             echo "<td>";
-            echo "<a class='table-button' href='backActionUserUpdate/" . $user['id'] . "'> Update </a>";
+            echo "<a class='table-button' href='backUserUpdate/" . $user['id'] . "'> Update </a>";
             echo "</td>";
             echo "<td>";
             echo "<a class='table-button' href='backActionUserDelete/" . $user['id'] . "'> Delete </a>";

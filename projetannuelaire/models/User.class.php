@@ -158,22 +158,26 @@
         }
 
         // Création d'un formulatire pour l'inscription d'un utilisateur pour le front
-        public function getFormUpdate($username,$firstname,$lastname,$email)
+        public function getFormUpdate($id,$username,$firstname,$lastname,$email)
         {
             return [
                 "options" => [
                     "method" => "POST",
-                    "action" => "backActionUserUpdate",
+                    "action" => "../backActionUserUpdate",
                     "class" => "up-form",
-                    "id" => "Update"
+                    "id" => "Update",
+                    "optionName" => "type"
                 ],
                 "struct" => [
+                    "id" => [
+                        "type" => "hidden",
+                        "value" => " ".$id." "
+                    ],
                     "username" => [
                         "type" => "text",
                         "placeholder" => "Nom d'utilisateur",
                         "required" => true,
                         "value" => " ".$username." "
-
                     ],
                     "firstname" => [
                         "type" => "text",
@@ -192,6 +196,13 @@
                         "placeholder" => "Adresse email",
                         "required" => true,
                         "value" => " ".$email." "
+                    ],
+                    "Option" => [
+                        "type" => "select",
+                        "option" => [
+                            "option1" => "Admin",
+                            "option2" => "User"
+                        ]
                     ],
                     "pwd" => [
                         "type" => "password",

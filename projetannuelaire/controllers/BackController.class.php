@@ -41,17 +41,21 @@ class BackController
         $v = new View("backActionUserAdd");
     }
 
-    public function backActionUserUpdateAction($params) {
+    public function backActionUserUpdateAction() {
         $v = new View("backActionUserUpdate");
+    }
+
+    public function backUserUpdateAction($params) {
+        $v = new View("backUserUpdate");
 
         $user=((new User())->populate(['id' => $params[0]]));
+        $id = $params[0];
         $username = $user->getUsername();
         $firstname = $user->getfirstname();
         $lastname = $user->getlastname();
         $email = $user->getEmail();
 
-        $v->assign("formUpdate", $user->getFormUpdate($username,$firstname,$lastname,$email));
-        $v->assign("idUpdate",$params[0]);
+        $v->assign("formUpdate", $user->getFormUpdate($id,$username,$firstname,$lastname,$email));
     }
 
     public function backActionUserDeleteAction($params) {
