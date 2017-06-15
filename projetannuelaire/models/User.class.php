@@ -163,41 +163,37 @@
             return [
                 "options" => [
                     "method" => "POST",
-                    "action" => "../backActionUserUpdate",
-                    "class" => "up-form",
-                    "id" => "Update",
-                    "optionName" => "type"
+                    "action" => "../backActionUserUpdate/".$id,
+                    "class" => "add-form",
+                    "id" => "Register"
                 ],
                 "struct" => [
-                    "id" => [
-                        "type" => "hidden",
-                        "value" => " ".$id." "
-                    ],
                     "username" => [
                         "type" => "text",
                         "placeholder" => "Nom d'utilisateur",
                         "required" => true,
-                        "value" => " ".$username." "
+                        "value" => "".$username."",
                     ],
                     "firstname" => [
                         "type" => "text",
                         "placeholder" => "Prénom",
                         "required" => true,
-                        "value" => " ".$firstname." "
+                        "value" => "".$firstname."",
                     ],
                     "lastname" => [
                         "type" => "text",
                         "placeholder" => "Nom",
                         "required" => true,
-                        "value" => " ".$lastname." "
+                        "value" => "".$lastname."",
                     ],
                     "email" => [
                         "type" => "email",
                         "placeholder" => "Adresse email",
                         "required" => true,
-                        "value" => " ".$email." "
+                        "value" => "".$email."",
                     ],
                     "Option" => [
+                        "optionName" => "statut",
                         "type" => "select",
                         "option" => [
                             "option1" => "Admin",
@@ -207,13 +203,15 @@
                     "pwd" => [
                         "type" => "password",
                         "placeholder" => "Mot de passe",
-                        "required" => true
+                        "required" => true,
+                        "value" => "",
                     ],
                     "pwd2" => [
                         "type" => "password",
                         "placeholder" => "Confirmation mot de passe",
-                        "required" => true
-                    ],
+                        "required" => true,
+                        "value" => "",
+                    ]
                 ]
             ];
         }

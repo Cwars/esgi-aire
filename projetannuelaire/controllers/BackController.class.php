@@ -41,8 +41,9 @@ class BackController
         $v = new View("backActionUserAdd");
     }
 
-    public function backActionUserUpdateAction() {
+    public function backActionUserUpdateAction($params) {
         $v = new View("backActionUserUpdate");
+        $v->assign("idUpdate",$params[0]);
     }
 
     public function backUserUpdateAction($params) {
