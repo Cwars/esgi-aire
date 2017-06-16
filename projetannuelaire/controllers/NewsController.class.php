@@ -6,12 +6,12 @@
 class NewsController
 {
 
-    public function newsAdd($content,$title) {
+    public function newsAdd($content,$title, $author) {
 
-        $article = new News();
-        $article -> setContent($content);
-        $article -> setTitle($title);
-        $article ->save();
+//        $article = new News();
+//        $article -> setContent($content);
+//        $article -> setTitle($title);
+//        $article ->save();
     }
 
     public function newsDelete(){
