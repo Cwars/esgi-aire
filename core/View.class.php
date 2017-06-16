@@ -5,6 +5,7 @@ class View {
     private $view;
     private $template;
     private $cat;
+    private $data = array();
 
     public function __construct($view = "index") {
         $this->setView($view);

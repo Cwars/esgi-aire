@@ -17,5 +17,9 @@ $msgError = [
     4=>"L'adresse email n'est pas correcte",
     5=>"Le mot de passe doit faire entre 8 et 12 caractères",
     6=>"Le mot de passe de confirmation ne correspond pas",
-    7=>"Veuillez remplir tous les champs obligatoires"
+    7=>"Veuillez remplir tous les champs obligatoires",
+    8=>"8",
+    9=>"9",
+    10=>"10",
+    11=>"11"
 ];

@@ -74,9 +74,9 @@
                     "id" => "Register"
                 ],
                 "struct" => [
-                    "name" => [
+                    "title" => [
                         "type" => "text",
-                        "placeholder" => "Nom",
+                        "placeholder" => "title",
                         "required" => true
                     ],
                     "description" => [
@@ -84,8 +84,9 @@
                         "placeholder" => "Description",
                         "required" => true
                     ],
-                    "file" => [
+                    "mediafile" => [
                         "type" => "file",
+                        "placeholder" => "",
                         "required" => true
                     ],
                 ]

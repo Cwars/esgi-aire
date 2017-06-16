@@ -100,4 +100,8 @@ class BackController
         $v = new View('backmediafileAdd');
         $v->assign("FormMediafile", $media->getFormMediafile());
     }
+
+    public function backActionMediafileAddAction() {
+        $v = new View('backActionmediafileAdd');
+    }
 }
