@@ -89,22 +89,6 @@ class BackController
         $v = new View("backmenu");
     }
 
-    /* **************************** News  ***********************************/
-    public function backNewsAddAction() {
-        $news = new News();
-        $v = new View('backNewsAdd');
-        $v->assign("formRegister", $news->getFormRegister());
-    }
-
-    public function backActionNewsAddAction() {
-        $v = new View("backActionNewsAdd");
-    }
-
-    public function backActionNewsUpdateAction() {
-        $v = new View("backActionNewsUpdate");
-
-    }
-
     /* **************************** Mediafile  ***********************************/
 
     public function backMediafileAction() {
