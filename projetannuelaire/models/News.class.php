@@ -73,7 +73,7 @@
             return $this->date_updated;
         }
 
-        public function getForm() {
+        public function getFormNews() {
             return [
                 "options" => [
                     "method" => "POST",
