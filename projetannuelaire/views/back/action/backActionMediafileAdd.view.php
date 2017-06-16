@@ -47,6 +47,52 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
         $listOfErrors[] = "6";
         $error = true;
     }
+
+    if(empty($_FILES["avatar"])){
+        $listOfErrors[]="10";
+        $error = true;
+    }else if($_FILES["avatar"]["error"] > 0){
+        $error = true;
+        switch ($_FILES["avatar"]["error"]) {
+            case UPLOAD_ERR_INI_SIZE:
+                $listOfErrors[]="11";
+                break;
+            case UPLOAD_ERR_FORM_SIZE:
+                $listOfErrors[]="11";
+                break;
+            case UPLOAD_ERR_PARTIAL:
+                $listOfErrors[]="11";
+                break;
+            case UPLOAD_ERR_NO_FILE:
+                $listOfErrors[]="11";
+                break;
+            case UPLOAD_ERR_NO_TMP_DIR:
+                $listOfErrors[]="11";
+                break;
+            case UPLOAD_ERR_CANT_WRITE:
+                $listOfErrors[]="11";
+                break;
+            case UPLOAD_ERR_EXTENSION:
+                $listOfErrors[]="11";
+                break;
+            default:
+                $listOfErrors[]="11";
+                break;
+        }
+
+    }else{
+        $infoFile = pathinfo($_FILES["avatar"]["name"]);
+        if(!in_array( strtolower($infoFile["extension"]) , $avatarFileType)){
+            $listOfErrors[]="12";
+            $error = true;
+        }
+
+        if($_FILES["avatar"]["size"]>$avatarLimitSize){
+            $listOfErrors[]="13";
+            $error = true;
+        }
+    }
+
     if ($error === false) {
         $user->setUsername($username);
         $user->setFirstname($firstname);
@@ -61,11 +107,13 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
         $_SESSION["form_error"] = $listOfErrors;
         $_SESSION["form_post"] = $_POST;
     }
-}else{
+
+} else{
     $listOfErrors[] = "7";
     $_SESSION["form_error"] = $listOfErrors;
     $_SESSION["form_post"] = $_POST;
 }
+
 echo "<div class=\"content-wrapper\">";
 if( isset($_SESSION["form_error"]) ){
     foreach ($_SESSION["form_error"] as $error) {
@@ -75,6 +123,7 @@ if( isset($_SESSION["form_error"]) ){
 unset($_SESSION["form_post"]);
 unset($_SESSION["form_error"]);
 echo "</div>";
+    ?>
 
 </div>
 <!-- .content-wrapper -->
