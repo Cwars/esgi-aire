@@ -10,9 +10,11 @@ class Routing {
     private $action;
     private $actionName;
     private $params;
+    private $side;
 
     public function __construct() {
         $this->setUri($_SERVER["REQUEST_URI"]);
+        $this->setDiff ();
         $this->setController();
         $this->setAction();
         $this->setParams();
@@ -25,28 +27,38 @@ class Routing {
         $this->uriExploded = explode("/", $this->uri);
     }
 
+    public function setDiff () {
+        if($this->uriExploded[0] == "back"){
+            $this->side = "back";
+        }else{
+            $this->side = "front";
+        }
+    }
+
     public function setController() {
-        $this->controller = (empty($this->uriExploded[0])) ? "index" : $this->uriExploded[0];
-        $this->controllerName = $this->controller."Controller";
-        unset($this->uriExploded[0]);
+        if($this->side == "front"){
+            $this->controller = (empty($this->uriExploded[0])) ? "index" : $this->uriExploded[0];
+            $this->controllerName = $this->controller."Controller";
+        }else{
+            $this->controller = (empty($this->uriExploded[0])) ? "index" : $this->uriExploded[0].$this->uriExploded[1];
+            $this->controllerName = $this->controller."Controller";
+            unset($this->uriExploded[0]);
+        }
     }
 
-    public function setAction() {
-        $this->action = (empty($this->uriExploded[1])) ? "index" : $this->uriExploded[1];
-        $this->actionName = $this->action."Action";
-        unset($this->uriExploded[1]);
-    }
-
-    public function setControllerBo() {
-        $this->controller = (empty($this->uriExploded[0])) ? "back" : $this->uriExploded[0];
-        $this->controllerName = $this->controller."Controller";
-        unset($this->uriExploded[0]);
-    }
-
-    public function setActionBo() {
-        $this->action = (empty($this->uriExploded[1])) ? "back" : $this->uriExploded[1];
-        $this->actionName = $this->action."Action";
-        unset($this->uriExploded[1]);
+    public function setAction()
+    {
+        if ($this->side === "front") {
+            $this->action = (empty($this->uriExploded[0])) ? "index" : $this->uriExploded[0];
+            $this->actionName = $this->action . "Action";
+            unset($this->uriExploded[0]);
+        }
+        elseif ($this->side === "back" && !empty($this->uriExploded[2])) {
+            $this->action = (empty($this->uriExploded[1])) ? "index" : $this->uriExploded[1] . $this->uriExploded[2];
+            $this->actionName = $this->action . "Action";
+            unset($this->uriExploded[1]);
+            unset($this->uriExploded[2]);
+        }
     }
 
     public function setParams() {
@@ -85,8 +97,9 @@ class Routing {
 
     public function runRoute() {
         if ($this->checkRoute()) {
-            $controller = new $this->controllerName;
-            $controller->{$this->actionName}($this->params);
+                $controller = new $this->controllerName;
+                $controller->{$this->actionName}($this->params);
+
         } else {
             $this->page404();
         }

@@ -118,7 +118,7 @@
             return [
                 "options" => [
                     "method" => "POST",
-                    "action" => "backActionUserAdd",
+                    "action" => "ActionAdd",
                     "class" => "add-form",
                     "id" => "Register"
                 ],
@@ -163,7 +163,7 @@
             return [
                 "options" => [
                     "method" => "POST",
-                    "action" => "../backActionUserUpdate/".$id,
+                    "action" => "../ActionUpdate/".$id,
                     "class" => "add-form",
                     "id" => "Register"
                 ],
@@ -221,7 +221,7 @@
                 return [
                     "options" => [
                         "method" => "POST",
-                        "action" => "",
+                        "action" => "ActionConnection",
                         "class" => "login-form",
                         "id" => "Connection"
                     ],

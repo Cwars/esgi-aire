@@ -8,37 +8,55 @@ class View {
     private $data = array();
 
     public function __construct($view = "index") {
-        $this->setView($view);
+        $this->setViewFront($view);
+        $this->setViewBack($view);
         $this->setTemplate();
     }
 
-    public function setView($view) {
-    switch (true) {
-    case (file_exists("views/front/" . $view . ".view.php")):
-        $this->view = "front/".$view;
-        $this->cat = "front"; 
-        break;
-    case (file_exists("views/front/article/" . $view . ".view.php")):
-        $this->view = "front/article/".$view;
-        $this->cat = "front";
-        break;
-    case (file_exists("views/front/page/" . $view . ".view.php")):
-        $this->view = "front/page/".$view;
-        $this->cat = "front";
-        break;
-    case (file_exists("views/back/" . $view . ".view.php")):
-        $this->view = "back/".$view;
-        $this->cat = "back";
-        break;
-    case (file_exists("views/back/action/" . $view . ".view.php")):
-        $this->view = "back/action/".$view;
-        $this->cat = "back";
-        break;
+    public function setViewFront($view)
+    {
+        $directory = "views/front/";
+        $folders = glob($directory . "*");
+        foreach ($folders as $folder) {
+            if (is_dir($folder)) {
+                $obj = explode("/", $folder);
+                switch (true) {
+                    case (file_exists($directory . $obj[2] . "/" . $view . ".view.php")):
+                        $this->view = "front/" . $obj[2] . "/" . $view;
+                        $this->cat = "front";
+                        break;
+                    case (file_exists($directory . $obj[2] . "/action/" . $view . ".view.php")):
+                        $this->view = "front/" . $obj[2] . "/action/" . $view;
+                        $this->cat = "front";
+                        break;
+                }
+            }
+        }
     }
-}
+
+    public function setViewBack($view) {
+        $directory = "views/back/";
+        $folders = glob($directory."*");
+        foreach ($folders as $folder) {
+            if(is_dir($folder)){
+                $obj = explode("/", $folder);
+                switch (true) {
+                    case (file_exists($directory.$obj[2]."/" . $view . ".view.php")):
+                        $this->view = "back/".$obj[2]."/" . $view;
+                        $this->cat = "back";
+                        break;
+                    case (file_exists($directory.$obj[2]."/action/" . $view . ".view.php")):
+                        $this->view = "back/".$obj[2]."/action/" . $view;
+                        $this->cat = "back";
+                        break;
+                }
+            }
+        }
+
+    }
 
     public function setTemplate() {
-        if ($this->view != "back/backconnection"){
+        if ($this->view != "back/user/connection"){
             if ($this->cat === "back") {
                 if (file_exists("views/backend.view.php")) {
                     $this->template = "backend";
@@ -60,16 +78,6 @@ class View {
         }
     }
 
-//    public function setTemplateBo($template) {
-//        if (file_exists("views/".$template.".view.php")) {
-//            $this->templateBack = $template;
-//        } else {
-//            // logs
-//
-//            die("Le template n'existe pas");
-//        }
-//    }
-
     public function assign($key, $value) {
         $this->data[$key] = $value;
     }
@@ -81,6 +89,22 @@ class View {
             // logs
             die("Le modal n'existe pas");
         }
+    }
+
+    public function page404() {
+
+        $directory = "projetannuelaire";
+        $url = "http://".$_SERVER['HTTP_HOST']."/".$directory;
+
+        die("
+            <link rel=\"stylesheet\" href=\"$url/assets/back/css/style.css\"> 
+            <div class=\"bg-notf\">
+             <div class=\"not-found\">
+                <h1>Erreur</h1>
+                <div class='backpage' ><a href=\"javascript:history.go(-1)\">Revenir à la page précédente</a></div>
+             </div>
+            </div>
+        ");
     }
 
     public function __destruct() {

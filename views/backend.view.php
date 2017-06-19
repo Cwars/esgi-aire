@@ -33,33 +33,33 @@
             <li class="label">Menu</li>
 
             <li class="menu-icon">
-                <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/backmenu"><i class="fa fa-tachometer" aria-hidden="true"></i></a>
+                <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/Dashboard/menu"><i class="fa fa-tachometer" aria-hidden="true"></i></a>
                 <span class="page">Dashboard</span>
             </li>
 
             <li class="menu-icon">
-                <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/backpage"><i class="fa fa-clone" aria-hidden="true"></i></a>
+                <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/page/menu"><i class="fa fa-clone" aria-hidden="true"></i></a>
                 <span class="page">Pages</span>
             </li>
 
             <li class="menu-icon">
-                <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/backnews"><i class="fa fa-newspaper-o" aria-hidden="true"></i></a>
+                <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/news/menu"><i class="fa fa-newspaper-o" aria-hidden="true"></i></a>
                 <span class="page">Articles</span>
             </li>
 
             <li class="menu-icon">
-                <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/backuser"><i class="fa fa-user" aria-hidden="true"></i>
+                <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/user/menu"><i class="fa fa-user" aria-hidden="true"></i>
                 </a>
                 <span class="page">Utilisateurs</span>
             </li>
 
             <li class="menu-icon">
-                <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/backevent"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+                <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/event/menu"><i class="fa fa-calendar" aria-hidden="true"></i></a>
                 <span class="page">Evénements</span>
             </li>
 
             <li class="menu-icon">
-                <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/backmediafile"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+                <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/mediafile/menu"><i class="fa fa-files-o" aria-hidden="true"></i></a>
                 <span class="page">Fichiers multimédias</span>
             </li>
 
