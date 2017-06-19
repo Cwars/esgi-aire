@@ -11,12 +11,14 @@ define("DB_PORT", "3306");
 define("DB_HOST", "localhost");
 
 $msgError = [
-    1=>"Le nom d'utilisateur doit faire au moins 2 caractères",
-    2=>"Le nom doit faire au moins 2 caractères",
-    3=>"Le prénom doit faire au moins 2 caractères",
-    4=>"L'adresse email n'est pas correcte",
-    5=>"Le mot de passe doit faire entre 8 et 12 caractères",
-    6=>"Le mot de passe de confirmation ne correspond pas",
+    "nbUsername"=>"Le nom d'utilisateur doit faire au moins 2 caractères",
+    "usernameUsed"=>"Ce nom d'utilisateur est déjà utilisé",
+    "nbLastname"=>"Le nom doit faire au moins 2 caractères",
+    "nbFirstname"=>"Le prénom doit faire au moins 2 caractères",
+    "nameUsed"=>"Cette personne est déjà inscrite",
+    "errorEmail"=>"L'adresse email n'est pas correcte",
+    "nbPwd"=>"Le mot de passe doit faire entre 8 et 12 caractères",
+    "pw1/pw2"=>"Le mot de passe de confirmation ne correspond pas",
     7=>"Veuillez remplir tous les champs obligatoires",
     8=>"8",
     9=>"9",

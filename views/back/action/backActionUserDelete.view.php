@@ -4,7 +4,6 @@
 if(isset($idDelete)){
 
     $idUp = $idDelete[0];
-
     $user=((new User())->populate(['id' => $idUp]));
     $user->setIsDeleted(1);
     $user->save();

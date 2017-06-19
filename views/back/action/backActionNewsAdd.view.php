@@ -16,7 +16,7 @@ if( !empty($_POST['title']) && !empty($_POST['author'])  && !empty($_POST['conte
     $error = false;
     $listOfErrors = [];
 
-    if ((strlen($title)<55) {
+    if ((strlen($title)<55)) {
         //Le nom d'utilisateur doit faire au moins 55 caractères
     $listOfErrors[] = "8";
     $error = true;

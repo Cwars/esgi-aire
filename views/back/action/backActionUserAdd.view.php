@@ -15,38 +15,45 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
     //Le nom d'utilisateur est déjà utilisé
     if (strlen($username) == 1) {
         //Le nom d'utilisateur doit faire au moins 2 caractères
-        $listOfErrors[] = "1";
+        $listOfErrors[] = "nbUsername";
         $error = true;
     }
+
+    if ($user->populate(['username' => $username])){
+        //Le nom d'utilisateur est déja utilisé
+        $listOfErrors[] = "usernameUsed";
+        $error = true;
+    }
+
     //Vérifier le nom
     if (strlen($lastname) == 1) {
         //Le nom doit faire au moins 2 caractères
-        $listOfErrors[] = "2";
+        $listOfErrors[] = "nbLastname";
         $error = true;
     }
 
     //Vérifier le prénom
     if (strlen($firstname) == 1) {
         //Le prénom doit faire au moins 2 caractères
-        $listOfErrors[] = "3";
+        $listOfErrors[] = "nbFirstname";
         $error = true;
     }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        // Email incorrecte
-        $listOfErrors[] = "4";
+        // Email incorrect
+        $listOfErrors[] = "errorEmail";
         $error = true;
     }
 
     if (strlen($pwd) < 8 || strlen($pwd) > 12) {
         //Le mot de passe doit faire entre 8 et 12 caractères
-        $listOfErrors[] = "5";
+        $listOfErrors[] = "nbPwd";
         $error = true;
     }
 
     if ($pwd != $pwd2) {
         //Le mot de passe de confirmation ne correspond pas
-        $listOfErrors[] = "6";
+        $listOfErrors[] = "pw1/pw2";
         $error = true;
     }
 
