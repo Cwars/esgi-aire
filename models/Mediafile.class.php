@@ -69,7 +69,7 @@
             return [
                 "options" => [
                     "method" => "POST",
-                    "action" => "backActionMediafileAdd",
+                    "action" => "ActionAdd",
                     "class" => "add-form",
                     "id" => "Register"
                 ],

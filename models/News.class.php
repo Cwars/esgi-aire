@@ -77,7 +77,7 @@
             return [
                 "options" => [
                     "method" => "POST",
-                    "action" => "actionNewsAdd",
+                    "action" => "actionAdd",
                     "class" => "form-group",
                     "id" => "addNews",
                     "optionName" => "type"
