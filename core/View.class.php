@@ -20,18 +20,16 @@ class View {
         foreach ($folders as $folder) {
             if (is_dir($folder)) {
                 $obj = explode("/", $folder);
-                switch (true) {
-                    case (file_exists($directory . $obj[2] . "/" . $view . ".view.php")):
+                    if(file_exists($directory . $obj[2] . "/" . $view . ".view.php")) {
                         $this->view = "front/" . $obj[2] . "/" . $view;
                         $this->cat = "front";
-                        break;
-                    case (file_exists($directory . $obj[2] . "/action/" . $view . ".view.php")):
+                    }
+                    if(file_exists($directory . $obj[2] . "/action/" . $view . ".view.php")) {
                         $this->view = "front/" . $obj[2] . "/action/" . $view;
                         $this->cat = "front";
-                        break;
+                    }
                 }
             }
-        }
     }
 
     public function setViewBack($view) {
@@ -40,17 +38,15 @@ class View {
         foreach ($folders as $folder) {
             if(is_dir($folder)){
                 $obj = explode("/", $folder);
-                switch (true) {
-                    case (file_exists($directory.$obj[2]."/" . $view . ".view.php")):
-                        $this->view = "back/".$obj[2]."/" . $view;
+                    if(file_exists($directory.$obj[2]."/" . $view . ".view.php")) {
+                        $this->view = "back/" . $obj[2] . "/" . $view;
                         $this->cat = "back";
-                        break;
-                    case (file_exists($directory.$obj[2]."/action/" . $view . ".view.php")):
-                        $this->view = "back/".$obj[2]."/action/" . $view;
+                    }
+                    if(file_exists($directory.$obj[2]."/action/" . $view . ".view.php")) {
+                        $this->view = "back/" . $obj[2] . "/action/" . $view;
                         $this->cat = "back";
-                        break;
+                    }
                 }
-            }
         }
 
     }

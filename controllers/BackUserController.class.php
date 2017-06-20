@@ -7,21 +7,21 @@ class BackUserController
 {
 
     public function UserMenuAction() {
-        $v = new View("menu");
+        $v = new View("userMenu");
     }
 
     public function UserAddAction() {
         $user = new User();
-        $v = new View('add');
+        $v = new View('userAdd');
         $v->assign("formRegister", $user->getFormRegister());
     }
 
     public function UserActionAddAction() {
-        $v = new View("actionadd");
+        $v = new View("userActionAdd");
     }
 
     public function UserUpdateAction($params) {
-        $v = new View("Update");
+        $v = new View("userUpdate");
 
         $user=((new User())->populate(['id' => $params[0]]));
         $id = $params[0];
@@ -34,7 +34,7 @@ class BackUserController
     }
 
     public function UserActionUpdateAction($params) {
-        $v = new View("ActionUpdate");
+        $v = new View("userActionUpdate");
         $user=((new User())->populate(['id' => $params[0]]));
 
         $username = $user->getUsername();
@@ -44,22 +44,22 @@ class BackUserController
 
 
     public function UserActionDeleteAction($params) {
-        $v = new View("ActionDelete");
+        $v = new View("userActionDelete");
         $v->assign("idDelete",$params);
     }
 
     public function UserActionRestoreAction($params) {
-        $v = new View("ActionRestore");
+        $v = new View("userActionRestore");
         $v->assign("idRestore",$params);
     }
 
     public function UserActionConnectionAction() {
-        $v = new View("ActionConnection");
+        $v = new View("userActionConnection");
     }
 
     public function UserConnectionAction() {
         $user = new User();
-        $v = new View("connection");
+        $v = new View("userConnection");
         $v->assign("formConnection", $user->getFormConnection());
     }
 }
