@@ -52,7 +52,7 @@ class View {
     }
 
     public function setTemplate() {
-        if ($this->view != "back/user/connection"){
+        if ($this->view != "back/user/userConnection" && $this->view != "back/user/action/userActionConnection"){
             if ($this->cat === "back") {
                 if (file_exists("views/backend.view.php")) {
                     $this->template = "backend";

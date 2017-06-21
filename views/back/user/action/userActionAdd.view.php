@@ -2,6 +2,7 @@
 if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST['lastname']) && isset($_POST["email"]) && isset($_POST["pwd"]) && isset($_POST["pwd2"])) {
     $user = new User();
     $username = trim($_POST['username']);
+    $statut = trim($_POST['statut']);
     $firstname = trim($_POST['firstname']);
     $lastname = trim($_POST['lastname']);
     $email = trim($_POST['email']);
@@ -59,6 +60,7 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
 
     if ($error === false) {
         $user->setUsername($username);
+        $user->setStatus($statut);
         $user->setFirstname($firstname);
         $user->setLastname($lastname);
         $user->setEmail($email);

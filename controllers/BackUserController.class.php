@@ -13,7 +13,7 @@ class BackUserController
     public function UserAddAction() {
         $user = new User();
         $v = new View('userAdd');
-        $v->assign("formRegister", $user->getFormRegister());
+        $v->assign("formRegister", $user->getFormRegisterback());
     }
 
     public function UserActionAddAction() {

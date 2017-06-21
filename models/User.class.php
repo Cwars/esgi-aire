@@ -113,7 +113,7 @@
 
 
         // Création d'un formulatire pour l'inscription d'un utilisateur pour le front
-        public function getFormRegister()
+        public function getFormRegisterback()
         {
             return [
                 "options" => [
@@ -127,6 +127,14 @@
                         "type" => "text",
                         "placeholder" => "Nom d'utilisateur",
                         "required" => true
+                    ],
+                    "Option" => [
+                        "optionName" => "statut",
+                        "type" => "select",
+                        "option" => [
+                            "option1" => "Admin",
+                            "option2" => "User"
+                        ]
                     ],
                     "firstname" => [
                         "type" => "text",

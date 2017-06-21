@@ -2,8 +2,7 @@
     <h1>Title</h1>
 
 <?php
-$this->includeModal("form", $formRegister);
-
+$this->includeModal("form", $formNews);
 ?>
 
 </div>
