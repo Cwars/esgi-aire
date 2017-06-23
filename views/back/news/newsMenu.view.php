@@ -9,7 +9,7 @@
         <?php
         $datanews = new News();
 
-        $search = ["id","title","author","typeNews","dateInserted"];
+        $search = ["id","title","author","dateInserted","typeNews","description"];
 
         echo "<thead><tr>";
         foreach ($search as $key){

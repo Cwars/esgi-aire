@@ -16,31 +16,29 @@ class BackNewsController
         $v->assign("formNews", $news->getFormNews());
     }
 
-    public function NewsActionAddAction($params) {
-        $v = new View("newsActionadd");
-    }
+//    public function NewsActionAddAction() {
+//        $v = new View("newsActionAdd");
+//    }
 
+    public function NewsUpdateAction($params) {
+        $v = new View("newsUpdate");
+
+        $news=((new News())->populate(['id' => $params[0]]));
+        $id = $params[0];
+        $title = $news->getTitle();
+        $author = $news->getAuthor();
+        $content = $news->getContent();
+
+        $v->assign("formUpdate", $news->getFormUpdate($id,$title,$author,$content));
+    }
     public function NewsActionUpdateAction($params) {
-        $v = new View("newsActionupdate");
+        $v = new View("newsActionUpdate");
         $news=((new News())->populate(['id' => $params[0]]));
 
-//        $username = $user->getUsername();
-//        $v->assign("idUpdate",$params[0]);
-//        $v->assign("usernameUpdate",$username);
+        $title = $news->getTitle();
+        $v->assign("idUpdate",$params[0]);
+        $v->assign("titleUpdate",$title);
     }
-
-//    public function UserUpdateAction($params) {
-//        $v = new View("userUpdate");
-//
-//        $user=((new User())->populate(['id' => $params[0]]));
-//        $id = $params[0];
-//        $username = $user->getUsername();
-//        $firstname = $user->getfirstname();
-//        $lastname = $user->getlastname();
-//        $email = $user->getEmail();
-//
-//        $v->assign("formUpdate", $user->getFormUpdate($id,$username,$firstname,$lastname,$email));
-//    }
 
     public function NewsActionDeleteAction($params) {
         $v = new View("newsActionDelete");

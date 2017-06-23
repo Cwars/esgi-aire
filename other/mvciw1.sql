@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 23 Juin 2017 à 08:14
+-- Généré le :  Ven 23 Juin 2017 à 15:28
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -102,13 +102,13 @@ CREATE TABLE `mediafile` (
 
 CREATE TABLE `news` (
   `id` int(11) NOT NULL,
-  `title` smallint(6) NOT NULL,
+  `title` varchar(50) CHARACTER SET utf8 NOT NULL,
   `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dateUpdated` timestamp NULL DEFAULT NULL,
   `isDeleted` binary(1) NOT NULL DEFAULT '\0',
-  `content` longtext NOT NULL,
-  `author` int(11) NOT NULL,
-  `typeNews` binary(1) NOT NULL DEFAULT '\0'
+  `content` longtext CHARACTER SET utf8 NOT NULL,
+  `author` int(25) NOT NULL,
+  `typeNews` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

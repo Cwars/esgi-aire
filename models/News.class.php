@@ -88,9 +88,14 @@
                         "placeholder" => "Titre de l'article",
                         "required" => true
                     ],
+                    "author" => [
+                        "type" => "text",
+                        "placeholder" => "Auteur de l'article",
+                        "required" => true
+                    ],
                     "content" => [
                         "type" => "text",
-                        "placeholder" => "Contenu de votre article",
+                        "placeholder" => "Contenu de l'article",
                         "required" => true
                     ],
                     "Option" => [

@@ -6,7 +6,7 @@
 class NewsController
 {
 
-    public function newsAdd($content,$title, $author) {
+    public function newsAdd() {
 
 //        $article = new News();
 //        $article -> setContent($content);

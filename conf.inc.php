@@ -20,8 +20,9 @@ $msgError = [
     "nbPwd"=>"Le mot de passe doit faire entre 8 et 12 caractères",
     "pw1/pw2"=>"Le mot de passe de confirmation ne correspond pas",
     7=>"Veuillez remplir tous les champs obligatoires",
-    8=>"8",
-    9=>"9",
+    "nbTitle"=>"Le titre doit faire au moins 2 caractères",
+    "nbContent"=>"Le contenu doit faire au moins 2 caractères",
+    "titleUsed"=>"Ce titre est déjà utilisé",
     10=>"10",
     11=>"11"
 ];

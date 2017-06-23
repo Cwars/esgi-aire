@@ -112,7 +112,7 @@
         // }
 
 
-        // Création d'un formulatire pour l'inscription d'un utilisateur pour le front
+        // Création d'un formulaire pour l'inscription d'un utilisateur pour le front
         public function getFormRegisterback()
         {
             return [
@@ -165,7 +165,7 @@
             ];
         }
 
-        // Création d'un formulatire pour l'inscription d'un utilisateur pour le front
+        // Création d'un formulaire pour l'inscription d'un utilisateur pour le front
         public function getFormUpdate($id,$username,$firstname,$lastname,$email)
         {
             return [
@@ -224,7 +224,7 @@
             ];
         }
 
-        // Création d'un formulatire pour la connection d'un utilisateur pour le front
+        // Création d'un formulaire pour la connection d'un utilisateur pour le front
         public function getFormConnection() {
                 return [
                     "options" => [
