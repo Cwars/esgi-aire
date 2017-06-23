@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 23 Juin 2017 à 08:14
--- Version du serveur :  5.7.14
--- Version de PHP :  5.6.25
+-- Généré le :  Ven 12 Mai 2017 à 17:53
+-- Version du serveur :  10.1.21-MariaDB
+-- Version de PHP :  7.0.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -107,7 +107,7 @@ CREATE TABLE `news` (
   `dateUpdated` timestamp NULL DEFAULT NULL,
   `isDeleted` binary(1) NOT NULL DEFAULT '\0',
   `content` longtext NOT NULL,
-  `author` int(11) NOT NULL,
+  `idUser` int(11) NOT NULL,
   `typeNews` binary(1) NOT NULL DEFAULT '\0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -264,7 +264,7 @@ ALTER TABLE `newsletter`
 -- AUTO_INCREMENT pour la table `param`
 --
 ALTER TABLE `param`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT pour la table `user`
 --

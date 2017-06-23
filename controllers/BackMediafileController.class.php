@@ -5,6 +5,10 @@
  */
 class BackMediafileController
 {
+    public function MediafileMenuAction() {
+        $v = new View("mediafileMenu");
+    }
+
     public function MediafileAction() {
         $v = new View("mediafileMenu");
     }

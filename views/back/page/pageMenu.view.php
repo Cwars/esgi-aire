@@ -1,15 +1,15 @@
 
 <div class="content-wrapper">
-    <h1>Utilisateur</h1>
+    <h1>Pages</h1>
     <div>
-        <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/user/add" class="button-add">Ajouter</a>
+        <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/page/add" class="button-add">Ajouter</a>
     </div>
     <table class="table">
 
         <?php
         $datausers = new User();
 
-        $search = ["id","username","firstname","lastname","email","status","dateInserted"];
+        $search = ["id","dateInserted"];
 
         echo "<thead><tr>";
         foreach ($search as $key){

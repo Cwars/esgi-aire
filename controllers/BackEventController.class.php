@@ -3,25 +3,25 @@
 /**
  *
  */
-class BackNewsController
+class BackEventController
 {
 
-    public function NewsMenuAction() {
-        $v = new View("newsMenu");
+    public function EventMenuAction() {
+        $v = new View("eventMenu");
     }
 
-    public function NewsAddAction() {
-        $news = new News();
-        $v = new View('newsAdd');
-        $v->assign("formNews", $news->getFormNews());
+    public function EventAddAction() {
+        $event = new Event();
+        $v = new View('eventAdd');
+        $v->assign("formEvent", $event->getFormEvent());
     }
 
-    public function NewsActionAddAction($params) {
-        $v = new View("newsActionadd");
+    public function EventActionAddAction($params) {
+        $v = new View("eventActionadd");
     }
 
-    public function NewsActionUpdateAction($params) {
-        $v = new View("newsActionupdate");
+    public function EventActionUpdateAction($params) {
+        $v = new View("eventActionupdate");
         $news=((new News())->populate(['id' => $params[0]]));
 
 //        $username = $user->getUsername();
@@ -42,13 +42,13 @@ class BackNewsController
 //        $v->assign("formUpdate", $user->getFormUpdate($id,$username,$firstname,$lastname,$email));
 //    }
 
-    public function NewsActionDeleteAction($params) {
-        $v = new View("newsActionDelete");
+    public function EventActionDeleteAction($params) {
+        $v = new View("eventActionDelete");
         $v->assign("idDelete",$params);
     }
 
-    public function NewsActionRestoreAction($params) {
-        $v = new View("newsActionRestore");
+    public function EventActionRestoreAction($params) {
+        $v = new View("eventActionRestore");
         $v->assign("idRestore",$params);
     }
 

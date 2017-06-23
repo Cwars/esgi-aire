@@ -1,8 +1,8 @@
 
 <div class="content-wrapper">
-    <h1>Utilisateur</h1>
+    <h1>Evènements</h1>
     <div>
-        <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/user/add" class="button-add">Ajouter</a>
+        <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/event/add" class="button-add">Ajouter</a>
     </div>
     <table class="table">
 

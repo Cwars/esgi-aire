@@ -1,15 +1,15 @@
 
 <div class="content-wrapper">
-    <h1>Utilisateur</h1>
+    <h1>Articles</h1>
     <div>
-        <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/user/add" class="button-add">Ajouter</a>
+        <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/news/add" class="button-add">Ajouter</a>
     </div>
     <table class="table">
 
         <?php
-        $datausers = new User();
+        $datanews = new News();
 
-        $search = ["id","username","firstname","lastname","email","status","dateInserted"];
+        $search = ["id","title","author","typeNews","dateInserted"];
 
         echo "<thead><tr>";
         foreach ($search as $key){
@@ -21,21 +21,21 @@
         echo "</tr></thead>";
 
 
-        foreach($datausers->getObj($search) as $user)
+        foreach($datanews->getObj($search) as $news)
         {
             echo "<tr>";
 
-            foreach ($user as $u)
+            foreach ($news as $u)
             {
                 echo "<td>";
                 echo $u;
                 echo "</td>";
             }
             echo "<td>";
-            echo "<a class='table-button' href='Update/" . $user['id'] . "'> Update </a>";
+            echo "<a class='table-button' href='Update/" . $news['id'] . "'> Update </a>";
             echo "</td>";
             echo "<td>";
-            echo "<a class='table-button' href='ActionDelete/" . $user['id'] . "'> Delete </a>";
+            echo "<a class='table-button' href='ActionDelete/" . $news['id'] . "'> Delete </a>";
             echo "</td>";
 
             echo "</tr>";

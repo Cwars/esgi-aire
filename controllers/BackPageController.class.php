@@ -3,26 +3,26 @@
 /**
  *
  */
-class BackNewsController
+class BackPageController
 {
 
-    public function NewsMenuAction() {
-        $v = new View("newsMenu");
+    public function PageMenuAction() {
+        $v = new View("pageMenu");
     }
 
-    public function NewsAddAction() {
-        $news = new News();
-        $v = new View('newsAdd');
-        $v->assign("formNews", $news->getFormNews());
+    public function PageAddAction() {
+        $page = new Page();
+        $v = new View('pageAdd');
+        $v->assign("formPage", $news->getFormPage());
     }
 
-    public function NewsActionAddAction($params) {
-        $v = new View("newsActionadd");
+    public function PageActionAddAction($params) {
+        $v = new View("pageActionadd");
     }
 
-    public function NewsActionUpdateAction($params) {
-        $v = new View("newsActionupdate");
-        $news=((new News())->populate(['id' => $params[0]]));
+    public function PageActionUpdateAction($params) {
+        $v = new View("pageActionupdate");
+        $page=((new Page())->populate(['id' => $params[0]]));
 
 //        $username = $user->getUsername();
 //        $v->assign("idUpdate",$params[0]);
@@ -42,13 +42,13 @@ class BackNewsController
 //        $v->assign("formUpdate", $user->getFormUpdate($id,$username,$firstname,$lastname,$email));
 //    }
 
-    public function NewsActionDeleteAction($params) {
-        $v = new View("newsActionDelete");
+    public function PageActionDeleteAction($params) {
+        $v = new View("pageActionDelete");
         $v->assign("idDelete",$params);
     }
 
-    public function NewsActionRestoreAction($params) {
-        $v = new View("newsActionRestore");
+    public function PageActionRestoreAction($params) {
+        $v = new View("pageActionRestore");
         $v->assign("idRestore",$params);
     }
 
