@@ -86,8 +86,6 @@
             $mediafile->setIsDeleted(0);
             $mediafile->setPath($pathUpload.DS.$nameFile);
 
-            var_dump($pathUpload.DS.$nameFile);
-
             $mediafile->save();
         }else{
             $_SESSION["form_error"] = $listOfErrors;

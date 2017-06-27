@@ -1,3 +1,3 @@
 <?php
-    $this->includeModal("formUpdate", $formUpdate);
+    $this->includeModal("formUpdate", $FormMediafileUpdate);
 ?>

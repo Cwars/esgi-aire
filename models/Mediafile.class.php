@@ -93,4 +93,36 @@
             ];
         }
 
+        public function getFormMediafileUpdate($id,$title,$description,$mediafile)
+        {
+            return [
+                "options" => [
+                    "method" => "POST",
+                    "action" => "../ActionUpdate/".$id,
+                    "class" => "add-form",
+                    "id" => "Register"
+                ],
+                "struct" => [
+                    "title" => [
+                        "type" => "text",
+                        "placeholder" => "title",
+                        "required" => true,
+                        "value" => "".$title."",
+                    ],
+                    "description" => [
+                        "type" => "text",
+                        "placeholder" => "Description",
+                        "required" => true,
+                        "value" => "".$description."",
+                    ],
+                    "mediafile" => [
+                        "type" => "file",
+                        "placeholder" => "Votre image",
+                        "required" => true,
+                        "value" => "".$mediafile."",
+                    ],
+                ]
+            ];
+        }
+
     }

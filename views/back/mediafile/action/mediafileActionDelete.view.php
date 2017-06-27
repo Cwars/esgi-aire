@@ -1,16 +1,14 @@
-<div class="content-wrapper">
 <?php
 
 if(isset($idDelete)){
 
     $idUp = $idDelete[0];
-    $user=((new User())->populate(['id' => $idUp]));
-    $user->setIsDeleted(1);
-    $user->save();
+    $mediafile=((new Mediafile())->populate(['id' => $idUp]));
+    $mediafile->setIsDeleted(1);
+    $mediafile->save();
 
-    echo "L'utilisateur ".$user->getUsername()." a été supprimé";
+    echo "Le fichier mutlimédia ".$mediafile->getName()." a été supprimé";
 
 }
 
 ?>
-</div>
