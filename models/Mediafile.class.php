@@ -7,8 +7,8 @@
         protected $description;
         protected $path;
         protected $isDeleted;
-        protected $date_inserted;
-        protected $date_updated;
+        protected $dateInserted;
+        protected $dateUpdated;
 
 
         public function __construct($id = -1, $description = null, $path = null, $status = 0) {
@@ -21,31 +21,31 @@
 
 
         public function getId() {
-            echo $this->id;
+            return $this->id;
         }
 
-        public function setname($name) {
+        public function setName($name) {
             $this->name = trim($name);
         }
 
-        public function getname() {
-            echo $this->name;
+        public function getName() {
+            return $this->name;
         }
 
-        public function setdescription($description) {
+        public function setDescription($description) {
             $this->description = trim($description);
         }
 
-        public function getdescription() {
-            echo $this->description;
+        public function getDescription() {
+            return $this->description;
         }
 
-        public function setpath($path) {
+        public function setPath($path) {
             $this->path = trim($path);
         }
 
-        public function getpath() {
-            echo $this->path;
+        public function getPath() {
+            return $this->path;
         }
 
         public function setIsDeleted($isDeleted) {
@@ -53,15 +53,15 @@
         }
 
         public function getStatus() {
-            return $this -> $status;
+            return $this -> status;
         }
 
         public function getdate_inserted() {
-            echo $this->date_inserted;
+            return $this-> dateInserted;
         }
 
         public function getdate_updated() {
-            echo $this->date_updated;
+            return $this-> dateUpdated;
         }
 
         public function getFormMediafile()
@@ -86,7 +86,7 @@
                     ],
                     "mediafile" => [
                         "type" => "file",
-                        "placeholder" => "",
+                        "placeholder" => "Votre image",
                         "required" => true
                     ],
                 ]

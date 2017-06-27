@@ -7,7 +7,14 @@ class BackUserController
 {
 
     public function UserMenuAction() {
+        $datausers = new User();
         $v = new View("userMenu");
+
+        $search = ["id","username","firstname","lastname","email","status","dateInserted"];
+        $res = $datausers->getObj($search);
+
+        $v->assign("search", $search);
+        $v->assign("result", $res);
     }
 
     public function UserAddAction() {

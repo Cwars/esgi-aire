@@ -1,5 +1,3 @@
-
-<div class="content-wrapper">
     <h1>Fichiers Multimédias</h1>
     <div>
         <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/mediafile/add" class="button-add">Ajouter</a>
@@ -7,9 +5,6 @@
     <table class="table">
 
         <?php
-        $datausers = new User();
-
-        $search = ["id","username","firstname","lastname","email","status","dateInserted"];
 
         echo "<thead><tr>";
         foreach ($search as $key){
@@ -21,21 +16,21 @@
         echo "</tr></thead>";
 
 
-        foreach($datausers->getObj($search) as $user)
+        foreach($result as $mediafile)
         {
             echo "<tr>";
 
-            foreach ($user as $u)
+            foreach ($mediafile as $fileinfo)
             {
                 echo "<td>";
-                echo $u;
+                echo $fileinfo;
                 echo "</td>";
             }
             echo "<td>";
-            echo "<a class='table-button' href='Update/" . $user['id'] . "'> Update </a>";
+            echo "<a class='table-button' href='Update/" . $mediafile['id'] . "'> Update </a>";
             echo "</td>";
             echo "<td>";
-            echo "<a class='table-button' href='ActionDelete/" . $user['id'] . "'> Delete </a>";
+            echo "<a class='table-button' href='ActionDelete/" . $mediafile['id'] . "'> Delete </a>";
             echo "</td>";
 
             echo "</tr>";
@@ -43,4 +38,3 @@
         ?>
 
     </table>
-</div> <!-- .content-wrapper -->

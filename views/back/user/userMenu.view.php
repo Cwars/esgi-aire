@@ -1,5 +1,3 @@
-
-<div class="content-wrapper">
     <h1>Utilisateur</h1>
     <div>
         <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/user/add" class="button-add">Ajouter</a>
@@ -7,9 +5,7 @@
     <table class="table">
 
         <?php
-        $datausers = new User();
 
-        $search = ["id","username","firstname","lastname","email","status","dateInserted"];
 
         echo "<thead><tr>";
         foreach ($search as $key){
@@ -21,7 +17,7 @@
         echo "</tr></thead>";
 
 
-        foreach($datausers->getObj($search) as $user)
+        foreach($result as $user)
         {
             echo "<tr>";
 
@@ -43,4 +39,3 @@
         ?>
 
     </table>
-</div> <!-- .content-wrapper -->

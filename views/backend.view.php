@@ -64,13 +64,15 @@
             </li>
 
         </ul>
-
-
     </nav>
-        <?php
-            // include "views/".$this->view.".view.php";
-            include $this->view.".view.php";
-         ?>
+
+    <div class="content-wrapper">
+
+            <?php
+                // include "views/".$this->view.".view.php";
+                include $this->view.".view.php";
+             ?>
+    </div>
 
 </main> <!-- .cd-main-content -->
 

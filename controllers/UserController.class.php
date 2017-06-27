@@ -18,8 +18,8 @@ class UserController
 
     }
 
-    public function loginAction()
-    {
+    public function loginAction(){
+
     }
 
 

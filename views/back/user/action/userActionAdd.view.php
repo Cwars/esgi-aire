@@ -65,7 +65,7 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
         $user->setLastname($lastname);
         $user->setEmail($email);
         $user->setPwd($pwd);
-        $user->setStatus("Admin");
+        $user->setStatus($statut);
         $user->setIsDeleted(0);
         // $user -> setBirthday($username);
 

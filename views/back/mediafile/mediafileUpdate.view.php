@@ -1,5 +1,3 @@
-<div class="content-wrapper">
-    <?php
+<?php
     $this->includeModal("formUpdate", $formUpdate);
-    ?>
-</div>
+?>

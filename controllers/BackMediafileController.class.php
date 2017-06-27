@@ -6,11 +6,15 @@
 class BackMediafileController
 {
     public function MediafileMenuAction() {
-        $v = new View("mediafileMenu");
-    }
+        $datausers = new Mediafile();
 
-    public function MediafileAction() {
         $v = new View("mediafileMenu");
+        $search = ["id","name","description","path","dateInserted"];
+        $res = $datausers->getObj($search);
+
+        $v->assign("search", $search);
+        $v->assign("result", $res);
+
     }
 
     public function MediafileAddAction() {

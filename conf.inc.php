@@ -23,6 +23,7 @@ $msgError = [
     "nbTitle"=>"Le titre doit faire au moins 2 caractères",
     "nbContent"=>"Le contenu doit faire au moins 2 caractères",
     "titleUsed"=>"Ce titre est déjà utilisé",
+    "NoMediafile"=>"Pas de d'image",
     10=>"10",
     11=>"11"
 ];
