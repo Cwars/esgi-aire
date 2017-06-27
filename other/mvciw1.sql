@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
+-- version 4.4.15.5
+-- http://www.phpmyadmin.net
 --
--- Client :  127.0.0.1
--- Généré le :  Ven 23 Juin 2017 à 15:28
--- Version du serveur :  5.7.14
--- Version de PHP :  5.6.25
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jun 27, 2017 at 02:08 PM
+-- Server version: 5.6.34-log
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,16 +17,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `mvciw1`
+-- Database: `mvciw1`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `calendar`
+-- Table structure for table `calendar`
 --
 
-CREATE TABLE `calendar` (
+CREATE TABLE IF NOT EXISTS `calendar` (
   `id` int(11) NOT NULL,
   `description` tinytext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -34,10 +34,10 @@ CREATE TABLE `calendar` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `comment`
+-- Table structure for table `comment`
 --
 
-CREATE TABLE `comment` (
+CREATE TABLE IF NOT EXISTS `comment` (
   `id` int(11) NOT NULL,
   `content` tinyint(4) NOT NULL,
   `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -49,10 +49,10 @@ CREATE TABLE `comment` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `events`
+-- Table structure for table `events`
 --
 
-CREATE TABLE `events` (
+CREATE TABLE IF NOT EXISTS `events` (
   `id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
   `description` tinyint(4) NOT NULL,
@@ -67,10 +67,10 @@ CREATE TABLE `events` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `gallery`
+-- Table structure for table `gallery`
 --
 
-CREATE TABLE `gallery` (
+CREATE TABLE IF NOT EXISTS `gallery` (
   `id` int(11) NOT NULL,
   `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dateUpdated` timestamp NULL DEFAULT NULL,
@@ -80,10 +80,10 @@ CREATE TABLE `gallery` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `mediafile`
+-- Table structure for table `mediafile`
 --
 
-CREATE TABLE `mediafile` (
+CREATE TABLE IF NOT EXISTS `mediafile` (
   `id` int(11) NOT NULL,
   `path` varchar(45) NOT NULL,
   `description` tinytext NOT NULL,
@@ -97,27 +97,42 @@ CREATE TABLE `mediafile` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `news`
+-- Table structure for table `news`
 --
 
-CREATE TABLE `news` (
+CREATE TABLE IF NOT EXISTS `news` (
   `id` int(11) NOT NULL,
-  `title` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 NOT NULL,
   `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `dateUpdated` timestamp NULL DEFAULT NULL,
-  `isDeleted` binary(1) NOT NULL DEFAULT '\0',
+  `dateUpdated` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `isDeleted` tinyint(1) NOT NULL DEFAULT '0',
   `content` longtext CHARACTER SET utf8 NOT NULL,
-  `author` int(25) NOT NULL,
-  `typeNews` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `author` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `type` varchar(11) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `title`, `dateInserted`, `dateUpdated`, `isDeleted`, `content`, `author`, `type`) VALUES
+(1, 'aaaaaa', '2017-06-27 13:12:28', '2017-06-27 14:06:37', 1, 'aaaaaa', 'aaaaaaaaaaaaa', 'Blog'),
+(2, 'aaaaaaa', '2017-06-27 13:50:02', '2017-06-27 14:06:37', 1, 'aaaaaaaaadddd', 'aaaaaa', 'Blog'),
+(3, 'Rith', '2017-06-27 13:56:02', '2017-06-27 14:06:37', 1, 'lol', 'david', 'Blog'),
+(4, 'fdfdfd', '2017-06-27 13:59:09', '2017-06-27 14:06:37', 1, 'hijhhhbe', 'fdfd', 'Blog'),
+(5, 'fffffffffffffffffff', '2017-06-27 13:27:35', '2017-06-27 14:06:37', 0, 'fffffff', 'ffffffffffffffffff', 'Blog'),
+(6, 'aaaaaaaa', '2017-06-27 13:50:23', '2017-06-27 14:06:37', 0, '123', 'aaaaaaaaaaaaaaaaa', 'Blog'),
+(7, 'dddddddddd', '2017-06-27 13:47:03', '2017-06-27 14:06:37', 1, 'ddddddddddddddddddddd', 'dddddddddddddddd', 'Blog'),
+(8, '2706', '2017-06-27 13:59:20', '2017-06-27 14:06:37', 0, '2112', '2542', 'Blog'),
+(9, 'zzzzzz', '2017-06-27 14:07:30', '2017-06-27 14:07:30', 0, 'aaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaa', 'Blog');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `newsletter`
+-- Table structure for table `newsletter`
 --
 
-CREATE TABLE `newsletter` (
+CREATE TABLE IF NOT EXISTS `newsletter` (
   `id` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
   `isSubscribed` binary(1) NOT NULL DEFAULT '\0'
@@ -126,150 +141,133 @@ CREATE TABLE `newsletter` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `param`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `param` (
+CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL,
-  `author` tinytext NOT NULL,
-  `content` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `user`
---
-
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `pwd` char(60) NOT NULL,
-  `firstname` varchar(50) NOT NULL,
-  `lastname` varchar(50) NOT NULL,
-  `birthday` int(11) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '0',
-  `isDeleted` binary(1) NOT NULL DEFAULT '\0',
-  `date_inserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_updated` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `username` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `email` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `pwd` varchar(60) CHARACTER SET utf8 NOT NULL,
+  `firstname` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `lastname` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `status` varchar(11) CHARACTER SET utf8 NOT NULL,
+  `isDeleted` tinyint(1) NOT NULL DEFAULT '0',
+  `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `dateUpdated` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `email`, `pwd`, `firstname`, `lastname`, `birthday`, `status`, `isDeleted`, `date_inserted`, `date_updated`) VALUES
-(1, 'alexandre.ting@ymail.com', 'haha', 'Alex', 'Ting', 21, 0, 0x00, '2017-05-01 22:09:36', NULL),
-(12, '', '', '', '', 0, 0, 0x00, '2017-05-01 22:33:02', NULL),
-(13, '', '', '', '', 0, 0, 0x00, '2017-05-01 22:38:07', NULL);
+INSERT INTO `user` (`id`, `username`, `email`, `pwd`, `firstname`, `lastname`, `status`, `isDeleted`, `dateInserted`, `dateUpdated`) VALUES
+(1, '', 'alexandre.ting@ymail.com', 'haha', 'Alex', 'Ting', '0', 1, '2017-05-01 22:09:36', '2017-05-21 15:22:03'),
+(49, 'aaaaa', 'aaaaaaa@free.fr', '$2y$10$IFCIsDiT4B1WsMpIbat8EOQ/sY6e5ZQttmtK4Ynurcb4YOCflPbVm', 'aaaaaaaa', 'aaaaaaaaaa', 'Admin', 0, '2017-06-27 09:49:27', '2017-06-27 09:49:27'),
+(50, 'Cwars', 'cwars@hotmail.fr', '$2y$10$RMqDAmVxRtWBzb1NlRiVMexlw.7e5IZsW6Mgw3EmyJN71iEq7EJre', 'cwars', 'cwars', 'Admin', 1, '2017-06-27 10:04:17', '2017-06-27 10:04:17'),
+(51, 'aaaaaaaa', 'aaaaaaa@free.fr', '$2y$10$hOc7Cm7F1FpTaUJgH7O8P.mm1htFcO85ZZ/OjwFmJ54Gb8m/XrJ1u', 'aaaaaaaaaaaaaa', 'aaaaaaaaaaaa', 'Admin', 0, '2017-06-27 10:10:53', '2017-06-27 10:10:53'),
+(52, 'aaaaaaa', 'aaaaaaa@free.fr', '$2y$10$3Jf9kTxdMjqPeT25HUQGn.DwwRVPY/vdCwZSZZFFiSGvxB.u8i6cS', 'aaaaaa', 'aaaaaaaaaaa', 'User', 0, '2017-06-27 10:22:29', '2017-06-27 10:22:29'),
+(48, 'aaaaaaaaaaaaa', 'aaa@free.fr', '$2y$10$hlElWOCyMiIywlAX.isL5uQAtUkeoqHXh5pf5DMuq7kr4gylv6rSG', 'aaaaaaaaaaaa', 'aaaa', 'Admin', 0, '2017-06-26 12:51:03', '2017-06-26 12:51:03'),
+(46, 'aaaa', 'aaa@free.fr', '$2y$10$9CBJIWt.lKk1Ow7I2e03Z.l5htq7kPyS6m023g3sKBECZOpWn1K2e', 'aaa', 'aaa', 'Admin', 0, '2017-06-14 12:39:45', '2017-06-14 12:39:45'),
+(47, 'aaaaaaaaa', 'aaa@free.fr', '$2y$10$IL0Q4C.c1S1fzwdhspNrFOijUSKpKXHpNRoRF5GHpSbs8khGojNqW', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaa', 'Admin', 0, '2017-06-14 14:11:40', '2017-06-14 14:11:40'),
+(45, 'aaaa', 'aaa@free.fr', '$2y$10$P0VRdDJojxXLMBM1UEx9hOc2I4q/5MBCfRWhIjqf7ZBYzD/1Z6IoS', 'aaa', 'aaa', 'Admin', 1, '2017-06-14 12:25:12', '2017-06-14 12:25:12');
 
 --
--- Index pour les tables exportées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `calendar`
+-- Indexes for table `calendar`
 --
 ALTER TABLE `calendar`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `comment`
+-- Indexes for table `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `events`
+-- Indexes for table `events`
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `gallery`
+-- Indexes for table `gallery`
 --
 ALTER TABLE `gallery`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `mediafile`
+-- Indexes for table `mediafile`
 --
 ALTER TABLE `mediafile`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `news`
+-- Indexes for table `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `newsletter`
+-- Indexes for table `newsletter`
 --
 ALTER TABLE `newsletter`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `param`
---
-ALTER TABLE `param`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `calendar`
+-- AUTO_INCREMENT for table `calendar`
 --
 ALTER TABLE `calendar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT pour la table `comment`
+-- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT pour la table `events`
+-- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT pour la table `gallery`
+-- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT pour la table `mediafile`
+-- AUTO_INCREMENT for table `mediafile`
 --
 ALTER TABLE `mediafile`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT pour la table `news`
+-- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT pour la table `newsletter`
+-- AUTO_INCREMENT for table `newsletter`
 --
 ALTER TABLE `newsletter`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT pour la table `param`
---
-ALTER TABLE `param`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=53;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

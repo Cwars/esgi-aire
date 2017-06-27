@@ -7,7 +7,7 @@
         $news->setIsDeleted(0);
         $news->save();
 
-        echo "L'article".$user->getUsername." a été restauré";
+        echo "L'article".$news->getTitle." a été restauré";
     }
     ?>
 </div>

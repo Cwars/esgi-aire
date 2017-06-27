@@ -7,7 +7,14 @@ class BackNewsController
 {
 
     public function NewsMenuAction() {
+        $datanews = new News();
         $v = new View("newsMenu");
+
+        $search = ["id","title","author","content","type","dateInserted"];
+        $res = $datanews->getObj($search);
+
+        $v->assign("search", $search);
+        $v->assign("result", $res);
     }
 
     public function NewsAddAction() {
@@ -16,9 +23,9 @@ class BackNewsController
         $v->assign("formNews", $news->getFormNews());
     }
 
-//    public function NewsActionAddAction() {
-//        $v = new View("newsActionAdd");
-//    }
+    public function NewsActionAddAction() {
+        $v = new View("newsActionAdd");
+    }
 
     public function NewsUpdateAction($params) {
         $v = new View("newsUpdate");

@@ -4,11 +4,12 @@ if( !empty($_POST['title']) && !empty($_POST['content'])  && !empty($_POST['auth
     $title = trim($_POST['title']);
     $author = trim($_POST['author']);
     $content = trim($_POST['content']);
+    $type = trim($_POST['type']);
 
     $error = false;
     $listOfErrors = [];
 
-    if (strlen(title) == 1) {
+    if (strlen($title) == 1) {
         //Le titre doit faire au moins 2 caractères
         $listOfErrors[] = "nbTitle";
         $error = true;
@@ -27,10 +28,10 @@ if( !empty($_POST['title']) && !empty($_POST['content'])  && !empty($_POST['auth
     }
 
     if ($error === false) {
-        $news->setTitle(title);
+        $news->setTitle($title);
         $news->setAuthor($author);
         $news->setContent($content);
-        $news->setStatus("Blog");
+        $news->setType($type);
         $news->setIsDeleted(0);
 
         $news->save();

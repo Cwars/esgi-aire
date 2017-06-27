@@ -1,78 +1,43 @@
 <?php
-if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST['lastname']) && isset($_POST["email"]) && isset($_POST["pwd"]) && isset($_POST["pwd2"])) {
+if( !empty($_POST['title']) && !empty($_POST['author']) && !empty($_POST['content'])) {
 
-    $user = new User();
+    $news = new News();
     $id = $idUpdate;
-    echo $idUpdate;
-    $username = trim($_POST['username']);
-    $firstname = trim($_POST['firstname']);
-    $lastname = trim($_POST['lastname']);
-    $email = trim($_POST['email']);
-    $statut = trim($_POST['statut']);
-    $pwd = $_POST['pwd'];
-    $pwd2 = $_POST['pwd2'];
-    //Birthday
+    $title = trim($_POST['title']);
+    $author = trim($_POST['author']);
+    $content = trim($_POST['content']);
+    $type = trim($_POST['type']);
 
     $error = false;
     $listOfErrors = [];
 
-    if (strlen($username) == 1) {
-        //Le nom d'utilisateur doit faire au moins 2 caractères
-        $listOfErrors[] = "nbUsername";
+    if (strlen($title) == 1) {
+        //Le titre doit faire au moins 2 caractères
+        $listOfErrors[] = "nbTitle";
         $error = true;
     }
 
-    if ($user->populate(['username' => $username])){
+    if ($title !== $titleUpdate && $news->populate(['title' => $title])){
         //Le nom d'utilisateur est déja utilisé
-        $listOfErrors[] = "usernameUsed";
+        $listOfErrors[] = "titleUsed";
         $error = true;
     }
 
-    //Vérifier le nom
-    if (strlen($lastname) == 1) {
-        //Le nom doit faire au moins 2 caractères
-        $listOfErrors[] = "nbLastname";
-        $error = true;
-    }
-
-    //Vérifier le prénom
-    if (strlen($firstname) == 1) {
-        //Le prénom doit faire au moins 2 caractères
-        $listOfErrors[] = "nbFirstname";
-        $error = true;
-    }
-
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        // Email incorrect
-        $listOfErrors[] = "errorEmail";
-        $error = true;
-    }
-
-    if (strlen($pwd) < 8 || strlen($pwd) > 12) {
-        //Le mot de passe doit faire entre 8 et 12 caractères
-        $listOfErrors[] = "nbPwd";
-        $error = true;
-    }
-
-    if ($pwd != $pwd2) {
-        //Le mot de passe de confirmation ne correspond pas
-        $listOfErrors[] = "pw1/pw2";
+    if (strlen($content) == 1) {
+        //Le contenu doit faire au moins 2 caractères
+        $listOfErrors[] = "nbContent";
         $error = true;
     }
 
     if ($error === false) {
-        $user->setId($id);
-        $user->setUsername($username);
-        $user->setFirstname($firstname);
-        $user->setLastname($lastname);
-        $user->setEmail($email);
-        $user->setPwd($pwd);
-        $user->setStatus($statut);
-        $user->setIsDeleted(0);
+        $news->setId($id);
+        $news->setTitle($title);
+        $news->setcontent($content);
+        $news->setAuthor($author);
+        $news->setType($type);
+        $news->setIsDeleted(0);
 
-        // $user -> setBirthday($username);
-
-        $user->save();
+        $news->save();
     }else{
         $_SESSION["form_error"] = $listOfErrors;
         $_SESSION["form_post"] = $_POST;

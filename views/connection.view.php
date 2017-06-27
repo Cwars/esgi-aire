@@ -13,6 +13,6 @@
             // include "views/".$this->view.".view.php";
             include $this->view.".view.php";
 ?>
-
+<script type="text/javascript" src="<?php echo PATH_RELATIVE ; ?>/assets/ckeditor/ckeditor.js"></script>
 </body>
 </html>

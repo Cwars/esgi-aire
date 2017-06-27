@@ -73,8 +73,7 @@
                 include $this->view.".view.php";
              ?>
     </div>
-
 </main> <!-- .cd-main-content -->
-
+<script type="text/javascript" src="<?php echo PATH_RELATIVE ; ?>/assets/ckeditor/ckeditor.js"></script>
 </body>
 </html>

@@ -4,11 +4,11 @@
 if(isset($idDelete)){
 
     $idUp = $idDelete[0];
-    $user=((new User())->populate(['id' => $idUp]));
-    $user->setIsDeleted(1);
-    $user->save();
+    $news=((new News())->populate(['id' => $idUp]));
+    $news->setIsDeleted(1);
+    $news->save();
 
-    echo "L'utilisateur ".$user->getUsername()." a été supprimé";
+    echo "L'article ".$news->getTitle()." a été supprimé";
 
 }
 
