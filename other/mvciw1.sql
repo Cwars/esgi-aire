@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 27, 2017 at 02:08 PM
+-- Generation Time: Jul 05, 2017 at 02:54 PM
 -- Server version: 5.6.34-log
 -- PHP Version: 5.6.28
 
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `content` longtext CHARACTER SET utf8 NOT NULL,
   `author` varchar(50) CHARACTER SET utf8 NOT NULL,
   `type` varchar(11) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `news`
@@ -121,10 +121,13 @@ INSERT INTO `news` (`id`, `title`, `dateInserted`, `dateUpdated`, `isDeleted`, `
 (3, 'Rith', '2017-06-27 13:56:02', '2017-06-27 14:06:37', 1, 'lol', 'david', 'Blog'),
 (4, 'fdfdfd', '2017-06-27 13:59:09', '2017-06-27 14:06:37', 1, 'hijhhhbe', 'fdfd', 'Blog'),
 (5, 'fffffffffffffffffff', '2017-06-27 13:27:35', '2017-06-27 14:06:37', 0, 'fffffff', 'ffffffffffffffffff', 'Blog'),
-(6, 'aaaaaaaa', '2017-06-27 13:50:23', '2017-06-27 14:06:37', 0, '123', 'aaaaaaaaaaaaaaaaa', 'Blog'),
+(6, 'aaaaaaaa', '2017-06-27 14:09:20', '2017-06-27 14:09:20', 0, '123ezez', 'aaaaaaaaaaaaaaaaa', 'Blog'),
 (7, 'dddddddddd', '2017-06-27 13:47:03', '2017-06-27 14:06:37', 1, 'ddddddddddddddddddddd', 'dddddddddddddddd', 'Blog'),
-(8, '2706', '2017-06-27 13:59:20', '2017-06-27 14:06:37', 0, '2112', '2542', 'Blog'),
-(9, 'zzzzzz', '2017-06-27 14:07:30', '2017-06-27 14:07:30', 0, 'aaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaa', 'Blog');
+(8, '2706', '2017-06-27 14:09:26', '2017-06-27 14:09:26', 1, '2112', '2542ss', 'Blog'),
+(9, 'zzzzzz', '2017-06-27 14:07:30', '2017-06-27 14:07:30', 0, 'aaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaa', 'Blog'),
+(10, 'eeeeeeeeeeeeeeeee', '2017-06-27 14:13:40', '2017-06-27 14:13:40', 0, 'eeeeeeeeee', 'eeeeeeeeeeeee', 'News'),
+(11, 'aaaaaaaaa', '2017-07-05 12:16:31', '2017-07-05 12:16:31', 0, 'aaaaaaaaaaaassssssssss', 'aaaaaaaaaaaaaaaaaaaa', 'Blog'),
+(12, 'a111', '2017-07-05 12:17:59', '2017-07-05 12:17:59', 0, '11111111111111', '11', 'News');
 
 -- --------------------------------------------------------
 
@@ -155,22 +158,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `isDeleted` tinyint(1) NOT NULL DEFAULT '0',
   `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dateUpdated` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=57 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `pwd`, `firstname`, `lastname`, `status`, `isDeleted`, `dateInserted`, `dateUpdated`) VALUES
-(1, '', 'alexandre.ting@ymail.com', 'haha', 'Alex', 'Ting', '0', 1, '2017-05-01 22:09:36', '2017-05-21 15:22:03'),
-(49, 'aaaaa', 'aaaaaaa@free.fr', '$2y$10$IFCIsDiT4B1WsMpIbat8EOQ/sY6e5ZQttmtK4Ynurcb4YOCflPbVm', 'aaaaaaaa', 'aaaaaaaaaa', 'Admin', 0, '2017-06-27 09:49:27', '2017-06-27 09:49:27'),
-(50, 'Cwars', 'cwars@hotmail.fr', '$2y$10$RMqDAmVxRtWBzb1NlRiVMexlw.7e5IZsW6Mgw3EmyJN71iEq7EJre', 'cwars', 'cwars', 'Admin', 1, '2017-06-27 10:04:17', '2017-06-27 10:04:17'),
-(51, 'aaaaaaaa', 'aaaaaaa@free.fr', '$2y$10$hOc7Cm7F1FpTaUJgH7O8P.mm1htFcO85ZZ/OjwFmJ54Gb8m/XrJ1u', 'aaaaaaaaaaaaaa', 'aaaaaaaaaaaa', 'Admin', 0, '2017-06-27 10:10:53', '2017-06-27 10:10:53'),
-(52, 'aaaaaaa', 'aaaaaaa@free.fr', '$2y$10$3Jf9kTxdMjqPeT25HUQGn.DwwRVPY/vdCwZSZZFFiSGvxB.u8i6cS', 'aaaaaa', 'aaaaaaaaaaa', 'User', 0, '2017-06-27 10:22:29', '2017-06-27 10:22:29'),
-(48, 'aaaaaaaaaaaaa', 'aaa@free.fr', '$2y$10$hlElWOCyMiIywlAX.isL5uQAtUkeoqHXh5pf5DMuq7kr4gylv6rSG', 'aaaaaaaaaaaa', 'aaaa', 'Admin', 0, '2017-06-26 12:51:03', '2017-06-26 12:51:03'),
-(46, 'aaaa', 'aaa@free.fr', '$2y$10$9CBJIWt.lKk1Ow7I2e03Z.l5htq7kPyS6m023g3sKBECZOpWn1K2e', 'aaa', 'aaa', 'Admin', 0, '2017-06-14 12:39:45', '2017-06-14 12:39:45'),
-(47, 'aaaaaaaaa', 'aaa@free.fr', '$2y$10$IL0Q4C.c1S1fzwdhspNrFOijUSKpKXHpNRoRF5GHpSbs8khGojNqW', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaa', 'Admin', 0, '2017-06-14 14:11:40', '2017-06-14 14:11:40'),
-(45, 'aaaa', 'aaa@free.fr', '$2y$10$P0VRdDJojxXLMBM1UEx9hOc2I4q/5MBCfRWhIjqf7ZBYzD/1Z6IoS', 'aaa', 'aaa', 'Admin', 1, '2017-06-14 12:25:12', '2017-06-14 12:25:12');
+(55, 'User', 'user@free.fr', '$2y$10$WzoAN8ZYr30z3eHFftS0kO3DJxoeUH5FnkTC66znpeMEpFSKgF.5W', 'User', 'user', 'User', 0, '2017-07-05 14:53:54', '2017-07-05 14:53:54'),
+(56, 'admin', 'admin@free.fr', '$2y$10$IEiRAH/sCbOzbzMdrSgtZ.g3fhpHSTbS25roiPMx0fLzC5GF2phVa', 'admin', 'admin', 'Admin', 0, '2017-07-05 14:54:11', '2017-07-05 14:54:11');
 
 --
 -- Indexes for dumped tables
@@ -257,7 +253,7 @@ ALTER TABLE `mediafile`
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `newsletter`
 --
@@ -267,7 +263,7 @@ ALTER TABLE `newsletter`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=57;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
