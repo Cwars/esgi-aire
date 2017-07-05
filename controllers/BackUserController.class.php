@@ -69,4 +69,8 @@ class BackUserController
         $v = new View("userConnection");
         $v->assign("formConnection", $user->getFormConnection());
     }
+
+    public function UserLogoutAction() {
+        $v = new View("userLogout");
+    }
 }

@@ -6,6 +6,8 @@
     <meta name="Description" content="Page d'accueil" />
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>/assets/front/css/screen.css">
     <link href="https://fonts.googleapis.com/css?family=Jaldi" rel="stylesheet"></head>
+	<link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>/assets/front/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
 <body>
 
 <header>

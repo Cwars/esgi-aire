@@ -6,7 +6,7 @@ define("PATH_RELATIVE_PATTERN", "\/projetannuelaire");
 
 define("DB_NAME", "mvciw1");
 define("DB_USER", "root");
-define("DB_PWD", "root");
+define("DB_PWD", "");
 define("DB_PORT", "3306");
 define("DB_HOST", "localhost");
 
@@ -25,5 +25,11 @@ $msgError = [
     "titleUsed"=>"Ce titre est déjà utilisé",
     "NoMediafile"=>"Pas de d'image",
     10=>"10",
-    11=>"11"
+    11=>"11",
+    /*Erreur pour connexion*/
+    12 => "Identifiant inconnu.",
+    13 => "Mot de passe incorrect.",
+    14 => "Vous n'avez pas les autorisations pour rentrer ici.",
+    15 => "Un caractère interdit s'est glissé quelque part !",
+    16 => "Les champs sont obligatoire"
 ];

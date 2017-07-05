@@ -1,0 +1,30 @@
+/*
+  Images
+ */
+$image-path : "../images/";
+$footer-image : $image-path+"footer.png";
+$header-image : $image-path+"header.png";
+$events-image : $image-path+"events.png";
+$logo-image : $image-path+"logo.png";
+
+$home-slider-height : 100%;
+$home-slider-width : 100%;
+
+
+/*
+  Background Colors
+ */
+
+$dark-background-color : #000;
+$light-background-color : #fff;
+$background-color : #282828;
+
+
+/*
+  Grid
+ */
+
+$screen-sm-min : 768px;
+$screen-md-min : 992px;
+$screen-lg-min : 1200px;
+

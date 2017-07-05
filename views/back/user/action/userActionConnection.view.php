@@ -1,28 +1,34 @@
 <div class="content-wrapper">
     <?php
-    $user = new User();
-    $username = $_POST['username'];
-    $password = $_POST['pwd'];
 
-    if($user->populate(['username' => $username])){
+    if(isset($_SESSION['user_id']))
+    {
+        header("Location: ".PATH_RELATIVE."back/Dashboard/menu");
+    }
 
-        $user = $user->populate(['username' => $username]);
+    if (isset($_POST['username']) && isset($_POST['pwd'])) {
 
-        if (password_verify($password, $user->getPassword())) {
+        $user = new User();
+        $username = $_POST['username'];
+        $password = $_POST['pwd'];
 
-            session_start();
-            $_SESSION['username'] = $username;
-            $_SESSION['user_id'] = $user->getId();
-            echo "Vous êtes connecté !";
+        if ($user->populate(['username' => $username])) { // SI identifiant dans bdd
 
-            header("Location: ".$_SERVER["HTTP_REFERER"]);
+            $user = $user->populate(['username' => $username]);
 
+            if (password_verify($password, $user->getPassword())) { // SI mdp correspond celui identifiant
+
+                session_start();
+                $_SESSION['username'] = $username;
+                $_SESSION['user_id'] = $user->getId();
+                header("Location: " . PATH_RELATIVE . "back/Dashboard/menu");
+            } else {
+                echo "Mauvais mot de passe";
+            }
         } else {
-            echo "Mauvais mot de passe";
+            echo "Mauvais Username";
         }
     }
-    else{
-        echo "Mauvais Username";
-    }
     ?>
+
 </div>

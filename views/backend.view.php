@@ -1,3 +1,9 @@
+<?php
+if(!isset($_SESSION['user_id']))
+{
+    header("Location: ".PATH_RELATIVE."back/user/Connection");
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -22,7 +28,7 @@
         <ul class="nav-header-link-list">
             <li><a href="#"><i class="fa fa-wrench" aria-hidden="true"></i></a></li>
             <li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+            <li><a href="<?php echo PATH_RELATIVE; ?>/back/user/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
         </ul>
     </nav>
 </header>

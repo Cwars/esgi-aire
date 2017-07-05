@@ -229,7 +229,7 @@
                 return [
                     "options" => [
                         "method" => "POST",
-                        "action" => "ActionConnection",
+                        "action" => "Connection",
                         "class" => "login-form",
                         "id" => "Connection"
                     ],
