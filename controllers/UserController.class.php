@@ -5,22 +5,11 @@
  */
 class UserController
 {
-
-    public function userAdd() {
-
+    public function userAction() {
+        $v = new View("user");
     }
 
-    public function userDelete(){
-
+    public function userConfirmationAction() {
+        $v = new View("userConfirmation");
     }
-
-    public function userUpdate(){
-
-    }
-
-    public function loginAction(){
-
-    }
-
-
 }
