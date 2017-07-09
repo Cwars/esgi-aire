@@ -70,6 +70,8 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
         // $user -> setBirthday($username);
 
         $user->save();
+
+        $_SESSION["added"] = "1";
     }else{
         $_SESSION["form_error"] = $listOfErrors;
         $_SESSION["form_post"] = $_POST;

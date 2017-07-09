@@ -190,7 +190,11 @@ input {
 input[type="text"], input[type="password"], input[type="date"], input[type="email"], select{
   border-radius: 5px;
   border-color: lighten($blue, 15%);
-  padding: 5px;
+  padding: 10px;
+  width: 100%;
+}
+select{
+  margin-bottom: 15px;
 }
 input[type="submit"],input[type="button"] {
   border-radius: 5px;
@@ -203,7 +207,7 @@ input[type="submit"],input[type="button"] {
 
 #Register {
   background: #ffffff none repeat scroll 0 0;
-  margin: 0 auto 100px;
+  margin: 0 auto 20px;
   max-width: 360px;
   padding: 45px;
   position: relative;
@@ -219,8 +223,8 @@ input[type="submit"],input[type="button"] {
   width: 66%;
 }
 input {
-  background: #f2f2f2 none repeat scroll 0 0;
-  border: 0 none;
+  background: #f2f2f2;
+  border: 1px solid lighten($blue, 15%);
   box-sizing: border-box;
   font-family: "Roboto",sans-serif;
   font-size: 14px;
@@ -228,6 +232,12 @@ input {
   outline: 0 none;
   padding: 15px;
   width: 100%;
+
+  &:last-of-type {
+    margin-bottom: 5px;
+  }
+
+
 }
 
 /** Style pour tables **/
@@ -354,7 +364,7 @@ body {
   width: 60%;
 }
 
-@media only screen and (max-width: $screen-lg-min) {
+@media (max-width: $screen-lg-min) {
   .info-error {
     padding: 15px 10px;
     background-color: rgba(255,0,0,0.5);

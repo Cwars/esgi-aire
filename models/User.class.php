@@ -128,14 +128,6 @@
                         "placeholder" => "Nom d'utilisateur",
                         "required" => true
                     ],
-                    "Option" => [
-                        "optionName" => "statut",
-                        "type" => "select",
-                        "option" => [
-                            "option1" => "Admin",
-                            "option2" => "User"
-                        ]
-                    ],
                     "firstname" => [
                         "type" => "text",
                         "placeholder" => "Prénom",
@@ -160,6 +152,14 @@
                         "type" => "password",
                         "placeholder" => "Confirmation mot de passe",
                         "required" => true
+                    ],
+                    "Option" => [
+                        "optionName" => "statut",
+                        "type" => "select",
+                        "option" => [
+                            "option1" => "Admin",
+                            "option2" => "User"
+                        ]
                     ],
                 ]
             ];
