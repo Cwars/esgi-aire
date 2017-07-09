@@ -1,5 +1,5 @@
 <?php
-if(isset($_SESSION['admin']) && $_SESSION['admin'] != '1')
+if(isset($_SESSION['admin']) && $_SESSION['admin'] != '1' || !isset($_SESSION['admin']))
 {
     $_SESSION['error'] = 14;
     header("Location: ".PATH_RELATIVE."back/user/Connection");

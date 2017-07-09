@@ -31,5 +31,12 @@ $msgError = [
     13 => "Mot de passe incorrect.",
     14 => "Vous n'avez pas les autorisations pour rentrer ici.",
     15 => "Un caractère interdit s'est glissé quelque part !",
-    16 => "Les champs sont obligatoire"
+    16 => "Les champs sont obligatoire",
+    /* */
+    17 => "Nom d'utilisateur déjà utilisé.",
+    18 => "Email déjà utilisé."
+];
+
+$msgSuccess = [
+    "added"=>"L'utilisateur à correctement été ajouté."
 ];

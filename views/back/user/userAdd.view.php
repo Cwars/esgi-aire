@@ -4,7 +4,7 @@
 <?php
 $this->includeModal("form", $formRegister);
 
-if( isset($_SESSION["form_error"]) ){
+if( isset($_SESSION["form_error"])){
 ?>
     <div class="info-error">
 <?php
@@ -15,24 +15,42 @@ if( isset($_SESSION["form_error"]) ){
 ?>
     </div>
 <?php
-}?>
+}
+if (isset($_SESSION['added']) && $_SESSION['added'] == 1)
+{
+?>
+    <div class="info-error">
+        <?php
+        echo $msgSuccess["added"];
+        ?>
+    </div>
+<?php
+}
+?>
     <pre>
         <?php
         var_dump($_SESSION);
         ?>
     </pre>
 
+    <pre>
+        <?php
+        var_dump($_SESSION['form_error']);
+        ?>
+    </pre>
+
 </div>
 <!-- .content-wrapper -->
 <script>
-    var sessionError = [<?php $i = 1; foreach ($_SESSION['form_post'] as $error) { echo "'".$error."'"; if ($i < sizeof($_SESSION['form_post'])) { echo ","; $i++; } } ?>];
+    var sessionData = [<?php $i = 1; foreach ($_SESSION['form_post'] as $data) { echo "'".$data."'"; if ($i < sizeof($_SESSION['form_post'])) { echo ","; $i++; } } ?>];
 
-    document.getElementsByName("username")[0].value = sessionError[0];
-    document.getElementsByName("firstname")[0].value = sessionError[1];
-    document.getElementsByName("lastname")[0].value = sessionError[2];
-    document.getElementsByName("email")[0].value = sessionError[3];
+    document.getElementsByName("username")[0].value = sessionData[0];
+    document.getElementsByName("firstname")[0].value = sessionData[1];
+    document.getElementsByName("lastname")[0].value = sessionData[2];
+    document.getElementsByName("email")[0].value = sessionData[3];
 </script>
 
 <?php
+unset($_SESSION['added']);
 unset($_SESSION['form_error']);
 unset($_SESSION['form_post']);
