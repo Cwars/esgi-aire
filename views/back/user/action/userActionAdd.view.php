@@ -79,7 +79,10 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
     $_SESSION["form_error"] = $listOfErrors;
     $_SESSION["form_post"] = $_POST;
 }
+header("Location: ".PATH_RELATIVE."back/user/add");
 
+
+// Supprimé ca en dessous, stocker valeur du formulaire en session  => une foi de retour sur la page,
 echo "<div class=\"content-wrapper\">";
 if( isset($_SESSION["form_error"]) ){
     foreach ($_SESSION["form_error"] as $error) {

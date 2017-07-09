@@ -8,3 +8,6 @@ $this->includeModal("form", $formRegister);
 
 </div>
 <!-- .content-wrapper -->
+<script>
+    var sessionId = <?php echo $_SESSION['id']; ?>;
+</script>

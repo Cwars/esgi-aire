@@ -22,13 +22,25 @@
 
 /* line 19, ../scss/login.scss */
 .info-error {
-  padding: 15px;
+  padding: 15px 5px;
   background-color: rgba(255, 0, 0, 0.5);
   color: #FFFFFF;
   text-align: center;
+  font-weight: bold;
 }
 
 /* line 26, ../scss/login.scss */
+.info-blue {
+  margin-top: 5px;
+  padding: 10px 10px;
+  font-size: 11px;
+  text-align: left;
+  background-color: #64a9ed;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+/* line 35, ../scss/login.scss */
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
@@ -40,12 +52,12 @@
   box-sizing: border-box;
   font-size: 14px;
 }
-/* line 37, ../scss/login.scss */
+/* line 46, ../scss/login.scss */
 .form input:last-of-type:hover {
   cursor: pointer;
   background: #64a9ed;
 }
-/* line 43, ../scss/login.scss */
+/* line 52, ../scss/login.scss */
 .form button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
@@ -60,30 +72,30 @@
   transition: all 0.3 ease;
   cursor: pointer;
 }
-/* line 57, ../scss/login.scss */
+/* line 66, ../scss/login.scss */
 .form button:hover, .form button:active, .form button:focus {
   background: #378fe7;
 }
 
-/* line 61, ../scss/login.scss */
+/* line 70, ../scss/login.scss */
 .container {
   position: relative;
   z-index: 1;
   max-width: 300px;
   margin: 0 auto;
 }
-/* line 67, ../scss/login.scss */
+/* line 76, ../scss/login.scss */
 .container:before, .container .container:after {
   content: "";
   display: block;
   clear: both;
 }
-/* line 72, ../scss/login.scss */
+/* line 81, ../scss/login.scss */
 .container .info {
   margin: 50px auto;
   text-align: center;
 }
-/* line 76, ../scss/login.scss */
+/* line 85, ../scss/login.scss */
 .container .info h1 {
   margin: 0 0 15px;
   padding: 0;
@@ -91,22 +103,22 @@
   font-weight: 300;
   color: #1a1a1a;
 }
-/* line 83, ../scss/login.scss */
+/* line 92, ../scss/login.scss */
 .container .info span {
   color: #4d4d4d;
   font-size: 12px;
 }
-/* line 87, ../scss/login.scss */
+/* line 96, ../scss/login.scss */
 .container .info span a {
   color: #000000;
   text-decoration: none;
 }
-/* line 91, ../scss/login.scss */
+/* line 100, ../scss/login.scss */
 .container .info span .fa {
   color: #EF3B3A;
 }
 
-/* line 95, ../scss/login.scss */
+/* line 104, ../scss/login.scss */
 body {
   background: #1976d2;
   /* fallback for old browsers */
@@ -119,14 +131,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 105, ../scss/login.scss */
+/* line 114, ../scss/login.scss */
 .logo {
   width: 100%;
   position: relative;
   z-index: 2;
   margin-bottom: -30px;
 }
-/* line 111, ../scss/login.scss */
+/* line 120, ../scss/login.scss */
 .logo .logo-img {
   margin: auto;
   display: block;

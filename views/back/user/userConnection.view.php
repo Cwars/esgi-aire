@@ -1,5 +1,5 @@
 <?php
-if(isset($_SESSION['user_id']))
+if(isset($_SESSION['admin']) && $_SESSION['admin'] == '1')
 {
     header("Location: ".PATH_RELATIVE."back/Dashboard/menu");
 }
@@ -22,14 +22,24 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if (password_verify($password, $user->getPassword())) { // SI mdp correspond celui identifiant
 
                     $status = $user->getStatus();
-                    if ($status = 'admin') {
+                    if ($status == 'Admin') {
+                        session_unset();
+                        session_destroy();
                         session_start();
                         $_SESSION['username'] = $username;
                         $_SESSION['user_id'] = $user->getId();
                         $_SESSION['admin'] = 1;
                         header("Location: " . PATH_RELATIVE . "back/Dashboard/menu");
                     } else
+                    {
+                        session_unset();
+                        session_destroy();
+                        session_start();
+                        $_SESSION['username'] = $username;
+                        $_SESSION['user_id'] = $user->getId();
+                        $_SESSION['admin'] = 0;
                         $error[] = 14;
+                    }
                 } else
                     $error[] = 13;
             } else
@@ -39,6 +49,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else
         $error[] = 16;
 }
+echo "<pre>";
+var_dump($_SESSION);
+echo "</pre>";
 ?>
 
 
@@ -60,6 +73,26 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             ?>
         </div>
     <?php
+    }
+    if(isset($_SESSION['error']) && $_SESSION['error'] == 14) {
+        ?>
+        <div class="info-error">
+            <?php
+                echo $msgError[14];
+            ?>
+        </div>
+        <?php
+        unset($_SESSION['error']);
+    }
+
+    if(isset($_SESSION['admin']) && $_SESSION['admin'] != 1) {
+        ?>
+        <div class="info-blue">
+            Vous êtes actuellement connecté en tant qu'utilisateur normal.<br>
+            Veuillez vous connecté sur un compte Admin pour naviguer dans votre Back Office.
+        </div>
+        <?php
+        unset($_SESSION['error']);
     }
     ?>
 </div>

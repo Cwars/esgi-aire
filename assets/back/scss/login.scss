@@ -17,10 +17,19 @@
 }
 
 .info-error {
-  padding: 15px;
-  background-color: rgba(255,0,0,0.5);
+ padding: 15px 5px;
+ background-color: rgba(255,0,0,0.5);
+ color: #FFFFFF;
+ text-align: center;
+ font-weight: bold;
+}
+.info-blue {
+  margin-top: 5px;
+  padding: 10px 10px;
+  font-size: 11px;
+  text-align: left;  background-color: lighten($blue, 20%);
   color: #FFFFFF;
-  text-align: center;
+  font-weight: bold;
 }
 .form {
   input {
