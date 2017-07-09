@@ -359,3 +359,32 @@ body {
 .button-add:hover {
   background-color: #00ace6;
 }
+
+/* line 347, ../scss/style.scss */
+.info-error {
+  padding: 15px 10px;
+  background-color: rgba(255, 0, 0, 0.5);
+  color: #FFFFFF;
+  font-weight: bold;
+  display: block;
+  margin: auto;
+  width: 60%;
+}
+
+@media only screen and (max-width: 1200px) {
+  /* line 358, ../scss/style.scss */
+  .info-error {
+    padding: 15px 10px;
+    background-color: rgba(255, 0, 0, 0.5);
+    color: #FFFFFF;
+    font-weight: bold;
+    display: block;
+    margin: auto;
+    width: 80%;
+  }
+
+  /* line 368, ../scss/style.scss */
+  .main-content .content-wrapper {
+    margin-left: 50px;
+  }
+}

@@ -14,7 +14,7 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
     $listOfErrors = [];
 
     //Le nom d'utilisateur est déjà utilisé
-    if (strlen($username) == 1) {
+    if (strlen($username) < 1) {
         //Le nom d'utilisateur doit faire au moins 2 caractères
         $listOfErrors[] = "nbUsername";
         $error = true;
@@ -83,12 +83,3 @@ header("Location: ".PATH_RELATIVE."back/user/add");
 
 
 // Supprimé ca en dessous, stocker valeur du formulaire en session  => une foi de retour sur la page,
-echo "<div class=\"content-wrapper\">";
-if( isset($_SESSION["form_error"]) ){
-    foreach ($_SESSION["form_error"] as $error) {
-        echo "<li>".$msgError[$error];
-    }
-}
-unset($_SESSION["form_post"]);
-unset($_SESSION["form_error"]);
-echo "</div>";

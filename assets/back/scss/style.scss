@@ -344,5 +344,28 @@ body {
   }
 }
 
+.info-error {
+  padding: 15px 10px;
+  background-color: rgba(255,0,0,0.5);
+  color: #FFFFFF;
+  font-weight: bold;
+  display: block;
+  margin: auto;
+  width: 60%;
+}
 
+@media only screen and (max-width: $screen-lg-min) {
+  .info-error {
+    padding: 15px 10px;
+    background-color: rgba(255,0,0,0.5);
+    color: #FFFFFF;
+    font-weight: bold;
+    display: block;
+    margin: auto;
+    width: 80%;
+  }
 
+  .main-content .content-wrapper {
+    margin-left: 50px;
+  }
+}
