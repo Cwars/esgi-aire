@@ -28,7 +28,7 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] != '1' || !isset($_SESSION['a
     <nav class="nav-header-link">
         <ul class="nav-header-link-list">
             <li><a href="#"><i class="fa fa-wrench" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
+            <li><a href="#" OnClick="javascript:window.location.reload()" ><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
             <li><a href="<?php echo PATH_RELATIVE; ?>/back/user/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
         </ul>
     </nav>
