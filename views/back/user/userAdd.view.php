@@ -27,17 +27,6 @@ if (isset($_SESSION['added']) && $_SESSION['added'] == 1)
 <?php
 }
 ?>
-    <pre>
-        <?php
-        var_dump($_SESSION);
-        ?>
-    </pre>
-
-    <pre>
-        <?php
-        var_dump($_SESSION['form_error']);
-        ?>
-    </pre>
 
 </div>
 <!-- .content-wrapper -->
