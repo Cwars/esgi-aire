@@ -15,13 +15,15 @@
         <nav>
             <ul>
                 <li><img src="<?php echo PATH_RELATIVE ; ?>/assets/front/images/logo.png" id="logo" alt="logo"></li>
-                <li class="menu"><a href="">Home</a></li>
-                <li class="menu"><a href="">Actualité</a></li>
-                <li class="menu"><a href="">Présentation</a></li>
-                <li class="menu"><a href="">Contact</a></li>
-                <li class="menu"><a href="">Planning</a></li>
-                <li class="menu"><a href="">Evènement</a></li>
-                <li class="menu"><a href="">Galerie</a></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>home">Home</a></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>news">Actualité</a></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>presentation">Présentation</a></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>planning">Planning</a></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>event">Evènement</a></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>gallery">Galerie</a></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>contact">Contact</a></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>contact">Connexion</a></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>contact">Inscription</a></li>
             </ul>
         </nav>
     </div>

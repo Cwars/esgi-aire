@@ -6,20 +6,24 @@
 class NewsController
 {
 
-    public function newsAdd() {
+//    public function newsAdd() {
+//
+////        $article = new News();
+////        $article -> setContent($content);
+////        $article -> setTitle($title);
+////        $article ->save();
+//    }
+//
+//    public function newsDelete(){
+//
+//    }
+//
+//    public function newsUpdate(){
+//
+//    }
 
-//        $article = new News();
-//        $article -> setContent($content);
-//        $article -> setTitle($title);
-//        $article ->save();
-    }
-
-    public function newsDelete(){
-
-    }
-
-    public function newsUpdate(){
-
+    public function newsAction() {
+        $v = new View("news");
     }
 
 
