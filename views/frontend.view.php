@@ -49,6 +49,6 @@
     </div>
 </footer>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo PATH_RELATIVE ; ?>/assets/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
 </body>
 </html>

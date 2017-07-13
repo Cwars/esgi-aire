@@ -7,3 +7,5 @@ projetAnnuel2017-master/back/fonts/font-awesome-4.7.0/HELP-US-OUT.txt
 *.php
 core/View.class.php
 *.iml
+core/Routing.class.php
+conf.inc.php

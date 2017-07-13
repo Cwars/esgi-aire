@@ -85,7 +85,7 @@ class News extends BaseSql  {
                 "title" => [
                     "type" => "text",
                     "placeholder" => "Titre de l'article",
-                    "required" => true
+                    "required" => true,
                 ],
                 "author" => [
                     "type" => "text",
@@ -93,9 +93,10 @@ class News extends BaseSql  {
                     "required" => true
                 ],
                 "content" => [
-                    "type" => "text",
+                    "type" => "textarea",
                     "placeholder" => "Contenu de l'article",
-                    "required" => true
+                    "required" => true,
+                    "name" => "content",
                 ],
                 "Option" => [
                     "optionName" => "type",

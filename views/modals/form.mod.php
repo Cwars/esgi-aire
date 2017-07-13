@@ -22,6 +22,14 @@
                 <?php endforeach; ?>
             </select>
         <?php endif; ?>
+        <?php if(
+            $attribute['type'] == "textarea"
+        ) : ?>
+            <textarea class="ckeditor" name="<?php echo $attribute["name"] ?>" placeholder="<?php echo $attribute["placeholder"]; ?>"></textarea>
+            <script type="text/javascript">
+                CKEDITOR.replace(jQuery('.<?php echo $attribute["class"] ?>'));
+            </script>
+        <?php endif; ?>
     <?php endforeach; ?>
     <input type="submit" value="Submit">
 </form>
