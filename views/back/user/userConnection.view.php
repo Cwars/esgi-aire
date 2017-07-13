@@ -15,11 +15,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user = new User();
             $username = $_POST['username'];
             $password = $_POST['pwd'];
-            if ($user->populate(['username' => $username])) { // SI identifiant dans bdd
+            if ($user->populate(['username' => $username])) { // Si identifiant dans bdd
 
                 $user = $user->populate(['username' => $username]);
 
-                if (password_verify($password, $user->getPassword())) { // SI mdp correspond celui identifiant
+                if (password_verify($password, $user->getPassword())) { // Si mdp correspond celui identifiant
 
                     $status = $user->getStatus();
                     if ($status == 'Admin') {
