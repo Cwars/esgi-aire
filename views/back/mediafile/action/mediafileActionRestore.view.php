@@ -1,13 +1,15 @@
-<div class="content-wrapper">
-    <?php
-    if(isset($idRestore)){
-        $idUp = $idRestore[0];
+<?php
 
-        $user=((new User())->populate(['id' => $idUp]));
-        $user->setIsDeleted(0);
-        $user->save();
+if(isset($idrestore)){
 
-        echo "L'utilisateur".$user->getUsername." a été restauré";
-    }
-    ?>
-</div>
+    $idUp = $idrestore[0];
+    $mediafile=((new Mediafile())->populate(['id' => $idUp]));
+    $mediafile->setIsDeleted(0);
+    $mediafile->save();
+
+    echo "Le fichier mutlimédia ".$mediafile->getTitle()." a été restauré";
+
+}
+
+?>
+

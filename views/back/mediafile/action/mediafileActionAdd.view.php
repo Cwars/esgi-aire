@@ -34,51 +34,69 @@
 
 
         if ($error === false) {
-            $avatarFileType = ["png", "jpg", "jpeg", "gif"];
-            $avatarLimitSize = 10000000;
+            $fileType = ["png", "jpg", "jpeg", "gif","mp3","wav","mp4","mov"];
+            $limitSize = 100000000;
 
             if(empty($_FILES['mediafile'])){
                 $listOfErrors[]='NoMediafile';
                 $error = true;
             }else if($_FILES['mediafile']["error"] > 0){
+
                 $error = true;
                 switch ($_FILES["mediafile"]["error"]) {
                     case UPLOAD_ERR_INI_SIZE:
-                        $listOfErrors[]="9";
+                        $listOfErrors[]='NoMediafile';
                         break;
                     case UPLOAD_ERR_FORM_SIZE:
-                        $listOfErrors[]="9";
+                        $listOfErrors[]='NoMediafile';
                         break;
                     case UPLOAD_ERR_PARTIAL:
-                        $listOfErrors[]="9";
+                        $listOfErrors[]='NoMediafile';
                         break;
                     case UPLOAD_ERR_NO_FILE:
-                        $listOfErrors[]="9";
+                        $listOfErrors[]='NoMediafile';
                         break;
                     case UPLOAD_ERR_NO_TMP_DIR:
-                        $listOfErrors[]="9";
+                        $listOfErrors[]='NoMediafile';
                         break;
                     case UPLOAD_ERR_CANT_WRITE:
-                        $listOfErrors[]="9";
+                        $listOfErrors[]='NoMediafile';
                         break;
                     case UPLOAD_ERR_EXTENSION:
-                        $listOfErrors[]="9";
+                        $listOfErrors[]='NoMediafile';
                         break;
                     default:
-                        $listOfErrors[]="9";
+                        $listOfErrors[]='NoMediafile';
                         break;
                 }
             }else{
                 $infoFile = pathinfo($_FILES["mediafile"]["name"]);
 
-                if(!in_array( strtolower($infoFile["extension"]) , $avatarFileType)){
+                if(!in_array( strtolower($infoFile["extension"]) , $fileType)){
                     $listOfErrors[]="10";
                     $error = true;
                 }
 
-                if($_FILES["mediafile"]["size"]>$avatarLimitSize){
+                if($_FILES["mediafile"]["size"]>$limitSize){
                     $listOfErrors[]="11";
                     $error = true;
+                }
+
+                switch (strtolower($infoFile["extension"])){
+                    case "png":
+                    case "jpg":
+                    case "jpeg":
+                    case "gif":
+                        $type = "image";
+                        break;
+                    case "mp3":
+                    case "wav":
+                        $type = "musique";
+                        break;
+                    case "mp4":
+                    case "mov":
+                        $type = "vidéo";
+                        break;
                 }
             }
 
@@ -92,10 +110,14 @@
             $nameFile = uniqid().".". strtolower($infoFile["extension"]);
             move_uploaded_file($_FILES["mediafile"]["tmp_name"], $pathUpload.DS.$nameFile);
 
-            $mediafile->setName($title);
+            $mediafile->setTitle($title);
             $mediafile->setDescription($description);
             $mediafile->setIsDeleted(0);
             $mediafile->setPath($pathUpload.DS.$nameFile);
+            $mediafile->setType($type);
+            $mediafile->setIdParent(0);
+            $mediafile->setTypeParent("none");
+
 
             $mediafile->save();
         }else{

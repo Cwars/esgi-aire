@@ -1,6 +1,6 @@
     <h1>Fichiers Multimédias</h1>
     <div>
-        <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/mediafile/add" class="button-add">Ajouter</a>
+        <a href="http://<?php echo $_SERVER["HTTP_HOST"] ?><?php echo PATH_RELATIVE ; ?>back/mediafile/add" class="button-add">Ajouter</a>
     </div>
     <table class="table">
 

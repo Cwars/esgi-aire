@@ -27,12 +27,12 @@
             return $this->id;
         }
 
-        public function setName($name) {
-            $this->name = trim($name);
+        public function setTitle($title) {
+            $this->title = trim($title);
         }
 
-        public function getName() {
-            return $this->name;
+        public function getTitle() {
+            return $this->title;
         }
 
         public function setDescription($description) {
@@ -60,7 +60,7 @@
         }
 
         public function setTypeParent($typeParent) {
-            $this->type = trim($typeParent);
+            $this->typeParent = trim($typeParent);
         }
 
         public function getTypeParent() {
@@ -109,7 +109,7 @@
                     ],
                     "mediafile" => [
                         "type" => "file",
-                        "placeholder" => "Votre image",
+                        "placeholder" => "Votre fichier",
                         "required" => true
                     ],
                 ]

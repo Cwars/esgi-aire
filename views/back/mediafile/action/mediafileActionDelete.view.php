@@ -7,7 +7,7 @@ if(isset($idDelete)){
     $mediafile->setIsDeleted(1);
     $mediafile->save();
 
-    echo "Le fichier mutlimédia ".$mediafile->getName()." a été supprimé";
+    echo "Le fichier mutlimédia ".$mediafile->getTitle()." a été supprimé";
 
 }
 
