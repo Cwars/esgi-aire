@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 05, 2017 at 02:54 PM
+-- Generation Time: Jul 15, 2017 at 11:50 PM
 -- Server version: 5.6.34-log
--- PHP Version: 5.6.28
+-- PHP Version: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `calendar` (
   `id` int(11) NOT NULL,
-  `description` tinytext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `dateUpdate` timestamp NULL DEFAULT NULL,
   `idNews` int(11) NOT NULL,
   `idUser` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `events` (
   `isDeleted` binary(1) NOT NULL DEFAULT '\0',
   `idUser` int(11) NOT NULL,
   `idCalendar` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `gallery` (
   `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dateUpdated` timestamp NULL DEFAULT NULL,
   `isDeleted` binary(1) NOT NULL DEFAULT '\0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -85,14 +85,24 @@ CREATE TABLE IF NOT EXISTS `gallery` (
 
 CREATE TABLE IF NOT EXISTS `mediafile` (
   `id` int(11) NOT NULL,
-  `path` varchar(45) NOT NULL,
-  `description` tinytext NOT NULL,
-  `isDeleted` binary(1) NOT NULL DEFAULT '\0',
-  `idUser` int(11) NOT NULL,
-  `idNews` int(11) NOT NULL,
-  `typeFile` varchar(15) NOT NULL,
-  `idGallery` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `title` text NOT NULL,
+  `type` text NOT NULL,
+  `path` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `isDeleted` tinyint(1) NOT NULL DEFAULT '0',
+  `idParent` int(11) NOT NULL,
+  `typeParent` mediumtext NOT NULL,
+  `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `dateUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `mediafile`
+--
+
+INSERT INTO `mediafile` (`id`, `title`, `type`, `path`, `description`, `isDeleted`, `idParent`, `typeParent`, `dateInserted`, `dateUpdated`) VALUES
+(1, 'Test', 'image', 'C:\\MAMP\\htdocs\\esgi-aire\\views\\back\\mediafile', 'test', 0, 0, 'none', '2017-07-15 23:50:25', '2017-07-15 22:07:28'),
+(5, 'tokyo ghoul', 'musique', 'C:\\MAMP\\htdocs\\esgi-aire\\views\\back\\mediafile', 'Opening', 0, 0, 'none', '2017-07-15 23:50:28', '2017-07-15 22:39:34');
 
 -- --------------------------------------------------------
 
@@ -102,32 +112,22 @@ CREATE TABLE IF NOT EXISTS `mediafile` (
 
 CREATE TABLE IF NOT EXISTS `news` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `title` text NOT NULL,
   `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `dateUpdated` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `isDeleted` tinyint(1) NOT NULL DEFAULT '0',
-  `content` longtext CHARACTER SET utf8 NOT NULL,
-  `author` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `type` varchar(11) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+  `dateUpdated` timestamp NULL DEFAULT NULL,
+  `isDeleted` binary(1) NOT NULL DEFAULT '\0',
+  `content` longtext NOT NULL,
+  `author` text NOT NULL,
+  `type` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `news`
 --
 
 INSERT INTO `news` (`id`, `title`, `dateInserted`, `dateUpdated`, `isDeleted`, `content`, `author`, `type`) VALUES
-(1, 'aaaaaa', '2017-06-27 13:12:28', '2017-06-27 14:06:37', 1, 'aaaaaa', 'aaaaaaaaaaaaa', 'Blog'),
-(2, 'aaaaaaa', '2017-06-27 13:50:02', '2017-06-27 14:06:37', 1, 'aaaaaaaaadddd', 'aaaaaa', 'Blog'),
-(3, 'Rith', '2017-06-27 13:56:02', '2017-06-27 14:06:37', 1, 'lol', 'david', 'Blog'),
-(4, 'fdfdfd', '2017-06-27 13:59:09', '2017-06-27 14:06:37', 1, 'hijhhhbe', 'fdfd', 'Blog'),
-(5, 'fffffffffffffffffff', '2017-06-27 13:27:35', '2017-06-27 14:06:37', 0, 'fffffff', 'ffffffffffffffffff', 'Blog'),
-(6, 'aaaaaaaa', '2017-06-27 14:09:20', '2017-06-27 14:09:20', 0, '123ezez', 'aaaaaaaaaaaaaaaaa', 'Blog'),
-(7, 'dddddddddd', '2017-06-27 13:47:03', '2017-06-27 14:06:37', 1, 'ddddddddddddddddddddd', 'dddddddddddddddd', 'Blog'),
-(8, '2706', '2017-06-27 14:09:26', '2017-06-27 14:09:26', 1, '2112', '2542ss', 'Blog'),
-(9, 'zzzzzz', '2017-06-27 14:07:30', '2017-06-27 14:07:30', 0, 'aaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaa', 'Blog'),
-(10, 'eeeeeeeeeeeeeeeee', '2017-06-27 14:13:40', '2017-06-27 14:13:40', 0, 'eeeeeeeeee', 'eeeeeeeeeeeee', 'News'),
-(11, 'aaaaaaaaa', '2017-07-05 12:16:31', '2017-07-05 12:16:31', 0, 'aaaaaaaaaaaassssssssss', 'aaaaaaaaaaaaaaaaaaaa', 'Blog'),
-(12, 'a111', '2017-07-05 12:17:59', '2017-07-05 12:17:59', 0, '11111111111111', '11', 'News');
+(1, '0', '2017-07-14 00:08:54', NULL, 0x31, '<p>test</p>', 'Admin', 'News'),
+(2, 'Lorem Ipsum', '2017-07-15 04:02:23', NULL, 0x30, '<p><strong>Lorem ipsum</strong></p>\r\n\r\n<p><samp>dolor sit amet, consectetur adipiscing elit. Phasellus sed arcu dignissim, vehicula leo eget, dignissim libero. Maecenas rhoncus aliquam est, porttitor sodales metus porttitor at. Donec tincidunt porta maximus. Donec id ultrices augue. Praesent efficitur accumsan porttitor. In tempus elementum leo sed sodales. Nam rutrum maximus sem, non viverra mi pellentesque ac. Etiam ut felis velit. Sed cursus sagittis dui at porta. Vivamus eu nibh magna. Aliquam ac condimentum neque, non euismod dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse semper malesuada nibh, sed maximus erat porttitor ut. Nulla ultrices eu diam ut sollicitudin. Fusce sodales malesuada eros quis interdum.</samp></p>', 'admin', 'News');
 
 -- --------------------------------------------------------
 
@@ -139,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `newsletter` (
   `id` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
   `isSubscribed` binary(1) NOT NULL DEFAULT '\0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -149,24 +149,24 @@ CREATE TABLE IF NOT EXISTS `newsletter` (
 
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL,
-  `username` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `email` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `pwd` varchar(60) CHARACTER SET utf8 NOT NULL,
-  `firstname` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `lastname` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `status` varchar(11) CHARACTER SET utf8 NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `pwd` varchar(60) NOT NULL,
+  `firstname` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
+  `status` varchar(11) NOT NULL,
   `isDeleted` tinyint(1) NOT NULL DEFAULT '0',
   `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dateUpdated` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=MyISAM AUTO_INCREMENT=57 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `pwd`, `firstname`, `lastname`, `status`, `isDeleted`, `dateInserted`, `dateUpdated`) VALUES
-(55, 'User', 'user@free.fr', '$2y$10$WzoAN8ZYr30z3eHFftS0kO3DJxoeUH5FnkTC66znpeMEpFSKgF.5W', 'User', 'user', 'User', 0, '2017-07-05 14:53:54', '2017-07-05 14:53:54'),
-(56, 'admin', 'admin@free.fr', '$2y$10$IEiRAH/sCbOzbzMdrSgtZ.g3fhpHSTbS25roiPMx0fLzC5GF2phVa', 'admin', 'admin', 'Admin', 0, '2017-07-05 14:54:11', '2017-07-05 14:54:11');
+(24, 'admin', 'admin@admin.fr', '$2y$10$SXG3dunPHI5OW6DkuvQaXu.vZGXbaghyBcxHwoqE08StUSsEL5Pq2', 'admin', 'admin', 'Admin', 0, '2017-07-15 02:42:49', '2017-07-15 02:42:49'),
+(25, 'user', 'user@user.com', '$2y$10$Brx2.gGjmyMZTgVMpHriIuynQFg5WxX0t4WsH3RbksSKoQkE19ExW', 'user', 'user', 'User', 0, '2017-07-15 21:58:08', '2017-07-15 21:58:08');
 
 --
 -- Indexes for dumped tables
@@ -248,12 +248,12 @@ ALTER TABLE `gallery`
 -- AUTO_INCREMENT for table `mediafile`
 --
 ALTER TABLE `mediafile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `newsletter`
 --
@@ -263,7 +263,7 @@ ALTER TABLE `newsletter`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
