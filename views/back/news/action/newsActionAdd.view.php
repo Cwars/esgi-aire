@@ -1,15 +1,15 @@
 <?php
-if( !empty($_POST['title']) && !empty($_POST['content'])  && !empty($_POST['author'])) {
+if( !empty($_POST['title']) && !empty($_POST['content'])) {
     $news = new News();
     $title = trim($_POST['title']);
-    $author = trim($_POST['author']);
+    $author = $username;
     $content = trim($_POST['content']);
     $type = trim($_POST['type']);
 
     $error = false;
     $listOfErrors = [];
 
-    if (strlen($title) == 1) {
+    if (strlen($title) < 2) {
         //Le titre doit faire au moins 2 caractères
         $listOfErrors[] = "nbTitle";
         $error = true;

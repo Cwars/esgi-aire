@@ -23,6 +23,11 @@
                 <?php endforeach; ?>
             </select>
         <?php endif; ?>
+        <?php if(
+        $attribute['type'] == "textarea"
+        ) : ?>
+        <textarea class="ckeditor" name="<?php echo $name ?>" placeholder="<?php echo $attribute["placeholder"]; ?>" ><?php echo $attribute["value"]; ?></textarea>
+    <?php endif; ?>
     <?php endforeach; ?>
     <input type="submit" value="Submit">
 </form>

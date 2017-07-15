@@ -16,7 +16,7 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
         if (!$user->populate(['email' => $email])) {
 
             //Le nom d'utilisateur est déjà utilisé
-            if (strlen($username) < 1) {
+            if (strlen($username) < 2) {
                 //Le nom d'utilisateur doit faire au moins 2 caractères
                 $listOfErrors[] = "nbUsername";
                 $error = true;
@@ -91,9 +91,10 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
     $error = true;
     $_SESSION["form_post"] = $_POST;
 }
-if ($error == true)
+if ($error == true) {
     $_SESSION['form_error'] = $listOfErrors;
-header("Location: ".PATH_RELATIVE."back/user/add");
+    header("Location: " . PATH_RELATIVE . "back/user/add");
+}
 
 
 // Supprimé ca en dessous, stocker valeur du formulaire en session  => une foi de retour sur la page,

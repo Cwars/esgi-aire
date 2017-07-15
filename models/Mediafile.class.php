@@ -3,15 +3,18 @@
     class Mediafile extends BaseSql  {
 
         protected $id = -1;
-        protected $name;
+        protected $title;
         protected $description;
         protected $path;
+        protected $type;
+        protected $idParent;
+        protected $typeParent;
         protected $isDeleted;
         protected $dateInserted;
         protected $dateUpdated;
 
 
-        public function __construct($id = -1, $description = null, $path = null, $status = 0) {
+        public function __construct($id = -1, $description = null, $path = null, $type = null , $status = 0, $idParent = 0, $isDeleted = 0) {
             parent::__construct();
         }
 
@@ -48,12 +51,32 @@
             return $this->path;
         }
 
-        public function setIsDeleted($isDeleted) {
-            $this->isDeleted = $isDeleted;
+        public function setType($type) {
+            $this->type = trim($type);
         }
 
-        public function getStatus() {
-            return $this -> status;
+        public function getType() {
+            return $this->type;
+        }
+
+        public function setTypeParent($typeParent) {
+            $this->type = trim($typeParent);
+        }
+
+        public function getTypeParent() {
+            return $this->typeParent;
+        }
+
+        public function setIdParent($idParent) {
+            $this->idParent = trim($idParent);
+        }
+
+        public function getIdParent() {
+            return $this->idParent;
+        }
+
+        public function setIsDeleted($isDeleted) {
+            $this->isDeleted = $isDeleted;
         }
 
         public function getdate_inserted() {

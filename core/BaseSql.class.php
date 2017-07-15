@@ -33,7 +33,6 @@
             }
             $sqlCol = trim($sqlCol, ",");
             $sqlKey = trim($sqlKey, ",");
-            var_dump($sqlCol);
 
             try {
                 $req = $this->db->prepare("INSERT INTO ".$this->table." (".$sqlCol.") VALUES (".$sqlKey.");");

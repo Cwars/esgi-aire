@@ -1,5 +1,16 @@
     <?php
 
+    //protected $id = -1;
+    //protected $title;
+    //protected $description;
+    //protected $path;
+    //protected $type;
+    //protected $idParent;
+    //protected $typeParent;
+    //protected $isDeleted;
+    //protected $dateInserted;
+    //protected $dateUpdated;
+
     if( !empty($_POST['title']) && !empty($_POST['description'])) {
         $mediafile = new Mediafile();
 

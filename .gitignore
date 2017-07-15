@@ -4,8 +4,10 @@ projetAnnuel2017-master/back/fonts/font-awesome-4.7.0/HELP-US-OUT.txt
 .idea/workspace.xml
 .idea/modules.xml
 .idea/projetAnnuel2017.iml
+.htaccess
 *.php
 core/View.class.php
-*.iml
 core/Routing.class.php
 conf.inc.php
+*.iml
+

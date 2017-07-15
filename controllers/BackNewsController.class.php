@@ -24,25 +24,32 @@ class BackNewsController
     }
 
     public function NewsActionAddAction() {
+        $username = $_SESSION['username'];
         $v = new View("newsActionAdd");
+
+        $v->assign("username",$username);
     }
 
     public function NewsUpdateAction($params) {
         $v = new View("newsUpdate");
 
+
         $news=((new News())->populate(['id' => $params[0]]));
         $id = $params[0];
         $title = $news->getTitle();
-        $author = $news->getAuthor();
         $content = $news->getContent();
+        $type = $news->getType();
 
-        $v->assign("formUpdate", $news->getFormUpdate($id,$title,$author,$content));
+
+        $v->assign("formUpdate", $news->getFormUpdate($id,$title,$content,$type));
     }
     public function NewsActionUpdateAction($params) {
         $v = new View("newsActionUpdate");
+        $username = $_SESSION['username'];
         $news=((new News())->populate(['id' => $params[0]]));
 
         $title = $news->getTitle();
+        $v->assign("username",$username);
         $v->assign("idUpdate",$params[0]);
         $v->assign("titleUpdate",$title);
     }

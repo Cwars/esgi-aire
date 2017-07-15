@@ -25,10 +25,7 @@
         <?php if(
             $attribute['type'] == "textarea"
         ) : ?>
-            <textarea class="ckeditor" name="<?php echo $attribute["name"] ?>" placeholder="<?php echo $attribute["placeholder"]; ?>"></textarea>
-            <script type="text/javascript">
-                CKEDITOR.replace(jQuery('.<?php echo $attribute["class"] ?>'));
-            </script>
+            <textarea class="ckeditor" name="<?php echo $name ?>" placeholder="<?php echo $attribute["placeholder"]; ?>"></textarea>
         <?php endif; ?>
     <?php endforeach; ?>
     <input type="submit" value="Submit">

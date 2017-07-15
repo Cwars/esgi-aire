@@ -87,16 +87,10 @@ class News extends BaseSql  {
                     "placeholder" => "Titre de l'article",
                     "required" => true,
                 ],
-                "author" => [
-                    "type" => "text",
-                    "placeholder" => "Auteur de l'article",
-                    "required" => true
-                ],
                 "content" => [
                     "type" => "textarea",
                     "placeholder" => "Contenu de l'article",
                     "required" => true,
-                    "name" => "content",
                 ],
                 "Option" => [
                     "optionName" => "type",
@@ -112,7 +106,7 @@ class News extends BaseSql  {
         ];
     }
 
-    public function getFormUpdate($id,$title,$author,$content)
+    public function getFormUpdate($id,$title,$content,$type)
     {
         return [
             "options" => [
@@ -128,14 +122,8 @@ class News extends BaseSql  {
                     "required" => true,
                     "value" => "".$title."",
                 ],
-                "author" => [
-                    "type" => "text",
-                    "placeholder" => "Auteur",
-                    "required" => true,
-                    "value" => "".$author."",
-                ],
                 "content" => [
-                    "type" => "text",
+                    "type" => "textarea",
                     "placeholder" => "Contenu",
                     "required" => true,
                     "value" => "".$content."",
@@ -147,7 +135,8 @@ class News extends BaseSql  {
                         "option1" => "Blog",
                         "option2" => "News",
                         "option3" => "Music"
-                    ]
+                    ],
+                    "value" => "".$type."",
                 ],
 
             ]

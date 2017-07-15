@@ -1,10 +1,10 @@
 <?php
-if( !empty($_POST['title']) && !empty($_POST['author']) && !empty($_POST['content'])) {
+if( !empty($_POST['title']) && !empty($_POST['content'])) {
 
     $news = new News();
     $id = $idUpdate;
     $title = trim($_POST['title']);
-    $author = trim($_POST['author']);
+    $author = $username;
     $content = trim($_POST['content']);
     $type = trim($_POST['type']);
 
