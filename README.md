@@ -12,3 +12,16 @@ C:\wamp64\bin\apache\apache2.4.23\conf\extra\httpd-vhosts.conf
         DocumentRoot "C:/wamp64/www/projetannuelaire"
         ServerName esgi-aire.lan
     </VirtualHost>
+    
+    
+Config.inc.php
+    
+    define("DS", DIRECTORY_SEPARATOR);
+    define("PATH_RELATIVE", "http://".$_SERVER['SERVER_NAME']."/");
+    define("PATH_RELATIVE_PATTERN", "");
+
+.htaccess
+    
+    RewriteRule . /index.php [L]
+    
+    
