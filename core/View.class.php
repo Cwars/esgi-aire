@@ -52,27 +52,31 @@ class View {
     }
 
     public function setTemplate() {
-        if ($this->view != "back/user/userConnection" && $this->view != "back/user/action/userActionConnection"){
-            if ($this->cat === "back") {
-                if (file_exists("views/backend.view.php")) {
-                    $this->template = "backend";
-                } else {
-                    // logs
-                    die("Le template n'existe pas");
-                }
-            } else{
-                if (file_exists("views/frontend.view.php")) {
-                    $this->template = "frontend";
-                } else {
-                    // logs
+        if($this->view != "front/page/page404"){
+            if ($this->view != "back/user/userConnection" && $this->view != "back/user/action/userActionConnection"){
+                if ($this->cat === "back") {
+                    if (file_exists("views/backend.view.php")) {
+                        $this->template = "backend";
+                    } else {
+                        // logs
+                        die("Le template n'existe pas");
+                    }
+                } else{
+                    if (file_exists("views/frontend.view.php")) {
+                        $this->template = "frontend";
+                    } else {
+                        // logs
 
-                    die("Le template n'existe pas");
+                        die("Le template n'existe pas");
+                    }
                 }
+            }else {
+                $this->template = "connection";
             }
-        } else {
-            $this->template = "connection";
+            } else {
+            $this->template = "404";
         }
-    }
+        }
 
     public function assign($key, $value) {
         $this->data[$key] = $value;

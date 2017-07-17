@@ -24,8 +24,10 @@ $msgError = [
     "nbContent"=>"Le contenu doit faire au moins 2 caractères",
     "titleUsed"=>"Ce titre est déjà utilisé",
     "NoMediafile"=>"Pas de d'image",
+    "badMediaFileType" => "Le format du fichier n'est pas accepté",
     10=>"10",
     11=>"11",
+
     /*Erreur pour connexion*/
     12 => "Identifiant inconnu.",
     13 => "Mot de passe incorrect.",

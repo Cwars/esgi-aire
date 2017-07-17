@@ -40,7 +40,6 @@ class BackNewsController
         $content = $news->getContent();
         $type = $news->getType();
 
-
         $v->assign("formUpdate", $news->getFormUpdate($id,$title,$content,$type));
     }
     public function NewsActionUpdateAction($params) {

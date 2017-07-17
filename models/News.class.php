@@ -72,6 +72,10 @@ class News extends BaseSql  {
         $this->isDeleted = $isDeleted;
     }
 
+    public function getIsDeleted() {
+        return $this->isDeleted;
+    }
+
     public function getFormNews() {
         return [
             "options" => [

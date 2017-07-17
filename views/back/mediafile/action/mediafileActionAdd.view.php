@@ -1,15 +1,15 @@
     <?php
 
-    //protected $id = -1;
-    //protected $title;
-    //protected $description;
-    //protected $path;
-    //protected $type;
-    //protected $idParent;
-    //protected $typeParent;
-    //protected $isDeleted;
-    //protected $dateInserted;
-    //protected $dateUpdated;
+    //$id
+    //$title
+    //$description
+    //$path
+    //$type
+    //$idParent
+    //$typeParent
+    //$isDeleted
+    //$dateInserted
+    //$dateUpdated
 
     if( !empty($_POST['title']) && !empty($_POST['description'])) {
         $mediafile = new Mediafile();
@@ -25,12 +25,7 @@
             $listOfErrors[] = "1";
             $error = true;
         }
-        //Vérifier le description
-        if (strlen($description) == 0) {
-            //Le nom doit faire au moins 2 caractères
-            $listOfErrors[] = "2";
-            $error = true;
-        }
+
 
 
         if ($error === false) {
@@ -98,10 +93,18 @@
                         $type = "vidéo";
                         break;
                 }
+
+                //Vérifier le type
+                if ($type != typeUpdate || $type = null) {
+                    //Le type n'est pas le même qye le fichier d'origine
+                    $listOfErrors[] = "2";
+                    $error = true;
+                }
             }
 
             //Est ce que le dossier upload existe
-            $pathUpload = __DIR__.DS."upload";
+            $pathUpload =$_SERVER['DOCUMENT_ROOT'].DS."esgi-aire".DS."images".DS."upload";
+
             if( !file_exists($pathUpload) ){
                 //Sinon le créer
                 mkdir($pathUpload);
@@ -115,8 +118,8 @@
             $mediafile->setIsDeleted(0);
             $mediafile->setPath($pathUpload.DS.$nameFile);
             $mediafile->setType($type);
-            $mediafile->setIdParent(0);
-            $mediafile->setTypeParent("none");
+            $mediafile->setIdParent(-1);
+            $mediafile->setTypeParent(null);
 
 
             $mediafile->save();

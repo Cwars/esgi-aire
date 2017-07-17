@@ -108,20 +108,7 @@ class Routing {
     }
 
     public function page404() {
-        /*
-                $directory = "projetannuelaire";
-                $url = "http://".$_SERVER['HTTP_HOST']."/".$directory;
-        */
-        $url = "http://".$_SERVER['HTTP_HOST'];
-        die("
-            <link rel=\"stylesheet\" href=\"$url/assets/back/css/style.css\"> 
-            <div class=\"bg-notf\">
-             <div class=\"not-found\">
-                <h1>Erreur</h1>
-                <div class='backpage' ><a href=\"javascript:history.go(-1)\">Revenir à la page précédente</a></div>
-             </div>
-            </div>
-        ");
+        $v = new View("page404");
     }
 
 }
