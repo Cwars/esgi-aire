@@ -104,8 +104,22 @@ class News extends BaseSql  {
                         "option2" => "News",
                         "option3" => "Music"
                     ]
-
-                ]
+                    ],
+                "titleImage" => [
+                    "type" => "text",
+                    "placeholder" => "title du fichier",
+                    "required" => true
+                    ],
+                "description" => [
+                    "type" => "text",
+                    "placeholder" => "Description du fichier",
+                    "required" => false
+                    ],
+                "mediafile" => [
+                    "type" => "file",
+                    "placeholder" => "Votre fichier",
+                    "required" => true
+                    ],
             ]
         ];
     }

@@ -20,7 +20,7 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] != '1' || !isset($_SESSION['a
 <body>
 
 <header class="nav-header"> <!--cd-main-header-->
-    <a href="http://<?php echo $_SERVER["HTTP_HOST"] ?><?php echo PATH_RELATIVE ; ?>back/backmenu" class="logo"><img src="<?php echo PATH_RELATIVE ; ?>/assets/back/img/logo.png" alt="Logo"></a>
+    <a href="<?php echo PATH_RELATIVE ; ?>back/backmenu" class="logo"><img src="<?php echo PATH_RELATIVE ; ?>/assets/back/img/logo.png" alt="Logo"></a>
 
 
     <!--<a href="#" class="nav-header-trigger">Menu<span></span></a>-->
@@ -29,7 +29,7 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] != '1' || !isset($_SESSION['a
         <ul class="nav-header-link-list">
             <li><a href="#"><i class="fa fa-wrench" aria-hidden="true"></i></a></li>
             <li><a href="#" OnClick="javascript:window.location.reload()" ><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
-            <li><a href="http://<?php echo $_SERVER["HTTP_HOST"] ?><?php echo PATH_RELATIVE; ?>/back/user/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+            <li><a href="<?php echo PATH_RELATIVE; ?>/back/user/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
         </ul>
     </nav>
 </header>
@@ -40,33 +40,33 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] != '1' || !isset($_SESSION['a
             <li class="label">Menu</li>
 
             <li class="menu-icon">
-                <a href="http://<?php echo $_SERVER["HTTP_HOST"] ?><?php echo PATH_RELATIVE ; ?>back/Dashboard/menu"><i class="fa fa-tachometer" aria-hidden="true"></i></a>
+                <a href="<?php echo PATH_RELATIVE ; ?>back/Dashboard/menu"><i class="fa fa-tachometer" aria-hidden="true"></i></a>
                 <span class="page">Dashboard</span>
             </li>
 
             <li class="menu-icon">
-                <a href="http://<?php echo $_SERVER["HTTP_HOST"] ?><?php echo PATH_RELATIVE ; ?>back/page/menu"><i class="fa fa-clone" aria-hidden="true"></i></a>
+                <a href="<?php echo PATH_RELATIVE ; ?>back/page/menu"><i class="fa fa-clone" aria-hidden="true"></i></a>
                 <span class="page">Pages</span>
             </li>
 
             <li class="menu-icon">
-                <a href="http://<?php echo $_SERVER["HTTP_HOST"] ?><?php echo PATH_RELATIVE ; ?>back/news/menu"><i class="fa fa-newspaper-o" aria-hidden="true"></i></a>
+                <a href="<?php echo PATH_RELATIVE ; ?>back/news/menu"><i class="fa fa-newspaper-o" aria-hidden="true"></i></a>
                 <span class="page">Articles</span>
             </li>
 
             <li class="menu-icon">
-                <a href="http://<?php echo $_SERVER["HTTP_HOST"] ?><?php echo PATH_RELATIVE ; ?>back/user/menu"><i class="fa fa-user" aria-hidden="true"></i>
+                <a href="<?php echo PATH_RELATIVE ; ?>back/user/menu"><i class="fa fa-user" aria-hidden="true"></i>
                 </a>
                 <span class="page">Utilisateurs</span>
             </li>
 
             <li class="menu-icon">
-                <a href="http://<?php echo $_SERVER["HTTP_HOST"] ?><?php echo PATH_RELATIVE ; ?>back/event/menu"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+                <a href="<?php echo PATH_RELATIVE ; ?>back/event/menu"><i class="fa fa-calendar" aria-hidden="true"></i></a>
                 <span class="page">Evénements</span>
             </li>
 
             <li class="menu-icon">
-                <a href="http://<?php echo $_SERVER["HTTP_HOST"] ?><?php echo PATH_RELATIVE ; ?>back/mediafile/menu"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+                <a href="<?php echo PATH_RELATIVE ; ?>back/mediafile/menu"><i class="fa fa-files-o" aria-hidden="true"></i></a>
                 <span class="page">Fichiers multimédias</span>
             </li>
 

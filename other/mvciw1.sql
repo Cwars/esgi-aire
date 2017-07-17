@@ -56,7 +56,6 @@ CREATE TABLE IF NOT EXISTS `events` (
   `id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
   `description` tinyint(4) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dateUpdated` timestamp NULL DEFAULT NULL,
   `isDeleted` binary(1) NOT NULL DEFAULT '\0',
@@ -92,8 +91,8 @@ CREATE TABLE IF NOT EXISTS `mediafile` (
   `isDeleted` tinyint(1) NOT NULL DEFAULT '0',
   `idParent` int(11) NOT NULL,
   `typeParent` mediumtext NOT NULL,
-  `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `dateUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `dateUpdated` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
@@ -157,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `status` varchar(11) NOT NULL,
   `isDeleted` tinyint(1) NOT NULL DEFAULT '0',
   `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `dateUpdated` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `dateUpdated` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 --

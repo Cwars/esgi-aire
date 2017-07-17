@@ -36,7 +36,7 @@ class BackMediafileController
         $description = $media->getDescription();
         $mediafile = $media->getPath();
 
-        $v->assign("FormMediafileUpdate", $media->getFormMediafileUpdate($id,$title,$description,$mediafile));
+        $v->assign("FormMediafileUpdate", $media->getFormMediafileUpdate($id,$title,$description));
 
     }
 

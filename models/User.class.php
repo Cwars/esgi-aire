@@ -11,8 +11,8 @@
         protected $status;
        // protected $birthday;
         protected $isDeleted;
-        protected $dateInserted;
-        protected $dateUpdated;
+        //protected $dateInserted;
+        //protected $dateUpdated;
 
 
         public function __construct($id = -1, $email = null, $pwd = null, $username = null, $firstname = null, $lastname = null, $status = null) {

@@ -1,12 +1,12 @@
 <?php
 
 define("DS", DIRECTORY_SEPARATOR);
-define("PATH_RELATIVE", "/esgi-aire/");
-define("PATH_RELATIVE_PATTERN", "\/esgi-aire");
+define("PATH_RELATIVE", "http://".$_SERVER['SERVER_NAME']."/");
+define("PATH_RELATIVE_PATTERN", "");
 
 define("DB_NAME", "mvciw1");
 define("DB_USER", "root");
-define("DB_PWD", "root");
+define("DB_PWD", "");
 define("DB_PORT", "3306");
 define("DB_HOST", "localhost");
 
@@ -34,7 +34,6 @@ $msgError = [
     14 => "Vous n'avez pas les autorisations pour rentrer ici.",
     15 => "Un caractère interdit s'est glissé quelque part !",
     16 => "Les champs sont obligatoire",
-    /* */
     17 => "Nom d'utilisateur déjà utilisé.",
     18 => "Email déjà utilisé."
 ];

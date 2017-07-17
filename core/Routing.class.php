@@ -41,7 +41,7 @@ class Routing {
         if($this->side == "front"){
             $this->controller = (empty($this->uriExploded[0])) ? "index" : $this->uriExploded[0];
             $this->controllerName = $this->controller."Controller";
-        }else{
+        } elseif ($this->side === "back"){
             $this->controller = (empty($this->uriExploded[0])) ? "index" : $this->uriExploded[0].$this->uriExploded[1];
             $this->controllerName = $this->controller."Controller";
             unset($this->uriExploded[0]);

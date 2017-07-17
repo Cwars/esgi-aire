@@ -20,6 +20,7 @@ class BackNewsController
     public function NewsAddAction() {
         $news = new News();
         $v = new View('newsAdd');
+
         $v->assign("formNews", $news->getFormNews());
     }
 

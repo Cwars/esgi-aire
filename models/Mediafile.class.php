@@ -7,7 +7,7 @@
         protected $description;
         protected $path;
         protected $type;
-        protected $idParent;
+        protected $titleParent;
         protected $typeParent;
         protected $isDeleted;
         protected $dateInserted;
@@ -67,12 +67,12 @@
             return $this->typeParent;
         }
 
-        public function setIdParent($idParent) {
-            $this->idParent = trim($idParent);
+        public function setTitleParent($titleParent) {
+            $this->titleParent = trim($titleParent);
         }
 
-        public function getIdParent() {
-            return $this->idParent;
+        public function getTitleParent() {
+            return $this->titleParent;
         }
 
         public function setIsDeleted($isDeleted) {
@@ -116,7 +116,7 @@
             ];
         }
 
-        public function getFormMediafileUpdate($id,$title,$description,$mediafile)
+        public function getFormMediafileUpdate($id,$title,$description)
         {
             return [
                 "options" => [
@@ -142,7 +142,7 @@
                         "type" => "file",
                         "placeholder" => "Votre image",
                         "required" => true,
-                        "value" => "".$mediafile."",
+                        "value" => "",
                     ],
                 ]
             ];

@@ -12,7 +12,12 @@
             <input type="<?php echo $attribute["type"]; ?>"
                    name="<?php echo $name; ?>"
                    placeholder="<?php echo $attribute["placeholder"]; ?>"
-                   >
+                    <?php 
+                    if($attribute["required"] === true){
+                        echo "required";
+                    }
+                    ?>
+            >
         <?php endif; ?>
         <?php if(
             $attribute['type'] == "select"
@@ -25,7 +30,11 @@
         <?php if(
             $attribute['type'] == "textarea"
         ) : ?>
-            <textarea class="ckeditor" name="<?php echo $name ?>" placeholder="<?php echo $attribute["placeholder"]; ?>"></textarea>
+            <textarea class="ckeditor" name="<?php echo $name ?>" placeholder="<?php echo $attribute["placeholder"]; ?>"
+            <?php if($attribute["required"] === true){
+                echo "required";
+            }?>
+            ></textarea>
         <?php endif; ?>
     <?php endforeach; ?>
     <input type="submit" value="Submit">
