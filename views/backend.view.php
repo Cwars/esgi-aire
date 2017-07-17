@@ -40,22 +40,22 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] != '1' || !isset($_SESSION['a
             <li class="label">Menu</li>
 
             <li class="menu-icon">
-                <a href="http://<?php echo $_SERVER["HTTP_HOST"] ?><?php echo PATH_RELATIVE ; ?>back/Dashboard/menu"><i class="fa fa-tachometer" aria-hidden="true"></i></a>
+                <a href="http://<?php echo $_SERVER["HTTP_HOST"] ?><?php echo PATH_RELATIVE ; ?>/back/Dashboard/menu"><i class="fa fa-tachometer" aria-hidden="true"></i></a>
                 <span class="page">Dashboard</span>
             </li>
 
             <li class="menu-icon">
-                <a href="http://<?php echo $_SERVER["HTTP_HOST"] ?><?php echo PATH_RELATIVE ; ?>back/page/menu"><i class="fa fa-clone" aria-hidden="true"></i></a>
+                <a href="http://<?php echo $_SERVER["HTTP_HOST"] ?><?php echo PATH_RELATIVE ; ?>/back/page/menu"><i class="fa fa-clone" aria-hidden="true"></i></a>
                 <span class="page">Pages</span>
             </li>
 
             <li class="menu-icon">
-                <a href="http://<?php echo $_SERVER["HTTP_HOST"] ?><?php echo PATH_RELATIVE ; ?>back/news/menu"><i class="fa fa-newspaper-o" aria-hidden="true"></i></a>
+                <a href="http://<?php echo $_SERVER["HTTP_HOST"] ?><?php echo PATH_RELATIVE ; ?>/back/news/menu"><i class="fa fa-newspaper-o" aria-hidden="true"></i></a>
                 <span class="page">Articles</span>
             </li>
 
             <li class="menu-icon">
-                <a href="http://<?php echo $_SERVER["HTTP_HOST"] ?><?php echo PATH_RELATIVE ; ?>back/user/menu"><i class="fa fa-user" aria-hidden="true"></i>
+                <a href="http://<?php echo $_SERVER["HTTP_HOST"] ?><?php echo PATH_RELATIVE ; ?>/back/user/menu"><i class="fa fa-user" aria-hidden="true"></i>
                 </a>
                 <span class="page">Utilisateurs</span>
             </li>
@@ -66,7 +66,7 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] != '1' || !isset($_SESSION['a
             </li>
 
             <li class="menu-icon">
-                <a href="http://<?php echo $_SERVER["HTTP_HOST"] ?><?php echo PATH_RELATIVE ; ?>back/mediafile/menu"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+                <a href="http://<?php echo $_SERVER["HTTP_HOST"] ?><?php echo PATH_RELATIVE ; ?>/back/mediafile/menu"><i class="fa fa-files-o" aria-hidden="true"></i></a>
                 <span class="page">Fichiers multimédias</span>
             </li>
 
