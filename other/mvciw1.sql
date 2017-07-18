@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 15, 2017 at 11:50 PM
+-- Generation Time: Jul 18, 2017 at 09:52 PM
 -- Server version: 5.6.34-log
 -- PHP Version: 7.0.13
 
@@ -54,13 +54,13 @@ CREATE TABLE IF NOT EXISTS `comment` (
 
 CREATE TABLE IF NOT EXISTS `events` (
   `id` int(11) NOT NULL,
-  `name` varchar(45) NOT NULL,
+  `title` varchar(45) NOT NULL,
   `description` tinyint(4) NOT NULL,
-  `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `dateUpdated` timestamp NULL DEFAULT NULL,
+  `date` date NOT NULL,
+  `dateInserted` datetime NOT NULL,
+  `dateUpdated` datetime NOT NULL,
   `isDeleted` binary(1) NOT NULL DEFAULT '\0',
-  `idUser` int(11) NOT NULL,
-  `idCalendar` int(11) NOT NULL
+  `author` tinytext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -89,19 +89,19 @@ CREATE TABLE IF NOT EXISTS `mediafile` (
   `path` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `isDeleted` tinyint(1) NOT NULL DEFAULT '0',
-  `idParent` int(11) NOT NULL,
+  `titleParent` tinytext NOT NULL,
   `typeParent` mediumtext NOT NULL,
-  `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `dateUpdated` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  `dateInserted` datetime NOT NULL,
+  `dateUpdated` datetime NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `mediafile`
 --
 
-INSERT INTO `mediafile` (`id`, `title`, `type`, `path`, `description`, `isDeleted`, `idParent`, `typeParent`, `dateInserted`, `dateUpdated`) VALUES
-(1, 'Test', 'image', 'C:\\MAMP\\htdocs\\esgi-aire\\views\\back\\mediafile', 'test', 0, 0, 'none', '2017-07-15 23:50:25', '2017-07-15 22:07:28'),
-(5, 'tokyo ghoul', 'musique', 'C:\\MAMP\\htdocs\\esgi-aire\\views\\back\\mediafile', 'Opening', 0, 0, 'none', '2017-07-15 23:50:28', '2017-07-15 22:39:34');
+INSERT INTO `mediafile` (`id`, `title`, `type`, `path`, `description`, `isDeleted`, `titleParent`, `typeParent`, `dateInserted`, `dateUpdated`) VALUES
+(29, 'lilo & stich', 'musique', 'C:/MAMP/htdocs\\esgi-aire\\images\\upload\\596d41922cba8.mp3', 'Opening', 0, '', '', '2017-07-17 23:00:34', '2017-07-17 23:01:14'),
+(31, 'image', 'image', 'C:/MAMP/htdocs\\esgi-aire\\images\\upload\\596d4aaf0f48f.jpg', 'lokk', 0, 'test', 'News', '2017-07-17 23:39:27', '2017-07-17 23:39:27');
 
 -- --------------------------------------------------------
 
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `content` longtext NOT NULL,
   `author` text NOT NULL,
   `type` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `news`
@@ -126,7 +126,8 @@ CREATE TABLE IF NOT EXISTS `news` (
 
 INSERT INTO `news` (`id`, `title`, `dateInserted`, `dateUpdated`, `isDeleted`, `content`, `author`, `type`) VALUES
 (1, '0', '2017-07-14 00:08:54', NULL, 0x31, '<p>test</p>', 'Admin', 'News'),
-(2, 'Lorem Ipsum', '2017-07-15 04:02:23', NULL, 0x30, '<p><strong>Lorem ipsum</strong></p>\r\n\r\n<p><samp>dolor sit amet, consectetur adipiscing elit. Phasellus sed arcu dignissim, vehicula leo eget, dignissim libero. Maecenas rhoncus aliquam est, porttitor sodales metus porttitor at. Donec tincidunt porta maximus. Donec id ultrices augue. Praesent efficitur accumsan porttitor. In tempus elementum leo sed sodales. Nam rutrum maximus sem, non viverra mi pellentesque ac. Etiam ut felis velit. Sed cursus sagittis dui at porta. Vivamus eu nibh magna. Aliquam ac condimentum neque, non euismod dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse semper malesuada nibh, sed maximus erat porttitor ut. Nulla ultrices eu diam ut sollicitudin. Fusce sodales malesuada eros quis interdum.</samp></p>', 'admin', 'News');
+(2, 'Lorem Ipsum', '2017-07-15 04:02:23', NULL, 0x30, '<p><strong>Lorem ipsum</strong></p>\r\n\r\n<p><samp>dolor sit amet, consectetur adipiscing elit. Phasellus sed arcu dignissim, vehicula leo eget, dignissim libero. Maecenas rhoncus aliquam est, porttitor sodales metus porttitor at. Donec tincidunt porta maximus. Donec id ultrices augue. Praesent efficitur accumsan porttitor. In tempus elementum leo sed sodales. Nam rutrum maximus sem, non viverra mi pellentesque ac. Etiam ut felis velit. Sed cursus sagittis dui at porta. Vivamus eu nibh magna. Aliquam ac condimentum neque, non euismod dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse semper malesuada nibh, sed maximus erat porttitor ut. Nulla ultrices eu diam ut sollicitudin. Fusce sodales malesuada eros quis interdum.</samp></p>', 'admin', 'News'),
+(4, 'test', '2017-07-17 23:39:27', NULL, 0x30, '<p>testset</p>', 'admin', 'News');
 
 -- --------------------------------------------------------
 
@@ -156,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `status` varchar(11) NOT NULL,
   `isDeleted` tinyint(1) NOT NULL DEFAULT '0',
   `dateInserted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `dateUpdated` timestamp NULL DEFAULT NULL
+  `dateUpdated` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 --
@@ -247,12 +248,12 @@ ALTER TABLE `gallery`
 -- AUTO_INCREMENT for table `mediafile`
 --
 ALTER TABLE `mediafile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `newsletter`
 --
