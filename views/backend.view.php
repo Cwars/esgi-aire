@@ -20,7 +20,7 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] != '1' || !isset($_SESSION['a
 <body>
 
 <header class="nav-header"> <!--cd-main-header-->
-    <a href="<?php echo PATH_RELATIVE ; ?>back/backmenu" class="logo"><img src="<?php echo PATH_RELATIVE ; ?>/assets/back/img/logo.png" alt="Logo"></a>
+    <a href="<?php echo PATH_RELATIVE ; ?>back/backmenu" class="logo"><img src="<?php echo PATH_RELATIVE ; ?>assets/back/img/logo.png" alt="Logo"></a>
 
 
     <!--<a href="#" class="nav-header-trigger">Menu<span></span></a>-->
@@ -29,7 +29,7 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] != '1' || !isset($_SESSION['a
         <ul class="nav-header-link-list">
             <li><a href="#"><i class="fa fa-wrench" aria-hidden="true"></i></a></li>
             <li><a href="#" OnClick="javascript:window.location.reload()" ><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
-            <li><a href="<?php echo PATH_RELATIVE; ?>/back/user/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+            <li><a href="<?php echo PATH_RELATIVE; ?>back/user/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
         </ul>
     </nav>
 </header>
@@ -83,7 +83,6 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] != '1' || !isset($_SESSION['a
 </main> <!-- .cd-main-content -->
 <script type="text/javascript" src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo PATH_RELATIVE ; ?>/assets/back/js/script-back.js"></script>
-
+<script type="text/javascript" src="<?php echo PATH_RELATIVE ; ?>assets/back/js/script-back.js"></script>
 </body>
 </html>

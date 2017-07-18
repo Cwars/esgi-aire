@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>Homepage</title>
     <meta name="Description" content="Page d'accueil" />
-    <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>/assets/front/css/screen.css">
+    <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/front/css/screen.css">
     <link href="https://fonts.googleapis.com/css?family=Jaldi" rel="stylesheet"></head>
-	<link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>/assets/front/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/front/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 
 <body>
 
@@ -14,7 +14,7 @@
     <div class="nav-container">
         <nav>
             <ul>
-                <li><img src="<?php echo PATH_RELATIVE ; ?>/assets/front/images/logo.png" id="logo" alt="logo"></li>
+                <li><img src="<?php echo PATH_RELATIVE ; ?>assets/front/images/logo.png" id="logo" alt="logo"></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>home">Home</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>news">Actualité</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>presentation">Présentation</a></li>
