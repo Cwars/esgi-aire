@@ -3,12 +3,12 @@
     class Events extends BaseSql  {
 
         protected $id = -1;
-        protected $name;
+        protected $title;
         protected $description;
         protected $date;
-        protected $status;
-        protected $date_inserted;
-        protected $date_updated;
+        protected $isDeleted;
+        protected $dateInserted;
+        protected $dateUpdated;
 
 
         public function __construct($id = -1, $description = null, $date = null, $status = 0) {
@@ -19,50 +19,86 @@
             $this->id = $id;
         }
 
-
         public function getId() {
-            echo $this->id;
+            return $this->id;
         }
 
-
-        public function setname($name) {
-            $this->name = trim($name);
+        public function setTitle($title) {
+            $this->title = trim($title);
         }
 
-        public function getname() {
-            echo $this->name;
+        public function getTitle() {
+            return $this->title;
         }
 
-        public function setdescription($description) {
+        public function setDescription($description) {
             $this->description = trim($description);
         }
 
-        public function getdescription() {
-            echo $this->description;
+        public function getDescription() {
+            return $this->description;
         }
 
-        public function setdate($date) {
+        public function setDate($date) {
             $this->date = $date;
         }
 
-        public function getdate() {
-            echo $this->date;
+        public function getDate() {
+            return $this->date;
         }
 
-        public function setStatus($status) {
+        public function setIsDeleted($status) {
             $this->status = $status;
         }
 
-        public function getStatus() {
-            return $this -> $status;
+        public function getIsDeleted($isDeleted) {
+            $this->isDeleted = $isDeleted;
         }
 
-        public function getdate_inserted() {
-            echo $this->date_inserted;
+        public function getDateInserted() {
+            return $this->isDeleted;
         }
 
-        public function getdate_updated() {
-            echo $this->date_updated;
+        public function getDateUpdated() {
+            return $this->dateUpdated;
+        }
+
+        public function setDateInserted($dateInserted) {
+            $this-> dateInserted = $dateInserted;
+        }
+
+        public function setDateUpdated($dateUpdated) {
+            $this-> dateUpdated = $dateUpdated;
+        }
+
+
+        public function getFormEvent()
+        {
+            return [
+                "options" => [
+                    "method" => "POST",
+                    "action" => "ActionAdd",
+                    "class" => "add-form",
+                    "id" => "Register"
+                ],
+                "struct" => [
+                    "title" => [
+                        "type" => "text",
+                        "placeholder" => "title",
+                        "required" => true
+                    ],
+                    "description" => [
+                        "type" => "text",
+                        "placeholder" => "Description",
+                        "required" => true
+                    ],
+                    "date" => [
+                        "type" => "date",
+                        "placeholder" => "La date de l'évenement",
+                        "required" => true
+                    ],
+                ]
+            ];
         }
 
     }

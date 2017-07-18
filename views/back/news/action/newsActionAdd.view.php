@@ -9,6 +9,7 @@ if( !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['title
     $author = $username;
     $content = trim($_POST['content']);
     $type = trim($_POST['type']);
+    $now = date("Y-m-d H:i:s");
 
     $titleImage = trim($_POST['titleImage']);
     $description = trim($_POST['description']);
@@ -109,7 +110,7 @@ if( !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['title
 
         //Est ce que le dossier upload existe
             echo $_SERVER['DOCUMENT_ROOT'];
-            $pathUpload =$_SERVER['DOCUMENT_ROOT'].DS."images".DS."upload";
+            $pathUpload =$_SERVER['DOCUMENT_ROOT'].DS."esgi-aire".DS."images".DS."upload";
 
             if( !file_exists($pathUpload) ){
                 //Sinon le créer
@@ -123,6 +124,8 @@ if( !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['title
             $news->setAuthor($author);
             $news->setContent($content);
             $news->setType($type);
+            $news->setDateInserted($now);
+            $news->setDateUpdated($now);
             $news->setIsDeleted(0);
 
             $mediafile->setTitle($titleImage);
@@ -130,6 +133,8 @@ if( !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['title
             $mediafile->setIsDeleted(0);
             $mediafile->setPath($pathUpload.DS.$nameFile);
             $mediafile->setType($typeImage);
+            $mediafile->setDateInserted($now);
+            $mediafile->setDateUpdated($now);
             $mediafile->setTitleParent($title);
             $mediafile->setTypeParent($type);
 

@@ -68,6 +68,14 @@ class News extends BaseSql  {
         return $this->dateUpdated;
     }
 
+    public function setDateInserted($dateInserted) {
+        $this-> dateInserted = $dateInserted;
+    }
+
+    public function setDateUpdated($dateUpdated) {
+        $this-> dateUpdated = $dateUpdated;
+    }
+
     public function setIsDeleted($isDeleted) {
         $this->isDeleted = $isDeleted;
     }
@@ -82,7 +90,7 @@ class News extends BaseSql  {
                 "method" => "POST",
                 "action" => "ActionAdd",
                 "class" => "form-group",
-                "id" => "addNews",
+                "id" => "Register",
                 "optionName" => "type"
             ],
             "struct" => [

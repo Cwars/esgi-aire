@@ -16,10 +16,18 @@
 
         $title = trim($_POST['title']);
         $description = trim($_POST['description']);
+        $now = date("Y-m-d H:i:s");
 
         $error = false;
         $listOfErrors = [];
+
         //title est déjà utilisé
+        if ($mediafile->populate(['title' => $title])){
+            //Le titre est déja utilisé
+            $listOfErrors[] = "titleUsed";
+            $error = true;
+        }
+
         if (strlen($title) == 0) {
             //Le nom d'utilisateur doit faire au moins 2 caractères
             $listOfErrors[] = "1";
@@ -108,15 +116,16 @@
                 $mediafile->setIsDeleted(0);
                 $mediafile->setPath($pathUpload.DS.$nameFile);
                 $mediafile->setType($type);
-                $mediafile->setIdParent(-1);
+                $mediafile->setDateInserted($now);
+                $mediafile->setDateUpdated($now);
+                $mediafile->setTitleParent(null);
                 $mediafile->setTypeParent(null);
 
-
                 $mediafile->save();
-            }else{
-                $_SESSION["form_error"] = $listOfErrors;
-                $_SESSION["form_post"] = $_POST;
             }
+        }else{
+            $_SESSION["form_error"] = $listOfErrors;
+            $_SESSION["form_post"] = $_POST;
         }
     } else{
         $listOfErrors[] = "7";

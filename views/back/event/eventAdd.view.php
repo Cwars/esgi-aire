@@ -1,8 +1,8 @@
 <div class="content-wrapper">
-    <h1>Title</h1>
+    <h1>Ajout d'un évènement</h1>
 
 <?php
-$this->includeModal("form", $formRegister);
+$this->includeModal("form", $formEvent);
 
 ?>
 

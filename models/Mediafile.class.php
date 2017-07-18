@@ -79,12 +79,20 @@
             $this->isDeleted = $isDeleted;
         }
 
-        public function getdate_inserted() {
+        public function getDateInserted() {
             return $this-> dateInserted;
         }
 
-        public function getdate_updated() {
+        public function getDateUpdated() {
             return $this-> dateUpdated;
+        }
+
+        public function setDateInserted($dateInserted) {
+            $this-> dateInserted = $dateInserted;
+        }
+
+        public function setDateUpdated($dateUpdated) {
+            $this-> dateUpdated = $dateUpdated;
         }
 
         public function getFormMediafile()

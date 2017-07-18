@@ -7,7 +7,8 @@
             $attribute['type'] == "email" ||
             $attribute['type'] == "password" ||
             $attribute['type'] == "text" ||
-            $attribute['type'] == "file"
+            $attribute['type'] == "file" ||
+            $attribute['type'] == "date"
         ): ?>
             <input type="<?php echo $attribute["type"]; ?>"
                    name="<?php echo $name; ?>"

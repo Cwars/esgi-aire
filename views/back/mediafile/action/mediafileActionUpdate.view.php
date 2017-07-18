@@ -17,13 +17,14 @@ if( !empty($_POST['title']) && !empty($_POST['description'])) {
     $id = $idUpdate;
     $title = trim($_POST['title']);
     $description = trim($_POST['description']);
+    $now = date("Y-m-d H:i:s");
 
     $error = false;
     $listOfErrors = [];
 
-    if ($title !== $titleUpdate && $mediafile->populate(['name' => $title])){
+    if ($title !== $titleUpdate && $mediafile->populate(['title' => $title])){
         //Le titre est déja utilisé
-        $listOfErrors[] = "titreUsed";
+        $listOfErrors[] = "titleUsed";
         $error = true;
     }
     //title est déjà utilisé
@@ -124,18 +125,20 @@ if( !empty($_POST['title']) && !empty($_POST['description'])) {
 
             move_uploaded_file($_FILES["mediafile"]["tmp_name"], $pathUpload.DS.$nameFile);
 
+            $mediafile->setId($id);
             $mediafile->setTitle($title);
             $mediafile->setDescription($description);
             $mediafile->setIsDeleted(0);
             $mediafile->setPath($pathUpload.DS.$nameFile);
             $mediafile->setType($type);
-            $mediafile->setIdParent(-1);
+            $mediafile->setDateInserted($dateInsertedUpdate);
+            $mediafile->setDateUpdated($now);
+            $mediafile->setTitleParent(null);
             $mediafile->setTypeParent(null);
 
             $mediafile->save();
 
-        }
-    else{
+        } else{
         $_SESSION["form_error"] = $listOfErrors;
         $_SESSION["form_post"] = $_POST;
     }
@@ -151,7 +154,6 @@ if( isset($_SESSION["form_error"]) ){
         echo "<li>".$msgError[$error];
     }
 }
-
 
 unset($_SESSION["form_post"]);
 unset($_SESSION["form_error"]);

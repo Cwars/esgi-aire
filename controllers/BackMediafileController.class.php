@@ -34,7 +34,6 @@ class BackMediafileController
         $id = $params[0];
         $title = $media->getTitle();
         $description = $media->getDescription();
-        $mediafile = $media->getPath();
 
         $v->assign("FormMediafileUpdate", $media->getFormMediafileUpdate($id,$title,$description));
 
@@ -47,11 +46,13 @@ class BackMediafileController
         $title = $media->getTitle();
         $mediafile = $media->getPath();
         $type = $media->getType();
+        $dateInserted = $media->getDateInserted();
 
         $v->assign("idUpdate",$params[0]);
         $v->assign("titleUpdate",$title);
         $v->assign("pathUpdate",$mediafile);
         $v->assign("typeUpdate",$type);
+        $v->assign("dateInsertedUpdate",$dateInserted);
     }
 
     public function MediafileActionDeleteAction($params) {
