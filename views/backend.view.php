@@ -84,5 +84,7 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] != '1' || !isset($_SESSION['a
 <script type="text/javascript" src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo PATH_RELATIVE ; ?>assets/back/js/script-back.js"></script>
+<script type="text/javascript" src="<?php echo PATH_RELATIVE ; ?>assets/Chart.js/Chart.min.js"></script>
+<script type="text/javascript" src="<?php echo PATH_RELATIVE ; ?>assets/Chart.js/app.js"></script>
 </body>
 </html>

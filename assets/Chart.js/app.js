@@ -1,22 +1,22 @@
 $(document).ready(function(){
     $.ajax({
-        url: "http://esgi-aire.lan/assets/Chart.js/data.php",
+        url: window.location.origin+"/assets/Chart.js/data.php",
         method: "GET",
         success: function(data) {
             console.log(data);
-            var username = [];
+            var type = [];
             var id = [];
 
             for(var i in data) {
-                username.push("User" + data[i].id);
+                type.push("Type : " + data[i].id);
                 id.push(data[i].id);
             }
 
             var chartdata = {
-                labels: username,
+                labels: type,
                 datasets : [
                     {
-                        label: 'User id',
+                        label: 'Nombre',
                         backgroundColor: 'rgba(200, 200, 200, 0.75)',
                         borderColor: 'rgba(200, 200, 200, 0.75)',
                         hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
@@ -26,7 +26,7 @@ $(document).ready(function(){
                 ]
             };
 
-            var ctx = $("#mygraph");
+            var ctx = $("#mygraph1");
 
             var barGraph = new Chart(ctx, {
                 type: 'bar',
