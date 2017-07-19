@@ -1,8 +1,7 @@
-
 <div class="content-wrapper">
     <h1>Pages</h1>
     <div>
-        <a href="<?php $_SERVER["HTTP_HOST"] ?>/projetannuelaire/back/page/add" class="button-add">Ajouter</a>
+        <a href="<?php echo PATH_RELATIVE ; ?>back/user/add" class="button-add">Ajouter</a>
     </div>
     <table class="table">
 
@@ -35,7 +34,7 @@
             echo "<a class='table-button' href='Update/" . $user['id'] . "'> Update </a>";
             echo "</td>";
             echo "<td>";
-            echo "<a class='table-button' href='ActionDelete/" . $user['id'] . "'> Delete </a>";
+            echo "<a class='table-button' OnClick=\"return confirm('Êtes-vous sûr ?');\" href='ActionDelete/" . $user['id'] . "'> Delete </a>";
             echo "</td>";
 
             echo "</tr>";

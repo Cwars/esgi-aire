@@ -248,4 +248,48 @@
                 ];
         }
 
+//        // Formulaire de modification des infos de l'utilisateur
+//        public function getFormSetting($id,$firstname,$lastname,$email)
+//        {
+//            return [
+//                "options" => [
+//                    "method" => "POST",
+//                    "action" => "../ActionSetting/".$id,
+//                    "class" => "add-form",
+//                    "id" => "Register"
+//                ],
+//                "struct" => [
+//                    "firstname" => [
+//                        "type" => "text",
+//                        "placeholder" => "Prénom",
+//                        "required" => true,
+//                        "value" => "".$firstname."",
+//                    ],
+//                    "lastname" => [
+//                        "type" => "text",
+//                        "placeholder" => "Nom",
+//                        "required" => true,
+//                        "value" => "".$lastname."",
+//                    ],
+//                    "email" => [
+//                        "type" => "email",
+//                        "placeholder" => "Adresse email",
+//                        "required" => true,
+//                        "value" => "".$email."",
+//                    ],
+//                    "pwd" => [
+//                        "type" => "password",
+//                        "placeholder" => "Mot de passe",
+//                        "required" => true,
+//                        "value" => "",
+//                    ],
+//                    "pwd2" => [
+//                        "type" => "password",
+//                        "placeholder" => "Confirmation mot de passe",
+//                        "required" => true,
+//                        "value" => "",
+//                    ]
+//                ]
+//            ];
+//        }
     }

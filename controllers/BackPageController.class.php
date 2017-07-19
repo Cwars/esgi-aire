@@ -13,33 +13,34 @@ class BackPageController
     public function PageAddAction() {
         $page = new Page();
         $v = new View('pageAdd');
-        $v->assign("formPage", $news->getFormPage());
+        $v->assign("formPage", $page->getFormPage());
     }
 
     public function PageActionAddAction($params) {
-        $v = new View("pageActionadd");
+        $username = $_SESSION['username'];
+        $v = new View("pageActionAdd");
+
+        $v->assign("username",$username);
     }
 
-    public function PageActionUpdateAction($params) {
-        $v = new View("pageActionupdate");
-        $page=((new Page())->populate(['id' => $params[0]]));
-
-//        $username = $user->getUsername();
+//    public function PageActionUpdateAction($params) {
+//        $v = new View("pageActionUpdate");
+//        $page=((new Page())->populate(['id' => $params[0]]));
+//
+////        $username = $user->getUsername();
+////        $v->assign("idUpdate",$params[0]);
+////        $v->assign("usernameUpdate",$username);
+//    }
+//
+//    public function PageActionUpdateAction($params) {
+//        $v = new View("pageActionUpdate");
+//        $username = $_SESSION['username'];
+//        $page=((new Page())->populate(['id' => $params[0]]));
+//
+//        $title = $page->getTitle();
+//        $v->assign("username",$username);
 //        $v->assign("idUpdate",$params[0]);
-//        $v->assign("usernameUpdate",$username);
-    }
-
-//    public function UserUpdateAction($params) {
-//        $v = new View("userUpdate");
-//
-//        $user=((new User())->populate(['id' => $params[0]]));
-//        $id = $params[0];
-//        $username = $user->getUsername();
-//        $firstname = $user->getfirstname();
-//        $lastname = $user->getlastname();
-//        $email = $user->getEmail();
-//
-//        $v->assign("formUpdate", $user->getFormUpdate($id,$username,$firstname,$lastname,$email));
+//        $v->assign("titleUpdate",$title);
 //    }
 
     public function PageActionDeleteAction($params) {

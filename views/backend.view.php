@@ -10,24 +10,24 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] != '1' || !isset($_SESSION['a
 <head>
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>/assets/back/css/reset.css">
-    <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>/assets/back/css/menus.css">
-    <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>/assets/back/css/style.css">
-    <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>/assets/back/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/back/css/reset.css">
+    <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/back/css/menus.css">
+    <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/back/css/style.css">
+    <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/back/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 
     <title>Back office</title>
 </head>
 <body>
 
 <header class="nav-header"> <!--cd-main-header-->
-    <a href="<?php echo PATH_RELATIVE ; ?>back/backmenu" class="logo"><img src="<?php echo PATH_RELATIVE ; ?>assets/back/img/logo.png" alt="Logo"></a>
+    <a href="<?php echo PATH_RELATIVE ; ?>back/Dashboard/menu" class="logo"><img src="<?php echo PATH_RELATIVE ; ?>assets/back/img/logo.png" alt="Logo"></a>
 
 
     <!--<a href="#" class="nav-header-trigger">Menu<span></span></a>-->
 
     <nav class="nav-header-link">
         <ul class="nav-header-link-list">
-            <li><a href="#"><i class="fa fa-wrench" aria-hidden="true"></i></a></li>
+            <li><a href="<?php echo PATH_RELATIVE; ?>back/user/Setting"><i class="fa fa-wrench" aria-hidden="true"></i></a></li>
             <li><a href="#" OnClick="javascript:window.location.reload()" ><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
             <li><a href="<?php echo PATH_RELATIVE; ?>back/user/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
         </ul>

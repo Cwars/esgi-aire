@@ -1,32 +1,67 @@
 $(document).ready(function(){
     $.ajax({
-        url: window.location.origin+"/assets/Chart.js/data.php",
+        url: window.location.origin+"/assets/Chart.js/compte.php",
         method: "GET",
         success: function(data) {
             console.log(data);
-            var type = [];
-            var id = [];
+            var compte = [];
+            var nbr = [];
 
             for(var i in data) {
-                type.push("Type : " + data[i].id);
-                id.push(data[i].id);
+                compte.push("Compte : " + data[i].status);
+                nbr.push(data[i].nbr);
             }
 
             var chartdata = {
-                labels: type,
+                labels: compte,
                 datasets : [
                     {
                         label: 'Nombre',
-                        backgroundColor: 'rgba(200, 200, 200, 0.75)',
-                        borderColor: 'rgba(200, 200, 200, 0.75)',
-                        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                        hoverBorderColor: 'rgba(200, 200, 200, 1)',
-                        data: id
+                        backgroundColor: 'rgba(0, 91, 255, 0.9)',
+                        data: nbr
                     }
                 ]
             };
 
             var ctx = $("#mygraph1");
+
+            var barGraph = new Chart(ctx, {
+                type: 'bar',
+                data: chartdata
+            });
+        },
+        error: function(data) {
+            console.log(data);
+        }
+    });
+});
+
+$(document).ready(function(){
+    $.ajax({
+        url: window.location.origin+"/assets/Chart.js/category.php",
+        method: "GET",
+        success: function(data) {
+            console.log(data);
+            var compte = [];
+            var nbr = [];
+
+            for(var i in data) {
+                compte.push("Type : " + data[i].type);
+                nbr.push(data[i].nbr);
+            }
+
+            var chartdata = {
+                labels: compte,
+                datasets : [
+                    {
+                        label: 'Nombre',
+                        backgroundColor: 'rgba(0, 91, 255, 0.9)',
+                        data: nbr
+                    }
+                ]
+            };
+
+            var ctx = $("#mygraph2");
 
             var barGraph = new Chart(ctx, {
                 type: 'bar',

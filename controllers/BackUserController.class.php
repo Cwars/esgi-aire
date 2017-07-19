@@ -49,7 +49,6 @@ class BackUserController
         $v->assign("usernameUpdate",$username);
     }
 
-
     public function UserActionDeleteAction($params) {
         $v = new View("userActionDelete");
         $v->assign("idDelete",$params);
@@ -73,4 +72,14 @@ class BackUserController
     public function UserLogoutAction() {
         $v = new View("userLogout");
     }
+
+    public function UserSettingAction() {
+        $v = new View("userSetting");
+    }
+
+    public function UserActionSettingAction() {
+        $v = new View("userActionSetting");
+    }
+
+
 }
