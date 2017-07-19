@@ -23,7 +23,7 @@
         <div class="col1 firstcol">
             <img class="center img-responsive" src="<?php echo PATH_RELATIVE ; ?>/assets/front/images/events.png" alt="events">
             <p class="text-center">Mardi 3 Janvier 2017 Galerie Arts Factory / Bastille</p>
-            <div class="bouton"><a href="#">En savoir plus</a></div>
+            <div class="bouton"><a href="<?php echo PATH_RELATIVE ; ?>event">En savoir plus</a></div>
         </div>
     </div>
 </section>

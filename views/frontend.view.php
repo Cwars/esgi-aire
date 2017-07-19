@@ -22,8 +22,8 @@
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>event">Evènement</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>gallery">Galerie</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>contact">Contact</a></li>
-                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>contact">Connexion</a></li>
-                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>contact">Inscription</a></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>connexion">Connexion</a></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>inscription">Inscription</a></li>
             </ul>
         </nav>
     </div>
