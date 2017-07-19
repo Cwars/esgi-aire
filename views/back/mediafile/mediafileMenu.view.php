@@ -30,7 +30,7 @@
             echo "<a class='table-button' href='Update/" . $mediafile['id'] . "'> Update </a>";
             echo "</td>";
             echo "<td>";
-            echo "<a class='table-button' OnClick=\"return confirm('Êtes-vous sûr ?');\" href='ActionDelete/" . $mediafile['id'] . "'> Delete </a>";
+            echo "<a class='table-button delete' href='ActionDelete/" . $mediafile['id'] . "'> Delete </a>";
             echo "</td>";
 
             echo "</tr>";

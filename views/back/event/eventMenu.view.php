@@ -30,7 +30,7 @@
         echo "<a class='table-button' href='Update/" . $event['id'] . "'> Update </a>";
         echo "</td>";
         echo "<td>";
-        echo "<a class='table-button' OnClick=\"return confirm('Êtes-vous sûr ?');\" href='ActionDelete/" . $event['id'] . "'> Delete </a>";
+        echo "<a class='table-button delete' href='ActionDelete/" . $event['id'] . "'> Delete </a>";
         echo "</td>";
 
         echo "</tr>";
