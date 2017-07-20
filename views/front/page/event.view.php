@@ -8,8 +8,9 @@
         <h2 class="text-center">Souhaitez vous assister à une exposition ?</h2>
         <div class="col1 firstcol">
             <p class="text-center">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus aliquid aspernatur aut consequuntur cum cumque deleniti ex ipsa ipsum itaque mollitia non nostrum quisquam repellat repellendus sit, totam vero.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus aliquid aspernatur
+                aut consequuntur cum cumque deleniti ex ipsa ipsum itaque mollitia non nostrum quisquam repellat repellendus sit, totam vero.
+            </p>
         </div>
-
     </div>
 </section>

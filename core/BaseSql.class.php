@@ -21,37 +21,37 @@
         }
 
         // INSERT ou UPDATE
-  public function save() {
-        if ($this->getId() === -1) {
-            $sqlCol = null;
-            $sqlKey = null;
-            unset($this->columns['id']);
-            foreach ($this->columns as $columns => $value) {
-                $data[$columns] = $this->$columns;
-                $sqlCol .= ",".$columns;
-                $sqlKey .= ", :".$columns;
-            }
-            $sqlCol = trim($sqlCol, ",");
-            $sqlKey = trim($sqlKey, ",");
+        public function save() {
+            if ($this->getId() === -1) {
+                $sqlCol = null;
+                $sqlKey = null;
+                unset($this->columns['id']);
+                foreach ($this->columns as $columns => $value) {
+                    $data[$columns] = $this->$columns;
+                    $sqlCol .= ",".$columns;
+                    $sqlKey .= ", :".$columns;
+                }
+                $sqlCol = trim($sqlCol, ",");
+                $sqlKey = trim($sqlKey, ",");
 
-            try {
-                $req = $this->db->prepare("INSERT INTO ".$this->table." (".$sqlCol.") VALUES (".$sqlKey.");");
+                try {
+                    $req = $this->db->prepare("INSERT INTO ".$this->table." (".$sqlCol.") VALUES (".$sqlKey.");");
+                    $req->execute($data);
+                    var_dump($data);
+                } catch (Exception $e) {
+                    die($e->getMessage());
+                }
+            } else {
+                $sqlQuery = null;
+                foreach ($this->columns as $columns => $value) {
+                    $data[$columns] = $this->$columns;
+                    $sqlQuery .= $columns . " = :" . $columns . ", ";
+                }
+                $sqlQuery = trim($sqlQuery, ", ");
+                $req = $this->db->prepare("UPDATE ".$this->table." SET ".$sqlQuery." WHERE id = :id;");
                 $req->execute($data);
-                var_dump($data);
-            } catch (Exception $e) {
-                die($e->getMessage());
             }
-        } else {
-            $sqlQuery = null;
-            foreach ($this->columns as $columns => $value) {
-                $data[$columns] = $this->$columns;
-                $sqlQuery .= $columns . " = :" . $columns . ", ";
-            }
-            $sqlQuery = trim($sqlQuery, ", ");
-            $req = $this->db->prepare("UPDATE ".$this->table." SET ".$sqlQuery." WHERE id = :id;");
-            $req->execute($data);
         }
-    }
 
         public function populate($search = []) {
             $query = $this->getOneBy($search, true);
@@ -154,6 +154,5 @@
             return $data;
         }
 
-
-}
+    }
 

@@ -2,48 +2,59 @@
 
 $(document).ready(function(){
     $.ajax({
+        // Récupère des données en ajax
         url: window.location.origin+"/views/back/dashboard/compte.php",
         method: "GET",
         success: function(data) {
             console.log(data);
-            var compte = [];
             var nbr = [];
+            var label = [];
 
             for(var i in data) {
-                compte.push("Compte : " + data[i].status);
                 nbr.push(data[i].nbr);
+                // Récupère le nombre total par status
+                label[i] = data[i].status;
+                // Récupère les nom de status
             }
 
-            var chartdata = {
-                labels: compte,
+            var datamygraph1 = {
+                labels: label,
+                // Le label définit les différents nom des status
                 datasets : [
                     {
-                        label: 'Nombre',
-                        backgroundColor: 'rgba(0, 91, 255, 0.9)',
-                        data: nbr
+                        data: nbr,
+                        // Récupére le nombre total de type de compte
+                        label: "Nombre total d'utilisateur",
+                        backgroundColor: 'rgba(0, 91, 255, 0.9)'
                     }
                 ]
             };
 
             var ctx = $("#mygraph1");
+            // Graph appelé dans un canvas avec ID
+
             var optionsmygraph1 = {
                 title : {
                     display : true,
                     position : "top",
                     text : "Nombre d'utilisateurs par type de compte",
                     fontSize : 20,
-                    fontColor : "#111"
+                    fontColor : "#110"
                 },
                 legend : {
                     display : true,
                     position : "bottom"
                 }
             };
-            var barGraph = new Chart(ctx, {
+
+            // Rajoute d'options au graphe
+
+            var myGraph1 = new Chart(ctx, {
                 type: 'bar',
-                data: chartdata,
+                data: datamygraph1,
                 options : optionsmygraph1
             });
+            // On déssine le graphe avec les différentes données
         },
         error: function(data) {
             console.log(data);
@@ -52,29 +63,27 @@ $(document).ready(function(){
 });
 
 // Doughnut - mygraph2 - Nombre d'articles par Category
-$(document).ready(function(){
 
+$(document).ready(function(){
     $.ajax({
         url: window.location.origin+"/views/back/dashboard/category.php",
         type : "GET",
         success : function(data) {
-
             console.log(data);
             var nbr = [];
             var label = [];
             var len = data.length;
 
             for (var i = 0; i < len; i++) {
-                    nbr.push(data[i].nbr);
-                    label[i] = data[i].type;
+                nbr.push(data[i].nbr);
+                label[i] = data[i].type;
             }
 
             var ctx1 = $("#mygraph2");
-            var data1 = {
+            var datamygraph2 = {
                 labels : label,
                 datasets : [
                     {
-                        // label : "",
                         data : nbr,
                         backgroundColor : [
                             "#0000FF",
@@ -88,13 +97,13 @@ $(document).ready(function(){
                 ]
             };
 
-            var options1 = {
+            var optionsmygraph2 = {
                 title : {
                     display : true,
                     position : "top",
                     text : "Nombre d'articles par Catégorie",
                     fontSize : 20,
-                    fontColor : "#111"
+                    fontColor : "#110"
                 },
                 legend : {
                     display : true,
@@ -102,60 +111,59 @@ $(document).ready(function(){
                 }
             };
 
-            var chart1 = new Chart( ctx1, {
+            var myGraph2 = new Chart( ctx1, {
                 type : "doughnut",
-                data : data1,
-                options : options1
+                data : datamygraph2,
+                options : optionsmygraph2
             } );
 
         },
         error : function(data) {
             console.log(data);
-
         }
     });
 
 // Bar chart - mygraph3  - Type de fichier dans Mediafile
+
     $(document).ready(function(){
         $.ajax({
             url: window.location.origin+"/views/back/dashboard/mediafile.php",
             method: "GET",
             success: function(data) {
                 console.log(data);
-                var type = [];
                 var nbr = [];
+                var label = [];
 
                 for(var i in data) {
-                    type.push("Type : " + data[i].type);
                     nbr.push(data[i].nbr);
+                    label[i] = data[i].type;
                 }
 
                 var chartdata = {
-                    labels: type,
+                    labels: label,
                     datasets : [
                         {
-                            label: 'Nombre total',
-                            backgroundColor: 'rgba(0, 91, 255, 0.9)',
-                            data: nbr
+                            data: nbr,
+                            label: "Nombre total de fichier",
+                            backgroundColor: 'rgba(0, 91, 255, 0.9)'
                         }
                     ]
                 };
-
                 var ctx = $("#mygraph3");
                 var optionsmygraph3 = {
                     title : {
                         display : true,
                         position : "top",
                         text : "Nombre de Type de fichier dans Mediafile",
-                        fontSize : 20,
-                        fontColor : "#111"
+                        fontColor : "#110",
+                        fontSize : 20
                     },
                     legend : {
                         display : true,
                         position : "bottom"
                     }
                 };
-                var barGraph = new Chart(ctx, {
+                var myGraph3 = new Chart(ctx, {
                     type: 'bar',
                     data: chartdata,
                     options : optionsmygraph3
@@ -166,42 +174,4 @@ $(document).ready(function(){
             }
         });
     });
-
-    // Bar - mygraph4 -
-// $(document).ready(function(){
-//     $.ajax({
-//         url: window.location.origin+"/assets/Chart.js/category.php",
-//         method: "GET",
-//         success: function(data) {
-//             console.log(data);
-//             var compte = [];
-//             var nbr = [];
-//
-//             for(var i in data) {
-//                 compte.push("Type : " + data[i].type);
-//                 nbr.push(data[i].nbr);
-//             }
-//
-//             var chartdata = {
-//                 labels: compte,
-//                 datasets : [
-//                     {
-//                         label: 'Nombre',
-//                         backgroundColor: 'rgba(0, 91, 255, 0.9)',
-//                         data: nbr
-//                     }
-//                 ]
-//             };
-//
-//             var ctx = $("#mygraph2");
-//             var barGraph = new Chart(ctx, {
-//                 type: 'bar',
-//                 data: chartdata
-//             });
-//         },
-//         error: function(data) {
-//             console.log(data);
-//         }
-//     });
-// });
 });

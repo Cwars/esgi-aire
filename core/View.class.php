@@ -53,7 +53,6 @@ class View {
                 }
             }
         }
-
     }
 
     public function setView404($view) {
@@ -69,47 +68,44 @@ class View {
             if ($this->cat === "back") {
                 if (file_exists("views/backend.view.php")) {
                     $this->template = "backend";
-                } else {
-                        // logs
-                    die("Le template n'existe pas");
+                    } else {
+                            // logs
+                        die("Le template n'existe pas");
+                    }
+                } else{
+                    if (file_exists("views/frontend.view.php")) {
+                        $this->template = "frontend";
+                    } else {
+                            // logs
+                        die("Le template n'existe pas");
+                    }
                 }
-            } else{
-                if (file_exists("views/frontend.view.php")) {
-                    $this->template = "frontend";
-                } else {
-                        // logs
-
-                    die("Le template n'existe pas");
-                }
+            }else {
+                $this->template = "connection";
             }
-        }else {
-            $this->template = "connection";
+        } else {
+            $this->template = "404";
         }
-    } else {
-        $this->template = "404";
     }
-}
 
-public function assign($key, $value) {
+    public function assign($key, $value) {
     $this->data[$key] = $value;
-}
+    }
 
-public function includeModal($modal, $config) {
-    if (file_exists("views/modals/".$modal.".mod.php")) {
-        include "views/modals/".$modal.".mod.php";
-    } else {
+    public function includeModal($modal, $config) {
+        if (file_exists("views/modals/".$modal.".mod.php")) {
+            include "views/modals/".$modal.".mod.php";
+        } else {
             // logs
         die("Le modal n'existe pas");
+        }
     }
-}
 
-public function __destruct() {
-    global $msgError;
-    global $msgSuccess;
+    public function __destruct() {
+        global $msgError;
+        global $msgSuccess;
 
-    extract($this->data);
-    include "views/".$this->template.".view.php";
-}
-
-
+        extract($this->data);
+        include "views/".$this->template.".view.php";
+    }
 }

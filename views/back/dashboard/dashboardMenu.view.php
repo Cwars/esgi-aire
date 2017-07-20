@@ -1,24 +1,11 @@
 <div class="content-wrapper">
-    <h1>Dashboard</h1>
-    <br/>
     <style type="text/css">
-        #dash1{
+        #dash1, #dash3{
             width: 400px;
             height: auto;
             float: left;
         }
-        #dash2{
-            width: 400px;
-            height: auto;
-            float: right;
-        }
-        #dash3{
-            width: 400px;
-            height: auto;
-            float: left;
-            margin: 0 auto;
-        }
-        #dash4{
+        #dash2, #dash4{
             width: 400px;
             height: auto;
             float: right;
@@ -30,9 +17,10 @@
         #mygraph3{
             margin-top: 150px;"
         }
-
     </style>
-    <body>
+
+    <h1>Dashboard</h1><br/>
+
     <div id="dash1">
         <canvas id="mygraph1"></canvas>
     </div>

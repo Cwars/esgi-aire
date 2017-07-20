@@ -6,7 +6,7 @@
 <section class="deux" id="Dedicaces">
     <div class="container">
         <div class="col firstcol">
-            <img src="<?php echo PATH_RELATIVE ; ?>/assets/front/images/Dedicaces.png" alt="" class="img-responsive">
+            <img src="<?php echo PATH_RELATIVE ; ?>assets/front/images/Dedicaces.png" alt="" class="img-responsive">
         </div>
 
         <div class="col">
@@ -21,7 +21,7 @@
     <div class="container">
         <h2 class="text-center">Evenements à venir</h2>
         <div class="col1 firstcol">
-            <img class="center img-responsive" src="<?php echo PATH_RELATIVE ; ?>/assets/front/images/events.png" alt="events">
+            <img class="center img-responsive" src="<?php echo PATH_RELATIVE ; ?>assets/front/images/events.png" alt="events">
             <p class="text-center">Mardi 3 Janvier 2017 Galerie Arts Factory / Bastille</p>
             <div class="bouton"><a href="<?php echo PATH_RELATIVE ; ?>event">En savoir plus</a></div>
         </div>
@@ -33,13 +33,13 @@
     <div class="container">
 
         <div class="col">
-            <img class="center img-responsive" src="<?php echo PATH_RELATIVE ; ?>/assets/front/images/travaux1.png" alt>
+            <img class="center img-responsive" src="<?php echo PATH_RELATIVE ; ?>assets/front/images/travaux1.png" alt>
         </div>
         <div class="col">
-            <img class="center img-responsive" src="<?php echo PATH_RELATIVE ; ?>/assets/front/images/travaux1.png" alt>
+            <img class="center img-responsive" src="<?php echo PATH_RELATIVE ; ?>assets/front/images/travaux1.png" alt>
         </div>
         <div class="col">
-            <img class="center img-responsive" src="<?php echo PATH_RELATIVE ; ?>/assets/front/images/travaux1.png" alt>
+            <img class="center img-responsive" src="<?php echo PATH_RELATIVE ; ?>assets/front/images/travaux1.png" alt>
         </div>
 
     </div>

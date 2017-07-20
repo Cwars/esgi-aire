@@ -15,16 +15,7 @@ if(!$mysqli){
 }
 
 // Requête pour obtenir des données de la table
-
 $query = sprintf("SELECT type, COUNT(type) as nbr FROM news GROUP BY type");
-
-// Test
-//$query = sprintf("SELECT username, id FROM user ORDER BY username");
-
-//"SELECT COUNT(*) FROM user WHERE status = 'Admin'"
-// SQL: SELECT COUNT(*) FROM `user` WHERE `status` = "Admin"
-//"SELECT COUNT(*) FROM user WHERE status = 'User'"
-// SQL: SELECT COUNT(*) FROM `user` WHERE `status` = "User"
 
 // Exécution de la requête
 $result = $mysqli->query($query);

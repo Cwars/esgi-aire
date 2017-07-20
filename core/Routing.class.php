@@ -4,7 +4,6 @@ class Routing {
 
     private $uri;
     private $uriExploded;
-
     private $controller;
     private $controllerName;
     private $action;
@@ -93,7 +92,6 @@ class Routing {
             Helpers::log("La méthode ".$this->actionName." n'existe pas dans la classe ".$this->controllerName.".");
             return false;
         }
-
         return true;
     }
 
@@ -101,7 +99,6 @@ class Routing {
         if ($this->checkRoute()) {
             $controller = new $this->controllerName;
             $controller->{$this->actionName}($this->params);
-
         } else {
             $this->page404();
         }
@@ -110,5 +107,4 @@ class Routing {
     public function page404() {
         $v = new View("page404");
     }
-
 }
