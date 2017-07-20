@@ -1,3 +1,9 @@
+<?php
+if(!isset($_SESSION['user_id']))
+{
+    header("Location: ".PATH_RELATIVE."back/user/Connection");
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

@@ -29,7 +29,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $_SESSION['username'] = $username;
                         $_SESSION['user_id'] = $user->getId();
                         $_SESSION['admin'] = '1';
-                        header("Location: " . PATH_RELATIVE . "back/Dashboard/menu");
+                        header("Location: " . PATH_RELATIVE . "back/dashboard/menu");
                     } else
                     {
                         session_unset();
@@ -57,7 +57,7 @@ echo "</pre>";
 
 <div class="login-page">
     <div class="logo">
-        <img src="<?php echo PATH_RELATIVE ; ?>/assets/back/img/logo.png" class="logo-img">
+        <img src="<?php echo PATH_RELATIVE ; ?>assets/back/img/logo.png" class="logo-img">
     </div>
     <div class="form">
             <?php $this->includeModal("form", $formConnection); ?>
