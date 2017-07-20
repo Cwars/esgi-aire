@@ -16,8 +16,7 @@ if(!$mysqli){
 
 // Requête pour obtenir des données de la table
 
-$query = sprintf("SELECT type, COUNT(type) as nbr FROM mediafile WHERE isDeleted = 0 GROUP BY type");
-
+$query = sprintf("SELECT status, COUNT(status) as nbr FROM user WHERE isDeleted = 0 GROUP BY status");
 
 // Exécution de la requête
 $result = $mysqli->query($query);

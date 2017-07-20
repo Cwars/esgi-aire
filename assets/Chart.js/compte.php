@@ -4,7 +4,7 @@ header('Content-Type: application/json');
 
 define("DB_NAME", "mvciw1");
 define("DB_USER", "root");
-define("DB_PWD", "root");
+define("DB_PWD", "3iw1Esgi%75013");
 define("DB_PORT", "3306");
 define("DB_HOST", "127.0.0.1");
 
@@ -16,7 +16,7 @@ if(!$mysqli){
 
 // Requête pour obtenir des données de la table
 
-$query = sprintf("SELECT status, COUNT(status) as nbr FROM user GROUP BY status");
+$query = sprintf("SELECT COUNT(status) as nbr FROM user WHERE lastname='dadazd' GROUP BY status");
 
 // Exécution de la requête
 $result = $mysqli->query($query);

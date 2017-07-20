@@ -129,13 +129,29 @@
 
             //Supression de la dernière virgule + trim
             $stringSelect = trim(rtrim($stringSelect,","));
-            echo $stringSelect;
 
             //Requète par rapport aux paramètres que l'on a envoyé
             $query = $this->db->prepare('SELECT '. $stringSelect .' FROM '.$this->table . ' WHERE isDeleted = 1' );
             $query->execute();
 
+            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        }
 
+        public function getDashboard($param1){
+
+            $query = $this->db->prepare('SELECT '.$param1.', COUNT('.$param1.') as nbr FROM news WHERE isDeleted = 0 GROUP BY ' .$param1);
+            $query->execute();
+
+            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+            // Renvoie les données
+            $data = array();
+            foreach ($result as $row) {
+                $data[] = $row;
+            }
+
+            return $data;
         }
 
 

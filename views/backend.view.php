@@ -1,10 +1,3 @@
-<?php
-if(isset($_SESSION['admin']) && $_SESSION['admin'] != '1' || !isset($_SESSION['admin']))
-{
-    $_SESSION['error'] = 14;
-    header("Location: ".PATH_RELATIVE."back/user/Connection");
-}
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,7 +13,7 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] != '1' || !isset($_SESSION['a
 <body>
 
 <header class="nav-header"> <!--cd-main-header-->
-    <a href="<?php echo PATH_RELATIVE ; ?>back/Dashboard/menu" class="logo"><img src="<?php echo PATH_RELATIVE ; ?>assets/back/img/logo.png" alt="Logo"></a>
+    <a href="<?php echo PATH_RELATIVE ; ?>back/dashboard/menu" class="logo"><img src="<?php echo PATH_RELATIVE ; ?>assets/back/img/logo.png" alt="Logo"></a>
 
 
     <!--<a href="#" class="nav-header-trigger">Menu<span></span></a>-->
@@ -40,7 +33,7 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] != '1' || !isset($_SESSION['a
             <li class="label">Menu</li>
 
             <li class="menu-icon">
-                <a href="<?php echo PATH_RELATIVE ; ?>back/Dashboard/menu"><i class="fa fa-tachometer" aria-hidden="true"></i></a>
+                <a href="<?php echo PATH_RELATIVE ; ?>back/dashboard/menu"><i class="fa fa-tachometer" aria-hidden="true"></i></a>
                 <span class="page">Dashboard</span>
             </li>
 

@@ -1,7 +1,7 @@
 <?php
 if(isset($_SESSION['admin']) && $_SESSION['admin'] == '1')
 {
-    header("Location: ".PATH_RELATIVE."back/Dashboard/menu");
+    header("Location: ".PATH_RELATIVE."back/dashboard/menu");
 }
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {

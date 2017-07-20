@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
     $.ajax({
-        url: window.location.origin+"/assets/Chart.js/compte.php",
+        url: window.location.origin+"/views/back/dashboard/compte.php",
         method: "GET",
         success: function(data) {
             console.log(data);
@@ -55,21 +55,23 @@ $(document).ready(function(){
 $(document).ready(function(){
 
     $.ajax({
-        url: window.location.origin+"/assets/Chart.js/category.php",
+        url: window.location.origin+"/views/back/dashboard/category.php",
         type : "GET",
         success : function(data) {
 
             console.log(data);
             var nbr = [];
+            var label = [];
             var len = data.length;
 
             for (var i = 0; i < len; i++) {
                     nbr.push(data[i].nbr);
+                    label[i] = data[i].type;
             }
 
             var ctx1 = $("#mygraph2");
             var data1 = {
-                labels : ["Blog", "Music", "News", "Autres"],
+                labels : label,
                 datasets : [
                     {
                         // label : "",
@@ -116,7 +118,7 @@ $(document).ready(function(){
 // Bar chart - mygraph3  - Type de fichier dans Mediafile
     $(document).ready(function(){
         $.ajax({
-            url: window.location.origin+"/assets/Chart.js/mediafile.php",
+            url: window.location.origin+"/views/back/dashboard/mediafile.php",
             method: "GET",
             success: function(data) {
                 console.log(data);
