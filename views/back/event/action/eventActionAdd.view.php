@@ -1,10 +1,10 @@
 <?php
 if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST['lastname']) && isset($_POST["email"]) && isset($_POST["pwd"]) && isset($_POST["pwd2"])) {
     $user = new User();
-    $username = trim($_POST['username']);
-    $firstname = trim($_POST['firstname']);
-    $lastname = trim($_POST['lastname']);
-    $email = trim($_POST['email']);
+    $username = htmlentities($_POST['username']);
+    $firstname = htmlentities($_POST['firstname']);
+    $lastname = htmlentities($_POST['lastname']);
+    $email = htmlentities($_POST['email']);
     $pwd = $_POST['pwd'];
     $pwd2 = $_POST['pwd2'];
     //Birthday

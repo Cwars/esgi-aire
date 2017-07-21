@@ -3,11 +3,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!empty($_POST['username']) && !empty($_POST['firstname']) && !empty($_POST['lastname']) && isset($_POST["email"]) && isset($_POST["pwd"]) && isset($_POST["pwd2"]) && isset($_POST["cgu"])) {
         $user = new User();
-        $username = trim($_POST['username']);
-        $statut = trim($_POST['statut']);
-        $firstname = trim($_POST['firstname']);
-        $lastname = trim($_POST['lastname']);
-        $email = trim($_POST['email']);
+        $username = htmlentities($_POST['username']);
+        $status = htmlentities($_POST['status']);
+        $firstname = htmlentities($_POST['firstname']);
+        $lastname = htmlentities($_POST['lastname']);
+        $email = htmlentities($_POST['email']);
         $pwd = $_POST['pwd'];
         $pwd2 = $_POST['pwd2'];
         $cgu = $_POST['cgu'];
@@ -70,13 +70,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 if ($error === false) {
                     $user->setUsername($username);
-                    $user->setStatus($statut);
+                    $user->setStatus($status);
                     $user->setFirstname($firstname);
                     $user->setLastname($lastname);
                     $user->setEmail($email);
                     $user->setPwd($pwd);
                     $user->setIsDeleted(0);
-                    // $user -> setBirthday($username);
 
                     $user->save();
 

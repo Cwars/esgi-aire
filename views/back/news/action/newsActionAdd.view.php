@@ -4,15 +4,14 @@ if( !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['title
     //Créer deux objets, news et image qui sera attaché à la news grâce à l'idParent
     $news = new News();
     $mediafile = new Mediafile();
-
-    $title = trim($_POST['title']);
+    $title = htmlentities($_POST['title']);
     $author = $username;
-    $content = trim($_POST['content']);
-    $type = trim($_POST['type']);
+    $content = htmlentities($_POST['content']);
+    $type = htmlentities($_POST['type']);
     $now = date("Y-m-d H:i:s");
 
-    $titleImage = trim($_POST['titleImage']);
-    $description = trim($_POST['description']);
+    $titleImage = htmlentities($_POST['titleImage']);
+    $description = htmlentities($_POST['description']);
 
     $error = false;
     $listOfErrors = [];

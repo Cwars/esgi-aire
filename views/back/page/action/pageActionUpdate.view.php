@@ -3,12 +3,11 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
 
     $user = new User();
     $id = $idUpdate;
-    echo $idUpdate;
     $username = trim($_POST['username']);
     $firstname = trim($_POST['firstname']);
     $lastname = trim($_POST['lastname']);
     $email = trim($_POST['email']);
-    $statut = trim($_POST['statut']);
+    $status = trim($_POST['status']);
     $pwd = $_POST['pwd'];
     $pwd2 = $_POST['pwd2'];
     //Birthday
@@ -67,7 +66,7 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
         $user->setLastname($lastname);
         $user->setEmail($email);
         $user->setPwd($pwd);
-        $user->setStatus($statut);
+        $user->setStatus($status);
         $user->setIsDeleted(0);
 
         // $user -> setBirthday($username);

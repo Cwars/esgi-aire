@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 21 Juillet 2017 à 10:48
+-- Généré le :  Ven 21 Juillet 2017 à 10:49
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `mvciw1`
 --
+CREATE DATABASE IF NOT EXISTS `mvciw1` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `mvciw1`;
 
 -- --------------------------------------------------------
 

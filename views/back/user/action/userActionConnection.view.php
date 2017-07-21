@@ -3,7 +3,7 @@
 
     if(isset($_SESSION['user_id']))
     {
-        header("Location: ".PATH_RELATIVE."back/Dashboard/menu");
+        header("Location: ".PATH_RELATIVE."back/dashboard/menu");
     }
 
     if (isset($_POST['username']) && isset($_POST['pwd'])) {
@@ -21,7 +21,7 @@
                 session_start();
                 $_SESSION['username'] = $username;
                 $_SESSION['user_id'] = $user->getId();
-                header("Location: " . PATH_RELATIVE . "back/Dashboard/menu");
+                header("Location: " . PATH_RELATIVE . "back/dashboard/menu");
             } else {
                 echo "Mauvais mot de passe";
             }

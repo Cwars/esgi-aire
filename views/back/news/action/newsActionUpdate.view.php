@@ -3,10 +3,10 @@ if( !empty($_POST['title']) && !empty($_POST['content'])) {
 
     $news = new News();
     $id = $idUpdate;
-    $title = trim($_POST['title']);
+    $title = htmlentities($_POST['title']);
     $author = $username;
-    $content = trim($_POST['content']);
-    $type = trim($_POST['type']);
+    $content = htmlentities($_POST['content']);
+    $type = htmlentities($_POST['type']);
 
     $error = false;
     $listOfErrors = [];

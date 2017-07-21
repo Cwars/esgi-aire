@@ -3,14 +3,14 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
 
     $user = new User();
     $id = $idUpdate;
-    $username = trim($_POST['username']);
-    $firstname = trim($_POST['firstname']);
-    $lastname = trim($_POST['lastname']);
-    $email = trim($_POST['email']);
-    $statut = trim($_POST['statut']);
+    $username = htmlentities($_POST['username']);
+    $firstname = htmlentities($_POST['firstname']);
+    $lastname = htmlentities($_POST['lastname']);
+    $email = htmlentities($_POST['email']);
+    $status = htmlentities($_POST['status']);
     $pwd = $_POST['pwd'];
     $pwd2 = $_POST['pwd2'];
-    //Birthday
+    $now = date("Y-m-d H:i:s");
 
     $error = false;
     $listOfErrors = [];
@@ -66,10 +66,9 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
         $user->setLastname($lastname);
         $user->setEmail($email);
         $user->setPwd($pwd);
-        $user->setStatus($statut);
+        $user->setStatus($status);
+        $user->setDateUpdated($now);
         $user->setIsDeleted(0);
-
-        // $user -> setBirthday($username);
 
         $user->save();
     }else{

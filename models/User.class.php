@@ -9,10 +9,9 @@
         protected $firstname;
         protected $lastname;
         protected $status;
-       // protected $birthday;
         protected $isDeleted;
-        //protected $dateInserted;
-        //protected $dateUpdated;
+        protected $dateInserted;
+        protected $dateUpdated;
 
 
         public function __construct($id = -1, $email = null, $pwd = null, $username = null, $firstname = null, $lastname = null, $status = null) {
@@ -76,11 +75,23 @@
         }
 
         public function getDateUpdated() {
-            return $this->dateUpdated;
+            return $this-> dateUpdated;
+        }
+
+        public function setDateInserted($dateInserted) {
+            $this-> dateInserted = $dateInserted;
+        }
+
+        public function setDateUpdated($dateUpdated) {
+            $this-> dateUpdated = $dateUpdated;
         }
 
         public function setIsDeleted($isDeleted) {
             $this->isDeleted = $isDeleted;
+        }
+
+        public function getIsDeleted() {
+            return $this->isDeleted;
         }
 
         public function setPassword($pwd) {
@@ -90,27 +101,6 @@
         public function getPassword(){
             return $this->pwd;
         }
-
-       /* public function setBirthday($birthday)
-        {
-        //     $date = DateTime::createFromFormat(
-        //         (strstr($birthday, "/") ? 'd/m/Y' : "Y-m-d")
-        //         , $birthday);
-        //     $DateError = DateTime::getLastErrors();
-
-        //     if ($DateError["warning_count"] + $DateError["error_count"] == 0) {
-
-        //         $dateNow = new DateTime("now");
-        //         $this->age = date_diff($date, $dateNow)->format('%y');
-        //     }
-                $this->birthday->$birthday;
-        }
-        */
-
-        // public function getAge() {
-        //     return $this->age ;
-        // }
-
 
         // Création d'un formulaire pour l'inscription d'un utilisateur pour le front
         public function getFormRegisterback()
@@ -154,7 +144,7 @@
                         "required" => true
                     ],
                     "Option" => [
-                        "optionName" => "statut",
+                        "optionName" => "status",
                         "type" => "select",
                         "option" => [
                             "option1" => "Admin",
@@ -201,7 +191,7 @@
                         "value" => "".$email."",
                     ],
                     "Option" => [
-                        "optionName" => "statut",
+                        "optionName" => "status",
                         "type" => "select",
                         "option" => [
                             "option1" => "Admin",

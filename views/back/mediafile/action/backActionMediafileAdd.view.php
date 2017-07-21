@@ -5,8 +5,8 @@
     <?php
     if( !empty($_POST['title']) && !empty($_POST['description'])) {
         $mediafile = new Mediafile();
-        $title = trim($_POST['title']);
-        $description = trim($_POST['description']);
+        $title = htmlentities($_POST['title']);
+        $description = htmlentities($_POST['description']);
 
         $error = false;
         $listOfErrors = [];
