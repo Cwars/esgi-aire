@@ -1,4 +1,4 @@
-Différents sécurité effectué:
+Sécurité DONE:
 
 - Ne pas afficher les informations de version
 
@@ -49,8 +49,27 @@ Source : https://technique.arscenic.org/lamp-linux-apache-mysql-php/apache-le-se
         session.use_only_cookies=1
         session.entropy_file= /dev/urandom
     
+- https pour phpmyadmin
+
+        /etc/phpmyadmin/config.inc.php
+
+  Ajouter la ligne: 
+
+        $cfg['ForceSSL'] = True;
+
+Sécurité en TEST: 
+
+- Renvoyer l’ensemble du site vers le protocole HTTPS sécurisé depuis le virtualhost 
+    /etc/apache2/sites-avalaible/X
     
-    to check : sql.safe_mode 
+         <VirtualHost *:80>
+         .....
+         Redirect permanent / https://technique.arscenic.org/
+            ....
+         </VirtualHost>
+        
+        
+   to check : sql.safe_mode 
     
 http://www.supinfo.com/articles/single/575-comment-renforcer-securite-ses-sites-php
 https://openclassrooms.com/courses/protegez-vous-efficacement-contre-les-failles-web
