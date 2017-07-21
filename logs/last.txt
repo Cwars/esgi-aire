@@ -1,2 +1,20 @@
 2017-07-20 03:21:02 ===> La méthode useraAction n'existe pas dans la classe backuserController.
 
+2017-07-20 19:59:36 ===> Le contrôleur welcomeController n'existe pas.
+
+2017-07-20 20:00:00 ===> La méthode indexAction n'existe pas dans la classe indexController.
+
+2017-07-20 20:00:53 ===> La méthode indexAction n'existe pas dans la classe indexController.
+
+2017-07-20 20:01:16 ===> La méthode indexAction n'existe pas dans la classe indexController.
+
+2017-07-20 20:02:16 ===> La méthode  n'existe pas dans la classe backDashboardController.
+
+2017-07-20 20:02:46 ===> Le contrôleur index.phpController n'existe pas.
+
+2017-07-20 20:06:19 ===> Le contrôleur connexionController n'existe pas.
+
+2017-07-20 20:10:08 ===> Le contrôleur loginController n'existe pas.
+
+2017-07-20 20:48:00 ===> Le contrôleur register?username=aaaa&firstname=aaaa&lastname=aaaa&email=a%40a.a&pwd=aaaa&pwd2=aaaaController n'existe pas.
+

@@ -247,7 +247,61 @@
                     ]
                 ];
         }
-
+        public function getFormRegisterfront()
+        {
+            return [
+                "options" => [
+                    "method" => "get",
+                    "action" => "register",
+                    "class" => "add-form",
+                    "id" => "Register"
+                ],
+                "struct" => [
+                    "username" => [
+                        "type" => "text",
+                        "placeholder" => "Nom d'utilisateur",
+                        "required" => true
+                    ],
+                    "firstname" => [
+                        "type" => "text",
+                        "placeholder" => "Prénom",
+                        "required" => true
+                    ],
+                    "lastname" => [
+                        "type" => "text",
+                        "placeholder" => "Nom",
+                        "required" => true
+                    ],
+                    "email" => [
+                        "type" => "email",
+                        "placeholder" => "Adresse email",
+                        "required" => true
+                    ],
+                    "pwd" => [
+                        "type" => "password",
+                        "placeholder" => "Mot de passe",
+                        "required" => true
+                    ],
+                    "pwd2" => [
+                        "type" => "password",
+                        "placeholder" => "Confirmation mot de passe",
+                        "required" => true
+                    ],
+                    "cgu" => [
+                        "type" => "checkbox",
+                        "name" => "cgu",
+                        "label" => "Acceptez les conditions générales d'utilisation",
+                        "required" => true
+                    ],
+                    "newsletter" => [
+                        "type" => "checkbox",
+                        "name" => "newsletter",
+                        "label" => "S'abonner à la Newsletter",
+                        "required" => false
+                    ],
+                ]
+            ];
+        }
 //        // Formulaire de modification des infos de l'utilisateur
 //        public function getFormSetting($id,$firstname,$lastname,$email)
 //        {

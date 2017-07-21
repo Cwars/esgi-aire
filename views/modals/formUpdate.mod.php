@@ -1,4 +1,4 @@
-<form method="<?php echo $config["options"]["method"] ?>" enctype="multipart/form-data"
+    <form method="<?php echo $config["options"]["method"] ?>" enctype="multipart/form-data"
       action="<?php echo $config["options"]["action"] ?>"
       class="<?php echo $config["options"]["class"] ?>"
       id="<?php echo $config["options"]["id"] ?>">
