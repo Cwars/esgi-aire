@@ -3,7 +3,7 @@
 /**
  *
  */
-class BackUserController
+class BackuserController
 {
 
     public function UserMenuAction() {

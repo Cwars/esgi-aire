@@ -1,7 +1,7 @@
 <?php
 if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST['lastname']) && isset($_POST["email"]) && isset($_POST["pwd"]) && isset($_POST["pwd2"])) {
 
-    $user = new User();
+    $event = new Event();
     $id = $idUpdate;
     echo $idUpdate;
     $username = htmlentities($_POST['username']);
@@ -22,7 +22,7 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
         $error = true;
     }
 
-    if ($user->populate(['username' => $username])){
+    if ($event->populate(['username' => $username])){
         //Le nom d'utilisateur est déja utilisé
         $listOfErrors[] = "usernameUsed";
         $error = true;
@@ -61,14 +61,14 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
     }
 
     if ($error === false) {
-        $user->setId($id);
-        $user->setUsername($username);
-        $user->setFirstname($firstname);
-        $user->setLastname($lastname);
-        $user->setEmail($email);
-        $user->setPwd($pwd);
-        $user->setStatus($status);
-        $user->setIsDeleted(0);
+        $event->setId($id);
+        $event->setUsername($username);
+        $event->setFirstname($firstname);
+        $event->setLastname($lastname);
+        $event->setEmail($email);
+        $event->setPwd($pwd);
+        $event->setStatus($status);
+        $event->setIsDeleted(0);
 
         // $user -> setBirthday($username);
 

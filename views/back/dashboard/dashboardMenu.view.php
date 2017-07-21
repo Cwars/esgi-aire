@@ -5,7 +5,7 @@
             height: auto;
             float: left;
         }
-        #dash2, #dash4{
+        #dash2{
             width: 400px;
             height: auto;
             float: right;
@@ -32,8 +32,5 @@
         <canvas id="mygraph3"></canvas>
     </div>
     <br>
-    <div id="dash4">
-        <canvas id="mygraph4"></canvas>
-    </div>
 </div> <!-- .content-wrapper -->
 <br>

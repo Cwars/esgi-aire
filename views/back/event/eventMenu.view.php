@@ -1,4 +1,4 @@
-<h1>Events</h1>
+<h1>Event</h1>
 <div>
     <a href="<?php echo PATH_RELATIVE ; ?>back/event/add" class="button-add">Ajouter</a>
 </div>

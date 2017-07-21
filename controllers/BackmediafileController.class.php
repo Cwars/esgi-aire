@@ -3,7 +3,7 @@
 /**
  *
  */
-class BackMediafileController
+class BackmediafileController
 {
     public function MediafileMenuAction() {
         $datafile = new Mediafile();

@@ -3,12 +3,12 @@
 /**
  *
  */
-class BackEventController
+class BackeventController
 {
 
     public function EventMenuAction() {
         $v = new View("eventMenu");
-        $event = new Events();
+        $event = new Event();
 
         $search = ["id","title","description","date","dateUpdated"];
         $res = $event->getObj($search);
@@ -18,7 +18,7 @@ class BackEventController
     }
 
     public function EventAddAction() {
-        $event = new Events();
+        $event = new Event();
         $v = new View('eventAdd');
         $v->assign("formEvent", $event->getFormEvent());
     }

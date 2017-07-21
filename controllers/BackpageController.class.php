@@ -3,7 +3,7 @@
 /**
  *
  */
-class BackPageController
+class BackpageController
 {
 
     public function PageMenuAction() {

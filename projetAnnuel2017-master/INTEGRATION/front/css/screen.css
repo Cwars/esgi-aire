@@ -292,11 +292,11 @@ p {
 }
 
 /* line 260, ../scss/screen.scss */
-#Events {
+#Event {
   padding-bottom: 50px;
 }
 /* line 264, ../scss/screen.scss */
-#Events .bouton a {
+#Event .bouton a {
   font-family: 'Jaldi', sans-serif;
   display: block;
   width: 150px;
@@ -310,7 +310,7 @@ p {
   margin-right: auto;
 }
 /* line 276, ../scss/screen.scss */
-#Events .bouton a:hover {
+#Event .bouton a:hover {
   background-color: #969ea8;
 }
 

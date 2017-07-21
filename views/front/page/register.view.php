@@ -109,7 +109,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1 class="slide-label">Inscription</h1>
 </div>
 
-<section class="un" id="Events">
+<section class="un" id="Event">
     <div class="container">
         <h2 class="text-center">Formulaire d'inscription</h2>
         <div class="col1 firstcol">

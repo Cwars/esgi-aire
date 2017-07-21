@@ -71,6 +71,7 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
         $user->setIsDeleted(0);
 
         $user->save();
+        header("Location: " . PATH_RELATIVE . "back/user/menu");
     }else{
         $_SESSION["form_error"] = $listOfErrors;
         $_SESSION["form_post"] = $_POST;

@@ -1,6 +1,6 @@
 <?php
 
-    class Events extends BaseSql  {
+    class Event extends BaseSql  {
 
         protected $id = -1;
         protected $title;

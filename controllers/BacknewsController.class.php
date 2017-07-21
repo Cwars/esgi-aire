@@ -3,7 +3,7 @@
 /**
  *
  */
-class BackNewsController
+class BacknewsController
 {
 
     public function NewsMenuAction() {

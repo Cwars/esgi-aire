@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Jaldi" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/front/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
-<body>
+<body oncontextmenu="return false;">
 
 <header>
     <div class="nav-container">

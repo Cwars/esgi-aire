@@ -3,7 +3,7 @@
     <h1 class="slide-label">La galerie des artistes</h1>
 </div>
 
-<section class="un" id="Events">
+<section class="un" id="Event">
     <div class="container">
         <h2 class="text-center">Retrouvez les différents oeuvres des artistes ici</h2>
         <div class="col1 firstcol">

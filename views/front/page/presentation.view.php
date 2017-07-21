@@ -4,7 +4,7 @@
         Bienvenue sur ESGI-Aire, le site des artistes de notre époque.</h1>
 </div>
 
-<section class="un" id="Events">
+<section class="un" id="Event">
     <div class="container">
         <h2 class="text-center">Le concept</h2>
         <div class="col1 firstcol">

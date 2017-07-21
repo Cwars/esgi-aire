@@ -3,7 +3,7 @@
     <h1 class="slide-label">Les événements du moment</h1>
 </div>
 
-<section class="un" id="Events">
+<section class="un" id="Event">
     <div class="container">
         <h2 class="text-center">Souhaitez vous assister à une exposition ?</h2>
         <div class="col1 firstcol">

@@ -3,9 +3,9 @@
     if(isset($idRestore)){
         $idUp = $idRestore[0];
 
-        $user=((new User())->populate(['id' => $idUp]));
-        $user->setIsDeleted(0);
-        $user->save();
+        $event=((new Event())->populate(['id' => $idUp]));
+        $event->setIsDeleted(0);
+        $event->save();
 
         echo "L'utilisateur".$user->getUsername." a été restauré";
     }

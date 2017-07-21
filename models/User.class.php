@@ -27,7 +27,7 @@
         }
 
         public function setEmail($email) {
-            $this->email = trim($email);
+            $this->email = htmlentities($email);
         }
 
         public function getEmail() {
@@ -39,15 +39,15 @@
         }
 
         public function setFirstname($firstname) {
-            $this->firstname = trim($firstname);
+            $this->firstname = htmlentities($firstname);
         }
 
         public function setLastname($lastname) {
-            $this->lastname = trim($lastname);
+            $this->lastname = htmlentities($lastname);
         }
 
         public function setUsername($username) {
-            $this->username = trim($username);
+            $this->username = htmlentities($username);
         }
 
         public function getUsername() {
@@ -63,7 +63,7 @@
         }
 
         public function setStatus($status) {
-            $this->status = trim($status);
+            $this->status = htmlentities($status);
         }
 
         public function getStatus() {

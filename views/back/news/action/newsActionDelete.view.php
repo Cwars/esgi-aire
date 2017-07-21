@@ -8,7 +8,8 @@ if(isset($idDelete)){
     $news->setIsDeleted(1);
     $news->save();
 
-    echo "L'article ".$news->getTitle()." a été supprimé";
+    header("Location: " . PATH_RELATIVE . "back/news/menu");
+//    echo "L'article ".$news->getTitle()." a été supprimé";
 
 }
 

@@ -7,6 +7,7 @@ if(isset($idDelete)){
     $mediafile->setIsDeleted(1);
     $mediafile->save();
 
+    header("Location: " . PATH_RELATIVE . "back/mediafile/menu");
     echo "Le fichier mutlimédia ".$mediafile->getTitle()." a été supprimé";
 
 }

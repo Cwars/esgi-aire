@@ -195,9 +195,9 @@ p {
 #Dedicaces ul {
   list-style-type: none; }
 
-#Events {
+#Event {
   padding-bottom: 50px; }
-  #Events .bouton a {
+  #Event .bouton a {
     font-family: 'Jaldi', sans-serif;
     display: block;
     width: 150px;
@@ -209,7 +209,7 @@ p {
     background-color: #C0C5CB;
     margin-left: auto;
     margin-right: auto; }
-    #Events .bouton a:hover {
+    #Event .bouton a:hover {
       background-color: #969ea8; }
 
 footer {
