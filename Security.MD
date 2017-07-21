@@ -52,7 +52,120 @@ Source : https://technique.arscenic.org/lamp-linux-apache-mysql-php/apache-le-se
     
     to check : sql.safe_mode 
     
-http://www.supinfo.com/articles/single/575-comment-renforcer-securite-ses-sites-php     
+http://www.supinfo.com/articles/single/575-comment-renforcer-securite-ses-sites-php
+https://openclassrooms.com/courses/protegez-vous-efficacement-contre-les-failles-web
 https://www.nosyweb.fr/astuce-joomla/configurez-votre-fichier-php-ini-pour-plus-de-securite.html
 https://www.vaadata.com/blog/fr/proteger-votre-site-bonnes-pratiques-de-securite-pour-php-3/ 
 https://webmasters.stackexchange.com/questions/71568/whats-the-use-of-mysql-safe-mode-in-php-ini-file 
+
+TO CHECK en permanence : 
+
+https://openclassrooms.com/courses/les-filtres-en-php-pour-valider-les-donnees-utilisateur 
+
+- Eviter les failles XXS
+
+        htmlentities();
+        
+- Injection SQl
+
+        Requête préparée
+        
+- Faille include()
+
+        Eviter la fonction include() 
+https://openclassrooms.com/courses/protegez-vous-efficacement-contre-les-failles-web/la-faille-include-1
+
+- Faille Upload
+
+        Un hash généré (pseudo) aléatoirement du nom du fichier
+        Vérification de l'extension
+        Vérification de ne pas avoir le même nom de fichier sur le serveur
+        Interdiction de symbole lors de l'ouverture du fichier
+        Htacces dans le dossier upload 
+        
+        
+        
+https://openclassrooms.com/courses/protegez-vous-efficacement-contre-les-failles-web/la-faille-upload-1
+
+- Faille CSRF (Cross site request forgery)
+
+     Création d'un token unique pour l'authentification
+        
+            <?php
+            // On démarre la session en début de chaque page
+            session_start();
+            
+            //On enregistre notre token
+            $token = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
+            
+            $_SESSION['token'] = $token;
+            ?>
+            
+            <?php
+    
+            session_start();
+            //On vérifie que tous les jetons sont là
+            
+            if (isset($_SESSION['token']) AND isset($_POST['token']) AND !empty($_SESSION['token']) AND !empty($_POST['token'])) {
+                // On vérifie que les deux correspondent
+                
+                if ($_SESSION['token'] == $_POST['token']) {
+                            // Vérification terminée
+                            // On peut supprimer l'utilisateur
+                    }
+            }
+            else {            
+                // Les token ne correspondent pas
+                // On ne supprime pas
+                echo "Erreur de vérification";
+            }
+            ?>
+
+
+https://openclassrooms.com/courses/protegez-vous-efficacement-contre-les-failles-web/la-csrf
+
+- Faille CRLF (Carriage Return Line Feed)
+
+     Souvent utilisée pour récupérer le mot de passe de quelqu'un, 
+     fonction mail() de la page "mot de passe oublié" 
+     
+     S'en protéger : supprimer les retours à la ligne lors du traitement
+
+                    <?php
+                    // On récupère la valeur du input
+                    $chaine_utilisateur = $_POST['mail'];
+                    
+                    // On supprime les retour à la ligne
+                    $chaine_secure = str_replace(array("\n","\r",PHP_EOL),'',$chaine_utilisateur);
+                    ?>
+        
+    Vérifier que la chaine de caractères : une adresse mail.     
+         
+                    <?php
+                    $email = $_POST['mail'];
+                    if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+                         // Valide
+                    }
+                    else {
+                        // Non valide
+                    }
+                    ?>
+                    
+                    
+- Brute Force
+
+    Ralentir une attaque avec des pauses
+                
+                <?php 
+                if(isset($_POST['pseudo']) AND isset($_POST['password'])) {
+                    sleep(1); // Une pause de 1 sec
+                    if... // Vérification des identifiants/password etc..
+                ?>
+                
+    Captcha
+    Banissement par ip (avoir une bdd)
+    
+- Les variables de session 
+
+        https://openclassrooms.com/courses/protegez-vous-efficacement-contre-les-failles-web/les-variable-de-session
+
