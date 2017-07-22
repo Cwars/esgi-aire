@@ -38,10 +38,10 @@ class Routing {
     public function setController() {
 
         if($this->side == "front"){
-            $this->controller = (empty($this->uriExploded[0])) ? "index" : $this->uriExploded[0];
+            $this->controller = (empty($this->uriExploded[0])) ? "index" : htmlentities($this->uriExploded[0]);
             $this->controllerName = $this->controller."Controller";
         } elseif ($this->side === "back"){
-            $this->controller = (empty($this->uriExploded[0])) ? "index" : $this->uriExploded[0].$this->uriExploded[1];
+            $this->controller = (empty($this->uriExploded[0])) ? "index" : htmlentities($this->uriExploded[0].$this->uriExploded[1]);
             $this->controllerName = $this->controller."Controller";
             unset($this->uriExploded[0]);
         }
@@ -50,12 +50,12 @@ class Routing {
     public function setAction()
     {
         if ($this->side === "front") {
-            $this->action = (empty($this->uriExploded[0])) ? "index" : $this->uriExploded[0];
+            $this->action = (empty($this->uriExploded[0])) ? "index" : htmlentities($this->uriExploded[0]);
             $this->actionName = $this->action . "Action";
             unset($this->uriExploded[0]);
         }
         elseif ($this->side === "back" && !empty($this->uriExploded[2])) {
-            $this->action = (empty($this->uriExploded[1])) ? "index" : $this->uriExploded[1] . $this->uriExploded[2];
+            $this->action = (empty($this->uriExploded[1])) ? "index" : htmlentities($this->uriExploded[1] . $this->uriExploded[2]);
             $this->actionName = $this->action . "Action";
             unset($this->uriExploded[1]);
             unset($this->uriExploded[2]);

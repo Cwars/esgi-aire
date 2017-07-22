@@ -2,11 +2,10 @@
 
 class LoginController
 {
-    public function userAction() {
+    public function loginAction() {
         $v = new View("login");
-    }
+        $user = new User();
 
-    public function userConfirmationAction() {
-        $v = new View("userConfirmation");
+        $v->assign("formConnectionFront", $user->getFormConnectionFront());
     }
 }

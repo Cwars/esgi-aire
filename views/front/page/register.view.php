@@ -99,7 +99,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     if ($error == true) {
         $_SESSION['form_error'] = $listOfErrors;
-        header("Location: " . PATH_RELATIVE . "back/user/add");
+        header("Location: " . PATH_RELATIVE . "/home");
     }
 }
 
@@ -117,9 +117,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php
             $this->includeModal("form", $formRegister);
             ?>
-<!--
-?username=aaaa&firstname=aaaa&lastname=aaaa&email=a%40a.a&pwd=aaaa&pwd2=aaaa
--->
         </div>
 
     </div>

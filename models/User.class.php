@@ -38,6 +38,14 @@
             $this->pwd = password_hash($pwd, PASSWORD_DEFAULT);
         }
 
+        public function getPwd() {
+            return $this->pwd;
+        }
+
+        public function setPwdUpdate($pwd) {
+            $this->pwd = $pwd;
+        }
+
         public function setFirstname($firstname) {
             $this->firstname = htmlentities($firstname);
         }
@@ -155,7 +163,7 @@
             ];
         }
 
-        // Création d'un formulaire pour l'inscription d'un utilisateur pour le front
+        // Création d'un formulaire pour l'inscription d'un utilisateur pour le back
         public function getFormUpdate($id,$username,$firstname,$lastname,$email)
         {
             return [
@@ -197,24 +205,57 @@
                             "option1" => "Admin",
                             "option2" => "User"
                         ]
-                    ],
-                    "pwd" => [
-                        "type" => "password",
-                        "placeholder" => "Mot de passe",
-                        "required" => true,
-                        "value" => "",
-                    ],
-                    "pwd2" => [
-                        "type" => "password",
-                        "placeholder" => "Confirmation mot de passe",
-                        "required" => true,
-                        "value" => "",
                     ]
                 ]
             ];
         }
 
-        // Création d'un formulaire pour la connection d'un utilisateur pour le front
+        // Création d'un formulaire pour l'inscription d'un utilisateur pour le back
+        public function getFormUpdateFront($id,$username,$firstname,$lastname,$email)
+        {
+            return [
+                "options" => [
+                    "method" => "POST",
+                    "action" => "../userUpdate/".$id,
+                    "class" => "add-form",
+                    "id" => "Register"
+                ],
+                "struct" => [
+                    "username" => [
+                        "type" => "text",
+                        "placeholder" => "Nom d'utilisateur",
+                        "required" => true,
+                        "value" => "".$username."",
+                    ],
+                    "firstname" => [
+                        "type" => "text",
+                        "placeholder" => "Prénom",
+                        "required" => true,
+                        "value" => "".$firstname."",
+                    ],
+                    "lastname" => [
+                        "type" => "text",
+                        "placeholder" => "Nom",
+                        "required" => true,
+                        "value" => "".$lastname."",
+                    ],
+                    "email" => [
+                        "type" => "email",
+                        "placeholder" => "Adresse email",
+                        "required" => true,
+                        "value" => "".$email."",
+                    ],
+                    "newsletter" => [
+                        "type" => "checkbox",
+                        "name" => "newsletter",
+                        "label" => "S'abonner à la Newsletter",
+                        "required" => false
+                    ],
+                ]
+            ];
+        }
+
+        // Création d'un formulaire pour la connection d'un utilisateur pour le back
         public function getFormConnection() {
                 return [
                     "options" => [
@@ -237,6 +278,31 @@
                     ]
                 ];
         }
+
+        // Création d'un formulaire pour la connection d'un utilisateur pour le front
+        public function getFormConnectionFront() {
+            return [
+                "options" => [
+                    "method" => "POST",
+                    "action" => "Connection",
+                    "class" => "login-form",
+                    "id" => "Connection"
+                ],
+                "struct" => [
+                    "username" => [
+                        "type" => "text",
+                        "placeholder" => "Nom d'utilisateur",
+                        "required" => true
+                    ],
+                    "pwd" => [
+                        "type" => "password",
+                        "placeholder" => "Mot de passe",
+                        "required" => true
+                    ],
+                ]
+            ];
+        }
+
         public function getFormRegisterfront()
         {
             return [

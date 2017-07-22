@@ -1,5 +1,5 @@
 <?php
-if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST['lastname']) && isset($_POST["email"]) && isset($_POST["pwd"]) && isset($_POST["pwd2"])) {
+if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST['lastname']) && isset($_POST["email"])) {
 
     $user = new User();
     $id = $idUpdate;
@@ -8,8 +8,6 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
     $lastname = htmlentities($_POST['lastname']);
     $email = htmlentities($_POST['email']);
     $status = htmlentities($_POST['status']);
-    $pwd = $_POST['pwd'];
-    $pwd2 = $_POST['pwd2'];
     $now = date("Y-m-d H:i:s");
 
     $error = false;
@@ -47,17 +45,6 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
         $error = true;
     }
 
-    if (strlen($pwd) < 8 || strlen($pwd) > 12) {
-        //Le mot de passe doit faire entre 8 et 12 caractères
-        $listOfErrors[] = "nbPwd";
-        $error = true;
-    }
-
-    if ($pwd != $pwd2) {
-        //Le mot de passe de confirmation ne correspond pas
-        $listOfErrors[] = "pw1/pw2";
-        $error = true;
-    }
 
     if ($error === false) {
         $user->setId($id);
@@ -65,7 +52,7 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
         $user->setFirstname($firstname);
         $user->setLastname($lastname);
         $user->setEmail($email);
-        $user->setPwd($pwd);
+        $user->setPwdUpdate($pwd);
         $user->setStatus($status);
         $user->setDateUpdated($now);
         $user->setIsDeleted(0);

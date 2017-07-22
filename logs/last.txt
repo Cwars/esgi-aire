@@ -18,3 +18,27 @@
 
 2017-07-20 20:48:00 ===> Le contrôleur register?username=aaaa&firstname=aaaa&lastname=aaaa&email=a%40a.a&pwd=aaaa&pwd2=aaaaController n'existe pas.
 
+2017-07-22 16:52:41 ===> Le contrôleur backhomeController n'existe pas.
+
+2017-07-22 18:13:16 ===> Le contrôleur inscriptionController n'existe pas.
+
+2017-07-22 21:04:00 ===> Le contrôleur frontController n'existe pas.
+
+2017-07-22 21:04:05 ===> Le contrôleur inscriptionController n'existe pas.
+
+2017-07-22 21:04:07 ===> Le contrôleur connexionController n'existe pas.
+
+2017-07-22 21:15:21 ===> Le contrôleur floginController n'existe pas.
+
+2017-07-22 21:15:25 ===> La méthode loginAction n'existe pas dans la classe loginController.
+
+2017-07-22 21:44:33 ===> Le contrôleur inscriptionController n'existe pas.
+
+2017-07-22 21:44:36 ===> Le contrôleur connexionController n'existe pas.
+
+2017-07-22 21:57:09 ===> Le contrôleur backController n'existe pas.
+
+2017-07-22 21:57:17 ===> Le contrôleur backController n'existe pas.
+
+2017-07-22 21:58:29 ===> La méthode indexAction n'existe pas dans la classe indexController.
+
