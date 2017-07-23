@@ -114,3 +114,43 @@
 
 2017-07-23 17:34:10 ===> La méthode userLogoutAction n'existe pas dans la classe backuserController.
 
+2017-07-23 18:38:45 ===> Le contrôleur welcomeController n'existe pas.
+
+2017-07-23 18:38:57 ===> Le contrôleur updateController n'existe pas.
+
+2017-07-23 19:51:45 ===> La méthode userAction n'existe pas dans la classe userController.
+
+2017-07-23 19:51:47 ===> La méthode userAction n'existe pas dans la classe userController.
+
+2017-07-23 19:52:05 ===> La méthode userAction n'existe pas dans la classe userController.
+
+2017-07-23 19:52:05 ===> La méthode userAction n'existe pas dans la classe userController.
+
+2017-07-23 19:52:06 ===> La méthode userAction n'existe pas dans la classe userController.
+
+2017-07-23 19:52:06 ===> La méthode userAction n'existe pas dans la classe userController.
+
+2017-07-23 19:52:07 ===> La méthode userAction n'existe pas dans la classe userController.
+
+2017-07-23 19:52:07 ===> La méthode userAction n'existe pas dans la classe userController.
+
+2017-07-23 19:52:08 ===> La méthode userAction n'existe pas dans la classe userController.
+
+2017-07-23 19:52:08 ===> La méthode userAction n'existe pas dans la classe userController.
+
+2017-07-23 19:52:09 ===> La méthode userAction n'existe pas dans la classe userController.
+
+2017-07-23 19:52:10 ===> La méthode userAction n'existe pas dans la classe userController.
+
+2017-07-23 19:53:11 ===> La méthode userAction n'existe pas dans la classe userController.
+
+2017-07-23 19:53:12 ===> La méthode userAction n'existe pas dans la classe userController.
+
+2017-07-23 19:53:12 ===> La méthode userAction n'existe pas dans la classe userController.
+
+2017-07-23 20:13:56 ===> Le contrôleur welcomeController n'existe pas.
+
+2017-07-23 20:14:00 ===> Le contrôleur welcomeController n'existe pas.
+
+2017-07-23 20:14:02 ===> Le contrôleur welcomeController n'existe pas.
+

@@ -216,7 +216,7 @@
             return [
                 "options" => [
                     "method" => "POST",
-                    "action" => "../userUpdate/".$id,
+                    "action" => "userUpdate",
                     "class" => "add-form",
                     "id" => "Register"
                 ],
@@ -244,6 +244,21 @@
                         "placeholder" => "Adresse email",
                         "required" => true,
                         "value" => "".$email."",
+                    ],
+                    "old_pwd" => [
+                        "type" => "password",
+                        "placeholder" => "Ancien mot de passe",
+                        "required" => false
+                    ],
+                    "pwd" => [
+                        "type" => "password",
+                        "placeholder" => "Nouveau mot de passe",
+                        "required" => false
+                    ],
+                    "pwd2" => [
+                        "type" => "password",
+                        "placeholder" => "Confirmation",
+                        "required" => false
                     ],
                     "newsletter" => [
                         "type" => "checkbox",
