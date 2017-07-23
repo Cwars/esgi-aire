@@ -1,10 +1,4 @@
     <h1>Fichiers Multimédias</h1>
-    <div>
-        <a href="<?php echo PATH_RELATIVE ; ?>back/mediafile/add" class="button-add">Ajouter</a>
-    </div>
-    <div>
-        <a href="<?php echo PATH_RELATIVE ; ?>back/mediafile/menuRestore" class="button-add">Restaurer</a>
-    </div>
     <table class="table">
 
         <?php
@@ -30,11 +24,9 @@
                 echo "</td>";
             }
             echo "<td>";
-            echo "<a class='table-button' href='Update/" . $mediafile['id'] . "'> Update </a>";
+            echo "<a class='table-button restore' href='actionRestore/" . $mediafile['id'] . "'> Restaurer </a>";
             echo "</td>";
-            echo "<td>";
-            echo "<a class='table-button delete' href='ActionDelete/" . $mediafile['id'] . "'> Delete </a>";
-            echo "</td>";
+
 
             echo "</tr>";
         }

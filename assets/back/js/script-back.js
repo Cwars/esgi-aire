@@ -7,4 +7,13 @@ $('.delete').click(function(){
     }
 });
 
+$('.restore').click(function(){
+    var ask = confirm("Voulez-vous vraiment restaurer l'élément ?");
+    if(!ask)
+    {
+        return false;
+        // Annule le click/href
+    }
+});
+
 CKEDITOR.replace(jQuery('.ckeditor'));

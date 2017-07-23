@@ -9,6 +9,7 @@
         protected $isDeleted;
         protected $dateInserted;
         protected $dateUpdated;
+        protected $author;
 
 
         public function __construct($id = -1, $description = null, $date = null, $status = 0) {
@@ -31,6 +32,14 @@
             return $this->title;
         }
 
+        public function setAuthor($author) {
+            $this->author = trim($author);
+        }
+
+        public function getAuthor() {
+            return $this->author;
+        }
+
         public function setDescription($description) {
             $this->description = trim($description);
         }
@@ -47,12 +56,12 @@
             return $this->date;
         }
 
-        public function setIsDeleted($status) {
-            $this->status = $status;
+        public function setIsDeleted($isDeleted) {
+            $this->isDeleted = $isDeleted;
         }
 
         public function getIsDeleted($isDeleted) {
-            $this->isDeleted = $isDeleted;
+            return $this->isDeleted;
         }
 
         public function getDateInserted() {
@@ -64,11 +73,11 @@
         }
 
         public function setDateInserted($dateInserted) {
-            $this-> dateInserted = $dateInserted;
+            $this->dateInserted = trim($dateInserted);
         }
 
         public function setDateUpdated($dateUpdated) {
-            $this-> dateUpdated = $dateUpdated;
+            $this->dateUpdated = trim($dateUpdated);
         }
 
 
@@ -79,7 +88,7 @@
                     "method" => "POST",
                     "action" => "ActionAdd",
                     "class" => "add-form",
-                    "id" => "Register"
+                    "id" => "addEvent"
                 ],
                 "struct" => [
                     "title" => [
@@ -88,15 +97,48 @@
                         "required" => true
                     ],
                     "description" => [
-                        "type" => "text",
+                        "type" => "textarea",
                         "placeholder" => "Description",
                         "required" => true
                     ],
                     "date" => [
                         "type" => "date",
-                        "placeholder" => "La date de l'évenement",
+                        "placeholder" => "ex : 2011-01-13",
                         "required" => true
                     ],
+                ]
+            ];
+        }
+
+        public function getFormEventUpdate($id,$title,$description,$date)
+        {
+            return [
+                "options" => [
+                    "method" => "POST",
+                    "action" => "../ActionUpdate/".$id,
+                    "class" => "form-group",
+                    "id" => "updateEvent"
+                ],
+                "struct" => [
+                    "title" => [
+                        "type" => "text",
+                        "placeholder" => "Titre",
+                        "required" => true,
+                        "value" => "".$title."",
+                    ],
+                    "description" => [
+                        "type" => "textarea",
+                        "placeholder" => "description",
+                        "required" => true,
+                        "value" => "".$description."",
+                    ],
+                    "date" => [
+                        "type" => "date",
+                        "placeholder" => "date",
+                        "required" => true,
+                        "value" => "".$date."",
+                    ],
+
                 ]
             ];
         }

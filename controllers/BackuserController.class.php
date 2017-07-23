@@ -17,6 +17,17 @@ class BackuserController
         $v->assign("result", $res);
     }
 
+    public function UserMenuRestoreAction() {
+        $datausers = new User();
+        $v = new View("userMenuRestore");
+
+        $search = ["id","username","firstname","lastname","email","status","dateInserted"];
+        $res = $datausers->getArchive($search);
+
+        $v->assign("search", $search);
+        $v->assign("result", $res);
+    }
+
     public function UserAddAction() {
         $user = new User();
         $v = new View('userAdd');

@@ -25,6 +25,7 @@ $msgError = [
     "titleUsed"=>"Ce titre est déjà utilisé",
     "NoMediafile"=>"Pas de d'image",
     "badMediaFileType" => "Le format du fichier n'est pas accepté",
+    "typeDiff" => "Le nouveau fichier n'est pas du même type que l'ancien",
     10=>"10",
     11=>"11",
 
@@ -35,7 +36,7 @@ $msgError = [
     15 => "Un caractère interdit s'est glissé quelque part !",
     16 => "Les champs sont obligatoire",
     17 => "Nom d'utilisateur déjà utilisé.",
-    18 => "Email déjà utilisé."
+    18 => "Email déjà utilisé.",
 ];
 
 $msgSuccess = [

@@ -7,8 +7,6 @@
         protected $description;
         protected $path;
         protected $type;
-        protected $titleParent;
-        protected $typeParent;
         protected $isDeleted;
         protected $dateInserted;
         protected $dateUpdated;
@@ -59,24 +57,12 @@
             return $this->type;
         }
 
-        public function setTypeParent($typeParent) {
-            $this->typeParent = trim($typeParent);
-        }
-
-        public function getTypeParent() {
-            return $this->typeParent;
-        }
-
-        public function setTitleParent($titleParent) {
-            $this->titleParent = trim($titleParent);
-        }
-
-        public function getTitleParent() {
-            return $this->titleParent;
-        }
-
         public function setIsDeleted($isDeleted) {
             $this->isDeleted = $isDeleted;
+        }
+
+        public function getIsDeleted() {
+            return $this->isDeleted;
         }
 
         public function getDateInserted() {
@@ -150,7 +136,6 @@
                         "type" => "file",
                         "placeholder" => "Votre image",
                         "required" => true,
-                        "value" => "",
                     ],
                 ]
             ];

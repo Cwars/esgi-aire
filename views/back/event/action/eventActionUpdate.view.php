@@ -1,78 +1,49 @@
 <?php
-if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST['lastname']) && isset($_POST["email"]) && isset($_POST["pwd"]) && isset($_POST["pwd2"])) {
-
+if( !empty($_POST['title']) && !empty($_POST['description'])  && !empty($_POST['date'])) {
     $event = new Event();
-    $id = $idUpdate;
-    echo $idUpdate;
-    $username = htmlentities($_POST['username']);
-    $firstname = htmlentities($_POST['firstname']);
-    $lastname = htmlentities($_POST['lastname']);
-    $email = htmlentities($_POST['email']);
-    $status = htmlentities($_POST['status']);
-    $pwd = $_POST['pwd'];
-    $pwd2 = $_POST['pwd2'];
-    //Birthday
+
+    //Si nouveau input
+    $title = htmlentities($_POST['title']);
+    $description = htmlentities($_POST['description']);
+    $date = $_POST['date'];
+
+    $now = date("Y-m-d H:i:s");
+    $author = $username;
 
     $error = false;
     $listOfErrors = [];
 
-    if (strlen($username) == 1) {
+    //Le nom d'utilisateur est déjà utilisé
+    if (strlen($title) < 2) {
         //Le nom d'utilisateur doit faire au moins 2 caractères
         $listOfErrors[] = "nbUsername";
         $error = true;
     }
 
-    if ($event->populate(['username' => $username])){
+    if ($titleUpdate != $title && $event->populate(['title' => $title])){
         //Le nom d'utilisateur est déja utilisé
         $listOfErrors[] = "usernameUsed";
         $error = true;
     }
 
     //Vérifier le nom
-    if (strlen($lastname) == 1) {
+    if (strlen($description) < 1) {
         //Le nom doit faire au moins 2 caractères
         $listOfErrors[] = "nbLastname";
         $error = true;
     }
 
-    //Vérifier le prénom
-    if (strlen($firstname) == 1) {
-        //Le prénom doit faire au moins 2 caractères
-        $listOfErrors[] = "nbFirstname";
-        $error = true;
-    }
-
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        // Email incorrect
-        $listOfErrors[] = "errorEmail";
-        $error = true;
-    }
-
-    if (strlen($pwd) < 8 || strlen($pwd) > 12) {
-        //Le mot de passe doit faire entre 8 et 12 caractères
-        $listOfErrors[] = "nbPwd";
-        $error = true;
-    }
-
-    if ($pwd != $pwd2) {
-        //Le mot de passe de confirmation ne correspond pas
-        $listOfErrors[] = "pw1/pw2";
-        $error = true;
-    }
-
     if ($error === false) {
-        $event->setId($id);
-        $event->setUsername($username);
-        $event->setFirstname($firstname);
-        $event->setLastname($lastname);
-        $event->setEmail($email);
-        $event->setPwd($pwd);
-        $event->setStatus($status);
-        $event->setIsDeleted(0);
+        $event->setId($idUpdate);
+        $event->setTitle($title);
+        $event->setDescription($description);
+        $event ->setDate($date);
+        $event ->setIsDeleted(0);
+        $event ->setDateUpdated($now);
+        $event ->setDateInserted($dateI);
+        $event ->setAuthor($author);
 
-        // $user -> setBirthday($username);
-
-        $user->save();
+        $event->save();
     }else{
         $_SESSION["form_error"] = $listOfErrors;
         $_SESSION["form_post"] = $_POST;

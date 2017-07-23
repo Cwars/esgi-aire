@@ -7,7 +7,6 @@
             $attribute['type'] == "email" ||
             $attribute['type'] == "password" ||
             $attribute['type'] == "text" ||
-            $attribute['type'] == "file" ||
             $attribute['type'] == "date"
         ): ?>
             <input type="<?php echo $attribute["type"]; ?>"
@@ -16,6 +15,8 @@
                    value ="<?php echo $attribute["value"]; ?>"
                    >
         <?php endif; ?>
+
+        <!-- Champs Select -->
         <?php if(
             $attribute['type'] == "select"
         ) : ?>
@@ -24,11 +25,35 @@
                 <?php endforeach; ?>
             </select>
         <?php endif; ?>
+
+        <!-- Champs Checkbox -->
+        <?php
+        if (
+            $attribute['type'] == "checkbox"
+        ) :
+            ?>
+            <label>
+                <input type="checkbox" id="<?php echo $attribute["name"] ?>" value="1" <?php if($attribute["required"] === true){echo "required";} ?> >
+                <?php echo $attribute["label"] ?>
+            </label>
+        <?php endif; ?>
+
+        <!-- Champs Textarea -->
         <?php if(
         $attribute['type'] == "textarea"
         ) : ?>
         <textarea class="ckeditor" name="<?php echo $name ?>" placeholder="<?php echo $attribute["placeholder"]; ?>" ><?php echo $attribute["value"]; ?></textarea>
     <?php endif; ?>
+
+        <?php if(
+        $attribute['type'] == "file"
+        ): ?>
+            <input type="<?php echo $attribute["type"]; ?>"
+                   name="<?php echo $name; ?>"
+                   placeholder="<?php echo $attribute["placeholder"]; ?>"
+            >
+        <?php endif; ?>
+
     <?php endforeach; ?>
     <input type="submit" value="Submit">
 </form>

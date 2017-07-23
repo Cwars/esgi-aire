@@ -126,6 +126,8 @@ if( !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['title
             $news->setDateInserted($now);
             $news->setDateUpdated($now);
             $news->setIsDeleted(0);
+            $news->setTitleChild($titleImage);
+            $news->setTypeChild($typeImage);
 
             $mediafile->setTitle($titleImage);
             $mediafile->setDescription($description);
@@ -134,8 +136,6 @@ if( !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['title
             $mediafile->setType($typeImage);
             $mediafile->setDateInserted($now);
             $mediafile->setDateUpdated($now);
-            $mediafile->setTitleParent($title);
-            $mediafile->setTypeParent($type);
 
             $news->save();
             $mediafile->save();

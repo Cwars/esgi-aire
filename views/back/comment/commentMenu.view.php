@@ -1,10 +1,4 @@
-    <h1>Utilisateur</h1>
-    <div>
-        <a href="<?php echo PATH_RELATIVE ; ?>back/user/add" class="button-add">Ajouter</a>
-    </div>
-    <div>
-        <a href="<?php echo PATH_RELATIVE ; ?>back/user/menuRestore" class="button-add">Restaurer</a>
-    </div>
+    <h1>Commentaire</h1>
     <table class="table">
 
         <?php
@@ -30,9 +24,6 @@
                 echo $u;
                 echo "</td>";
             }
-            echo "<td>";
-            echo "<a class='table-button' href='Update/" . $user['id'] . "'> Update </a>";
-            echo "</td>";
             echo "<td>";
             echo "<a class='table-button delete' href='ActionDelete/" . $user['id'] . "'> Delete </a>";
             echo "</td>";

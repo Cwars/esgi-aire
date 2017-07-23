@@ -1,15 +1,7 @@
 <h1>Articles</h1>
-<div>
-    <a href="<?php echo PATH_RELATIVE ; ?>back/news/add" class="button-add">Ajouter</a>
-</div>
-<div>
-    <a href="<?php echo PATH_RELATIVE ; ?>back/news/menuRestore" class="button-add">Restaurer</a>
-</div>
 <table class="table">
 
     <?php
-
-
     echo "<thead><tr>";
     foreach ($search as $key){
         echo "<th>";
@@ -31,10 +23,7 @@
             echo "</td>";
         }
         echo "<td>";
-        echo "<a class='table-button' href='Update/" . $news['id'] . "'> Update </a>";
-        echo "</td>";
-        echo "<td>";
-        echo "<a class='table-button delete' href='ActionDelete/" . $news['id'] . "'> Delete </a>";
+        echo "<a class='table-button restore' href='ActionRestore/" . $news['id'] . "'> Restore </a>";
         echo "</td>";
 
         echo "</tr>";

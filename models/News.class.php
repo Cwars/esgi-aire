@@ -10,9 +10,11 @@ class News extends BaseSql  {
     protected $isDeleted;
     protected $dateInserted;
     protected $dateUpdated;
+    protected $titleChild;
+    protected $typeChild;
 
 
-    public function __construct($id = -1, $content = null, $author = null, $type = null) {
+    public function __construct($id = -1, $idChild = -1 , $typeChild = null, $content = null, $author = null, $type = null) {
         parent::__construct();
     }
 
@@ -82,6 +84,22 @@ class News extends BaseSql  {
 
     public function getIsDeleted() {
         return $this->isDeleted;
+    }
+
+    public function setTitleChild($titleChild) {
+        $this->titleChild = trim($titleChild);
+    }
+
+    public function getTitleChild() {
+        return $this->titleChild;
+    }
+
+    public function setTypeChild($typeChild) {
+        $this->typeChild = trim($typeChild);
+    }
+
+    public function getTypeChild() {
+        return $this->typeChild;
     }
 
     public function getFormNews() {

@@ -1,16 +1,19 @@
 <?php
-if( !empty($_POST['title']) && !empty($_POST['description'])  && !empty($_POST['lastname'])) {
+if( !empty($_POST['title']) && !empty($_POST['description'])  && !empty($_POST['date'])) {
     $event = new Event();
+
     $title = htmlentities($_POST['title']);
-    $description = htmlentities($_POST['firstname']);
-//    $ = htmlentities($_POST['']);
-//    $ = htmlentities($_POST['']);
+    $description = htmlentities($_POST['description']);
+    $date = $_POST['date'];
+
+    $now = date("Y-m-d H:i:s");
+    $author = $username;
 
     $error = false;
     $listOfErrors = [];
 
     //Le nom d'utilisateur est déjà utilisé
-    if (strlen(title) == 1) {
+    if (strlen($title) < 2) {
         //Le nom d'utilisateur doit faire au moins 2 caractères
         $listOfErrors[] = "nbUsername";
         $error = true;
@@ -23,32 +26,20 @@ if( !empty($_POST['title']) && !empty($_POST['description'])  && !empty($_POST['
     }
 
     //Vérifier le nom
-    if (strlen($description) == 1) {
+    if (strlen($description) < 1) {
         //Le nom doit faire au moins 2 caractères
         $listOfErrors[] = "nbLastname";
         $error = true;
     }
 
-//    //Vérifier le prénom
-//    if (strlen($firstname) == 1) {
-//        //Le prénom doit faire au moins 2 caractères
-//        $listOfErrors[] = "nbFirstname";
-//        $error = true;
-//    }
-//
-//    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-//        // Email incorrect
-//        $listOfErrors[] = "errorEmail";
-//        $error = true;
-//    }
-
-
     if ($error === false) {
         $event->setTitle($title);
         $event->setDescription($description);
-//        $event->setLastname($lastname);
-
-        $event->setIsDeleted(0);
+        $event ->setDate($date);
+        $event ->setIsDeleted(0);
+        $event ->setDateUpdated($now);
+        $event ->setDateInserted($now);
+        $event ->setAuthor($author);
 
         $event->save();
     }else{

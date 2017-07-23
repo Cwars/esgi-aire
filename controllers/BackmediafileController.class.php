@@ -14,6 +14,17 @@ class BackmediafileController
 
         $v->assign("search", $search);
         $v->assign("result", $res);
+    }
+
+    public function MediafileMenuRestoreAction() {
+        $datafile = new Mediafile();
+
+        $v = new View("mediafileMenuRestore");
+        $search = ["id","type","title","description","path","dateInserted"];
+        $res = $datafile->getArchive($search);
+
+        $v->assign("search", $search);
+        $v->assign("result", $res);
 
     }
 
@@ -44,13 +55,13 @@ class BackmediafileController
         $media=((new Mediafile())->populate(['id' => $params[0]]));
 
         $title = $media->getTitle();
-        $mediafile = $media->getPath();
+        $path = $media->getPath();
         $type = $media->getType();
         $dateInserted = $media->getDateInserted();
 
         $v->assign("idUpdate",$params[0]);
         $v->assign("titleUpdate",$title);
-        $v->assign("pathUpdate",$mediafile);
+        $v->assign("pathUpdate",$path);
         $v->assign("typeUpdate",$type);
         $v->assign("dateInsertedUpdate",$dateInserted);
     }
@@ -58,6 +69,11 @@ class BackmediafileController
     public function MediafileActionDeleteAction($params) {
         $v = new View("mediafileActionDelete");
         $v->assign("idDelete",$params);
+    }
+
+    public function MediafileActionRestoreAction($params) {
+        $v = new View("mediafileActionRestore");
+        $v->assign("idRestore",$params);
     }
 
 }

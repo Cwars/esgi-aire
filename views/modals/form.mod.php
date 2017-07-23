@@ -29,16 +29,15 @@
             </select>
         <?php endif; ?>
         <?php
-        if ($attribute['type'] == "checkbox")
-        {
+        if (
+            $attribute['type'] == "checkbox"
+        ) :
             ?>
             <label>
                 <input type="checkbox" id="<?php echo $attribute["name"] ?>" value="1" <?php if($attribute["required"] === true){echo "required";} ?> >
                 <?php echo $attribute["label"] ?>
             </label>
-            <?php
-        }
-        ?>
+        <?php endif; ?>
         <?php if(
             $attribute['type'] == "textarea"
         ) : ?>

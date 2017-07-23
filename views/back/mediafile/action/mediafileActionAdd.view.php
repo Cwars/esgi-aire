@@ -10,6 +10,8 @@
     //$isDeleted
     //$dateInserted
     //$dateUpdated
+    //$idChild;
+    //$typeChild;
 
     if( !empty($_POST['title']) && !empty($_POST['description'])) {
         $mediafile = new Mediafile();
@@ -118,8 +120,6 @@
                 $mediafile->setType($type);
                 $mediafile->setDateInserted($now);
                 $mediafile->setDateUpdated($now);
-                $mediafile->setTitleParent(null);
-                $mediafile->setTypeParent(null);
 
                 $mediafile->save();
             }

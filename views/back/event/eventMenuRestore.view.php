@@ -1,10 +1,5 @@
 <h1>Event</h1>
-<div>
-    <a href="<?php echo PATH_RELATIVE ; ?>back/event/add" class="button-add">Ajouter</a>
-</div>
-<div>
-    <a href="<?php echo PATH_RELATIVE ; ?>back/event/menuRestore" class="button-add">Restaurer</a>
-</div>
+
 <table class="table">
 
     <?php
@@ -30,10 +25,7 @@
             echo "</td>";
         }
         echo "<td>";
-        echo "<a class='table-button' href='Update/" . $event['id'] . "'> Update </a>";
-        echo "</td>";
-        echo "<td>";
-        echo "<a class='table-button delete' href='ActionDelete/" . $event['id'] . "'> Delete </a>";
+        echo "<a class='table-button restore' href='actionRestore/" . $event['id'] . "'> Restaurer </a>";
         echo "</td>";
 
         echo "</tr>";

@@ -4,9 +4,9 @@
 if(isset($idDelete)){
 
     $idUp = $idDelete[0];
-    $user=((new User())->populate(['id' => $idUp]));
-    $user->setIsDeleted(1);
-    $user->save();
+    $event=((new Event())->populate(['id' => $idUp]));
+    $event->setIsDeleted(1);
+    $event->save();
 
     header("Location: " . PATH_RELATIVE . "back/event/menu");
 //    echo "L'utilisateur ".$user->getUsername()." a été supprimé";

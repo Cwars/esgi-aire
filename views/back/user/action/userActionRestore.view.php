@@ -7,7 +7,7 @@
         $user->setIsDeleted(0);
         $user->save();
 
-        echo "L'utilisateur".$user->getUsername." a été restauré";
+        echo "L'utilisateur ".$user->getUsername()." a été restauré";
     }
     ?>
 </div>

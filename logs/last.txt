@@ -42,3 +42,15 @@
 
 2017-07-22 21:58:29 ===> La méthode indexAction n'existe pas dans la classe indexController.
 
+2017-07-23 03:39:30 ===> Le contrôleur bController n'existe pas.
+
+2017-07-23 03:45:30 ===> La méthode eventUpdateAction n'existe pas dans la classe backeventController.
+
+2017-07-23 04:21:39 ===> La méthode newsmenuRestaureAction n'existe pas dans la classe backnewsController.
+
+2017-07-23 04:35:50 ===> La méthode eventrestoreAction n'existe pas dans la classe backeventController.
+
+2017-07-23 04:52:04 ===> La méthode mediafilerestoreActionAction n'existe pas dans la classe backmediafileController.
+
+2017-07-23 04:52:40 ===> La méthode mediafilerestoreActionAction n'existe pas dans la classe backmediafileController.
+

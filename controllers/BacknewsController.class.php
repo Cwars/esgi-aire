@@ -17,6 +17,17 @@ class BacknewsController
         $v->assign("result", $res);
     }
 
+    public function NewsMenuRestoreAction() {
+        $datanews = new News();
+        $v = new View("newsMenuRestore");
+
+        $search = ["id","title","author","content","type","dateInserted"];
+        $res = $datanews->getArchive($search);
+
+        $v->assign("search", $search);
+        $v->assign("result", $res);
+    }
+
     public function NewsAddAction() {
         $news = new News();
         $v = new View('newsAdd');
@@ -46,8 +57,9 @@ class BacknewsController
     public function NewsActionUpdateAction($params) {
         $v = new View("newsActionUpdate");
         $username = $_SESSION['username'];
-        $news=((new News())->populate(['id' => $params[0]]));
 
+        // Récupère les données pour la news
+        $news=((new News())->populate(['id' => $params[0]]));
         $title = $news->getTitle();
         $v->assign("username",$username);
         $v->assign("idUpdate",$params[0]);

@@ -10,8 +10,19 @@ class BackeventController
         $v = new View("eventMenu");
         $event = new Event();
 
-        $search = ["id","title","description","date","dateUpdated"];
+        $search = ["id","title","description","date","dateUpdated","author"];
         $res = $event->getObj($search);
+
+        $v->assign("search", $search);
+        $v->assign("result", $res);
+    }
+
+    public function EventMenuRestoreAction() {
+        $v = new View("eventMenuRestore");
+        $event = new Event();
+
+        $search = ["id","title","description","date","dateUpdated","author"];
+        $res = $event->getArchive($search);
 
         $v->assign("search", $search);
         $v->assign("result", $res);
@@ -24,30 +35,38 @@ class BackeventController
     }
 
     public function EventActionAddAction($params) {
-        $v = new View("eventActionadd");
+        $v = new View("eventActionAdd");
+        $username = $_SESSION['username'];
+
+        $v->assign("username", $username);
     }
 
     public function EventActionUpdateAction($params) {
-        $v = new View("eventActionupdate");
-        $news=((new News())->populate(['id' => $params[0]]));
+        $v = new View("eventActionUpdate");
 
-//        $username = $user->getUsername();
-//        $v->assign("idUpdate",$params[0]);
-//        $v->assign("usernameUpdate",$username);
+        $event=((new Event())->populate(['id' => $params[0]]));
+
+        $title = $event->getTitle();
+        $dateI = $event->getDateInserted();
+
+        $v->assign("username", $username);
+        $v->assign("idUpdate",$params[0]);
+        $v->assign("titleUpdate",$title);
+        $v->assign("dateI",$dateI);
     }
 
-//    public function UserUpdateAction($params) {
-//        $v = new View("userUpdate");
-//
-//        $user=((new User())->populate(['id' => $params[0]]));
-//        $id = $params[0];
-//        $username = $user->getUsername();
-//        $firstname = $user->getfirstname();
-//        $lastname = $user->getlastname();
-//        $email = $user->getEmail();
-//
-//        $v->assign("formUpdate", $user->getFormUpdate($id,$username,$firstname,$lastname,$email));
-//    }
+    public function EventUpdateAction($params) {
+        $v = new View("eventUpdate");
+
+        $event=((new Event())->populate(['id' => $params[0]]));
+        $id = $params[0];
+
+        $title = $event->getTitle();
+        $description = $event->getDescription();
+        $date = $event->getDate();
+
+        $v->assign("FormEventUpdate", $event->getFormEventUpdate($id,$title,$description,$date));
+    }
 
     public function EventActionDeleteAction($params) {
         $v = new View("eventActionDelete");
