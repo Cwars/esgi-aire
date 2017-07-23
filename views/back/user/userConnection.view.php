@@ -92,7 +92,6 @@ echo "</pre>";
             Veuillez vous connecté sur un compte Admin pour naviguer dans votre Back Office.
         </div>
         <?php
-        unset($_SESSION['error']);
     }
     ?>
 </div>

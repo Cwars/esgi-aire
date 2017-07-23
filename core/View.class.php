@@ -32,7 +32,6 @@ class View {
 
         if(isset($_SESSION['admin']) && $_SESSION['admin'] != '1' || !isset($_SESSION['admin']))
         {
-            $_SESSION['error'] = 14;
             $this->view = "back/user/Connection";
             $this->cat = "connection";
         }{

@@ -82,3 +82,35 @@
 
 2017-07-23 16:09:07 ===> Le contrôleur register?username=Test&amp;firstname=Test&amp;lastname=Test&amp;email=Test%40Test.Test&amp;pwd=Test&amp;pwd2=TestController n'existe pas.
 
+2017-07-23 17:00:36 ===> Le contrôleur welcomeController n'existe pas.
+
+2017-07-23 17:05:23 ===> Le contrôleur logoutController n'existe pas.
+
+2017-07-23 17:17:43 ===> Le contrôleur backconnectionController n'existe pas.
+
+2017-07-23 17:18:43 ===> Le contrôleur welcomeController n'existe pas.
+
+2017-07-23 17:26:08 ===> La méthode useruserLogoutAction n'existe pas dans la classe backuserController.
+
+2017-07-23 17:29:05 ===> La méthode userLogoutAction n'existe pas dans la classe backuserController.
+
+2017-07-23 17:29:07 ===> La méthode userLogoutAction n'existe pas dans la classe backuserController.
+
+2017-07-23 17:29:07 ===> La méthode userLogoutAction n'existe pas dans la classe backuserController.
+
+2017-07-23 17:29:11 ===> La méthode useruserLogoutAction n'existe pas dans la classe backuserController.
+
+2017-07-23 17:29:13 ===> La méthode userLogoutAction n'existe pas dans la classe backuserController.
+
+2017-07-23 17:29:18 ===> La méthode userLogoutAction n'existe pas dans la classe backuserController.
+
+2017-07-23 17:29:24 ===> La méthode userLogoutAction n'existe pas dans la classe backuserController.
+
+2017-07-23 17:34:03 ===> La méthode useruserLogout.view.phpAction n'existe pas dans la classe backuserController.
+
+2017-07-23 17:34:07 ===> La méthode useruserLogoutAction n'existe pas dans la classe backuserController.
+
+2017-07-23 17:34:09 ===> La méthode useruserLogout.view.phpAction n'existe pas dans la classe backuserController.
+
+2017-07-23 17:34:10 ===> La méthode userLogoutAction n'existe pas dans la classe backuserController.
+
