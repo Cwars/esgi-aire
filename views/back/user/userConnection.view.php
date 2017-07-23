@@ -8,10 +8,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_POST['username']) && isset($_POST['pwd']) && $_POST['username'] != '' && $_POST['pwd'] != '') {
 
-        $subject = $_POST['username'];
+/*        $subject = $_POST['username'];
         $subject_pwd = $_POST['pwd'];
         $pattern = '/[][( ){}<>\/+"*%&=?`^\'!$_:;,.]/';
-        if (preg_match($pattern, $subject, $matches) == 0 && preg_match($pattern, $subject_pwd, $matches) == 0) {
+        if (preg_match($pattern, $subject, $matches) == 0 && preg_match($pattern, $subject_pwd, $matches) == 0) {*/
             $user = new User();
             $username = $_POST['username'];
             $password = $_POST['pwd'];
@@ -44,8 +44,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $error[] = 13;
             } else
                 $error[] = 12;
-        } else
-            $error[] = 15;
+/*        } else
+            $error[] = 15;*/
     } else
         $error[] = 16;
 }

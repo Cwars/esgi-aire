@@ -54,3 +54,31 @@
 
 2017-07-23 04:52:40 ===> La méthode mediafilerestoreActionAction n'existe pas dans la classe backmediafileController.
 
+2017-07-23 08:16:29 ===> Le contrôleur welcomeController n'existe pas.
+
+2017-07-23 10:19:21 ===> Le contrôleur welcomeController n'existe pas.
+
+2017-07-23 10:56:36 ===> Le contrôleur ConnectionController n'existe pas.
+
+2017-07-23 13:21:53 ===> Le contrôleur welcomeController n'existe pas.
+
+2017-07-23 13:22:03 ===> Le contrôleur welcomeController n'existe pas.
+
+2017-07-23 13:22:08 ===> Le contrôleur welcomeController n'existe pas.
+
+2017-07-23 13:22:12 ===> La méthode  n'existe pas dans la classe backDashboardController.
+
+2017-07-23 13:22:15 ===> Le contrôleur backController n'existe pas.
+
+2017-07-23 13:22:26 ===> Le contrôleur backconnectionController n'existe pas.
+
+2017-07-23 13:22:30 ===> Le contrôleur backConnectionController n'existe pas.
+
+2017-07-23 13:22:35 ===> Le contrôleur backConnexionController n'existe pas.
+
+2017-07-23 13:23:20 ===> Le contrôleur welcomeController n'existe pas.
+
+2017-07-23 16:07:40 ===> Le contrôleur register?username=Test&amp;firstname=Test&amp;lastname=Test&amp;email=Test%40Test.Test&amp;pwd=Test&amp;pwd2=TestController n'existe pas.
+
+2017-07-23 16:09:07 ===> Le contrôleur register?username=Test&amp;firstname=Test&amp;lastname=Test&amp;email=Test%40Test.Test&amp;pwd=Test&amp;pwd2=TestController n'existe pas.
+

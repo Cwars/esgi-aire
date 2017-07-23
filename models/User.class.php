@@ -284,9 +284,9 @@
             return [
                 "options" => [
                     "method" => "POST",
-                    "action" => "Connection",
+                    "action" => "login",
                     "class" => "login-form",
-                    "id" => "Connection"
+                    "id" => "Connexion"
                 ],
                 "struct" => [
                     "username" => [
@@ -307,7 +307,7 @@
         {
             return [
                 "options" => [
-                    "method" => "get",
+                    "method" => "post",
                     "action" => "register",
                     "class" => "add-form",
                     "id" => "Register"
