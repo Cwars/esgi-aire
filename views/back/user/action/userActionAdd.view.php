@@ -9,6 +9,7 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
     $pwd = $_POST['pwd'];
     $pwd2 = $_POST['pwd2'];
     $now = date("Y-m-d H:i:s");
+
     $error = false;
     $listOfErrors = [];
 

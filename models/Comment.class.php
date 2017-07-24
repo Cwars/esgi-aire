@@ -3,6 +3,7 @@
     class Comment extends BaseSql  {
 
         protected $id = -1;
+        protected $title;
         protected $content;
         protected $author;
         protected $parentID;
@@ -22,6 +23,17 @@
         public function getId() {
             return $this->id;
         }
+
+        public function setTitle($title) {
+            if (strlen($title)<55){
+                $this->title = trim($title);
+            }
+        }
+
+        public function getTitle() {
+            return $this->title;
+        }
+
 
         public function setContent($content) {
             $this->content = trim($content);
@@ -63,5 +75,28 @@
             $this->dateUpdated = $dateUpdated;
         }
 
+        public function getFormComFront() {
+            return [
+                "options" => [
+                    "method" => "POST",
+                    "action" => "ActionAdd",
+                    "class" => "form-group",
+                    "id" => "Register",
+                    "optionName" => "type"
+                ],
+                "struct" => [
+                    "title" => [
+                        "type" => "text",
+                        "placeholder" => "Titre",
+                        "required" => true,
+                    ],
+                    "content" => [
+                        "type" => "textarea",
+                        "placeholder" => "Contenu du commentaire",
+                        "required" => true,
+                    ]
+                ]
+            ];
+        }
 
     }

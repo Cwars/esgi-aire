@@ -3,13 +3,13 @@
 class Page extends BaseSql  {
 
     protected $id = -1;
+    protected $title;
     protected $category;
     protected $author;
     protected $isDeleted;
     protected $date_inserted;
     protected $date_updated;
-    protected $title;
-    protected $description;
+    protected $content;
 
 
 
@@ -29,14 +29,12 @@ class Page extends BaseSql  {
         $this->typePage = $typePage;
     }
 
-    public function setDescription($description) {
-        if (strlen($author)<250){
-            $this->description = trim($description);
-        }
+    public function setContent($content) {
+            $this->content = trim($content);
     }
 
-    public function getDescription() {
-        return $this->description;
+    public function getContent() {
+        return $this->content;
     }
 
     public function setAuthor($author) {

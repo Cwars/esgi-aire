@@ -1,37 +1,21 @@
-    <h1><?php echo ucfirst($type); ?></h1>
-    <table class="table">
+<section>
         <?php
-
-
-        echo "<thead><tr>";
-        foreach ($search as $key){
-            echo "<th>";
-            echo $key;
-            echo "</th>";
-        }
-        echo "<th colspan='2'>Actions</th>";
-        echo "</tr></thead>";
-
-
-        foreach($result as $user)
+        foreach($result as $item)
         {
             echo "<tr>";
 
-            foreach ($user as $u)
+            foreach ($item as $u)
             {
                 echo "<td>";
                 echo $u;
                 echo "</td>";
             }
-            echo "<td>";
-            echo "<a class='table-button restore' href='ActionRestore/" . $user['id'] . "'> Restaurer </a>";
-            echo "</td>";
-
             echo "</tr>";
         }
         ?>
 
-    </table>
+</section>
+
     <table>
         <button id="prevPage">Previous</button>
         <form id="pagination">
@@ -40,7 +24,7 @@
                 for ($i = 1; $i <= $nbPage ; $i++){
                     ?>
                     <option value= <?php echo $i ?> ><?php echo $i ?></option>
-                    <?php
+                <?php
                 }
                 ?>
             </select>

@@ -10,7 +10,7 @@ class News extends BaseSql  {
     protected $isDeleted;
     protected $dateInserted;
     protected $dateUpdated;
-    protected $titleChild;
+    protected $pathChild;
     protected $typeChild;
 
 
@@ -86,12 +86,12 @@ class News extends BaseSql  {
         return $this->isDeleted;
     }
 
-    public function setTitleChild($titleChild) {
-        $this->titleChild = trim($titleChild);
+    public function setPathChild($pathChild) {
+        $this->pathChild = trim($pathChild);
     }
 
-    public function getTitleChild() {
-        return $this->titleChild;
+    public function getPathChild() {
+        return $this->pathChild;
     }
 
     public function setTypeChild($typeChild) {

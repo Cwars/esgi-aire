@@ -3,7 +3,7 @@
         <a href="<?php echo PATH_RELATIVE ; ?>back/<?php echo $type; ?>/add" class="button-add">Ajouter</a>
     </div>
     <div>
-        <a href="<?php echo PATH_RELATIVE ; ?>back/<?php echo $type; ?>/menuRestore" class="button-add">Restaurer</a>
+        <a href="<?php echo PATH_RELATIVE ; ?>back/<?php echo $type; ?>/menuRestore/1" class="button-add">Restaurer</a>
     </div>
     <table class="table">
 
@@ -42,10 +42,6 @@
 
     </table>
 
-    <script>
-
-
-    </script>
     <table>
         <button id="prevPage">Previous</button>
         <form id="pagination">
