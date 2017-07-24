@@ -109,7 +109,7 @@ h1 {
   color: #fff;
   font-weight: bold;
   text-align: center;
-  padding-top: 50vh;
+  padding-top: 45vh;
   width: 100%;
 }
 
@@ -568,10 +568,27 @@ footer{
     width:100%;
     position: absolute;
     top: 0;
+
+    span {
+      font-size: 24px;
+      padding: 8px 12px 6px;
+      border-radius: 5px;
+      border: 2px white solid;
+      &:hover {
+        cursor: pointer;
+        background: lighten($background-color, 10%);
+        border-color: darken(white, 30%);
+        color: darken(white, 30%);
+      }
+    }
   }
   nav {
     li {
       width: 100%;
     }
+  }
+  .slide-label {
+    padding-top: 40vh;
+    font-size: 60px;
   }
 }

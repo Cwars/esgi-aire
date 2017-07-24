@@ -79,7 +79,7 @@
                 }
                 ?>
             </ul>
-            <a href="#" id="pull"><i class="fa fa-bars" aria-hidden="true"></i></a>
+            <div id="pull"><span><i class="fa fa-bars" aria-hidden="true"></i></span></div>
         </nav>
     </div>
 </header>

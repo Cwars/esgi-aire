@@ -138,7 +138,7 @@ h1 {
   color: #fff;
   font-weight: bold;
   text-align: center;
-  padding-top: 50vh;
+  padding-top: 45vh;
   width: 100%;
 }
 
@@ -592,9 +592,29 @@ footer p {
     position: absolute;
     top: 0;
   }
+  /* line 572, ../scss/screen.scss */
+  #pull span {
+    font-size: 24px;
+    padding: 8px 12px 6px;
+    border-radius: 5px;
+    border: 2px white solid;
+  }
+  /* line 577, ../scss/screen.scss */
+  #pull span:hover {
+    cursor: pointer;
+    background: #424242;
+    border-color: #b3b3b3;
+    color: #b3b3b3;
+  }
 
-  /* line 573, ../scss/screen.scss */
+  /* line 586, ../scss/screen.scss */
   nav li {
     width: 100%;
+  }
+
+  /* line 590, ../scss/screen.scss */
+  .slide-label {
+    padding-top: 40vh;
+    font-size: 60px;
   }
 }
