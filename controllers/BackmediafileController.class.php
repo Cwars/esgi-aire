@@ -5,26 +5,35 @@
  */
 class BackmediafileController
 {
-    public function MediafileMenuAction() {
+    public function MediafileMenuAction($params) {
         $datafile = new Mediafile();
 
-        $v = new View("mediafileMenu");
+        $type = "mediafile";
         $search = ["id","type","title","description","path","dateInserted"];
-        $res = $datafile->getObj($search);
+        $res = $datafile->getObj($search,$params[0],NB_ITEM_BACK);
 
-        $v->assign("search", $search);
-        $v->assign("result", $res);
+        if($params[0]>0 && $params[0]<=$res[1]){
+            $v = new View("menu");
+            $v->assign("search", $search);
+            $v->assign("result", $res[0]);
+            $v->assign("nbPage", $res[1]);
+            $v->assign("type", $type);
+        } else {
+            $v = new View("page404");
+        }
     }
 
     public function MediafileMenuRestoreAction() {
         $datafile = new Mediafile();
 
-        $v = new View("mediafileMenuRestore");
+        $type = "mediafile";
+        $v = new View("menuRestore");
         $search = ["id","type","title","description","path","dateInserted"];
         $res = $datafile->getArchive($search);
 
         $v->assign("search", $search);
         $v->assign("result", $res);
+        $v->assign("type", $type);
 
     }
 

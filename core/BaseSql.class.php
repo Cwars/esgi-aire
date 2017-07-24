@@ -98,7 +98,7 @@
         }
 
         // Return every object of a table (only what we want)
-        public function getObj($search = []){
+        public function getObj($search = [],$numPage,$nbItem){
 
             $stringSelect = '';
 
@@ -110,12 +110,24 @@
             //Supression de la dernière virgule + trim
             $stringSelect = trim(rtrim($stringSelect,","));
 
-            //Requète par rapport aux paramètres que l'on a envoyé
+            //Requète par rapport aux paramètres que l'on a envoyé pour récuperer les items
             $query = $this->db->prepare('SELECT '. $stringSelect .' FROM '.$this->table . ' WHERE isDeleted = 0' );
             $query->execute();
 
+            $resultCount = $query->fetchAll(PDO::FETCH_ASSOC);
+
+            $countItem = count($resultCount);
+            $nbPage = $countItem/$nbItem;
+
+            $firstItem = $nbItem*$numPage - ($nbItem);
+
+            $query = $this->db->prepare('SELECT '. $stringSelect .' FROM '.$this->table . ' WHERE isDeleted = 0 ORDER BY id ASC LIMIT '.$firstItem.', '.$nbItem.'');
+            $query->execute();
+
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
-            return $result;
+
+            $return = array($result,$nbPage);
+            return $return;
         }
 
         public function getArchive($search = []){

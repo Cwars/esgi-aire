@@ -6,26 +6,35 @@
 class BacknewsController
 {
 
-    public function NewsMenuAction() {
+    public function NewsMenuAction($params) {
         $datanews = new News();
-        $v = new View("newsMenu");
 
+        $type = "news";
         $search = ["id","title","author","content","type","dateInserted"];
-        $res = $datanews->getObj($search);
+        $res = $datanews->getObj($search,$params[0],NB_ITEM_BACK);
 
-        $v->assign("search", $search);
-        $v->assign("result", $res);
+        if($params[0]>0 && $params[0]<=$res[1]){
+            $v = new View("menu");
+            $v->assign("search", $search);
+            $v->assign("result", $res[0]);
+            $v->assign("nbPage", $res[1]);
+            $v->assign("type", $type);
+        } else {
+            $v = new View("page404");
+        }
     }
 
     public function NewsMenuRestoreAction() {
         $datanews = new News();
-        $v = new View("newsMenuRestore");
+        $v = new View("menuRestore");
 
+        $type = "news";
         $search = ["id","title","author","content","type","dateInserted"];
         $res = $datanews->getArchive($search);
 
         $v->assign("search", $search);
         $v->assign("result", $res);
+        $v->assign("type", $type);
     }
 
     public function NewsAddAction() {

@@ -6,26 +6,35 @@
 class BackuserController
 {
 
-    public function UserMenuAction() {
+    public function UserMenuAction($params) {
         $datausers = new User();
-        $v = new View("userMenu");
 
+        $type = "user";
         $search = ["id","username","firstname","lastname","email","status","dateInserted"];
-        $res = $datausers->getObj($search);
+        $res = $datausers->getObj($search,$params[0],NB_ITEM_BACK);
 
+        if($params[0]>0 && $params[0]<=$res[1]){
+        $v = new View("menu");
         $v->assign("search", $search);
-        $v->assign("result", $res);
+        $v->assign("result", $res[0]);
+        $v->assign("nbPage", $res[1]);
+        $v->assign("type", $type);
+        } else {
+            $v = new View("page404");
+        }
     }
 
     public function UserMenuRestoreAction() {
         $datausers = new User();
-        $v = new View("userMenuRestore");
+        $v = new View("menuRestore");
 
+        $type = "user";
         $search = ["id","username","firstname","lastname","email","status","dateInserted"];
         $res = $datausers->getArchive($search);
 
         $v->assign("search", $search);
         $v->assign("result", $res);
+        $v->assign("type", $type);
     }
 
     public function UserAddAction() {

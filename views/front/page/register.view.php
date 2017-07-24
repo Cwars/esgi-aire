@@ -71,7 +71,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     if ($error === false) {
                         $user->setUsername($username);
-                        $user->setStatus(0);
+                        $user->setStatus("User");
                         $user->setFirstname($firstname);
                         $user->setLastname($lastname);
                         $user->setEmail($email);

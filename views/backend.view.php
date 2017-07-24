@@ -1,9 +1,3 @@
-<?php
-if(!isset($_SESSION['user_id']))
-{
-    header("Location: ".PATH_RELATIVE."back/user/Connection");
-}
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -37,24 +31,24 @@ if(!isset($_SESSION['user_id']))
                 <span class="page">Dashboard</span>
             </li>
             <li class="menu-icon">
-                <a href="<?php echo PATH_RELATIVE ; ?>back/page/menu"><i class="fa fa-clone" aria-hidden="true"></i></a>
+                <a href="<?php echo PATH_RELATIVE ; ?>back/page/menu/1"><i class="fa fa-clone" aria-hidden="true"></i></a>
                 <span class="page">Pages</span>
             </li>
             <li class="menu-icon">
-                <a href="<?php echo PATH_RELATIVE ; ?>back/news/menu"><i class="fa fa-newspaper-o" aria-hidden="true"></i></a>
+                <a href="<?php echo PATH_RELATIVE ; ?>back/news/menu/1"><i class="fa fa-newspaper-o" aria-hidden="true"></i></a>
                 <span class="page">Articles</span>
             </li>
             <li class="menu-icon">
-                <a href="<?php echo PATH_RELATIVE ; ?>back/user/menu"><i class="fa fa-user" aria-hidden="true"></i>
+                <a href="<?php echo PATH_RELATIVE ; ?>back/user/menu/1"><i class="fa fa-user" aria-hidden="true"></i>
                 </a>
                 <span class="page">Utilisateurs</span>
             </li>
             <li class="menu-icon">
-                <a href="<?php echo PATH_RELATIVE ; ?>back/event/menu"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+                <a href="<?php echo PATH_RELATIVE ; ?>back/event/menu/1"><i class="fa fa-calendar" aria-hidden="true"></i></a>
                 <span class="page">Evénements</span>
             </li>
             <li class="menu-icon">
-                <a href="<?php echo PATH_RELATIVE ; ?>back/mediafile/menu"><i class="fa fa-files-o" aria-hidden="true"></i></a>
+                <a href="<?php echo PATH_RELATIVE ; ?>back/mediafile/menu/1"><i class="fa fa-files-o" aria-hidden="true"></i></a>
                 <span class="page">Fichiers multimédias</span>
             </li>
         </ul>
@@ -67,10 +61,10 @@ if(!isset($_SESSION['user_id']))
         ?>
     </div>
 </main> <!-- .cd-main-content -->
-<script type="text/javascript" src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo PATH_RELATIVE ; ?>assets/back/js/script-back.js"></script>
-<script type="text/javascript" src="<?php echo PATH_RELATIVE ; ?>assets/Chart.js/Chart.min.js"></script>
-<script type="text/javascript" src="<?php echo PATH_RELATIVE ; ?>assets/Chart.js/app.js"></script>
+<script type="text/javascript" src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js" defer></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" defer></script>
+<script type="text/javascript" src="<?php echo PATH_RELATIVE ; ?>assets/back/js/script-back.js" defer></script>
+<script type="text/javascript" src="<?php echo PATH_RELATIVE ; ?>assets/Chart.js/Chart.min.js" defer></script>
+<script type="text/javascript" src="<?php echo PATH_RELATIVE ; ?>assets/Chart.js/app.js" defer></script>
 </body>
 </html>

@@ -6,26 +6,35 @@
 class BackeventController
 {
 
-    public function EventMenuAction() {
-        $v = new View("eventMenu");
+    public function EventMenuAction($params) {
         $event = new Event();
 
+        $type = "event";
         $search = ["id","title","description","date","dateUpdated","author"];
-        $res = $event->getObj($search);
+        $res = $event->getObj($search,$params[0],NB_ITEM_BACK);
 
-        $v->assign("search", $search);
-        $v->assign("result", $res);
+        if($params[0]>0 && $params[0]<=$res[1]){
+            $v = new View("menu");
+            $v->assign("search", $search);
+            $v->assign("result", $res[0]);
+            $v->assign("nbPage", $res[1]);
+            $v->assign("type", $type);
+        } else {
+            $v = new View("page404");
+        }
     }
 
     public function EventMenuRestoreAction() {
-        $v = new View("eventMenuRestore");
+        $v = new View("menuRestore");
         $event = new Event();
 
+        $type = "event";
         $search = ["id","title","description","date","dateUpdated","author"];
         $res = $event->getArchive($search);
 
         $v->assign("search", $search);
         $v->assign("result", $res);
+        $v->assign("type", $type);
     }
 
     public function EventAddAction() {

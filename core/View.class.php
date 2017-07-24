@@ -53,6 +53,7 @@ class View {
                 }
             }
         }
+        unset($_SESSION['error']);
     }
 
     public function setView404($view) {
