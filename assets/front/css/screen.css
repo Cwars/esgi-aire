@@ -399,3 +399,90 @@ footer p {
 #medias dd, #medias dt {
   display: inline-block;
 }
+
+/* Nav responsive */
+
+nav li {
+  display: inline;
+  float: left;
+}
+nav a {
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  line-height: 40px;
+  text-shadow: 1px 1px 0px #283744;
+}
+nav li a {
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+}
+nav a#pull {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    height: auto;
+  }
+  .navlogo{
+    text-align: center;
+  }
+  nav ul {
+    width: 100%;
+    display: block;
+    height: auto;
+  }
+  nav li {
+    width: 50%;
+    float: left;
+    position: relative;
+  }
+  nav li a {
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+  }
+  nav a {
+    text-align: left;
+    width: 100%;
+    text-indent: 25px;
+  }
+}
+
+@media only screen and (max-width : 480px) {
+  nav {
+    border-bottom: 0;
+  }
+  nav ul {
+    display: none;
+    height: auto;
+  }
+  nav a#pull {
+    display: block;
+    background-color: #000;
+    width: 100%;
+    position: relative;
+  }
+  nav a#pull:after {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+  }
+}
+
+@media only screen and (max-width : 320px) {
+  nav li {
+    display: block;
+    float: none;
+    width: 100%;
+  }
+  nav li a {
+    border-bottom: 1px solid #000;
+  }
+}
+/* Nav responsive */

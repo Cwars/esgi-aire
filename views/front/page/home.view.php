@@ -1,6 +1,6 @@
     <div class="top-image">
         <!--<img src="images/header.png" width="100%" alt="header">-->
-        <h1 class="slide-label">Binvenue sur ESGI-AIRE</h1>
+        <h1 class="slide-label">Bienvenue sur ESGI-AIRE</h1>
     </div>
 
 <section class="deux" id="Dedicaces">

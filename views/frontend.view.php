@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
     <title>Homepage</title>
     <meta name="Description" content="Page d'accueil" />
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/front/css/screen.css">
@@ -14,7 +15,7 @@
     <div class="nav-container">
         <nav>
             <ul>
-                <li><img src="<?php echo PATH_RELATIVE ; ?>assets/front/images/logo.png" id="logo" alt="logo"></li>
+                <li class="navlogo"><img src="<?php echo PATH_RELATIVE ; ?>assets/front/images/logo.png" id="logo" alt="logo"></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>home">Home</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>news/1">Actualité</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>blog/1">Blog</a></li>
@@ -28,12 +29,12 @@
                     if($_SESSION['admin'] == 1)
                     {
                         ?>
-                        <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>/back/Dashboard/menu">BackOffice</a></li>
+                        <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>back/dashboard/menu">BackOffice</a></li>
                         <li class="menu"><a href="<?php echo PATH_RELATIVE; ?>logout">(<?php echo $_SESSION['username']; ?>)Déconnexion</a></li>
                         <?php
                     }else {
                         ?>
-                        <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>/user">Profil</a></li>
+                        <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>user">Profil</a></li>
                         <li class="menu"><a href="<?php echo PATH_RELATIVE; ?>logout">(<?php echo $_SESSION['username']; ?>)Déconnexion</a></li>
                         <?php
                     }
@@ -45,6 +46,7 @@
                 }
                 ?>
             </ul>
+            <a href="#" id="pull">Menu</a>
         </nav>
     </div>
 </header>
