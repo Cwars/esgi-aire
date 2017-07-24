@@ -8,7 +8,7 @@ define("NB_ITEM_FRONT", 10);
 
 define("DB_NAME", "mvciw1");
 define("DB_USER", "root");
-define("DB_PWD", "root");
+define("DB_PWD", "");
 define("DB_PORT", "3306");
 define("DB_HOST", "localhost");
 
@@ -30,8 +30,6 @@ $msgError = [
     "typeDiff" => "Le nouveau fichier n'est pas du même type que l'ancien",
     10=>"10",
     11=>"11",
-
-    /*Erreur pour connexion*/
     12 => "Identifiant inconnu.",
     13 => "Mot de passe incorrect.",
     14 => "Vous n'avez pas les autorisations pour rentrer ici.",
@@ -39,8 +37,10 @@ $msgError = [
     16 => "Les champs sont obligatoire",
     17 => "Nom d'utilisateur déjà utilisé.",
     18 => "Email déjà utilisé.",
+    "cgu" => "Vous devez accepter les conditions générales d'utilisation.",
 ];
 
 $msgSuccess = [
-    "added"=>"L'utilisateur à correctement été ajouté."
+    "added"=>"L'utilisateur à correctement été ajouté.",
+    "added_front"=>"Inscription réussie ! Vous allez recevoir un email de confirmation dans les minutes à venir.\nPensez à vérifier vos courrier indésirable !"
 ];
