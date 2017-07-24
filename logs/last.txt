@@ -110,3 +110,5 @@
 
 2017-07-24 11:27:16 ===> Le contrôleur logoutController n'existe pas.
 
+2017-07-24 17:30:23 ===> Le contrôleur eventsController n'existe pas.
+
