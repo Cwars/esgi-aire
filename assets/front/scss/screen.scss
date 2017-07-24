@@ -677,8 +677,16 @@ form {
   width: 40%;
   margin: auto;
 }
+#Register {
+  width: 60%;
+  margin: auto;
+}
 @media (max-width: $screen-md-min) {
   .login-form {
     width: 65%;
+  }
+  #Register {
+    width: 80%;
+    margin: auto;
   }
 }

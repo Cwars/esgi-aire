@@ -706,9 +706,21 @@ form button:hover, form button:active, form button:focus {
   margin: auto;
 }
 
+/* line 680, ../scss/screen.scss */
+#Register {
+  width: 60%;
+  margin: auto;
+}
+
 @media (max-width: 992px) {
-  /* line 681, ../scss/screen.scss */
+  /* line 685, ../scss/screen.scss */
   .login-form {
     width: 65%;
+  }
+
+  /* line 688, ../scss/screen.scss */
+  #Register {
+    width: 80%;
+    margin: auto;
   }
 }
