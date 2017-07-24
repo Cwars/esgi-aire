@@ -22,8 +22,28 @@
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>event/1">Evènement</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>gallery">Galerie</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>contact">Contact</a></li>
-                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>login">Connexion</a></li>
-                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>register">Inscription</a></li>
+                <?php
+                if(isset($_SESSION['admin']))
+                {
+                    if($_SESSION['admin'] == 1)
+                    {
+                        ?>
+                        <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>/back/Dashboard/menu">BackOffice</a></li>
+                        <li class="menu"><a href="<?php echo PATH_RELATIVE; ?>logout">(<?php echo $_SESSION['username']; ?>)Déconnexion</a></li>
+                        <?php
+                    }else {
+                        ?>
+                        <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>/user">Profil</a></li>
+                        <li class="menu"><a href="<?php echo PATH_RELATIVE; ?>logout">(<?php echo $_SESSION['username']; ?>)Déconnexion</a></li>
+                        <?php
+                    }
+                }else {
+                    ?>
+                    <li class="menu"><a href="<?php echo PATH_RELATIVE; ?>login">Connexion</a></li>
+                    <li class="menu"><a href="<?php echo PATH_RELATIVE; ?>register">Inscription</a></li>
+                    <?php
+                }
+                ?>
             </ul>
         </nav>
     </div>

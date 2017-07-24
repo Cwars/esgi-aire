@@ -1,3 +1,9 @@
+<?php
+if(isset($_SESSION['admin']) && $_SESSION['admin'] == '1')
+{
+    header("Location: ".PATH_RELATIVE."back/dashboard/menu");
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,8 +16,8 @@
 <body>
 
 <?php
-            // include "views/".$this->view.".view.php";
-            include $this->view.".view.php";
+// include "views/".$this->view.".view.php";
+include $this->view.".view.php";
 ?>
 <script type="text/javascript" src="<?php echo PATH_RELATIVE ; ?>assets/ckeditor/ckeditor.js"></script>
 </body>

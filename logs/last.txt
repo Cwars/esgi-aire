@@ -104,3 +104,9 @@
 
 2017-07-24 10:33:13 ===> La classe backeventController n'existe pas.
 
+2017-07-24 11:27:07 ===> Le contrôleur welcomeController n'existe pas.
+
+2017-07-24 11:27:08 ===> Le contrôleur welcomeController n'existe pas.
+
+2017-07-24 11:27:16 ===> Le contrôleur logoutController n'existe pas.
+

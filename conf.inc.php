@@ -8,7 +8,7 @@ define("NB_ITEM_FRONT", 10);
 
 define("DB_NAME", "mvciw1");
 define("DB_USER", "root");
-define("DB_PWD", "root");
+define("DB_PWD", "");
 define("DB_PORT", "3306");
 define("DB_HOST", "localhost");
 
@@ -41,6 +41,7 @@ $msgError = [
 ];
 
 $msgSuccess = [
+    "connected"=>"Connexion réussie...",
     "added"=>"L'utilisateur à correctement été ajouté.",
     "added_front"=>"Inscription réussie ! Vous allez recevoir un email de confirmation dans les minutes à venir.\nPensez à vérifier vos courrier indésirable !"
 ];

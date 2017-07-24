@@ -1,3 +1,11 @@
+<?php
+if($this->view == "back/user/logout")
+{
+    session_destroy();
+    session_unset();
+    header("Location: ".PATH_RELATIVE."back/user/Connection");
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,7 +25,7 @@
         <ul class="nav-header-link-list">
             <li><a href="<?php echo PATH_RELATIVE; ?>back/user/Setting"><i class="fa fa-wrench" aria-hidden="true"></i></a></li>
             <li><a href="#" OnClick="javascript:window.location.reload()" ><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
-            <li><a href="<?php echo PATH_RELATIVE; ?>back/user/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+            <li><a href="<?php echo PATH_RELATIVE; ?>back/user/logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
         </ul>
     </nav>
 </header>
