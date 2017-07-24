@@ -8,7 +8,7 @@ print_r($_SERVER['REQUEST_METHOD']);
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_POST['username']) && isset($_POST['pwd']) && $_POST['username'] != '' && $_POST['pwd'] != '') {
-print_r(1);
+    print_r($_SESSION);
 /*        $subject = $_POST['username'];
         $subject_pwd = $_POST['pwd'];
         $pattern = '/[][( ){}<>\/+"*%&=?`^\'!$_:;,.]/';
