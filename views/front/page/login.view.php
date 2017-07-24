@@ -1,9 +1,10 @@
 <?php
 if(isset($_SESSION['user_id']))
 {
-    header("Location: ".PATH_RELATIVE."welcome");
+    header("Location: ".PATH_RELATIVE."home");
 }
 
+print_r($_SERVER['REQUEST_METHOD']);
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_POST['username']) && isset($_POST['pwd']) && $_POST['username'] != '' && $_POST['pwd'] != '') {
