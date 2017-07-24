@@ -6,9 +6,10 @@ if(isset($_SESSION['user_id']))
 
 print_r($_SERVER['REQUEST_METHOD']);
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-
+print_r("Pas dans if\n");
     if (isset($_POST['username']) && isset($_POST['pwd']) && $_POST['username'] != '' && $_POST['pwd'] != '') {
-    print_r("1".$_POST);
+        print_r("Dans if isset\n");
+        var_dump($_POST);
 /*        $subject = $_POST['username'];
         $subject_pwd = $_POST['pwd'];
         $pattern = '/[][( ){}<>\/+"*%&=?`^\'!$_:;,.]/';
@@ -17,14 +18,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['username'];
             $password = $_POST['pwd'];
             if ($user->populate(['username' => $username])) { // Si identifiant dans bdd
-                print_r(2);
-                print_r("1".$_POST);
+
+                print_r("Dans if u==\n");
+                var_dump($_POST);
 
                 $user = $user->populate(['username' => $username]);
 
                 if (password_verify($password, $user->getPassword())) { // Si mdp correspond celui identifiant
-                    print_r(3);
-                    print_r("1".$_POST);
+                    print_r("Dans if pwd==\n");
+                    var_dump($_POST);
 
                     $status = $user->getStatus();
                     if ($status == 'Admin') {print_r(4);
@@ -54,9 +56,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else
         $error[] = 16;
 }
-echo "<pre>";
-var_dump($_SESSION);
-echo "</pre>";
 ?>
 
 <div class="top-image">
