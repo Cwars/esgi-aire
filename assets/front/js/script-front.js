@@ -31,30 +31,18 @@ $( "#nextPage" ).click(function() {
 // NavBar responsive
 
 $(function() {
-    var pull 		= $('#pull');
-    menu 		= $('#mobile');
-    resp = 0;
+    var pull = $('#pull');
+    menu = $('#mobile');
+    hamb = $('.fa-bars');
+    rotate = 0;
 
-    $(pull).on('click', function(e) {
+    $(pull).on('click', function (e) {
         e.preventDefault();
         menu.slideToggle();
-    });
 
-    if(resp == 0)
-    {
-        $(window).resize(function(){
-            var w = $(window).width();
-            if(w < 992 && !menu.is(':hidden')) {
-                menu.style.display = 'none';
-            }
-        });
-    }
-
-    $(window).resize(function(){
-        var w = $(window).width();
-        if(w > 992 && menu.is(':hidden')) {
-            menu.removeAttr('style');
-        }
+        rotate = rotate + 90;
+        hamb.css("transform", "rotate(" + rotate + "deg)");
+        hamb.css("transition-duration", "0.5s");
     });
 });
 

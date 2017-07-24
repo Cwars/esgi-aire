@@ -268,7 +268,7 @@ header nav ul li a {
   display: block;
   color: white;
   text-align: center;
-  padding: 21px 25px;
+  padding: 24px 25px;
   text-decoration: none;
 }
 /* line 234, ../scss/screen.scss */
@@ -403,11 +403,6 @@ footer p {
 
 /* CSS CAROUSEL */
 /* line 388, ../scss/screen.scss */
-* {
-  font-family: 'Fresca', sans-serif;
-}
-
-/* line 392, ../scss/screen.scss */
 .info {
   text-align: left;
   background-color: rgba(0, 0, 0, 0.3);
@@ -416,7 +411,7 @@ footer p {
   margin-top: -77px;
   position: relative;
 }
-/* line 400, ../scss/screen.scss */
+/* line 396, ../scss/screen.scss */
 .info .title {
   margin: 0 auto;
   color: palevioletred;
@@ -424,35 +419,36 @@ footer p {
   font-weight: bold;
   padding: 5px 15px;
 }
-/* line 408, ../scss/screen.scss */
+/* line 404, ../scss/screen.scss */
 .info .desc {
   font-size: 20px;
   color: lightgrey;
   padding: 5px 15px;
 }
 
-/* line 416, ../scss/screen.scss */
+/* line 412, ../scss/screen.scss */
 #carousel {
   max-width: 1000px;
   height: auto;
   margin: 0 auto;
+  font-family: 'Fresca', sans-serif;
   position: relative;
   /**/
   overflow: hidden;
   object-fit: cover;
 }
-/* line 425, ../scss/screen.scss */
+/* line 422, ../scss/screen.scss */
 #carousel #rail {
   height: auto;
 }
-/* line 428, ../scss/screen.scss */
+/* line 425, ../scss/screen.scss */
 #carousel #rail img {
   width: 1000px;
   height: 500px;
   /**/
   object-fit: cover;
 }
-/* line 435, ../scss/screen.scss */
+/* line 432, ../scss/screen.scss */
 #carousel #play {
   width: 20%;
   height: 100px;
@@ -461,7 +457,7 @@ footer p {
   left: 40%;
   opacity: 0;
 }
-/* line 443, ../scss/screen.scss */
+/* line 440, ../scss/screen.scss */
 #carousel #play:hover {
   opacity: 1;
   background-color: transparent;
@@ -469,7 +465,7 @@ footer p {
   font-size: 35px;
   outline: none;
 }
-/* line 452, ../scss/screen.scss */
+/* line 449, ../scss/screen.scss */
 #carousel .puce-navigation {
   display: block;
   position: relative;
@@ -479,17 +475,17 @@ footer p {
   top: 30px;
   text-align: center;
 }
-/* line 461, ../scss/screen.scss */
+/* line 458, ../scss/screen.scss */
 #carousel .puce-navigation i {
   margin-right: 5px;
   cursor: pointer;
   text-shadow: 5px 5px 5px #323232;
 }
-/* line 466, ../scss/screen.scss */
+/* line 463, ../scss/screen.scss */
 #carousel .puce-navigation i:hover {
   color: white;
 }
-/* line 472, ../scss/screen.scss */
+/* line 469, ../scss/screen.scss */
 #carousel #prev, #carousel #next {
   transition: opacity 0.1s 0.3s ease;
   cursor: pointer;
@@ -503,21 +499,21 @@ footer p {
   background: rgba(255, 255, 255, 0.15);
   border: solid 2px rgba(255, 255, 255, 0.6);
 }
-/* line 486, ../scss/screen.scss */
+/* line 483, ../scss/screen.scss */
 #carousel #next.hover,
 #carousel #prev.hover {
   transition: opacity 0.2s 0.5s ease;
   opacity: 1;
   border: solid 2px rgba(255, 255, 255, 0.6);
 }
-/* line 493, ../scss/screen.scss */
+/* line 490, ../scss/screen.scss */
 #carousel #prev {
   left: 10px;
   width: 8%;
   height: 15%;
   top: 40%;
 }
-/* line 500, ../scss/screen.scss */
+/* line 497, ../scss/screen.scss */
 #carousel #next {
   right: 10px;
   width: 8%;
@@ -526,63 +522,48 @@ footer p {
 }
 
 @media (max-width: 1017px) {
-  /* line 509, ../scss/screen.scss */
+  /* line 506, ../scss/screen.scss */
   .info {
     width: 100%;
   }
 
-  /* line 515, ../scss/screen.scss */
+  /* line 512, ../scss/screen.scss */
   #carousel #rail img {
     max-height: 80vh;
     width: 100vw;
   }
 }
 @media (max-width: 1170px) and (max-height: 600px) {
-  /* line 524, ../scss/screen.scss */
+  /* line 521, ../scss/screen.scss */
   #carousel {
     max-height: 80vh;
   }
-  /* line 528, ../scss/screen.scss */
+  /* line 525, ../scss/screen.scss */
   #carousel #rail img {
     max-height: 80vh;
     width: 100vw;
     height: 80vh;
   }
 
-  /* line 536, ../scss/screen.scss */
+  /* line 533, ../scss/screen.scss */
   .info {
     margin-top: -72px;
   }
 
-  /* line 540, ../scss/screen.scss */
+  /* line 537, ../scss/screen.scss */
   .puce-navigation {
     font-size: 20px !important;
     top: 30px;
   }
 }
 /*FIN CSS CAROUSEL*/
-/* line 547, ../scss/screen.scss */
-#pull {
-  display: none;
-}
-
-/* line 551, ../scss/screen.scss */
-#desktop {
-  display: block;
-}
-
-/* line 554, ../scss/screen.scss */
-#mobile {
-  display: none;
-}
-
 @media (max-width: 992px) {
-  /* line 559, ../scss/screen.scss */
-  #desktop {
+  /* line 546, ../scss/screen.scss */
+  #desktop, #mobile {
     display: none;
   }
 
-  /* line 563, ../scss/screen.scss */
+  /* line 550, ../scss/screen.scss */
   #pull {
     display: block;
     padding: 21px 25px;
@@ -592,14 +573,14 @@ footer p {
     position: absolute;
     top: 0;
   }
-  /* line 572, ../scss/screen.scss */
+  /* line 559, ../scss/screen.scss */
   #pull span {
     font-size: 24px;
-    padding: 8px 12px 6px;
+    padding: 5px 12px 3px;
     border-radius: 5px;
     border: 2px white solid;
   }
-  /* line 577, ../scss/screen.scss */
+  /* line 564, ../scss/screen.scss */
   #pull span:hover {
     cursor: pointer;
     background: #424242;
@@ -607,14 +588,127 @@ footer p {
     color: #b3b3b3;
   }
 
-  /* line 586, ../scss/screen.scss */
-  nav li {
+  /* line 573, ../scss/screen.scss */
+  #mobile li {
     width: 100%;
   }
+  /* line 575, ../scss/screen.scss */
+  #mobile li a {
+    padding: 10px 25px;
+    font-size: 20px;
+    font-weight: bold;
+  }
 
-  /* line 590, ../scss/screen.scss */
+  /* line 582, ../scss/screen.scss */
+  .navlogo {
+    margin-bottom: 14px;
+  }
+
+  /* line 585, ../scss/screen.scss */
   .slide-label {
     padding-top: 40vh;
     font-size: 60px;
+  }
+}
+@media (min-width: 993px) {
+  /* line 592, ../scss/screen.scss */
+  #pull {
+    display: none;
+  }
+
+  /* line 596, ../scss/screen.scss */
+  #desktop {
+    display: block;
+  }
+
+  /* line 599, ../scss/screen.scss */
+  #mobile {
+    display: none !important;
+  }
+}
+/* FORM */
+/* line 605, ../scss/screen.scss */
+form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+/* line 616, ../scss/screen.scss */
+form input:last-of-type:hover {
+  cursor: pointer;
+  background: white;
+}
+/* line 622, ../scss/screen.scss */
+form input[type="checkbox"] {
+  display: none;
+}
+/* line 627, ../scss/screen.scss */
+form input[type="checkbox"] + label::before {
+  vertical-align: sub;
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 20px;
+}
+/* line 635, ../scss/screen.scss */
+form input[type="checkbox"] + label::before:hover {
+  background-color: #d9d9d9;
+}
+/* line 640, ../scss/screen.scss */
+form input[type="checkbox"]:checked + label::before {
+  transition-delay: 0.2s;
+  background: #282828;
+  width: 14px;
+  height: 14px;
+  border: 3px #c7c7c7 solid;
+}
+/* line 649, ../scss/screen.scss */
+form .checkbox-span {
+  display: block;
+  padding-bottom: 10px;
+}
+/* line 652, ../scss/screen.scss */
+form .checkbox-span label {
+  color: #fff;
+  font-size: 18px;
+}
+/* line 657, ../scss/screen.scss */
+form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: white;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: white;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+/* line 672, ../scss/screen.scss */
+form button:hover, form button:active, form button:focus {
+  background: white;
+}
+
+/* line 676, ../scss/screen.scss */
+.login-form {
+  width: 40%;
+  margin: auto;
+}
+
+@media (max-width: 992px) {
+  /* line 681, ../scss/screen.scss */
+  .login-form {
+    width: 65%;
   }
 }

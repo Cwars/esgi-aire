@@ -33,10 +33,10 @@
             $attribute['type'] == "checkbox"
         ) :
             ?>
-            <label>
+            <span class="checkbox-span">
                 <input type="checkbox" id="<?php echo $attribute["name"] ?>"  name="<?php echo $attribute["name"] ?>" value="1" <?php if($attribute["required"] === true){echo "required";} ?> >
-                <?php echo $attribute["label"] ?>
-            </label>
+                <label for="<?php echo $attribute["name"] ?>"> <?php echo $attribute["label"] ?></label>
+            </span>
         <?php endif; ?>
         <?php if(
             $attribute['type'] == "textarea"

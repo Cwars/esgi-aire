@@ -155,8 +155,20 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         ?>
     </div>
 </section>
+<?php
+if (!empty($_POST['username']) && !empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email']) && !empty($_POST['pwd']) && !empty($_POST['pwd2'])) {
+    ?>
     <script>
-        var sessionData = [<?php $i = 1; foreach ($_POST as $data) { echo "'".$data."'"; if ($i < sizeof($_POST)) { echo ","; $i++; } } ?>];
+        var sessionData = [
+            <?php
+            $i = 1;
+            foreach ($_POST as $data) {
+                    echo "'" . $data . "'";
+                if ($i < sizeof($_POST)) {
+                    echo ",";
+                    $i++;
+                }
+            } ?>];
 
         document.getElementsByName("username")[0].value = sessionData[0];
         document.getElementsByName("firstname")[0].value = sessionData[1];
@@ -164,6 +176,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         document.getElementsByName("email")[0].value = sessionData[3];
     </script>
 
-<?php
+    <?php
+}
 unset($_SESSION['added']);
 unset($_SESSION['form_error']);

@@ -1,3 +1,7 @@
+<?php
+session_destroy();
+session_unset();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -30,13 +34,13 @@
                     if($_SESSION['admin'] == 1)
                     {
                         ?>
-                        <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>back/dashboard/menu">BackOffice</a></li>
-                        <li class="menu"><a href="<?php echo PATH_RELATIVE; ?>logout">(<?php echo $_SESSION['username']; ?>)Déconnexion</a></li>
+                        <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>back/dashboard/menu">BackOffice (<?php echo $_SESSION['username']; ?>)</a></li>
+                        <li class="menu"><a href="<?php echo PATH_RELATIVE; ?>logout">Déconnexion</a></li>
                         <?php
                     }else {
                         ?>
-                        <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>user">Profil</a></li>
-                        <li class="menu"><a href="<?php echo PATH_RELATIVE; ?>logout">(<?php echo $_SESSION['username']; ?>)Déconnexion</a></li>
+                        <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>user">Profil (<?php echo $_SESSION['username']; ?>)</a></li>
+                        <li class="menu"><a href="<?php echo PATH_RELATIVE; ?>logout">Déconnexion</a></li>
                         <?php
                     }
                 }else {
