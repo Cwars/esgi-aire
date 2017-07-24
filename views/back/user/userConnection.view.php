@@ -89,7 +89,8 @@ echo "</pre>";
         </div>
         <?php
         unset($_SESSION['error']);
-    }else {
+    }
+    if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
         ?>
         <div class="info-error">
             <?php
