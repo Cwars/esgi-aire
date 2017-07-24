@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/front/css/screen.css">
     <link href="https://fonts.googleapis.com/css?family=Jaldi" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/front/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/PHamlP_3.2/css/style.php">
 </head>
 <body oncontextmenu="return false;">
 
