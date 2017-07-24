@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/front/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/PHamlP_3.2/css/style.php">
 </head>
-<body oncontextmenu="return false;">
+<body><!-- oncontextmenu="return false;"-->
 
 <header>
     <div class="nav-container">
         <nav>
-            <ul>
+            <ul id="desktop">
                 <li class="navlogo"><img src="<?php echo PATH_RELATIVE ; ?>assets/front/images/logo.png" id="logo" alt="logo"></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>home">Home</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>news/1">Actualité</a></li>
@@ -47,7 +47,39 @@
                 }
                 ?>
             </ul>
-            <a href="#" id="pull">Menu</a>
+            <ul id="mobile">
+                <li class="navlogo"><img src="<?php echo PATH_RELATIVE ; ?>assets/front/images/logo.png" id="logo" alt="logo"></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>home">Home</a></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>news/1">Actualité</a></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>blog/1">Blog</a></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>presentation">Présentation</a></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>event/1">Evènement</a></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>gallery">Galerie</a></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>contact">Contact</a></li>
+                <?php
+                if(isset($_SESSION['admin']))
+                {
+                    if($_SESSION['admin'] == 1)
+                    {
+                        ?>
+                        <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>back/dashboard/menu">BackOffice</a></li>
+                        <li class="menu"><a href="<?php echo PATH_RELATIVE; ?>logout">(<?php echo $_SESSION['username']; ?>)Déconnexion</a></li>
+                        <?php
+                    }else {
+                        ?>
+                        <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>user">Profil</a></li>
+                        <li class="menu"><a href="<?php echo PATH_RELATIVE; ?>logout">(<?php echo $_SESSION['username']; ?>)Déconnexion</a></li>
+                        <?php
+                    }
+                }else {
+                    ?>
+                    <li class="menu"><a href="<?php echo PATH_RELATIVE; ?>login">Connexion</a></li>
+                    <li class="menu"><a href="<?php echo PATH_RELATIVE; ?>register">Inscription</a></li>
+                    <?php
+                }
+                ?>
+            </ul>
+            <div id="pull"><span><i class="fa fa-bars" aria-hidden="true"></i></span></div>
         </nav>
     </div>
 </header>

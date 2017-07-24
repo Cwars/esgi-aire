@@ -8,6 +8,7 @@
 /*
   Grid
  */
+@import url("https://fonts.googleapis.com/css?family=Fresca");
 /* line 6, ../scss/screen.scss */
 * {
   padding: 0;
@@ -137,7 +138,7 @@ h1 {
   color: #fff;
   font-weight: bold;
   text-align: center;
-  padding-top: 50vh;
+  padding-top: 45vh;
   width: 100%;
 }
 
@@ -400,89 +401,220 @@ footer p {
   display: inline-block;
 }
 
-/* Nav responsive */
+/* CSS CAROUSEL */
+/* line 388, ../scss/screen.scss */
+* {
+  font-family: 'Fresca', sans-serif;
+}
 
-nav li {
-  display: inline;
-  float: left;
+/* line 392, ../scss/screen.scss */
+.info {
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 1000px;
+  margin: auto;
+  margin-top: -77px;
+  position: relative;
 }
-nav a {
-  color: #fff;
-  display: inline-block;
+/* line 400, ../scss/screen.scss */
+.info .title {
+  margin: 0 auto;
+  color: palevioletred;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 5px 15px;
+}
+/* line 408, ../scss/screen.scss */
+.info .desc {
+  font-size: 20px;
+  color: lightgrey;
+  padding: 5px 15px;
+}
+
+/* line 416, ../scss/screen.scss */
+#carousel {
+  max-width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+  /**/
+  overflow: hidden;
+  object-fit: cover;
+}
+/* line 425, ../scss/screen.scss */
+#carousel #rail {
+  height: auto;
+}
+/* line 428, ../scss/screen.scss */
+#carousel #rail img {
+  width: 1000px;
+  height: 500px;
+  /**/
+  object-fit: cover;
+}
+/* line 435, ../scss/screen.scss */
+#carousel #play {
+  width: 20%;
+  height: 100px;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  opacity: 0;
+}
+/* line 443, ../scss/screen.scss */
+#carousel #play:hover {
+  opacity: 1;
+  background-color: transparent;
+  border: none;
+  font-size: 35px;
+  outline: none;
+}
+/* line 452, ../scss/screen.scss */
+#carousel .puce-navigation {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  font-size: 15px;
+  color: #d4d4d4;
+  top: 30px;
   text-align: center;
-  text-decoration: none;
-  line-height: 40px;
-  text-shadow: 1px 1px 0px #283744;
 }
-nav li a {
-  box-sizing:border-box;
-  -moz-box-sizing:border-box;
-  -webkit-box-sizing:border-box;
+/* line 461, ../scss/screen.scss */
+#carousel .puce-navigation i {
+  margin-right: 5px;
+  cursor: pointer;
+  text-shadow: 5px 5px 5px #323232;
 }
-nav a#pull {
+/* line 466, ../scss/screen.scss */
+#carousel .puce-navigation i:hover {
+  color: white;
+}
+/* line 472, ../scss/screen.scss */
+#carousel #prev, #carousel #next {
+  transition: opacity 0.1s 0.3s ease;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  font-size: 25px;
+  text-align: center;
+  outline: none;
+  opacity: 0;
+  background: rgba(255, 255, 255, 0.15);
+  border: solid 2px rgba(255, 255, 255, 0.6);
+}
+/* line 486, ../scss/screen.scss */
+#carousel #next.hover,
+#carousel #prev.hover {
+  transition: opacity 0.2s 0.5s ease;
+  opacity: 1;
+  border: solid 2px rgba(255, 255, 255, 0.6);
+}
+/* line 493, ../scss/screen.scss */
+#carousel #prev {
+  left: 10px;
+  width: 8%;
+  height: 15%;
+  top: 40%;
+}
+/* line 500, ../scss/screen.scss */
+#carousel #next {
+  right: 10px;
+  width: 8%;
+  height: 15%;
+  top: 40%;
+}
+
+@media (max-width: 1017px) {
+  /* line 509, ../scss/screen.scss */
+  .info {
+    width: 100%;
+  }
+
+  /* line 515, ../scss/screen.scss */
+  #carousel #rail img {
+    max-height: 80vh;
+    width: 100vw;
+  }
+}
+@media (max-width: 1170px) and (max-height: 600px) {
+  /* line 524, ../scss/screen.scss */
+  #carousel {
+    max-height: 80vh;
+  }
+  /* line 528, ../scss/screen.scss */
+  #carousel #rail img {
+    max-height: 80vh;
+    width: 100vw;
+    height: 80vh;
+  }
+
+  /* line 536, ../scss/screen.scss */
+  .info {
+    margin-top: -72px;
+  }
+
+  /* line 540, ../scss/screen.scss */
+  .puce-navigation {
+    font-size: 20px !important;
+    top: 30px;
+  }
+}
+/*FIN CSS CAROUSEL*/
+/* line 547, ../scss/screen.scss */
+#pull {
   display: none;
 }
 
-@media screen and (max-width: 600px) {
-  nav {
-    height: auto;
-  }
-  .navlogo{
-    text-align: center;
-  }
-  nav ul {
-    width: 100%;
-    display: block;
-    height: auto;
-  }
-  nav li {
-    width: 50%;
-    float: left;
-    position: relative;
-  }
-  nav li a {
-    border-bottom: 1px solid white;
-    border-right: 1px solid white;
-  }
-  nav a {
-    text-align: left;
-    width: 100%;
-    text-indent: 25px;
-  }
+/* line 551, ../scss/screen.scss */
+#desktop {
+  display: block;
 }
 
-@media only screen and (max-width : 480px) {
-  nav {
-    border-bottom: 0;
-  }
-  nav ul {
+/* line 554, ../scss/screen.scss */
+#mobile {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  /* line 559, ../scss/screen.scss */
+  #desktop {
     display: none;
-    height: auto;
   }
-  nav a#pull {
-    display: block;
-    background-color: #000;
-    width: 100%;
-    position: relative;
-  }
-  nav a#pull:after {
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    position: absolute;
-    right: 15px;
-    top: 10px;
-  }
-}
 
-@media only screen and (max-width : 320px) {
-  nav li {
+  /* line 563, ../scss/screen.scss */
+  #pull {
     display: block;
-    float: none;
+    padding: 21px 25px;
+    background: #0f0f0f;
+    color: #fff;
+    width: 100%;
+    position: absolute;
+    top: 0;
+  }
+  /* line 572, ../scss/screen.scss */
+  #pull span {
+    font-size: 24px;
+    padding: 8px 12px 6px;
+    border-radius: 5px;
+    border: 2px white solid;
+  }
+  /* line 577, ../scss/screen.scss */
+  #pull span:hover {
+    cursor: pointer;
+    background: #424242;
+    border-color: #b3b3b3;
+    color: #b3b3b3;
+  }
+
+  /* line 586, ../scss/screen.scss */
+  nav li {
     width: 100%;
   }
-  nav li a {
-    border-bottom: 1px solid #000;
+
+  /* line 590, ../scss/screen.scss */
+  .slide-label {
+    padding-top: 40vh;
+    font-size: 60px;
   }
 }
-/* Nav responsive */
