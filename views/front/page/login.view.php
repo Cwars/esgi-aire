@@ -23,9 +23,12 @@ print_r("Pas dans if\n");
                 var_dump($_POST);
 
                 $user = $user->populate(['username' => $username]);
-if (password_hash($pwd, PASSWORD_DEFAULT) == $user->getPassword())
-{                    print_r("Dans if pwd custom==\n");
-    var_dump($_POST);}
+                print_r($user->getPassword());
+if (password_hash($password, PASSWORD_DEFAULT) == $user->getPassword())
+{
+    print_r("Dans if pwd custom==\n");
+    var_dump($_POST);
+}
                 if (password_verify($password, $user->getPassword())) { // Si mdp correspond celui identifiant
                     print_r("Dans if pwd==\n");
                     var_dump($_POST);
