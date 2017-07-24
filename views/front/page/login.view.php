@@ -8,7 +8,7 @@ print_r($_SERVER['REQUEST_METHOD']);
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_POST['username']) && isset($_POST['pwd']) && $_POST['username'] != '' && $_POST['pwd'] != '') {
-
+print_r(1);
 /*        $subject = $_POST['username'];
         $subject_pwd = $_POST['pwd'];
         $pattern = '/[][( ){}<>\/+"*%&=?`^\'!$_:;,.]/';
@@ -17,13 +17,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['username'];
             $password = $_POST['pwd'];
             if ($user->populate(['username' => $username])) { // Si identifiant dans bdd
-
+                print_r(2);
                 $user = $user->populate(['username' => $username]);
 
                 if (password_verify($password, $user->getPassword())) { // Si mdp correspond celui identifiant
-
+                    print_r(3);
                     $status = $user->getStatus();
-                    if ($status == 'Admin') {
+                    if ($status == 'Admin') {print_r(4);
                         session_unset();
                         session_destroy();
                         session_start();
@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $_SESSION['user_id'] = $user->getId();
                         $_SESSION['admin'] = '1';
                     } else
-                    {
+                    {print_r(5);
                         session_unset();
                         session_destroy();
                         session_start();
@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $_SESSION['user_id'] = $user->getId();
                         $_SESSION['admin'] = 0;
                     }
-                    header("Location: ".PATH_RELATIVE."welcome");
+                    header("Location: ".PATH_RELATIVE."home");
 
                 } else
                     $error[] = 13;
