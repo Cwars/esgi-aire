@@ -46,4 +46,10 @@ $('.restore').click(function(){
     }
 });
 
+//Loader
+setTimeout('loader()', 500);
+function loader() {
+    $("#loader").hide("slow");
+}
+
 CKEDITOR.replace(jQuery('.ckeditor'));

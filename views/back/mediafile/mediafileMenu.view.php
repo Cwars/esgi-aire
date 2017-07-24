@@ -6,7 +6,7 @@
         <a href="<?php echo PATH_RELATIVE ; ?>back/mediafile/menuRestore" class="button-add">Restaurer</a>
     </div>
     <table class="table">
-
+        <div id="loader"></div>
         <?php
 
         echo "<thead><tr>";

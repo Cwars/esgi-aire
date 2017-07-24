@@ -4,7 +4,7 @@
         <a href="<?php echo PATH_RELATIVE ; ?>back/user/add" class="button-add">Ajouter</a>
     </div>
     <table class="table">
-
+        <div id="loader"></div>
         <?php
         $datausers = new User();
 

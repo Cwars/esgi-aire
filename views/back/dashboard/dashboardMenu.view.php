@@ -20,7 +20,7 @@
     </style>
 
     <h1>Dashboard</h1><br/>
-
+    <div id="loader"></div>
     <div id="dash1">
         <canvas id="mygraph1"></canvas>
     </div>
