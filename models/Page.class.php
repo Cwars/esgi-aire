@@ -5,16 +5,12 @@ class Page extends BaseSql  {
     protected $id = -1;
     protected $title;
     protected $content;
-    protected $category;
-    protected $author;
+    protected $hasNews;
+    protected $hasEvent;
     protected $isDeleted;
-    protected $dateInserted;
-    protected $dateUpdated;
 
 
-
-
-    public function __construct($id = -1, $content = null, $author = null, $status = 0) {
+    public function __construct($id = -1, $content = null, $author = null, $status = 0, $hasEvent = 1, $hasNews =1) {
         parent::__construct();
     }
 
@@ -26,8 +22,28 @@ class Page extends BaseSql  {
         $this->id = $id;
     }
 
-    public function setTypePage($typePage) {
-        $this->typePage = $typePage;
+    public function setIsDeleted($isDeleted) {
+        $this->isDeleted = $isDeleted;
+    }
+
+    public function getIsDeleted() {
+        return $this->isDeleted;
+    }
+
+    public function getHasNews() {
+        return $this->hasNews;
+    }
+
+    public function setHasNews($hasNews) {
+        $this->id = $hasNews;
+    }
+
+    public function getHasEvent() {
+        return $this->hasEvent;
+    }
+
+    public function setHasEvent($hasEvent) {
+        $this->id = $hasEvent;
     }
 
     public function setContent($content) {
@@ -38,47 +54,35 @@ class Page extends BaseSql  {
         return $this->content;
     }
 
-    public function setAuthor($author) {
-        if (strlen($author)<55){
-            $this->author = trim($author);
-        }
-    }
-
-    public function getAuthor() {
-        return $this->author;
-    }
-
-    public function setIsDeleted() {
-        $this->isDeleted = 1;
-    }
-
-    public function getIsDeleted() {
-        return $this->isDeleted;
-    }
-
     public function getTitle() {
         return $this->title;
     }
 
     public function setTitle($title) {
-        if (strlen($title)<55){
             $this->title = trim($title);
-        }
     }
 
-    public function getdate_inserted() {
-        return $this->date_inserted;
+    public function getDateInserted() {
+        return $this->dateInserted;
     }
 
-    public function getdate_updated() {
-        return $this->date_updated;
+    public function getDateUpdated() {
+        return $this->dateUpdated;
     }
 
-    public function getFormPage() {
+    public function setDateInserted($dateInserted) {
+        $this->dateInserted = $dateInserted;
+    }
+
+    public function setDateUpdated($dateUpdated) {
+        $this->dateUpdated = $dateUpdated;
+    }
+
+    public function getFormPageHomeUpdate($id,$title,$content,$includeNews,$includeEvent) {
         return [
             "options" => [
                 "method" => "POST",
-                "action" => "actionAdd",
+                "action" => "../pageUpdate/".$id,
                 "class" => "form-group",
                 "id" => "addPage",
                 "optionName" => "type"
@@ -87,21 +91,55 @@ class Page extends BaseSql  {
                 "title" => [
                     "type" => "text",
                     "placeholder" => "Titre de l'article",
-                    "required" => true
+                    "required" => true,
+                    "value" => "".$title.""
                 ],
-                "description" => [
-                    "type" => "text",
-                    "placeholder" => "Description de votre page",
-                    "required" => true
+                "content" => [
+                    "type" => "textarea",
+                    "placeholder" => "Content de votre page",
+                    "required" => true,
+                    "value" => "".$content.""
                 ],
-                "Option" => [
-                    "type" => "select",
-                    "option" => [
-                        "option1" => "Blog",
-                        "option2" => "News"
-                    ]
+                "includeNews" => [
+                    "type" => "checkbox",
+                    "name" => "news",
+                    "label" => "Inclure l'article la plus récente",
+                    "required" => false,
+                    "value" => "".$includeNews.""
+                ],
+                "includeEvent" => [
+                    "type" => "checkbox",
+                    "name" => "news",
+                    "label" => "Inclure les evenements la plus récente",
+                    "required" => false,
+                    "value" => "".$includeEvent.""
+                ],
+            ]
+        ];
+    }
 
-                ]
+    public function getFormSimplePageUpdate($id,$title,$content) {
+        return [
+            "options" => [
+                "method" => "POST",
+                "action" => "../pageUpdate/".$id,
+                "class" => "form-group",
+                "id" => "addPage",
+                "optionName" => "type"
+            ],
+            "struct" => [
+                "title" => [
+                    "type" => "text",
+                    "placeholder" => "Titre de l'article",
+                    "required" => true,
+                    "value" => "".$title.""
+                ],
+                "content" => [
+                    "type" => "textarea",
+                    "placeholder" => "Content de votre page",
+                    "required" => true,
+                    "value" => "".$content.""
+                ],
             ]
         ];
     }

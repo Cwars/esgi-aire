@@ -7,11 +7,11 @@ class BackpageController
 {
 
     public function PageMenuAction($params) {
-        $datausers = new User();
+        $page = new Page();
 
         $type = "page";
-        $search = ["id","username","firstname","lastname","email","status","dateInserted"];
-        $res = $datausers->getObj($search,$params[0],NB_ITEM_BACK);
+        $search = ["id","title","content"];
+        $res = $page->getObj($search,$params[0],NB_ITEM_BACK);
 
         if( !is_int($params[0]) || $params[0]>0 && $params[0]<=$res[1]){
             $v = new View("menu");
@@ -24,38 +24,52 @@ class BackpageController
         }
     }
 
-    public function PageAddAction() {
+    public function PageMenuRestoreAction($params) {
         $page = new Page();
-        $v = new View('pageAdd');
-        $v->assign("formPage", $page->getFormPage());
+
+        $type = "page";
+        $search = ["id","title","content"];
+        $res = $page->getArchive($search,$params[0],NB_ITEM_BACK);
+
+        if(!is_int($params[0]) || $params[0]>0 && $params[0]<=$res[1]){
+            $v = new View("menuRestore");
+            $v->assign("search", $search);
+            $v->assign("result", $res[0]);
+            $v->assign("nbPage", $res[1]);
+            $v->assign("type", $type);
+        } else {
+            $v = new View("page404");
+        }
     }
 
-    public function PageActionAddAction($params) {
+    public function PageUpdateAction($params) {
+        $v = new View("pageUpdate");
+
+        $page=((new Page())->populate(['id' => $params[0]]));
+        $id = $params[0];
+        $title = $page->getTitle();
+        $content = $page->getContent();
+
+        if ($title == "Home"){
+            $news = $page->getHasNews();
+            $event = $page->getHasEvent();
+            $v->assign("formUpdate", $page->getFormPageHomeUpdate($id,$title,$content,$news,$event));
+        } else {
+            $v->assign("formUpdate", $page->getFormSimplePageUpdate($id,$title,$content));
+        }
+
+    }
+    public function PageActionUpdateAction($params) {
+        $v = new View("pageActionUpdate");
         $username = $_SESSION['username'];
-        $v = new View("pageActionAdd");
 
+        // Récupère les données pour la page
+        $page=((new Page())->populate(['id' => $params[0]]));
+        $title = $page->getTitle();
         $v->assign("username",$username);
+        $v->assign("idUpdate",$params[0]);
+        $v->assign("titleUpdate",$title);
     }
-
-//    public function PageActionUpdateAction($params) {
-//        $v = new View("pageActionUpdate");
-//        $page=((new Page())->populate(['id' => $params[0]]));
-//
-////        $username = $user->getUsername();
-////        $v->assign("idUpdate",$params[0]);
-////        $v->assign("usernameUpdate",$username);
-//    }
-//
-//    public function PageActionUpdateAction($params) {
-//        $v = new View("pageActionUpdate");
-//        $username = $_SESSION['username'];
-//        $page=((new Page())->populate(['id' => $params[0]]));
-//
-//        $title = $page->getTitle();
-//        $v->assign("username",$username);
-//        $v->assign("idUpdate",$params[0]);
-//        $v->assign("titleUpdate",$title);
-//    }
 
     public function PageActionDeleteAction($params) {
         $v = new View("pageActionDelete");
@@ -66,6 +80,7 @@ class BackpageController
         $v = new View("pageActionRestore");
         $v->assign("idRestore",$params);
     }
+
 
 
 }

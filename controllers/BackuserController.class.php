@@ -12,8 +12,10 @@ class BackuserController
         $type = "user";
         $search = ["id","username","firstname","lastname","email","status","dateInserted"];
         $res = $datausers->getObj($search,$params[0],NB_ITEM_BACK);
+        $pageNum = (int)$params[0];
+        $pageMax = (int)$res[1];
 
-        if( !is_int($params[0]) || $params[0]>0 && $params[0]<=$res[1]){
+        if(!empty($params[0]) && $pageNum>0 && $pageNum <= $pageMax ){
         $v = new View("menu");
         $v->assign("search", $search);
         $v->assign("result", $res[0]);
@@ -30,8 +32,10 @@ class BackuserController
         $type = "user";
         $search = ["id","username","firstname","lastname","email","status","dateInserted"];
         $res = $datausers->getArchive($search,$params[0],NB_ITEM_BACK);
+        $pageNum = (int)$params[0];
+        $pageMax = (int)$res[1];
 
-        if(!is_int($params[0]) || $params[0]>0 && $params[0]<=$res[1]){
+        if(!empty($params[0]) && $pageNum>0 && $pageNum <= $pageMax ){
             $v = new View("menuRestore");
             $v->assign("search", $search);
             $v->assign("result", $res[0]);

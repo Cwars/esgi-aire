@@ -181,6 +181,46 @@
             return $return;
         }
 
+        public function GetRecentElement($search = [],$nbItem){
+            $stringSelect = '';
+
+            //Concatenation des parametres pour la requète
+            foreach ($search as $key => $value) {
+                $stringSelect .= $value.",";
+            }
+
+            //Supression de la dernière virgule + trim
+            $stringSelect = trim(rtrim($stringSelect,","));
+
+            //Requète par rapport aux paramètres avec les conditions
+            $query = $this->db->prepare('SELECT '. $stringSelect .' FROM '.$this->table . ' WHERE isDeleted = 0 ORDER BY dateInserted ASC LIMIT 0 ,' .$nbItem.'');
+            $query->execute();
+
+            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+            return $result;
+        }
+
+        public function GetRecentEvent($search = [],$nbItem){
+            $stringSelect = '';
+
+            //Concatenation des parametres pour la requète
+            foreach ($search as $key => $value) {
+                $stringSelect .= $value.",";
+            }
+
+            //Supression de la dernière virgule + trim
+            $stringSelect = trim(rtrim($stringSelect,","));
+
+            //Requète par rapport aux paramètres avec les conditions
+            $query = $this->db->prepare('SELECT '. $stringSelect .' FROM '.$this->table . ' WHERE isDeleted = 0 ORDER BY date ASC LIMIT 0 ,' .$nbItem.'');
+            $query->execute();
+
+            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+            return $result;
+        }
+
         public function getDashboard($param1){
 
             $query = $this->db->prepare('SELECT '.$param1.', COUNT('.$param1.') as nbr FROM news WHERE isDeleted = 0 GROUP BY ' .$param1);
