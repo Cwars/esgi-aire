@@ -381,3 +381,197 @@ footer{
 		display: inline-block;
 	}
  }
+
+ /* CSS CAROUSEL */
+@import url('https://fonts.googleapis.com/css?family=Fresca');
+
+* {
+  font-family: 'Fresca', sans-serif;
+}
+
+.info {
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 1000px;
+  margin: auto;
+  margin-top: -77px;
+  position: relative;
+
+  .title {
+    margin: 0 auto;
+    color: palevioletred;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 5px 15px;
+  }
+
+  .desc {
+    font-size: 20px;
+    color: lightgrey;
+    padding: 5px 15px;
+  }
+}
+
+
+#carousel {
+  max-width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  position: relative; /**/
+  overflow: hidden;
+  object-fit: cover;
+
+
+  #rail {
+    height: auto;
+
+    img {
+      width: 1000px;
+      height: 500px; /**/
+      object-fit: cover;
+    }
+  }
+
+  #play {
+    width: 20%;
+    height: 100px;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+      background-color: transparent;
+      border: none;
+      font-size: 35px;
+      outline: none;
+    }
+  }
+
+  .puce-navigation {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    font-size: 15px;
+    color: #d4d4d4;
+    top: 30px;
+    text-align: center;
+
+    i {
+      margin-right: 5px;
+      cursor: pointer;
+      text-shadow: 5px 5px 5px rgb(50,50,50);
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  #prev, #next {
+    transition: opacity 0.1s 0.3s ease;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    font-size: 25px;
+    text-align: center;
+    outline: none;
+    opacity: 0;
+    background: rgba(255,255,255, 0.15);
+    border: solid 2px rgba(255,255,255, 0.6);
+  }
+
+  #next.hover,
+  #prev.hover {
+    transition: opacity 0.2s 0.5s ease;
+    opacity: 1;
+    border: solid 2px rgba(255,255,255, 0.6);
+  }
+
+  #prev {
+    left: 10px;
+    width: 8%;
+    height:15%;
+    top: 40%
+
+  }
+  #next {
+    right: 10px;
+    width: 8%;
+    height:15%;
+    top: 40%
+  }
+
+}
+@media (max-width: 1017px) {
+  .info {
+    width: 100%;
+  }
+  #carousel {
+
+    #rail {
+      img {
+        max-height: 80vh;
+        width: 100vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 1170px) and (max-height: 600px){
+  #carousel {
+    max-height: 80vh;
+
+    #rail {
+      img {
+        max-height: 80vh;
+        width: 100vw;
+        height: 80vh;
+      }
+    }
+  }
+
+  .info {
+    margin-top: -72px;
+  }
+
+  .puce-navigation {
+    font-size: 20px!important;
+    top: 30px;
+
+  }
+}
+/*FIN CSS CAROUSEL*/
+#pull {
+  display: none;
+}
+
+#desktop {
+  display: block;
+}
+#mobile {
+  display: none;
+}
+
+@media (max-width: $screen-md-min) {
+  #desktop {
+    display: none;
+  }
+
+  #pull {
+    display: block;
+    padding:21px 25px;
+    background: darken($background-color, 10%);
+    color: #fff;
+    width:100%;
+    position: absolute;
+    top: 0;
+  }
+  nav {
+    li {
+      width: 100%;
+    }
+  }
+}
