@@ -8,7 +8,7 @@ print_r($_SERVER['REQUEST_METHOD']);
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_POST['username']) && isset($_POST['pwd']) && $_POST['username'] != '' && $_POST['pwd'] != '') {
-    print_r($_SESSION);
+    print_r("1".$_POST);
 /*        $subject = $_POST['username'];
         $subject_pwd = $_POST['pwd'];
         $pattern = '/[][( ){}<>\/+"*%&=?`^\'!$_:;,.]/';
@@ -18,10 +18,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $password = $_POST['pwd'];
             if ($user->populate(['username' => $username])) { // Si identifiant dans bdd
                 print_r(2);
+                print_r("1".$_POST);
+
                 $user = $user->populate(['username' => $username]);
 
                 if (password_verify($password, $user->getPassword())) { // Si mdp correspond celui identifiant
                     print_r(3);
+                    print_r("1".$_POST);
+
                     $status = $user->getStatus();
                     if ($status == 'Admin') {print_r(4);
                         session_unset();
