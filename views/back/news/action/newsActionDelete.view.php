@@ -8,7 +8,7 @@
         $news->setIsDeleted(1);
         $news->save();
 
-        header("Location: " . PATH_RELATIVE . "back/news/menu");
+        header("Location: " . PATH_RELATIVE . "back/news/menu/1");
         echo "L'utilisateur ".$news->getTitle()." a été supprimé";
 
     }

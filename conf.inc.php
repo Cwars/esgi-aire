@@ -3,12 +3,12 @@
 define("DS", DIRECTORY_SEPARATOR);
 define("PATH_RELATIVE", "/esgi-aire/");
 define("PATH_RELATIVE_PATTERN", "\/esgi-aire");
-define("NB_ITEM_BACK", 5);
+define("NB_ITEM_BACK", 1);
 define("NB_ITEM_FRONT", 10);
 
 define("DB_NAME", "mvciw1");
 define("DB_USER", "root");
-define("DB_PWD", "");
+define("DB_PWD", "root");
 define("DB_PORT", "3306");
 define("DB_HOST", "localhost");
 

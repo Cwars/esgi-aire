@@ -29,7 +29,7 @@ class BacknewsController
 
         $type = "news";
         $search = ["id","title","author","content","type","dateInserted"];
-        $res = $datanews->getObj($search,$params[0],NB_ITEM_BACK);
+        $res = $datanews->getArchive($search,$params[0],NB_ITEM_BACK);
 
         if(!is_int($params[0]) || $params[0]>0 && $params[0]<=$res[1]){
             $v = new View("menuRestore");

@@ -8,7 +8,7 @@
         $news->save();
 
         echo "L'utilisateur".$news->getTitle." a été restauré";
-        header("Location: " . PATH_RELATIVE . "back/news/menu");
+        header("Location: " . PATH_RELATIVE . "back/news/menu/1");
     }
     ?>
 </div>

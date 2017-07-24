@@ -6,8 +6,22 @@
 class BackpageController
 {
 
-    public function PageMenuAction() {
-        $v = new View("pageMenu");
+    public function PageMenuAction($params) {
+        $datausers = new User();
+
+        $type = "page";
+        $search = ["id","username","firstname","lastname","email","status","dateInserted"];
+        $res = $datausers->getObj($search,$params[0],NB_ITEM_BACK);
+
+        if( !is_int($params[0]) || $params[0]>0 && $params[0]<=$res[1]){
+            $v = new View("menu");
+            $v->assign("search", $search);
+            $v->assign("result", $res[0]);
+            $v->assign("nbPage", $res[1]);
+            $v->assign("type", $type);
+        } else {
+            $v = new View("page404");
+        }
     }
 
     public function PageAddAction() {

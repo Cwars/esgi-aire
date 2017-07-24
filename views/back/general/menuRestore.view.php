@@ -24,7 +24,7 @@
                 echo "</td>";
             }
             echo "<td>";
-            echo "<a class='table-button restore' href='ActionRestore/" . $user['id'] . "'> Restaurer </a>";
+            echo "<a class='table-button restore' href='../ActionRestore/" . $user['id'] . "'> Restaurer </a>";
             echo "</td>";
 
             echo "</tr>";

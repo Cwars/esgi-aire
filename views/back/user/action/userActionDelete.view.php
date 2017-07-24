@@ -8,7 +8,7 @@ if(isset($idDelete)){
     $user->setIsDeleted(1);
     $user->save();
 
-    header("Location: " . PATH_RELATIVE . "back/user/menu");
+    header("Location: " . PATH_RELATIVE . "back/user/menu/1");
 //    echo "L'utilisateur ".$user->getUsername()." a été supprimé";
 
 }

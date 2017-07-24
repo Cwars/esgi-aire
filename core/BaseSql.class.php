@@ -121,6 +121,9 @@
 
             //nb de page
             $nbPage = ceil($countItem/$nbItem);
+            if($countItem == 0){
+                $nbPage = 1;
+            }
 
             //le 1er item de chaque page
             $firstItem = $nbItem*$numPage - ($nbItem);
@@ -159,6 +162,10 @@
 
             //nb de page
             $nbPage = ceil($countItem/$nbItem);
+
+            if($countItem == 0){
+                $nbPage = 1;
+            }
 
             //le 1er item de chaque page
             $firstItem = $nbItem*$numPage - ($nbItem);

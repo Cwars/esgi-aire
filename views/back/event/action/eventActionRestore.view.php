@@ -8,7 +8,7 @@
         $event->save();
 
         echo "L'utilisateur".$event->getTitle." a été restauré";
-        header("Location: " . PATH_RELATIVE . "back/event/menu");
+        header("Location: " . PATH_RELATIVE . "back/event/menu/1");
     }
     ?>
 </div>

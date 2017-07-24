@@ -28,7 +28,7 @@ class BackmediafileController
 
         $type = "mediafile";
         $search = ["id","type","title","description","path","dateInserted"];
-        $res = $datafile->getObj($search,$params[0],NB_ITEM_BACK);
+        $res = $datafile->getArchive($search,$params[0],NB_ITEM_BACK);
 
         if(!is_int($params[0]) || $params[0]>0 && $params[0]<=$res[1]){
             $v = new View("menuRestore");

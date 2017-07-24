@@ -12,8 +12,10 @@ class BackeventController
         $type = "event";
         $search = ["id","title","description","date","dateUpdated","author"];
         $res = $event->getObj($search,$params[0],NB_ITEM_BACK);
+        $pageNum = (int)$params[0];
+        $pageMax = (int)$res[1];
 
-        if(!is_int($params[0]) || $params[0]>0 && $params[0]<=$res[1]){
+        if(!empty($params[0]) && $pageNum>0 && $pageNum <= $pageMax ){
             $v = new View("menu");
             $v->assign("search", $search);
             $v->assign("result", $res[0]);
@@ -29,9 +31,12 @@ class BackeventController
 
         $type = "event";
         $search = ["id","title","description","date","dateUpdated","author"];
-        $res = $event->getObj($search,$params[0],NB_ITEM_BACK);
+        $res = $event->getArchive($search,$params[0],NB_ITEM_BACK);
+        $pageNum = (int)$params[0];
+        $pageMax = (int)$params[1];
 
-        if(!is_int($params[0]) || $params[0]>0 && $params[0]<=$res[1]){
+
+        if(!empty($params[0]) || $pageNum>0 && $pageNum<=$pageMax ){
             $v = new View("menuRestore");
             $v->assign("search", $search);
             $v->assign("result", $res[0]);
@@ -63,7 +68,6 @@ class BackeventController
         $title = $event->getTitle();
         $dateI = $event->getDateInserted();
 
-        $v->assign("username", $username);
         $v->assign("idUpdate",$params[0]);
         $v->assign("titleUpdate",$title);
         $v->assign("dateI",$dateI);

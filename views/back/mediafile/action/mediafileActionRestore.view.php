@@ -9,7 +9,7 @@ if(isset($idRestore)){
 
     echo "Le fichier mutlimédia ".$mediafile->getTitle()." a été restauré";
 
-    header("Location: " . PATH_RELATIVE . "back/mediafile/menu");
+    header("Location: " . PATH_RELATIVE . "back/mediafile/menu/1");
 
 }
 

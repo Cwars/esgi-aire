@@ -4,12 +4,13 @@ class Page extends BaseSql  {
 
     protected $id = -1;
     protected $title;
+    protected $content;
     protected $category;
     protected $author;
     protected $isDeleted;
-    protected $date_inserted;
-    protected $date_updated;
-    protected $content;
+    protected $dateInserted;
+    protected $dateUpdated;
+
 
 
 

@@ -8,6 +8,7 @@
         $user->save();
 
         echo "L'utilisateur ".$user->getUsername()." a été restauré";
+        header("Location: " . PATH_RELATIVE . "back/user/menu/1");
     }
     ?>
 </div>

@@ -29,7 +29,7 @@ class BackuserController
 
         $type = "user";
         $search = ["id","username","firstname","lastname","email","status","dateInserted"];
-        $res = $datausers->getObj($search,$params[0],NB_ITEM_BACK);
+        $res = $datausers->getArchive($search,$params[0],NB_ITEM_BACK);
 
         if(!is_int($params[0]) || $params[0]>0 && $params[0]<=$res[1]){
             $v = new View("menuRestore");

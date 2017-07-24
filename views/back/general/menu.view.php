@@ -30,10 +30,10 @@
                 echo "</td>";
             }
             echo "<td>";
-            echo "<a class='table-button' href='Update/" . $item['id'] . "'> Update </a>";
+            echo "<a class='table-button' href='../Update/" . $item['id'] . "'> Update </a>";
             echo "</td>";
             echo "<td>";
-            echo "<a class='table-button delete' href='ActionDelete/" . $item['id'] . "'> Delete </a>";
+            echo "<a class='table-button delete' href='../ActionDelete/" . $item['id'] . "'> Delete </a>";
             echo "</td>";
 
             echo "</tr>";
