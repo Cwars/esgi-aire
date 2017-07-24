@@ -8,8 +8,6 @@ print_r($_SERVER['REQUEST_METHOD']);
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 print_r("Pas dans if\n");
     if (isset($_POST['username']) && isset($_POST['pwd']) && $_POST['username'] != '' && $_POST['pwd'] != '') {
-        print_r("Dans if isset\n");
-        var_dump($_POST);
 /*        $subject = $_POST['username'];
         $subject_pwd = $_POST['pwd'];
         $pattern = '/[][( ){}<>\/+"*%&=?`^\'!$_:;,.]/';
@@ -19,18 +17,23 @@ print_r("Pas dans if\n");
             $password = $_POST['pwd'];
             if ($user->populate(['username' => $username])) { // Si identifiant dans bdd
 
-                print_r("Dans if u==\n");
-                var_dump($_POST);
-
                 $user = $user->populate(['username' => $username]);
+
                 print_r($user->getPassword());
-if (password_hash($password, PASSWORD_DEFAULT) == $user->getPassword())
-{
-    print_r("Dans if pwd custom==\n");
-    var_dump($_POST);
-}
+                echo "\n####################\n";
+                print_r(password_hash($password, PASSWORD_DEFAULT) );
+                echo "\n####################\n";
+
+                if (password_hash($password, PASSWORD_DEFAULT) == $user->getPassword())
+                {
+                    print_r("Dans if pwd custom==\n");
+                    echo "\n####################\n";
+                    var_dump($_POST);
+                }
+
                 if (password_verify($password, $user->getPassword())) { // Si mdp correspond celui identifiant
                     print_r("Dans if pwd==\n");
+                    echo "\n####################\n";
                     var_dump($_POST);
 
                     $status = $user->getStatus();
