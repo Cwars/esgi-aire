@@ -19,7 +19,7 @@ class Page extends BaseSql  {
     }
 
     public function setId($id) {
-        $this->id = $id;
+        $this->id = (int)$id;
     }
 
     public function setIsDeleted($isDeleted) {
@@ -35,7 +35,7 @@ class Page extends BaseSql  {
     }
 
     public function setHasNews($hasNews) {
-        $this->id = $hasNews;
+        $this->hasNews = $hasNews;
     }
 
     public function getHasEvent() {
@@ -43,11 +43,11 @@ class Page extends BaseSql  {
     }
 
     public function setHasEvent($hasEvent) {
-        $this->id = $hasEvent;
+        $this->hasEvent = $hasEvent;
     }
 
     public function setContent($content) {
-            $this->content = trim($content);
+        $this->content = trim($content);
     }
 
     public function getContent() {
@@ -59,30 +59,14 @@ class Page extends BaseSql  {
     }
 
     public function setTitle($title) {
-            $this->title = trim($title);
-    }
-
-    public function getDateInserted() {
-        return $this->dateInserted;
-    }
-
-    public function getDateUpdated() {
-        return $this->dateUpdated;
-    }
-
-    public function setDateInserted($dateInserted) {
-        $this->dateInserted = $dateInserted;
-    }
-
-    public function setDateUpdated($dateUpdated) {
-        $this->dateUpdated = $dateUpdated;
+        $this->title = trim($title);
     }
 
     public function getFormPageHomeUpdate($id,$content,$includeNews,$includeEvent) {
         return [
             "options" => [
                 "method" => "POST",
-                "action" => "../pageUpdate/".$id,
+                "action" => "../actionUpdate/".$id,
                 "class" => "form-group",
                 "id" => "addPage",
                 "optionName" => "type"
@@ -116,7 +100,7 @@ class Page extends BaseSql  {
         return [
             "options" => [
                 "method" => "POST",
-                "action" => "../pageUpdate/".$id,
+                "action" => "../actionUpdate/".$id,
                 "class" => "form-group",
                 "id" => "addPage",
                 "optionName" => "type"

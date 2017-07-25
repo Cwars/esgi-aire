@@ -3,11 +3,11 @@
     if(isset($idRestore)){
         $idUp = $idRestore[0];
 
-        $user=((new User())->populate(['id' => $idUp]));
-        $user->setIsDeleted(0);
-        $user->save();
+        $page=((new Page())->populate(['id' => $idUp]));
+        $page->setIsDeleted(0);
+        $page->save();
 
-        echo "L'utilisateur".$user->getUsername." a été restauré";
+        echo "La page ".$page->getTitle()." a été restauré";
     }
     ?>
 </div>

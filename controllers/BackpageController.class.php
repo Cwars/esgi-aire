@@ -59,6 +59,11 @@ class BackpageController
     public function PageActionUpdateAction($params) {
         $v = new View("pageActionUpdate");
 
+        $page=((new Page())->populate(['id' => $params[0]]));
+
+        $title = $page->getTitle();
+
+        $v->assign("titleUpdate",$title);
         $v->assign("idUpdate",$params[0]);
     }
 

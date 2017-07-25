@@ -9,7 +9,7 @@ class BlogController
         $news = new News();
 
             $search = ["titleChild","title","author","content","dateInserted"];
-            $res = $news->getObj($search,$params[0],NB_ITEM_FRONT);
+            $res = $news->getObjByCat($search,$params[0],NB_ITEM_FRONT,"blog");
 
             if($params[0]>0 && $params[0]<=$res[1]){
                 $v = new View("blog");
