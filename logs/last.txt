@@ -1258,6 +1258,7 @@
 
 2017-07-25 14:32:28 ===> Le contrôleur assetsController n'existe pas.
 
+<<<<<<< HEAD
 2017-07-25 16:39:14 ===> Le contrôleur assetsController n'existe pas.
 
 2017-07-25 16:39:29 ===> Le contrôleur assetsController n'existe pas.
@@ -1325,4 +1326,17 @@
 2017-07-25 17:12:26 ===> Le contrôleur assetsController n'existe pas.
 
 2017-07-25 17:12:27 ===> Le contrôleur assetsController n'existe pas.
+=======
+2017-07-25 14:33:21 ===> Le contrôleur assetsController n'existe pas.
+
+2017-07-25 14:33:24 ===> Le contrôleur assetsController n'existe pas.
+
+2017-07-25 14:35:07 ===> Le contrôleur homessController n'existe pas.
+
+2017-07-25 14:36:09 ===> Le contrôleur frontController n'existe pas.
+
+2017-07-25 14:43:14 ===> La méthode userddAction n'existe pas dans la classe backuserController.
+
+2017-07-25 14:44:17 ===> Le contrôleur DashboardController n'existe pas.
+>>>>>>> 965a61a638c5dbb87bea58cc5ddbf9b54db8ec79
 
