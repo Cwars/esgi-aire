@@ -97,18 +97,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $error = true;
                     }
                 } else {
-                    $listOfErrors[] = "18";
+                    $listOfErrors[] = "emailUsed";
                     $error = true;
                 }
             } else {
-                $listOfErrors[] = "17";
+                $listOfErrors[] = "usernameUsed";
                 $error = true;
             }
         }else {
             $listOfErrors[] = "cgu";
         }
     } else {
-        $listOfErrors[] = "7";
+        $listOfErrors[] = "allRequired";
         $error = true;
     }
 

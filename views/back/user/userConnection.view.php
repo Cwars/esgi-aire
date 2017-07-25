@@ -34,16 +34,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['username'] = $username;
                     $_SESSION['user_id'] = $user->getId();
                     $_SESSION['admin'] = 0;
-                    $error[] = 14;
+                    $error[] = "noAuthorization";
                 }
             } else
-                $error[] = 13;
+                $error[] = "errorPwd";
         } else
-            $error[] = 12;
+            $error[] = "unknownUser";
         /*        } else
                     $error[] = 15;*/
     } else
-        $error[] = 16;
+        $error[] = "required";
 }
 echo "<pre>";
 var_dump($_SESSION);

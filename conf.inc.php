@@ -14,6 +14,7 @@ define("DB_HOST", "localhost");
 
 $msgError = [
     "nbUsername"=>"Le nom d'utilisateur doit faire au moins 2 caractères",
+    //17 
     "usernameUsed"=>"Ce nom d'utilisateur est déjà utilisé",
     "nbLastname"=>"Le nom doit faire au moins 2 caractères",
     "nbFirstname"=>"Le prénom doit faire au moins 2 caractères",
@@ -21,7 +22,8 @@ $msgError = [
     "errorEmail"=>"L'adresse email n'est pas correcte",
     "nbPwd"=>"Le mot de passe doit faire entre 8 et 12 caractères",
     "pw1/pw2"=>"Le mot de passe de confirmation ne correspond pas",
-    7=>"Veuillez remplir tous les champs obligatoires",
+    //7
+    "allRequired" =>"Veuillez remplir tous les champs obligatoires",
     "nbTitle"=>"Le titre doit faire au moins 2 caractères",
     "nbContent"=>"Le contenu doit faire au moins 2 caractères",
     "titleUsed"=>"Ce titre est déjà utilisé",
@@ -30,13 +32,18 @@ $msgError = [
     "typeDiff" => "Le nouveau fichier n'est pas du même type que l'ancien",
     10=>"10",
     11=>"11",
-    12 => "Identifiant inconnu.",
-    13 => "Mot de passe incorrect.",
-    14 => "Vous n'avez pas les autorisations pour rentrer ici.",
-    15 => "Un caractère interdit s'est glissé quelque part !",
-    16 => "Les champs sont obligatoire",
-    17 => "Nom d'utilisateur déjà utilisé.",
-    18 => "Email déjà utilisé.",
+    //12
+    "unknownUser" => "Identifiant inconnu.",
+    //13
+    "errorPwd" => "Mot de passe incorrect.",
+    ////14
+    "noAuthorization" => "Vous n'avez pas les autorisations pour rentrer ici.",
+    //15
+    "errorWrite" => "Un caractère interdit s'est glissé quelque part !",
+    //16 
+    "required" => "Les champs sont obligatoire",
+    //18 
+    "emailUsed" => "Email déjà utilisé.",
     "cgu" => "Vous devez accepter les conditions générales d'utilisation.",
 ];
 

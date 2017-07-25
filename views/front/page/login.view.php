@@ -54,13 +54,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                     header("Location: ".PATH_RELATIVE."home");
 
                 } else
-                    $error[] = 13;
+                    $error[] = "errorPwd";
             } else
-                $error[] = 12;
+                $error[] = "unknownUser";
 /*        } else
             $error[] = 15;*/
     } else
-        $error[] = 16;
+        $error[] = "required";
 }
 ?>
 

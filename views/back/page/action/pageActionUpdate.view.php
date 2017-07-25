@@ -20,7 +20,7 @@ if(!empty($_POST['content'])) {
         $_SESSION["form_post"] = $_POST;
     }
 }else{
-    $listOfErrors[] = "7";
+    $listOfErrors[] = "allRequired";
     $_SESSION["form_error"] = $listOfErrors;
     $_SESSION["form_post"] = $_POST;
 }

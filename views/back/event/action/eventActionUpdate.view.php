@@ -49,7 +49,7 @@ if( !empty($_POST['title']) && !empty($_POST['description'])  && !empty($_POST['
         $_SESSION["form_post"] = $_POST;
     }
 }else{
-    $listOfErrors[] = "7";
+    $listOfErrors[] = "allRequired";
     $_SESSION["form_error"] = $listOfErrors;
     $_SESSION["form_post"] = $_POST;
 }

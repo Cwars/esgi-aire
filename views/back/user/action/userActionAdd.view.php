@@ -80,15 +80,15 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
                 $error = true;
             }
         } else{
-            $listOfErrors[] = "18";
+            $listOfErrors[] = "emailUsed";
             $error = true;
         }
     } else {
-        $listOfErrors[] = "17";
+        $listOfErrors[] = "usernameUsed";
         $error = true;
     }
 }else{
-    $listOfErrors[] = "7";
+    $listOfErrors[] = "allRequired";
     $error = true;
     $_SESSION["form_post"] = $_POST;
 }
