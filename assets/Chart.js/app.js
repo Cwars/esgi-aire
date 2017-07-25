@@ -39,7 +39,8 @@ $(document).ready(function(){
                     position : "top",
                     text : "Nombre d'utilisateurs par type de compte",
                     fontSize : 20,
-                    fontColor : "#110"
+                    fontColor : "#110",
+                    beginAtZero:true
                 },
                 legend : {
                     display : true,
@@ -122,56 +123,57 @@ $(document).ready(function(){
             console.log(data);
         }
     });
+});
 
 // Bar chart - mygraph3  - Type de fichier dans Mediafile
 
-    $(document).ready(function(){
-        $.ajax({
-            url: window.location.origin+"/views/back/dashboard/mediafile.php",
-            method: "GET",
-            success: function(data) {
-                console.log(data);
-                var nbr = [];
-                var label = [];
+$(document).ready(function(){
+    $.ajax({
+        url: window.location.origin+"/views/back/dashboard/mediafile.php",
+        method: "GET",
+        success: function(data) {
+            console.log(data);
+            var nbr = [];
+            var label = [];
 
-                for(var i in data) {
-                    nbr.push(data[i].nbr);
-                    label[i] = data[i].type;
-                }
-
-                var chartdata = {
-                    labels: label,
-                    datasets : [
-                        {
-                            data: nbr,
-                            label: "Nombre total de fichier",
-                            backgroundColor: 'rgba(0, 91, 255, 0.9)'
-                        }
-                    ]
-                };
-                var ctx = $("#mygraph3");
-                var optionsmygraph3 = {
-                    title : {
-                        display : true,
-                        position : "top",
-                        text : "Nombre de Type de fichier dans Mediafile",
-                        fontColor : "#110",
-                        fontSize : 20
-                    },
-                    legend : {
-                        display : true,
-                        position : "bottom"
-                    }
-                };
-                var myGraph3 = new Chart(ctx, {
-                    type: 'bar',
-                    data: chartdata,
-                    options : optionsmygraph3
-                });
-            },
-            error: function(data) {
-                console.log(data);
+            for(var i in data) {
+                nbr.push(data[i].nbr);
+                label[i] = data[i].type;
             }
-        });
+
+            var chartdata = {
+                labels: label,
+                datasets : [
+                    {
+                        data: nbr,
+                        label: "Nombre total de fichier",
+                        backgroundColor: 'rgba(0, 91, 255, 0.9)'
+                    }
+                ]
+            };
+            var ctx = $("#mygraph3");
+            var optionsmygraph3 = {
+                title : {
+                    display : true,
+                    position : "top",
+                    text : "Nombre de Type de fichier dans Mediafile",
+                    fontColor : "#110",
+                    fontSize : 20,
+                    beginAtZero:true
+                },
+                legend : {
+                    display : true,
+                    position : "bottom"
+                }
+            };
+            var myGraph3 = new Chart(ctx, {
+                type: 'bar',
+                data: chartdata,
+                options : optionsmygraph3
+            });
+        },
+        error: function(data) {
+            console.log(data);
+        }
     });
 });
