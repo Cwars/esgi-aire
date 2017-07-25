@@ -82,7 +82,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         $_SESSION["added"] = "1";
 
-                        $headercustomer = 'FROM : support@esgi-aire.com';
+                        $headercustomer = 'FROM : esgi.aire@gmail.com';
                         $from = $email;
                         $msg = "
                     Bonjour " . $firstname . ",\n\n

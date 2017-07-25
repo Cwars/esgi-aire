@@ -1,8 +1,5 @@
 <?php
 
-/**
- *
- */
 class BackmediafileController
 {
     public function MediafileMenuAction($params) {

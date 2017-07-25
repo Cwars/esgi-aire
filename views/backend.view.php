@@ -19,7 +19,7 @@ if($this->view == "back/user/logout")
 <body>
 
 <header class="nav-header"> <!--cd-main-header-->
-    <a href="<?php echo PATH_RELATIVE ; ?>back/dashboard/menu" class="logo"><img src="<?php echo PATH_RELATIVE ; ?>assets/back/img/logo.png" alt="Logo"></a>
+    <a href="<?php echo PATH_RELATIVE ; ?>home" class="logo"><img src="<?php echo PATH_RELATIVE ; ?>assets/back/img/logo.png" alt="Logo"></a>
     <!--<a href="#" class="nav-header-trigger">Menu<span></span></a>-->
     <nav class="nav-header-link">
         <ul class="nav-header-link-list">

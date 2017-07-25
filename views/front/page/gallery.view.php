@@ -26,7 +26,7 @@
                 <div class="title"></div>
                 <div class="desc"></div>
             </div>
-                // "png", "jpg", "jpeg", "gif","mp3","wav","mp4","mov"
+                <!-- "png", "jpg", "jpeg", "gif","mp3","wav","mp4","mov"-->
         </div>
     </div>
 </section>

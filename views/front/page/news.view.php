@@ -12,7 +12,6 @@
             <p>Rédigé par : <?php echo $author; ?>, le <?php echo $dateInserted; ?></p>
         </div>
     </div>
-
 </section>
 
 <section class="un" id="Acomments">

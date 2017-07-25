@@ -1,8 +1,5 @@
  <?php
 
-/**
- *
- */
 class BackuserController
 {
 
@@ -105,6 +102,7 @@ class BackuserController
 
     public function UserSettingAction() {
         $v = new View("userSetting");
+        // Création de la page esgi-aire.com/user/setting
     }
 
     public function UserActionSettingAction() {

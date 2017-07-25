@@ -16,14 +16,17 @@ C:\wamp64\bin\apache\apache2.4.23\conf\extra\httpd-vhosts.conf
     
 Config.inc.php
     
-    define("DS", DIRECTORY_SEPARATOR);
-    define("PATH_RELATIVE", "http://".$_SERVER['SERVER_NAME']."/");
-    define("PATH_RELATIVE_PATTERN", "");
-    define("DB_NAME", "mvciw1");
-    define("DB_USER", "root");
-    define("DB_PWD", "");
-    define("DB_PORT", "3306");
-    define("DB_HOST", "127.0.0.1");
+        define("DS", DIRECTORY_SEPARATOR);
+        define("PATH_RELATIVE", "http://".$_SERVER['SERVER_NAME']."/");
+        define("PATH_RELATIVE_PATTERN", "");
+        define("NB_ITEM_BACK", 10);
+        define("NB_ITEM_FRONT", 10);
+        
+        define("DB_NAME", "mvciw1");
+        define("DB_USER", "root");
+        define("DB_PWD", "");
+        define("DB_PORT", "3306");
+        define("DB_HOST", "127.0.0.1");
 
 .htaccess
     

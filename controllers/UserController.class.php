@@ -1,8 +1,5 @@
 <?php
 
-/**
- *
- */
 class UserController
 {
     public function userAction($params) {
