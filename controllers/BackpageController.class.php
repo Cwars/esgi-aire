@@ -53,22 +53,16 @@ class BackpageController
         if ($title == "Home"){
             $news = $page->getHasNews();
             $event = $page->getHasEvent();
-            $v->assign("formUpdate", $page->getFormPageHomeUpdate($id,$title,$content,$news,$event));
+            $v->assign("formUpdate", $page->getFormPageHomeUpdate($id,$content,$news,$event));
         } else {
-            $v->assign("formUpdate", $page->getFormSimplePageUpdate($id,$title,$content));
+            $v->assign("formUpdate", $page->getFormSimplePageUpdate($id,$content));
         }
 
     }
     public function PageActionUpdateAction($params) {
         $v = new View("pageActionUpdate");
-        $username = $_SESSION['username'];
 
-        // Récupère les données pour la page
-        $page=((new Page())->populate(['id' => $params[0]]));
-        $title = $page->getTitle();
-        $v->assign("username",$username);
         $v->assign("idUpdate",$params[0]);
-        $v->assign("titleUpdate",$title);
     }
 
     public function PageActionDeleteAction($params) {

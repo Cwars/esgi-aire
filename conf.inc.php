@@ -8,7 +8,7 @@ define("NB_ITEM_FRONT", 10);
 
 define("DB_NAME", "mvciw1");
 define("DB_USER", "root");
-define("DB_PWD", "");
+define("DB_PWD", "root");
 define("DB_PORT", "3306");
 define("DB_HOST", "localhost");
 

@@ -78,7 +78,7 @@ class Page extends BaseSql  {
         $this->dateUpdated = $dateUpdated;
     }
 
-    public function getFormPageHomeUpdate($id,$title,$content,$includeNews,$includeEvent) {
+    public function getFormPageHomeUpdate($id,$content,$includeNews,$includeEvent) {
         return [
             "options" => [
                 "method" => "POST",
@@ -88,12 +88,6 @@ class Page extends BaseSql  {
                 "optionName" => "type"
             ],
             "struct" => [
-                "title" => [
-                    "type" => "text",
-                    "placeholder" => "Titre de l'article",
-                    "required" => true,
-                    "value" => "".$title.""
-                ],
                 "content" => [
                     "type" => "textarea",
                     "placeholder" => "Content de votre page",
@@ -118,7 +112,7 @@ class Page extends BaseSql  {
         ];
     }
 
-    public function getFormSimplePageUpdate($id,$title,$content) {
+    public function getFormSimplePageUpdate($id,$content) {
         return [
             "options" => [
                 "method" => "POST",
@@ -128,12 +122,6 @@ class Page extends BaseSql  {
                 "optionName" => "type"
             ],
             "struct" => [
-                "title" => [
-                    "type" => "text",
-                    "placeholder" => "Titre de l'article",
-                    "required" => true,
-                    "value" => "".$title.""
-                ],
                 "content" => [
                     "type" => "textarea",
                     "placeholder" => "Content de votre page",
