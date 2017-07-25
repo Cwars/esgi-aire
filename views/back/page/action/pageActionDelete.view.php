@@ -1,16 +1,13 @@
 <div class="content-wrapper">
-<?php
+    <?php
+    if(isset($idDelete)){
+        $idUp = $idDelete[0];
 
-if(isset($idDelete)){
+        $page=((new Page())->populate(['id' => $idUp]));
+        $page->setIsDeleted(1);
+        $page->save();
 
-    $idUp = $idDelete[0];
-    $user=((new User())->populate(['id' => $idUp]));
-    $user->setIsDeleted(1);
-    $user->save();
-
-    echo "L'utilisateur ".$user->getUsername()." a été supprimé";
-
-}
-
-?>
+        echo "La page ".$page->getTitle()." a été restauré";
+    }
+    ?>
 </div>

@@ -2,34 +2,30 @@
 //header : Parametrage Json
 header('Content-Type: application/json');
 
-define("DB_NAME", "mvciw1");
-define("DB_USER", "root");
-define("DB_PWD", "");
-define("DB_PORT", "3306");
-define("DB_HOST", "localhost");
-
 // Connection
-$mysqli = new mysqli(DB_HOST, DB_USER, DB_PWD, DB_NAME);
-if(!$mysqli){
-    die("Connexion échoué: " . $mysqli->error);
+try {
+    define("DB_NAME", "mvciw1");
+    define("DB_USER", "root");
+    define("DB_PWD", "3iw1Esgi%75013");
+    define("DB_PORT", "3306");
+    define("DB_HOST", "127.0.0.1");
+
+    $db = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME.";port=".DB_PORT, DB_USER, DB_PWD);
+} catch(Exception $e) {
+    die("Erreur SQL : ".$e->getMessage());
 }
 
-// Requête pour obtenir des données de la table
-$query = sprintf("SELECT type, COUNT(type) as nbr FROM news GROUP BY type");
 
-// Exécution de la requête
-$result = $mysqli->query($query);
+$query = $db->prepare("SELECT type, COUNT(type) as nbr FROM news GROUP BY type");
+$query->execute();
+
+$result = $query->fetchAll(PDO::FETCH_ASSOC);
 
 // Renvoie les données
 $data = array();
 foreach ($result as $row) {
     $data[] = $row;
 }
-
-//Mémoire libre associée au résultat
-$result->close();
-
-$mysqli->close();
 
 // Affichage des données
 print json_encode($data);
