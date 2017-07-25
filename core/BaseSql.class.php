@@ -80,21 +80,14 @@
         }
 
         // Return every object of a table
-        public function getAll(){
-            $query = $this->db->prepare("SELECT * FROM ".$this->table);
+        public function getAll($type){
+            $query = $this->db->prepare("SELECT * FROM ".$type);
             $query->execute();
 
             $result = $query->fetchAll();
 
             //Retourne result (Toutes les données de la table)
-            foreach($result as $obj){
-                foreach ($this->columns as $columns => $value){
-                    echo "<pre>";
-                    echo  $columns . " : " . $obj[$columns];
-                    echo "</pre>";
-                }
-                echo "\n";
-            }
+            return $result;
         }
 
         // Return every object of a table (only what we want)

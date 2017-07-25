@@ -1,5 +1,5 @@
 <?php
-require 'PHPMailer-master/PHPMailerAutoload.php';
+require 'PHPMailer/PHPMailerAutoload.php';
     $mailto = $_POST['mail_to'];
     $mailSub = $_POST['mail_sub'];
     $mailMsg = $_POST['mail_msg'];

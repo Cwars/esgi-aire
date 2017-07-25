@@ -19,6 +19,8 @@ class NewsController
             } else {
                 $v = new View("page404");
             }
+
+
     }
 
 }

@@ -28,6 +28,7 @@ session_unset();
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>event/1">Evènement</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>gallery">Galerie</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>contact">Contact</a></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>xml">test</a></li>
                 <?php
                 if(isset($_SESSION['admin']))
                 {
@@ -107,6 +108,7 @@ include $this->view.".view.php";
         </p>
     </div>
 </footer>
+<script type="text/javascript" src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js" defer></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" defer></script>
 <script type="text/javascript" src="<?php echo PATH_RELATIVE ; ?>assets/front/js/script-front.js" defer></script>
 </body>

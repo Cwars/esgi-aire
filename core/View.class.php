@@ -24,6 +24,10 @@ class View {
                     $this->view = "front/" . $obj[2] . "/" . $view;
                     $this->cat = "front";
                 }
+                if(file_exists($directory.$obj[2]."/action/" . $view . ".view.php")) {
+                    $this->view = "front/" . $obj[2] . "/action/" . $view;
+                    $this->cat = "front";
+                }
             }
         }
     }
