@@ -120,9 +120,11 @@
             $countItem = count($resultCount);
 
             //nb de page
-            $nbPage = ceil($countItem/$nbItem);
+
             if($countItem == 0){
                 $nbPage = 1;
+            } else {
+                $nbPage = ceil($countItem/$nbItem);
             }
 
             //le 1er item de chaque page
