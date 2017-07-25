@@ -21,7 +21,11 @@
             $attribute['type'] == "select"
         ) : ?>
             <select name="<?php echo $attribute["optionName"] ?>"><?php foreach ($config["struct"]["Option"]["option"] as $name1 => $option):?>
-                    <option value="<?php echo $option;?>"><?php echo $option;?></option>
+                    <?php if ($config["struct"]["Option"]["value"] == $option) : ?>
+                        <option value="<?php echo $option;?>" selected><?php echo $option;?></option>
+                    <?php else : ?>
+                        <option value="<?php echo $option;?>"><?php echo $option;?></option>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             </select>
         <?php endif; ?>

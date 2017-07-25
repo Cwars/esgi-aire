@@ -150,7 +150,7 @@ class News extends BaseSql  {
         ];
     }
 
-    public function getFormUpdate($id,$title,$content,$type)
+    public function getFormUpdate($id,$title,$content,$type,$titleImage, $description)
     {
         return [
             "options" => [
@@ -175,12 +175,29 @@ class News extends BaseSql  {
                 "Option" => [
                     "optionName" => "type",
                     "type" => "select",
+                    "value" => "".$type."",
                     "option" => [
                         "option1" => "Blog",
                         "option2" => "News",
                         "option3" => "Music"
                     ],
-                    "value" => "".$type."",
+                ],
+                "titleImage" => [
+                    "type" => "text",
+                    "placeholder" => "title du fichier",
+                    "required" => true,
+                    "value" => "".$titleImage.""
+                ],
+                "description" => [
+                    "type" => "text",
+                    "placeholder" => "Description du fichier",
+                    "required" => false,
+                    "value" => "".$description."",
+                ],
+                "mediafile" => [
+                    "type" => "file",
+                    "placeholder" => "Votre fichier",
+                    "required" => true
                 ],
 
             ]

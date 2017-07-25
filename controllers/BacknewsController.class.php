@@ -66,8 +66,13 @@ class BacknewsController
         $title = $news->getTitle();
         $content = $news->getContent();
         $type = $news->getType();
+        $pathChild = $news->getPathChild();
 
-        $v->assign("formUpdate", $news->getFormUpdate($id,$title,$content,$type));
+        $media=((new Mediafile())->populate(['pathChild' => $pathChild]));
+        $titleMedia = $media->getTitle();
+        $descriptionMedia = $media->getDescription();
+
+        $v->assign("formUpdate", $news->getFormUpdate($id,$title,$content,$type,$titleMedia,$descriptionMedia));
     }
     public function NewsActionUpdateAction($params) {
         $v = new View("newsActionUpdate");

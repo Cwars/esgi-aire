@@ -8,7 +8,7 @@ class NewsController
 
         $news = new News();
 
-            $search = ["pathChild","title","author","content","dateInserted"];
+            $search = ["id","pathChild","title","author","content","dateInserted"];
             $res = $news->getObj($search,$params[0],NB_ITEM_FRONT);
 
             if($params[0]>0 && $params[0]<=$res[1]){

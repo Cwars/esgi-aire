@@ -7,7 +7,7 @@ class BackpageController
         $page = new Page();
 
         $type = "page";
-        $search = ["id","title","content"];
+        $search = ["id","title"];
         $res = $page->getObj($search,$params[0],NB_ITEM_BACK);
 
         if( !is_int($params[0]) || $params[0]>0 && $params[0]<=$res[1]){

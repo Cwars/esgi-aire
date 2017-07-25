@@ -134,7 +134,7 @@
                     ],
                     "mediafile" => [
                         "type" => "file",
-                        "placeholder" => "Votre image",
+                        "placeholder" => "Votre fichier",
                         "required" => true,
                     ],
                 ]

@@ -3,7 +3,6 @@
 class HomeController
 {
     public function homeAction() {
-        // Création de la page esgi-aire.com/home
         $v = new View("home");
 
         $page=((new Page())->populate(['title' => "Home"]));
@@ -14,18 +13,18 @@ class HomeController
         $v->assign("title", $title);
         $v->assign("content", $content);
 
-        $isNews = $page->getHasNew();
+        $isNews = $page->getHasNews();
         $isEvent = $page->getHasEvent();
 
         if($isNews == 0){
             $searchNews = ["id","title","author","content","type","dateInserted"];
-            $resNews = $page -> getRecentElement($searchNews,1,"news");
+            $resNews =(new News())-> getRecentElement($searchNews,1);
             $v->assign("resultNews", $resNews);
         }
 
         if($isEvent == 0){
             $searchEvent = ["id","title","description","date","dateUpdated","author"];
-            $resEvent = $page ->getRecentEvent($searchEvent,NB_ITEM_FRONT,"event");
+            $resEvent = (new Event())->getRecentEvent($searchEvent,NB_ITEM_FRONT);
             $v->assign("resultEvent", $resEvent);
         }
     }

@@ -75,6 +75,30 @@
             $this->dateUpdated = $dateUpdated;
         }
 
+        public function getFormComFront() {
+            return [
+                "options" => [
+                    "method" => "POST",
+                    "action" => "ActionAdd",
+                    "class" => "form-group",
+                    "id" => "Register",
+                    "optionName" => "type"
+                ],
+                "struct" => [
+                    "title" => [
+                        "type" => "text",
+                        "placeholder" => "Titre",
+                        "required" => true,
+                    ],
+                    "content" => [
+                        "type" => "textarea",
+                        "placeholder" => "Contenu du commentaire",
+                        "required" => true,
+                    ]
+                ]
+            ];
+        }
+
         public function getFormContact() {
             return [
                 "options" => [
