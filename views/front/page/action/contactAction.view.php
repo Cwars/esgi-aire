@@ -9,9 +9,13 @@ $content = $_POST['content'];
 var_dump($_POST);
 
 $mail = new PHPMailer();
-$mail->Host = 'esgi.aire@gmail.com';
-$mail->SMTPAuth   = true;
-$mail->Port = 587; // Par défaut
+$mail ->IsSmtp();
+$mail ->SMTPDebug = 0;
+$mail ->SMTPAuth = true;
+$mail ->SMTPSecure = 'ssl';
+$mail ->Host = "smtp.gmail.com";
+$mail ->Port = 465; // or 587
+$mail ->IsHTML(true);
 
 // Authentification
 $mail->Username = "esgi.aire@gmail.com";
@@ -34,12 +38,12 @@ $mail->MsgHTML('from'.$mailFrom.
 ?>
 
 <div>
-<?php
-// Envoi du mail avec gestion des erreurs
-if(!$mail->Send()) {
-    echo 'Erreur : ' . $mail->ErrorInfo;
-} else {
-    echo 'Message envoyé !';
-}
-?>
+    <?php
+    // Envoi du mail avec gestion des erreurs
+    if(!$mail->Send()) {
+        echo 'Erreur : ' . $mail->ErrorInfo;
+    } else {
+        echo 'Message envoyé !';
+    }
+    ?>
 </div>
