@@ -1,3 +1,54 @@
+// Bar chart - mygraph3  - Type de fichier dans Mediafile
+
+$(document).ready(function(){
+    $.ajax({
+        url: window.location.origin+"/views/back/dashboard/mediafile.php",
+        method: "GET",
+        success: function(data) {
+            console.log(data);
+            var nbr = [];
+            var label = [];
+
+            for(var i in data) {
+                nbr.push(data[i].nbr);
+                label[i] = data[i].type;
+            }
+
+            var chartdata = {
+                labels: label,
+                datasets : [
+                    {
+                        data: nbr,
+                        label: "Nombre total de fichier",
+                        backgroundColor: 'rgba(0, 91, 255, 0.9)'
+                    }
+                ]
+            };
+            var ctx = $("#mygraph3");
+            var optionsmygraph3 = {
+                title : {
+                    display : true,
+                    position : "top",
+                    text : "Nombre de Type de fichier dans Mediafile",
+                    fontColor : "#110",
+                    fontSize : 20,
+                },
+                legend : {
+                    display : true,
+                    position : "bottom"
+                }
+            };
+            var myGraph3 = new Chart(ctx, {
+                type: 'bar',
+                data: chartdata,
+                options : optionsmygraph3
+            });
+        },
+        error: function(data) {
+            console.log(data);
+        }
+    });
+});
 // Bar chart - mygraph1 -  Type de compte user
 
 $(document).ready(function(){
@@ -33,21 +84,48 @@ $(document).ready(function(){
             var ctx = $("#mygraph1");
             // Graph appelé dans un canvas avec ID
 
-            var optionsmygraph1 = {
+            /*var optionsmygraph1 = {
                 title : {
                     display : true,
                     position : "top",
                     text : "Nombre d'utilisateurs par type de compte",
                     fontSize : 20,
                     fontColor : "#110",
-                    beginAtZero:true
                 },
                 legend : {
                     display : true,
                     position : "bottom"
                 }
+            };*/
+            var optionsmygraph3 = {
+                maintainAspectRatio: false,
+                title : {
+                    display : true,
+                    position : "top",
+                    text : "Nombre d'utilisateurs par type de compte",
+                    fontColor : "#110",
+                    fontSize : 20
+                },
+                legend : {
+                    display : true,
+                    position : "bottom"
+                },
+                scales: {
+                    yAxes: [{
+                        stacked: true,
+                        gridLines: {
+                            display: true,
+                            color: "rgba(255,99,132,0.2)",
+                            beginAtZero:true
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                }
             };
-
             // Rajoute d'options au graphe
 
             var myGraph1 = new Chart(ctx, {
@@ -152,20 +230,49 @@ $(document).ready(function(){
                 ]
             };
             var ctx = $("#mygraph3");
-            var optionsmygraph3 = {
+/*            var optionsmygraph3 = {
                 title : {
                     display : true,
                     position : "top",
                     text : "Nombre de Type de fichier dans Mediafile",
                     fontColor : "#110",
-                    fontSize : 20,
-                    beginAtZero:true
+                    fontSize : 20
                 },
                 legend : {
                     display : true,
                     position : "bottom"
                 }
+            };*/
+            var optionsmygraph3 = {
+                maintainAspectRatio: false,
+                title : {
+                    display : true,
+                    position : "top",
+                    text : "Nombre de Type de fichier dans Mediafile",
+                    fontColor : "#110",
+                    fontSize : 20
+                },
+                legend : {
+                    display : true,
+                    position : "bottom"
+                },
+                scales: {
+                    yAxes: [{
+                        stacked: true,
+                        gridLines: {
+                            display: true,
+                            color: "rgba(255,99,132,0.2)",
+                            beginAtZero:true
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                }
             };
+
             var myGraph3 = new Chart(ctx, {
                 type: 'bar',
                 data: chartdata,

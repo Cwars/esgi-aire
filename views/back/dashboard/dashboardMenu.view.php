@@ -12,7 +12,7 @@
 
     }
     .content-wrapper {
-        margin: 0 150px!important;
+        margin: 0 150px 50px 0!important;
     }
     @media (max-width: 12) {
 
