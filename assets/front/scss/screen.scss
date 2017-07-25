@@ -1,12 +1,14 @@
 
 //@import "compass/reset";
 @import "_variables.scss";
+@import "_variables-editable.scss";
 @import "mixin";
 
 *{
   padding: 0;
   margin: 0;
-  font-family: 'Jaldi', sans-serif;
+  font-family: $custom-font-family;
+  color: $custom-font-color;
 }
 
 section{
@@ -31,7 +33,7 @@ body{
 .container {
   margin: 0 13%;
   display: flex;
-  background: black;
+  background: $dark-background-color;
   padding: 20px;
   border-radius: 5px;
 }
@@ -224,7 +226,7 @@ header{
       padding: 0;
       overflow: hidden;
       margin: auto;
-      background: darken($background-color, 10%);
+      background: lighten($dark-background-color, 10%);
       li {
         float: left;
 
@@ -236,7 +238,7 @@ header{
           text-decoration: none;
 
           &:hover {
-            background-color: $background-color;
+            background-color: lighten($dark-background-color, 15%);
           }
         }
       }
@@ -272,7 +274,7 @@ p{
     line-height:50px;
     text-align:center;
     vertical-align: middle;
-    color: #000000;
+    color: $dark-background-color;
     text-decoration:none;
     background-color: #C0C5CB;
     margin-left: auto;
@@ -391,7 +393,7 @@ footer{
 
 .info {
   text-align: left;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba($dark-background-color, 0.3);
   width: 1000px;
   margin: auto;
   margin-top: -77px;
@@ -554,7 +556,7 @@ footer{
   #pull {
     display: block;
     padding:21px 25px;
-    background: darken($background-color, 10%);
+    background: lighten($dark-background-color, 10%);
     color: #fff;
     width:100%;
     position: absolute;
@@ -567,7 +569,7 @@ footer{
       border: 2px white solid;
       &:hover {
         cursor: pointer;
-        background: lighten($background-color, 10%);
+        background: lighten($dark-background-color, 20%);
         border-color: darken(white, 30%);
         color: darken(white, 30%);
       }
@@ -643,7 +645,7 @@ form {
     &:checked {
       &+label::before {
         transition-delay: 0.2s;
-        background: $background-color;
+        background: lighten($dark-background-color, 10%);
         width: 14px;
         height: 14px;
         border: 3px darken(white, 22%) solid;
