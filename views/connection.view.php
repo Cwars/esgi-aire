@@ -10,6 +10,8 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] != '0')
     <meta charset="UTF-8">
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/back/css/login.css">
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/back/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/ico" sizes="32x32" href="<?php echo PATH_RELATIVE ; ?>images/favicon.ico">
+
 
     <title>Connexion</title>
 </head>
