@@ -5,8 +5,6 @@ define("PATH_RELATIVE", "http://".$_SERVER['SERVER_NAME']."/");
 define("PATH_RELATIVE_PATTERN", "");
 define("NB_ITEM_BACK", 10);
 define("NB_ITEM_FRONT", 10);
-define("NB_ITEM_BACK", 1);
-define("NB_ITEM_FRONT", 10);
 define("MAIN_ADMIN_ADRESS", "khuon.rithdavid@gmail.com");
 define("MAIN_ADMIN_NOM", "Rithdavid");
 
