@@ -308,8 +308,8 @@
         {
             return [
                 "options" => [
-                    "method" => "post",
-                    "action" => "register",
+                    "method" => "POST",
+                    "action" => "registerAction",
                     "class" => "add-form",
                     "id" => "Register"
                 ],

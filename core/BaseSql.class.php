@@ -62,7 +62,6 @@
         }
 
         public function getOneBy($search = [], $returnQuery = false) {
-
             // $search = ['id' => 8] exemple
             foreach ($search as $key => $value) {
                 $where[] = $key.'=:'.$key;
@@ -214,22 +213,6 @@
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
             return $result;
-        }
-
-        public function getDashboard($param1){
-
-            $query = $this->db->prepare('SELECT '.$param1.', COUNT('.$param1.') as nbr FROM news WHERE isDeleted = 0 GROUP BY ' .$param1);
-            $query->execute();
-
-            $result = $query->fetchAll(PDO::FETCH_ASSOC);
-
-            // Renvoie les données
-            $data = array();
-            foreach ($result as $row) {
-                $data[] = $row;
-            }
-
-            return $data;
         }
 
     }

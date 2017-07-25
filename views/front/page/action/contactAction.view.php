@@ -1,13 +1,12 @@
 <?php
-
-require("Location: http://localhost:8888/".PATH_RELATIVE."assets/PHPMailer/PHPMailerAutoload.php");
-
-
+include ('assets/PHPMailer/PHPMailerAutoload.php');
 
 $mailFrom = $_POST['mail'];
 $nameFrom = $_POST['name'];
 $subject = $_POST['subject'];
 $content = $_POST['content'];
+
+var_dump($_POST);
 
 $mail = new PHPMailer();
 $mail->Host = 'esgi.aire@gmail.com';
@@ -21,7 +20,7 @@ $mail->Password = "3iw1Esgi%75013";
 // Expéditeur
 $mail->SetFrom($_POST['mail'], $_POST['name']);
 // Destinataire
-$mail->AddAddress(MAIN_ADMIN_ADRESS, 'Nom Prénom');
+$mail->AddAddress(MAIN_ADMIN_ADRESS, MAIN_ADMIN_NOM);
 // Objet
 $mail->Subject = $subject;
 
@@ -32,10 +31,15 @@ $mail->MsgHTML('from'.$mailFrom.
     '<br>
     Content :'.$content
 );
+?>
 
+<div>
+<?php
 // Envoi du mail avec gestion des erreurs
 if(!$mail->Send()) {
     echo 'Erreur : ' . $mail->ErrorInfo;
 } else {
     echo 'Message envoyé !';
 }
+?>
+</div>
