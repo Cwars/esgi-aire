@@ -23,8 +23,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($file !== false)
                 {
                     $fw = fwrite($file, '$dark-background-color : #'.$backgroundtheme.';
-                                         $custom-font-family : '.$fonttheme.', Arial, sans-serif;
-                                         $custom-font-color : #'.$fontcolortheme.';');
+                     $custom-font-family : '.$fonttheme.', Arial, sans-serif;
+                     $custom-font-color : #'.$fontcolortheme.';');
                     fclose($file);
                     if($fw !== false)
                     {
