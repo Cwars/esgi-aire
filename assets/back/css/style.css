@@ -461,3 +461,11 @@ body {
   background: #4e9cea;
   color: #fff;
 }
+
+/* line 434, ../scss/style.scss */
+.info-form {
+  line-height: 1;
+  border: 2px solid #1669bb;
+  background-color: #1976d2;
+  padding: 10px;
+}

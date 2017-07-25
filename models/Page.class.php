@@ -132,4 +132,43 @@ class Page extends BaseSql  {
         ];
     }
 
+    public function getFormStyle()
+    {
+        return [
+            "options" => [
+                "method" => "POST",
+                "action" => "ActionAdd",
+                "class" => "form-group",
+                "id" => "updateCSS",
+                "optionName" => "type"
+            ],
+            "struct" => [
+                "font-color" => [
+                    "type" => "text",
+                    "name" => "font-color",
+                    "label" => "Couleur de la police de votre site",
+                    "placeholder" => "Format Hexadécimal",
+                    "required" => true,
+                ],
+                "theme-color" => [
+                    "type" => "text",
+                    "name" => "theme-color",
+                    "label" => "Couleur du thème de votre site",
+                    "placeholder" => "Format Hexadécimal",
+                    "required" => true,
+                ],
+                "Option" => [
+                    "optionName" => "Font",
+                    "type" => "select",
+                    "option" => [
+                        "option1" => "EB Garamond",
+                        "option2" => "Jaldi",
+                        "option3" => "Lustria",
+                        "option4" => "Open Sans"
+                    ]
+                ]
+            ]
+        ];
+    }
+
 }

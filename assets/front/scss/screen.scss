@@ -1,5 +1,6 @@
 
 //@import "compass/reset";
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond|Jaldi|Lustria|Open+Sans:400,700');
 @import "_variables.scss";
 @import "_variables-editable.scss";
 @import "mixin";
@@ -232,7 +233,7 @@ header{
 
         a {
           display: block;
-          color: white;
+          color: $custom-font-color;
           text-align: center;
           padding:24px 25px;
           text-decoration: none;
@@ -274,7 +275,7 @@ p{
     line-height:50px;
     text-align:center;
     vertical-align: middle;
-    color: $dark-background-color;
+    color: $custom-font-color;
     text-decoration:none;
     background-color: #C0C5CB;
     margin-left: auto;
