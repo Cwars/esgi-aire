@@ -1,7 +1,3 @@
-<?php
-session_destroy();
-session_unset();
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,6 +9,8 @@ session_unset();
     <link href="https://fonts.googleapis.com/css?family=Jaldi" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/front/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/PHamlP_3.2/css/style.php">
+    <link rel="icon" type="image/ico" sizes="32x32" href="<?php echo PATH_RELATIVE ; ?>images/favicon.ico">
+
 </head>
 <body><!-- oncontextmenu="return false;"-->
 
@@ -32,7 +30,7 @@ session_unset();
                 <?php
                 if(isset($_SESSION['admin']))
                 {
-                    if($_SESSION['admin'] == 1)
+                    if($_SESSION['admin'] == 1 || $_SESSION['admin' == 2])
                     {
                         ?>
                         <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>back/dashboard/menu">BackOffice (<?php echo $_SESSION['username']; ?>)</a></li>

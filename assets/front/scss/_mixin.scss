@@ -1,6 +1,7 @@
 @mixin conteneur(){
   display: block;
   overflow: hidden;
+  width: 100%;
 }
 
 @mixin widthCols($nbCols: 2, $margin: 0, $padding: 0, $margeCol1: true){

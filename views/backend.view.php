@@ -1,10 +1,14 @@
 <?php
-if($this->view == "back/user/logout")
+if(isset($_SESSION['admin']) && $_SESSION['admin'] == '0')
+{
+    header("Location: ".PATH_RELATIVE."front/home");
+}
+/*if($this->view == "back/user/logout")
 {
     session_destroy();
     session_unset();
     header("Location: ".PATH_RELATIVE."back/user/Connection");
-}
+}*/
 ?>
 <!DOCTYPE html>
 <html lang="fr">

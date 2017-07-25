@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['username'] = $username;
                     $_SESSION['user_id'] = $user->getId();
                     $_SESSION['admin'] = '1';
-
+                    header("Location: ".PATH_RELATIVE."Dashboard/menu");
                 } else
                 {
                     session_unset();
@@ -89,20 +89,6 @@ echo "</pre>";
         </div>
         <?php
         unset($_SESSION['error']);
-    }
-    if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
-        ?>
-        <div class="info-error">
-            <?php
-            echo $msgSuccess["connected"];
-            ?>
-            <script>
-                setTimeout(function(){
-                    window.location.reload(1);
-                }, 1000);
-            </script>
-        </div>
-        <?php
     }
     ?>
 </div>

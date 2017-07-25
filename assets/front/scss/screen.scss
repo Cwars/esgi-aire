@@ -29,7 +29,11 @@ body{
   text-align: center;
 }
 .container {
-  margin: 0 15%;
+  margin: 0 13%;
+  display: flex;
+  background: black;
+  padding: 20px;
+  border-radius: 5px;
 }
 p {
   padding: 10px;
@@ -689,4 +693,23 @@ form {
     width: 80%;
     margin: auto;
   }
+}
+
+.info-error {
+  padding: 15px 5px;
+  background-color: rgba(255,0,0,0.5);
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: bold;
+  width: 39%;
+  margin: 5px auto;
+}
+.info-blue {
+  padding: 10px 10px;
+  font-size: 11px;
+  text-align: left;  background-color: lighten(#1976d2, 20%);
+  color: #FFFFFF;
+  font-weight: bold;
+  width: 39%;
+  margin: 5px auto;
 }

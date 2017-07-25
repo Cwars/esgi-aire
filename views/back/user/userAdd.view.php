@@ -30,6 +30,7 @@ if (isset($_SESSION['added']) && $_SESSION['added'] == 1)
 
 </div>
 <!-- .content-wrapper -->
+if(
 <script>
     var sessionData = [<?php $i = 1; foreach ($_SESSION['form_post'] as $data) { echo "'".$data."'"; if ($i < sizeof($_SESSION['form_post'])) { echo ","; $i++; } } ?>];
 
