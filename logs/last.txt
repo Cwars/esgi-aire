@@ -974,3 +974,7 @@
 
 2017-07-25 00:41:00 ===> Le contrôleur assetsController n'existe pas.
 
+2017-07-25 09:59:32 ===> La méthode  n'existe pas dans la classe backnewsController.
+
+2017-07-25 09:59:33 ===> La méthode  n'existe pas dans la classe backnewsController.
+
