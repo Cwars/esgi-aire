@@ -71,9 +71,11 @@ class BackuserController
         $user=((new User())->populate(['id' => $params[0]]));
 
         $username = $user->getUsername();
-        $email = $user->getPwd();
+        $pwdUpdate = $user->getPwd();
         $v->assign("idUpdate",$params[0]);
         $v->assign("usernameUpdate",$username);
+
+        $v->assign("pwdUpdate",$pwdUpdate);
     }
 
     public function UserActionDeleteAction($params) {

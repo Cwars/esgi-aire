@@ -52,13 +52,12 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
         $user->setFirstname($firstname);
         $user->setLastname($lastname);
         $user->setEmail($email);
-        $user->setPwdUpdate($pwd);
+        $user->setPwdUpdate($pwdUpdate);
         $user->setStatus($status);
         $user->setDateUpdated($now);
         $user->setIsDeleted(0);
 
         $user->save();
-        header("Location: " . PATH_RELATIVE . "back/user/menu");
     }else{
         $_SESSION["form_error"] = $listOfErrors;
         $_SESSION["form_post"] = $_POST;

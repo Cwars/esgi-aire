@@ -20,16 +20,4 @@ class UserController
 
     }
 
-    public function UserUpdateAction($params) {
-        $v = new View("userUpdate");
-        $user=((new User())->populate(['id' => $params[0]]));
-
-        $username = $user->getUsername();
-        $pwd = $user->getPwd();
-
-        $v->assign("pwd",$pwd);
-        $v->assign("usernameUpdate",$username);
-    }
-
-
 }

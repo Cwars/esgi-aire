@@ -7,7 +7,7 @@ class BacknewsController
         $datanews = new News();
 
         $type = "news";
-        $search = ["id","title","author","content","type","dateInserted"];
+        $search = ["id","title","author","type","dateInserted"];
         $res = $datanews->getObj($search,$params[0],NB_ITEM_BACK);
         $pageNum = (int)$params[0];
         $pageMax = (int)$res[1];
@@ -27,7 +27,7 @@ class BacknewsController
         $datanews = new News();
 
         $type = "news";
-        $search = ["id","title","author","content","type","dateInserted"];
+        $search = ["id","title","author","type","dateInserted"];
         $res = $datanews->getArchive($search,$params[0],NB_ITEM_BACK);
         $pageNum = (int)$params[0];
         $pageMax = (int)$res[1];
