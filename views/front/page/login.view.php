@@ -17,22 +17,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $user = $user->populate(['username' => $username]);
 
-                print_r($user->getPassword());
-                echo "\n####################\n";
-                print_r(password_hash($password, PASSWORD_DEFAULT) );
-                echo "\n####################\n";
-
-                if (password_hash($password, PASSWORD_DEFAULT) == $user->getPassword())
-                {
-                    print_r("Dans if pwd custom==\n");
-                    echo "\n####################\n";
-                    var_dump($_POST);
-                }
-
                 if (password_verify($password, $user->getPassword())) { // Si mdp correspond celui identifiant
-                    print_r("Dans if pwd==\n");
-                    echo "\n####################\n";
-                    var_dump($_POST);
 
                     $status = $user->getStatus();
                     if ($status == 'Admin') {print_r(4);
