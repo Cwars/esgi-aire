@@ -23,6 +23,8 @@ if($this->view == "back/user/logout")
     <!--<a href="#" class="nav-header-trigger">Menu<span></span></a>-->
     <nav class="nav-header-link">
         <ul class="nav-header-link-list">
+
+            <li><a href="<?php echo PATH_RELATIVE; ?>back/user/Setting"><i class="fa fa-user-circle" aria-hidden="true"></i></i></a></li>
             <li><a href="<?php echo PATH_RELATIVE; ?>back/user/Setting"><i class="fa fa-wrench" aria-hidden="true"></i></a></li>
             <li><a href="#" OnClick="javascript:window.location.reload()" ><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
             <li><a href="<?php echo PATH_RELATIVE; ?>back/user/logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
