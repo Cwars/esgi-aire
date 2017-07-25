@@ -28,7 +28,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $_SESSION['user_id'] = $user->getId();
                         $_SESSION['admin'] = '1';
                     } else
-                    {print_r(5);
+                    {
                         session_unset();
                         session_destroy();
                         session_start();
@@ -59,21 +59,22 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h2 class="text-center">Formulaire de connexion</h2>
         <div class="col1 firstcol">
 
-            <?php $this->includeModal("form", $formConnectionFront); ?>
-        </div>
-        <?php
-        if(isset($error)) {
-        ?>
-            <div class="info-error">
-                <?php
+            <?php $this->includeModal("form", $formConnectionFront);
+
+            if(isset($error)) {
+                ?>
+                <div class="info-error">
+                    <?php
                     foreach ($error as $e) {
                         echo $msgError[$e];
                     }
-                ?>
-            </div>
-        <?php
-        }
-        ?>
+                    ?>
+                </div>
+                <?php
+            }
+            ?>
+        </div>
+
     </div>
 </section>
 <?php

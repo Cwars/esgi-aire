@@ -1,6 +1,10 @@
 <?php
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+echo "11111";
+print_r($_SERVER['REQUEST_METHOD']);
+print_r($_SESSION);
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    echo "122221111";
     if (!empty($_POST['username']) && !empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email']) && !empty($_POST['pwd']) && !empty($_POST['pwd2']) &&
         isset($_POST['username']) && isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['email']) && isset($_POST['pwd']) && isset($_POST['pwd2'])) {
         $user = new User();
@@ -111,9 +115,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $listOfErrors[] = "allRequired";
         $error = true;
     }
-
+$_SESSION["form_error"] = $listOfErrors;
 }
-
 ?>
 <div class="top-image">
     <!--<img src="images/header.png" width="100%" alt="header">-->
