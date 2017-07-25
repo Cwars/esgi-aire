@@ -1,11 +1,11 @@
 <div class="content-wrapper">
     <style type="text/css">
-        #dash1, #dash3{
+        .graph-container1, .graph-container3{
             width: 50%;
             height: auto;
             float: left;
         }
-        #dash2{
+        .graph-container2{
             width: 100%;
             height: auto;
             float: right;
@@ -22,19 +22,23 @@
     <h1>Dashboard</h1><br/>
     <div id="loader"></div>
 
-    <div id="dash2">
-        <canvas id="mygraph2"></canvas>
+    <div class="graph-container2">
+        <div id="dash2">
+            <canvas id="mygraph2"></canvas>
+        </div>
     </div>
 
-
-    <div id="dash1">
-        <canvas id="mygraph1"></canvas>
+    <div class="graph-container1">
+        <div id="dash1">
+            <canvas id="mygraph1"></canvas>
+        </div>
     </div>
 
-    <div id="dash3">
-        <canvas id="mygraph3"></canvas>
+    <div class="graph-container3">
+        <div id="dash3">
+            <canvas id="mygraph3"></canvas>
+        </div>
     </div>
 
-    <br>
 </div> <!-- .content-wrapper -->
 <br>
