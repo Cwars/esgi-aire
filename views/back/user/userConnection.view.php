@@ -24,7 +24,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                     session_start();
                     $_SESSION['username'] = $username;
                     $_SESSION['user_id'] = $user->getId();
-                    $_SESSION['admin'] = '1';
+                    $_SESSION['admin'] =    1;
                     header("Location: ".PATH_RELATIVE."back/dashboard/menu");
                 } else
                 {
