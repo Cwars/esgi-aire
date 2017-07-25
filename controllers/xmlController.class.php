@@ -1,8 +1,8 @@
 <?php
 
-class xmlController
+class XmlController
 {
-    public function xmlAction()
+    public function XmlAction()
     {
         header("Content-type: text/xml");
 
@@ -24,7 +24,7 @@ class xmlController
             $xml .= '<title>'.html_entity_decode($ev['title']).'</title>';
             $xml .= '<link>'.PATH_RELATIVE.'event/'.$ev['id'].'</link>';
             $xml .= '<guid isPermaLink="true">'.PATH_RELATIVE.'event/'.$ev['id'].'</guid>';
-            $xml .= '<description>'.strip_tags(substr(html_entity_decode(html_entity_decode($ev['description'])), 0, 128)).'</description>';
+            $xml .= '<description>'.strip_tags(substr(html_entity_decode(html_entity_decode($ev['description'])), 0)).'</description>';
             $xml .= '</item>';
         }
 
@@ -37,7 +37,7 @@ class xmlController
             $xml .= '<title>'.$n['title'].'</title>';
             $xml .= '<link>'.PATH_RELATIVE.'newsItem/'.$n['id'].'</link>';
             $xml .= '<guid isPermaLink="true">'.PATH_RELATIVE.'newsItem/'.$n['id'].'</guid>';
-            $xml .= '<description>'.strip_tags(substr(html_entity_decode($n['content']), 0, 128)).'</description>';
+            $xml .= '<description>'.strip_tags(substr(html_entity_decode($n['content']), 0)).'</description>';
             $xml .= '</item>';
         }
 
@@ -50,7 +50,7 @@ class xmlController
             $xml .= '<title>'.$page['title'].'</title>';
             $xml .= '<link>'.PATH_RELATIVE.$page['title'].'</link>';
             $xml .= '<guid isPermaLink="true">'.PATH_RELATIVE.$page['title'].'</guid>';
-            $xml .= '<description>'.strip_tags(substr($page['content']), 0, 128).'</description>';
+            $xml .= '<description>'.strip_tags(substr($page['content'], 0)).'</description>';
             $xml .= '</item>';
         }
 
