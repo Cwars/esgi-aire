@@ -4,6 +4,12 @@ header('Content-Type: application/json');
 
 // Connection
 try {
+    define("DB_NAME", "mvciw1");
+    define("DB_USER", "root");
+    define("DB_PWD", "3iw1Esgi%75013");
+    define("DB_PORT", "3306");
+    define("DB_HOST", "127.0.0.1");
+
     $db = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME.";port=".DB_PORT, DB_USER, DB_PWD);
 } catch(Exception $e) {
     die("Erreur SQL : ".$e->getMessage());
