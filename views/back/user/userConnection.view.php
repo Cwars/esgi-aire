@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['username'] = $username;
                     $_SESSION['user_id'] = $user->getId();
                     $_SESSION['admin'] = '1';
-                    header("Location: ".PATH_RELATIVE."Dashboard/menu");
+                    header("Location: ".PATH_RELATIVE."back/Dashboard/menu");
                 } else
                 {
                     session_unset();
@@ -74,14 +74,14 @@ echo "</pre>";
         ?>
         <div class="info-error">
             <?php
-            echo $msgError[14];
+            echo $msgError["noAuthorization"];
             ?>
         </div>
         <?php
         unset($_SESSION['error']);
     }
 
-    if(isset($_SESSION['admin']) && $_SESSION['admin'] != 1) {
+    if(isset($_SESSION['admin']) && $_SESSION['admin'] != 1 || isset($_SESSION['admin']) && $_SESSION['admin'] != 2) {
         ?>
         <div class="info-blue">
             Vous êtes actuellement connecté en tant qu'utilisateur normal.<br>

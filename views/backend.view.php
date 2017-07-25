@@ -1,7 +1,8 @@
 <?php
-if(isset($_SESSION['admin']) && $_SESSION['admin'] == '0')
+if(isset($_SESSION['admin']) && $_SESSION['admin'] == '0' || !isset($_SESSION['admin']))
 {
-    header("Location: ".PATH_RELATIVE."front/home");
+    $_SESSION['error'] = 14;
+    header("Location: ".PATH_RELATIVE."back/user/Connection");
 }
 /*if($this->view == "back/user/logout")
 {
@@ -17,6 +18,7 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] == '0')
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/back/css/reset.css">
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/back/css/menus.css">
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/back/css/style.css">
+    <link rel="icon" type="image/ico" sizes="32x32" href="<?php echo PATH_RELATIVE ; ?>images/favicon.ico">
     <link rel="stylesheet" href="<?php echo PATH_RELATIVE ; ?>assets/back/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <title>Back office</title>
 </head>

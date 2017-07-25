@@ -4,7 +4,7 @@ header('Content-Type: application/json');
 
 define("DB_NAME", "mvciw1");
 define("DB_USER", "root");
-define("DB_PWD", "3iw1Esgi%75013");
+define("DB_PWD", "");
 define("DB_PORT", "3306");
 define("DB_HOST", "127.0.0.1");
 
