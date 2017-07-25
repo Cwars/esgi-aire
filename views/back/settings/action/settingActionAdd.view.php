@@ -28,11 +28,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                     fclose($file);
                     if($fw !== false)
                     {
-                        header("Content-Type: text/html");
-                        require_once('assets/PHamlP_3.2/sass/SassParser.php'); //including Sass libary (Syntactically Awesome Stylesheets)
-                        $sass = new SassParser(array('style'=>'compressed'));
-                        $css = $sass->toCss('assets/front/scss/screen.scss');
-                        print_r($css);
+                        require_once 'assets/scssphp-0.6.7/scss.inc.php';
+
+                        use Leafo\ScssPhp\Compiler;
+                        $scss = new Compiler();
+
+                        print_r($scss);
                     } else {
                         $error = true;
                         $errors[] = "fwrite";
@@ -52,8 +53,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
-print_r($errors);
-print_r($fontcolortheme);
 
 
 

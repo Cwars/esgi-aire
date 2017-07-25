@@ -9,8 +9,23 @@
         <div class="col1 firstcol">
 
             <?php
-            $this->includeModal("form", $formRegister);
+            $this->includeModal("form", $formRegister)
+
+            if(isset($_SESSION['form_error']))
+            {
+                ?>
+            <div class="info-error">
+                <?php
+                foreach ($_SESSION['form_error'] as $e) {
+                    echo $msgError[$e];
+                    echo $msgError[$e];
+                }
+                ?>
+            </div>
+            <?php
+            }
             ?>
+
         </div>
     </div>
 </section>
