@@ -11,6 +11,7 @@ if(!empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST['
     $pwd = $_POST['pwd'];
     $pwd2 = $_POST['pwd2'];
     $cgu = $_POST['cgu'];
+    $newsletter = $_POST['newsletter'];
     $now = date("Y-m-d H:i:s");
 
     $error = false;
@@ -20,8 +21,8 @@ if(!empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST['
         if (!$user->populate(['email' => $email])) {
 
             if ($cgu != 1){
-                //Le nom d'utilisateur doit faire au moins 2 caractères
-                $listOfErrors[] = "nbUsername";
+                //CGU coché
+                $listOfErrors[] = "cgu";
                 $error = true;
             }
 
@@ -70,6 +71,13 @@ if(!empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST['
                 $error = true;
             }
 
+            if($newsletter == 1){
+                $sub = new Subscribers();
+                $sub->setUsernameSub($username);
+
+                $sub->save();
+            }
+
             if ($error === false) {
                 $user->setUsername($username);
                 $user->setStatus($status);
@@ -107,7 +115,7 @@ if(!empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST['
                 // Votre message
                 $mail->MsgHTML('Hello '.$firstname.
                     '<br>
-                You can activate your account with this link ! => http://localhost'.PATH_RELATIVE.'userConfirmation/'.$username.
+                You can activate your account with this link ! =>'.PATH_RELATIVE.'userConfirmation/'.$username.
                     '<br>
                 Best Regards :'
                 );

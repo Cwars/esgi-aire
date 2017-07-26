@@ -1,4 +1,6 @@
 <?php
+include ('assets/PHPMailer/PHPMailerAutoload.php');
+
 if( !empty($_POST['title']) && !empty($_POST['description'])  && !empty($_POST['date'])) {
     $event = new Event();
 
@@ -28,6 +30,53 @@ if( !empty($_POST['title']) && !empty($_POST['description'])  && !empty($_POST['
         //La description doit faire au moins 2 caractères
         $listOfErrors[] = "nbContent";
         $error = true;
+    }
+
+    //Envoie de mail
+
+    $mail = new PHPMailer();
+    $mail ->IsSmtp();
+    $mail ->SMTPDebug = 0;
+    $mail ->SMTPAuth = true;
+    $mail ->SMTPSecure = 'ssl';
+    $mail ->Host = "smtp.gmail.com";
+    $mail ->Port = 465; // or 587
+    $mail ->IsHTML(true);
+
+    $sub = new Subscribers();
+    $user = new User();
+    $res = $sub -> getAll("subscribers");
+
+    // Authentification
+    $mail->Username = "esgi.aire@gmail.com";
+    $mail->Password = "3iw1Esgi%75013";
+
+    // Expéditeur
+    $mail->SetFrom("esgi.aire@gmail.com", "esgi-aire");
+    // Destinataire
+
+    foreach ( $res as $sub ){
+        $user = $user->populate(['username' => $sub['usernameSub']]);
+        $email = $user->getEmail();
+
+        $mail->AddAddress($email, $sub["username"]);
+    }
+
+    // Objet
+    $mail->Subject = "New event ". $title;
+    // Votre message
+    $mail->MsgHTML('Hello '.
+        '<br>
+                A new event just come out "'.$title.'" the => '.$date.
+        '<br>
+                Best Regards :'
+    );
+
+    // Envoi du mail avec gestion des erreurs
+    if(!$mail->Send()) {
+        echo 'Erreur : ' . $mail->ErrorInfo;
+    } else {
+        echo 'Message envoyé !';
     }
 
     if ($error === false) {

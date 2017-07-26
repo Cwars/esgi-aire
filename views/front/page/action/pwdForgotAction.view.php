@@ -52,7 +52,7 @@ $mail->SetFrom("esgi.aire@gmail.com", "ESGI-AIRE");
 // Destinataire
 $mail->AddAddress($newEmail, $newUsername);
 // Objet
-$mail->Subject = $subject;
+$mail->Subject = "Mot de passe oublié";
 
 // Votre message
 $mail->MsgHTML('This is your new Password: ' .$newPwd. 'please ask us if you want to change it, Best Regards.');
