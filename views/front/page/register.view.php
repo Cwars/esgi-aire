@@ -21,6 +21,8 @@
                     echo $msgError[$e];
                     echo '</p>';
                 }
+                unset($_SESSION['form_error']);
+                unset($_SESSION['form_post']);
                 ?>
             </div>
             <?php
