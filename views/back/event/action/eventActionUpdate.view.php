@@ -8,7 +8,7 @@ if( !empty($_POST['title']) && !empty($_POST['description'])  && !empty($_POST['
     $date = $_POST['date'];
 
     $now = date("Y-m-d H:i:s");
-    $author = $username;
+    $author = $_SESSION['username'];
 
     $error = false;
     $listOfErrors = [];
@@ -42,22 +42,20 @@ if( !empty($_POST['title']) && !empty($_POST['description'])  && !empty($_POST['
         $event ->setAuthor($author);
 
         $event->save();
+        $_SESSION['added'] = 1;
+        header("Location: ".PATH_RELATIVE."back/event/menu/1");
     }else{
         $_SESSION["form_error"] = $listOfErrors;
         $_SESSION["form_post"] = $_POST;
+        $error = true;
     }
 }else{
     $listOfErrors[] = "allRequired";
     $_SESSION["form_error"] = $listOfErrors;
     $_SESSION["form_post"] = $_POST;
+    $error = true;
 }
-
-echo "<div class=\"content-wrapper\">";
-if( isset($_SESSION["form_error"]) ){
-    foreach ($_SESSION["form_error"] as $error) {
-        echo "<li>".$msgError[$error];
-    }
+if($error==true)
+{
+    header("Location: ".PATH_RELATIVE."back/event/add");
 }
-unset($_SESSION["form_post"]);
-unset($_SESSION["form_error"]);
-echo "</div>";

@@ -21,10 +21,9 @@ section{
   padding: 50px 0;
 }
 nav {
-  position: fixed;
   z-index: 99999;
-  width: 70%;
-  left: 15%
+  max-width: 80%;
+  margin: auto;
 }
 body{
   background: lighten($dark-background-color, 20%);
@@ -127,8 +126,11 @@ h1 {
 
 @media (max-width: $screen-md-min) {
   nav {
+    max-width: 100%;
     width: 100%;
-    left: 0;
+    ul {
+      overflow-y: scroll;
+    }
   }
 }
 

@@ -43,7 +43,7 @@ if( !empty($_POST['title']) && !empty($_POST['description'])) {
     }
 
 
-    if(isset($_FILES['mediafile']) AND $_FILES['mediafile']['error'] == 0){
+    /*if(isset($_FILES['mediafile']) AND $_FILES['mediafile']['error'] == 0){
         $fileType = ["png", "jpg", "jpeg", "gif", "mp3", "wav", "mp4", "mov"];
         $limitSize = 10000000;
         $infoFile = pathinfo($_FILES["mediafile"]["name"]);
@@ -91,7 +91,7 @@ if( !empty($_POST['title']) && !empty($_POST['description'])) {
             mkdir($pathUpload);
         }
 
-        }
+        }*/
     if ($error === false) {
         $pathUpload = $_SERVER['DOCUMENT_ROOT'] . DS . "esgi-aire" . DS . "images" . DS . "upload";
 
@@ -111,26 +111,20 @@ if( !empty($_POST['title']) && !empty($_POST['description'])) {
             $mediafile->setDateUpdated($now);
 
             $mediafile->save();
-
+        $_SESSION['added'] = 1;
+        header("Location: ".PATH_RELATIVE."back/mediafile/menu/1");
         } else{
         $_SESSION["form_error"] = $listOfErrors;
         $_SESSION["form_post"] = $_POST;
+        $error = true;
     }
 } else{
     $listOfErrors[] = "allRequired";
     $_SESSION["form_error"] = $listOfErrors;
     $_SESSION["form_post"] = $_POST;
+    $error = true;
 }
-
-if( isset($_SESSION["form_error"]) ){
-    foreach ($_SESSION["form_error"] as $error) {
-        echo "<li>".$msgError[$error];
+    if($error==true)
+    {
+        header("Location: ".PATH_RELATIVE."back/mediafile/add");
     }
-}
-
-unset($_SESSION["form_post"]);
-unset($_SESSION["form_error"]);
-
-?>
-
-

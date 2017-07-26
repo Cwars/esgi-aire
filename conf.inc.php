@@ -3,7 +3,7 @@
 define("DS", DIRECTORY_SEPARATOR);
 define("PATH_RELATIVE", "/esgi-aire/");
 define("PATH_RELATIVE_PATTERN", "\/esgi-aire");
-define("NB_ITEM_BACK", 5);
+define("NB_ITEM_BACK", 10);
 define("NB_ITEM_FRONT", 10);
 define("MAIN_ADMIN_ADRESS", "khuon.rithdavid@gmail.com");
 define("MAIN_ADMIN_NOM", "Rithdavid");

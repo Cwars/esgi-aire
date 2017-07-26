@@ -58,22 +58,21 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
         $user->setIsDeleted(0);
 
         $user->save();
+        $_SESSION['added'] = 1;
+        header("Location: ".PATH_RELATIVE."back/news/menu/1");
     }else{
         $_SESSION["form_error"] = $listOfErrors;
         $_SESSION["form_post"] = $_POST;
+        $error = true;
     }
 }else{
     $listOfErrors[] = "allRequired";
     $_SESSION["form_error"] = $listOfErrors;
     $_SESSION["form_post"] = $_POST;
+    $error = true;
 }
 
-echo "<div class=\"content-wrapper\">";
-if( isset($_SESSION["form_error"]) ){
-    foreach ($_SESSION["form_error"] as $error) {
-        echo "<li>".$msgError[$error];
-    }
+if($error==true)
+{
+    header("Location: ".PATH_RELATIVE."back/news/add");
 }
-unset($_SESSION["form_post"]);
-unset($_SESSION["form_error"]);
-echo "</div>";

@@ -71,7 +71,6 @@ class BacknewsController
         echo $pathChild;
 
         $media=((new Mediafile())->populate(['path' => $pathChild]));
-        var_dump($media);
 
         $titleMedia = $media->getTitle();
         $descriptionMedia = $media->getDescription();

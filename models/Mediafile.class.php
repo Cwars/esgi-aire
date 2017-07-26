@@ -131,11 +131,7 @@
                         "required" => true,
                         "value" => "".$description."",
                     ],
-                    "mediafile" => [
-                        "type" => "file",
-                        "placeholder" => "Votre fichier",
-                        "required" => true,
-                    ],
+
                 ]
             ];
         }

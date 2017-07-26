@@ -124,26 +124,21 @@
                 $mediafile->setDateUpdated($now);
 
                 $mediafile->save();
-
+                $_SESSION['added'] = 1;
+                header("Location: ".PATH_RELATIVE."back/mediafile/menu/1");
             }
         }else{
             $_SESSION["form_error"] = $listOfErrors;
             $_SESSION["form_post"] = $_POST;
+            $error = true;
         }
     } else{
         $listOfErrors[] = "allRequired";
         $_SESSION["form_error"] = $listOfErrors;
         $_SESSION["form_post"] = $_POST;
+        $error = true;
     }
-
-    if( isset($_SESSION["form_error"]) ){
-        foreach ($_SESSION["form_error"] as $error) {
-            echo "<li>".$msgError[$error];
-        }
+    if($error==true)
+    {
+        header("Location: ".PATH_RELATIVE."back/mediafile/add");
     }
-    unset($_SESSION["form_post"]);
-    unset($_SESSION["form_error"]);
-
-    ?>
-
-

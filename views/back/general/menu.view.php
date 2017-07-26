@@ -41,7 +41,17 @@
         ?>
 
     </table>
-
+    <?php
+    if(isset($_SESSION['added']))
+    {
+        ?>
+            <div style="width: 70%;padding: 15px; text-align: center; margin: auto; background-color: green; color: #fff;">
+                <p>Succès de l'opération !</p>
+            </div>
+        <?php
+        unset($_SESSION['added']);
+    }
+    ?>
     <table>
         <button id="prevPage">Previous</button>
         <form id="pagination">

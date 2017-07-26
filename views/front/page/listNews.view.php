@@ -5,7 +5,7 @@
         <section class="un">
             <div class="container" id="Last-Media">
                 <div class="col1">
-                    <h3><?php echo $item['title'];?></h3>
+                    <h3><a href="<?php echo PATH_RELATIVE.'newsitem/'.$item['id']; ?>"><?php echo $item['title'];?></a></h3>
                     <p>
                         <?php
                         $strlen = strlen($item['content']);

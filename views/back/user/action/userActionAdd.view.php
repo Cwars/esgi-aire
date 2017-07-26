@@ -74,7 +74,8 @@ if(!empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST['
 
                 $user->save();
 
-                $listOfErrors[] = "added";
+                $_SESSION['added'] = 1;
+                header("Location: ".PATH_RELATIVE."back/user/menu/1");
             } else {
                 $_SESSION["form_post"] = $_POST;
                 $error = true;
@@ -92,9 +93,7 @@ if(!empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST['
     $error = true;
     $_SESSION["form_post"] = $_POST;
 }
-if ($error == true) {
-    $_SESSION['form_error'] = $listOfErrors;
-} else{
-    $_SESSION['form_error'] = $listOfErrors;
+if($error==true)
+{
+    header("Location: ".PATH_RELATIVE."back/user/add");
 }
-?>

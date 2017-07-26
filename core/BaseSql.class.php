@@ -37,7 +37,6 @@
                 try {
                     $req = $this->db->prepare("INSERT INTO ".$this->table." (".$sqlCol.") VALUES (".$sqlKey.");");
                     $req->execute($data);
-                    var_dump($data);
                 } catch (Exception $e) {
                     die($e->getMessage());
                 }
