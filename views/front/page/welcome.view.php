@@ -1,1 +1,0 @@
-<?php $this->includeModal("form", $form); ?>

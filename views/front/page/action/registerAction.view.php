@@ -1,4 +1,6 @@
 <?php
+include ('assets/PHPMailer/PHPMailerAutoload.php');
+
 if(!empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST['lastname']) && isset($_POST["email"]) && isset($_POST["pwd"]) && isset($_POST["pwd2"])) {
     $user = new User();
     $username = htmlentities($_POST['username']);
@@ -77,9 +79,45 @@ if(!empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST['
                 $user->setPwd($pwd);
                 $user->setDateInserted($now);
                 $user->setDateUpdated($now);
-                $user->setIsDeleted(0);
+                $user->setIsDeleted(1);
 
                 $user->save();
+
+                //Envoie de mail
+
+                $mail = new PHPMailer();
+                $mail ->IsSmtp();
+                $mail ->SMTPDebug = 0;
+                $mail ->SMTPAuth = true;
+                $mail ->SMTPSecure = 'ssl';
+                $mail ->Host = "smtp.gmail.com";
+                $mail ->Port = 465; // or 587
+                $mail ->IsHTML(true);
+
+                // Authentification
+                $mail->Username = "esgi.aire@gmail.com";
+                $mail->Password = "3iw1Esgi%75013";
+
+                // Expéditeur
+                $mail->SetFrom("esgi.aire@gmail.com", "esgi-aire");
+                // Destinataire
+                $mail->AddAddress($email, $firstname);
+                // Objet
+                $mail->Subject = "Confirmation par mail";
+                // Votre message
+                $mail->MsgHTML('Hello '.$firstname.
+                    '<br>
+                You can activate your account with this link ! => http://localhost'.PATH_RELATIVE.'userConfirmation/'.$username.
+                    '<br>
+                Best Regards :'
+                );
+
+                // Envoi du mail avec gestion des erreurs
+                if(!$mail->Send()) {
+                    echo 'Erreur : ' . $mail->ErrorInfo;
+                } else {
+                    echo 'Message envoyé !';
+                }
 
                 $listOfErrors[] = "added";
                 $succed = true;

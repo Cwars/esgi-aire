@@ -17,7 +17,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $user = $user->populate(['username' => $username]);
 
-                if (password_verify($password, $user->getPassword())) { // Si mdp correspond celui identifiant
+                if (password_verify($password, $user->getPwd())) { // Si mdp correspond celui identifiant
 
                     $status = $user->getStatus();
                     if ($status == 'Admin') {
@@ -73,6 +73,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php
             }
             ?>
+            <a href="pwdForgot">Oublie du mot de passe</a>
         </div>
     </div>
 </section>

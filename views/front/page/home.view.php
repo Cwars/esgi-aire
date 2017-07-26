@@ -12,7 +12,7 @@
 </section>
 
 <?php
-if($resultNews) {
+if(!empty($resultNews)) {
     ?>
     <section class="<?php if(isset($path)){ echo "deux";}else{echo "un";} ?>" id="Last-Media">
         <div class="container">
@@ -71,7 +71,7 @@ if($resultNews) {
     </section>
     <?php
 }
-if($resultEvent) {
+if(!empty($resultEvent)) {
     ?>
     <section class="un" id="Event">
         <div class="container">

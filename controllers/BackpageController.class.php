@@ -11,25 +11,7 @@ class BackpageController
         $res = $page->getObj($search,$params[0],NB_ITEM_BACK);
 
         if( !is_int($params[0]) || $params[0]>0 && $params[0]<=$res[1]){
-            $v = new View("menu");
-            $v->assign("search", $search);
-            $v->assign("result", $res[0]);
-            $v->assign("nbPage", $res[1]);
-            $v->assign("type", $type);
-        } else {
-            $v = new View("page404");
-        }
-    }
-
-    public function PageMenuRestoreAction($params) {
-        $page = new Page();
-
-        $type = "page";
-        $search = ["id","title","content"];
-        $res = $page->getArchive($search,$params[0],NB_ITEM_BACK);
-
-        if(!is_int($params[0]) || $params[0]>0 && $params[0]<=$res[1]){
-            $v = new View("menuRestore");
+            $v = new View("menuPage");
             $v->assign("search", $search);
             $v->assign("result", $res[0]);
             $v->assign("nbPage", $res[1]);
@@ -66,17 +48,5 @@ class BackpageController
         $v->assign("titleUpdate",$title);
         $v->assign("idUpdate",$params[0]);
     }
-
-    public function PageActionDeleteAction($params) {
-        $v = new View("pageActionDelete");
-        $v->assign("idDelete",$params);
-    }
-
-    public function PageActionRestoreAction($params) {
-        $v = new View("pageActionRestore");
-        $v->assign("idRestore",$params);
-    }
-
-
 
 }

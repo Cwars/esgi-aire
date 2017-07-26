@@ -102,14 +102,6 @@
             return $this->isDeleted;
         }
 
-        public function setPassword($pwd) {
-            $this->pwd = password_hash($pwd, PASSWORD_DEFAULT);;
-        }
-
-        public function getPassword(){
-            return $this->pwd;
-        }
-
         // Création d'un formulaire pour l'inscription d'un utilisateur pour le front
         public function getFormRegisterback()
         {
@@ -360,48 +352,23 @@
                 ]
             ];
         }
-//        // Formulaire de modification des infos de l'utilisateur
-//        public function getFormSetting($id,$firstname,$lastname,$email)
-//        {
-//            return [
-//                "options" => [
-//                    "method" => "POST",
-//                    "action" => "../ActionSetting/".$id,
-//                    "class" => "add-form",
-//                    "id" => "Register"
-//                ],
-//                "struct" => [
-//                    "firstname" => [
-//                        "type" => "text",
-//                        "placeholder" => "Prénom",
-//                        "required" => true,
-//                        "value" => "".$firstname."",
-//                    ],
-//                    "lastname" => [
-//                        "type" => "text",
-//                        "placeholder" => "Nom",
-//                        "required" => true,
-//                        "value" => "".$lastname."",
-//                    ],
-//                    "email" => [
-//                        "type" => "email",
-//                        "placeholder" => "Adresse email",
-//                        "required" => true,
-//                        "value" => "".$email."",
-//                    ],
-//                    "pwd" => [
-//                        "type" => "password",
-//                        "placeholder" => "Mot de passe",
-//                        "required" => true,
-//                        "value" => "",
-//                    ],
-//                    "pwd2" => [
-//                        "type" => "password",
-//                        "placeholder" => "Confirmation mot de passe",
-//                        "required" => true,
-//                        "value" => "",
-//                    ]
-//                ]
-//            ];
-//        }
+
+        public function getFormPwdForgot()
+        {
+            return [
+                "options" => [
+                    "method" => "POST",
+                    "action" => "pwdForgotAction",
+                    "class" => "add-form",
+                    "id" => "Register"
+                ],
+                "struct" => [
+                    "email" => [
+                        "type" => "text",
+                        "placeholder" => "Votre Mail",
+                        "required" => true
+                    ]
+                ]
+            ];
+        }
     }
