@@ -45,9 +45,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else
         $error[] = "required";
 }
-echo "<pre>";
-var_dump($_SESSION);
-echo "</pre>";
+
 ?>
 
 

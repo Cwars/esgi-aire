@@ -1,10 +1,29 @@
+
+// NavBar responsive
+
+$(function() {
+    var pull = $('#pull');
+    menu = $('#mobile');
+    hamb = $('.fa-bars');
+    rotate = 0;
+
+    $(pull).on('click', function (e) {
+        e.preventDefault();
+        menu.slideToggle();
+
+        rotate = rotate + 90;
+        hamb.css("transform", "rotate(" + rotate + "deg)");
+        hamb.css("transition-duration", "0.5s");
+    });
+});
+
 $( "#goPage" ).click(function() {
         var url      = window.location.href;
         url = url.substring(0, url.lastIndexOf('/'));
         var value = $( "#pagePagination" ).val();
 
         window.location=url+"/"+value;
-})
+});
 
 $( "#prevPage" ).click(function() {
     var url      = window.location.href;
@@ -27,24 +46,6 @@ $( "#nextPage" ).click(function() {
     window.location=url+"/"+value;
 });
 
-
-// NavBar responsive
-
-$(function() {
-    var pull = $('#pull');
-    menu = $('#mobile');
-    hamb = $('.fa-bars');
-    rotate = 0;
-
-    $(pull).on('click', function (e) {
-        e.preventDefault();
-        menu.slideToggle();
-
-        rotate = rotate + 90;
-        hamb.css("transform", "rotate(" + rotate + "deg)");
-        hamb.css("transition-duration", "0.5s");
-    });
-});
 
 /***    CAROUSEL    ***/
 
