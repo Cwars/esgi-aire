@@ -69,9 +69,11 @@ class BacknewsController
         $type = $news->getType();
         $pathChild = $news->getPathChild();
 
-        $media = ((new Mediafile())->populate(['pathChild' => $pathChild]));
+        $media = ((new Mediafile())->populate(['path' => $pathChild]));
         var_dump($media);
 
+        $titleMedia = $media->getTitle();
+        $descriptionMedia = $media->getDescription();
 
         $v->assign("formUpdate", $news->getFormUpdate($id,$title,$content,$type,$titleMedia,$descriptionMedia));
     }

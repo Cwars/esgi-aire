@@ -111,23 +111,28 @@ if( !empty($_POST['title']) && !empty($_POST['description'])) {
 
             //Est ce que le dossier upload existe
             $pathUpload = $_SERVER['DOCUMENT_ROOT'] . DS . "esgi-aire" . DS . "images" . DS . "upload";
-
-            if (!file_exists($pathUpload)) {
-                //Sinon le créer
-                mkdir($pathUpload);
-            }
-            //Déplacer l'avatar dedans
-            $nameFile = str_replace($pathUpload . DS, '', $pathUpdate);
-            move_uploaded_file($_FILES["mediafile"]["tmp_name"], $pathUpload . DS . $nameFile);
-            $path = $pathUpload.DS.$nameFile;
         }
     }
     if ($error === false) {
-            $mediafile->setId($id);
+
+        if (!file_exists($pathUpload)) {
+            //Sinon le créer
+            mkdir($pathUpload);
+        }
+        //Déplacer l'avatar dedans
+        $nameFile = explode("/", $pathUpdate);
+        $nameFile = $nameFile[2];
+
+        move_uploaded_file($_FILES["mediafile"]["tmp_name"],  $pathUpload.DS.$nameFile);
+        $path = $pathUpload.DS.$nameFile;
+
+        $pathServeur = "images/uploads/".$nameFile;
+
+        $mediafile->setId($id);
             $mediafile->setTitle($title);
             $mediafile->setDescription($description);
             $mediafile->setIsDeleted(0);
-            $mediafile->setPath($path);
+            $mediafile->setPath($pathServeur);
             $mediafile->setType($type);
             $mediafile->setDateInserted($dateInsertedUpdate);
             $mediafile->setDateUpdated($now);
