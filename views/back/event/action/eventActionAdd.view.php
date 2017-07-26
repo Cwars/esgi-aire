@@ -12,23 +12,21 @@ if( !empty($_POST['title']) && !empty($_POST['description'])  && !empty($_POST['
     $error = false;
     $listOfErrors = [];
 
-    //Le nom d'utilisateur est déjà utilisé
     if (strlen($title) < 2) {
-        //Le nom d'utilisateur doit faire au moins 2 caractères
-        $listOfErrors[] = "nbUsername";
+        //Le title doit faire au moins 2 caractères
+        $listOfErrors[] = "nbTitle";
         $error = true;
     }
 
     if ($event->populate(['title' => $title])){
-        //Le nom d'utilisateur est déja utilisé
-        $listOfErrors[] = "usernameUsed";
+        //Le title est déja utilisé
+        $listOfErrors[] = "titleUsed";
         $error = true;
     }
 
-    //Vérifier le nom
     if (strlen($description) < 1) {
-        //Le nom doit faire au moins 2 caractères
-        $listOfErrors[] = "nbLastname";
+        //La description doit faire au moins 2 caractères
+        $listOfErrors[] = "nbContent";
         $error = true;
     }
 

@@ -82,6 +82,7 @@ if(!empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST['
                 $user->save();
 
                 $listOfErrors[] = "added";
+                $succed = true;
             } else {
                 $_SESSION["form_post"] = $_POST;
                 $error = true;
@@ -102,8 +103,11 @@ if(!empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST['
 if ($error == true) {
     $_SESSION['form_error'] = $listOfErrors;
     header("Location: ".PATH_RELATIVE."register");
-} else{
-    $_SESSION['form_error'] = $listOfErrors;
+}
+if ($succed == true)
+{
+    unset($_SESSION['form_post']);
+    header("Location: ".PATH_RELATIVE."home");
 }
 
 // Supprimé ca en dessous, stocker valeur du formulaire en session  => une foi de retour sur la page,

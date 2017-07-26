@@ -124,6 +124,7 @@
                 $mediafile->setDateUpdated($now);
 
                 $mediafile->save();
+
             }
         }else{
             $_SESSION["form_error"] = $listOfErrors;

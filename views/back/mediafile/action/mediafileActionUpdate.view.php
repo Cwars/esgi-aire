@@ -28,17 +28,17 @@ if( !empty($_POST['title']) && !empty($_POST['description'])) {
         $listOfErrors[] = "titleUsed";
         $error = true;
     }
-    //title est déjà utilisé
+
     if (strlen($title) < 0) {
         //Le titre doit faire au moins 2 caractères
-        $listOfErrors[] = "1";
+        $listOfErrors[] = "nbTitle";
         $error = true;
     }
 
     //Vérifier le description
     if (strlen($description) < 0) {
         //La description doit faire au moins 2 caractères
-        $listOfErrors[] = "2";
+        $listOfErrors[] = "nbContent";
         $error = true;
     }
 
