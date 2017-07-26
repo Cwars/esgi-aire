@@ -148,8 +148,7 @@
                         "type" => "select",
                         "option" => [
                             "option1" => "Admin",
-                            "option2" => "User",
-                            "option3" => "Moderateur"
+                            "option2" => "User"
                         ]
                     ],
                 ]
@@ -196,8 +195,7 @@
                         "type" => "select",
                         "option" => [
                             "option1" => "Admin",
-                            "option2" => "User",
-                            "option3" => "Moderateur"
+                            "option2" => "User"
                         ]
                     ]
                 ]

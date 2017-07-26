@@ -132,50 +132,6 @@
             return $return;
         }
 
-        // Return every object of a table (only what we want)
-        public function getObjByCat($search = [],$numPage,$nbItem,$cat){
-
-            $stringSelect = '';
-
-            //Concatenation des parametres pour la requète
-            foreach ($search as $key => $value) {
-                $stringSelect .= $value.",";
-            }
-
-            //Supression de la dernière virgule + trim
-            $stringSelect = trim(rtrim($stringSelect,","));
-
-            //Requète par rapport aux paramètres que l'on a envoyé pour récuperer les items
-            $query = $this->db->prepare('SELECT '. $stringSelect .' FROM '.$this->table . ' WHERE isDeleted = 0' );
-            $query->execute();
-
-            $resultCount = $query->fetchAll(PDO::FETCH_ASSOC);
-
-            //Pour la pagination
-            $countItem = count($resultCount);
-
-            //nb de page
-
-            if($countItem == 0){
-                $nbPage = 1;
-            } else {
-                $nbPage = ceil($countItem/$nbItem);
-            }
-
-            //le 1er item de chaque page
-            $firstItem = $nbItem*$numPage - ($nbItem);
-
-            //Requète par rapport aux paramètres avec les conditions
-            $query = $this->db->prepare('SELECT '. $stringSelect .' FROM '.$this->table . ' WHERE isDeleted = 0 AND type = '.$cat.' ORDER BY id ASC LIMIT '.$firstItem.', '.$nbItem.'');
-            $query->execute();
-
-            $result = $query->fetchAll(PDO::FETCH_ASSOC);
-
-            //Return le tableau de résultat + nb de page
-            $return = array($result,$nbPage);
-            return $return;
-        }
-
         public function getArchive($search = [],$numPage,$nbItem){
 
             $stringSelect = '';
@@ -230,7 +186,7 @@
             $stringSelect = trim(rtrim($stringSelect,","));
 
             //Requète par rapport aux paramètres avec les conditions
-            $query = $this->db->prepare('SELECT '. $stringSelect .' FROM '.$this->table . ' WHERE isDeleted = 0 ORDER BY dateInserted DESC LIMIT 0 ,' .$nbItem.'');
+            $query = $this->db->prepare('SELECT '. $stringSelect .' FROM '.$this->table . ' WHERE isDeleted = 0 ORDER BY dateInserted ASC LIMIT 0 ,' .$nbItem.'');
             $query->execute();
 
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -250,7 +206,7 @@
             $stringSelect = trim(rtrim($stringSelect,","));
 
             //Requète par rapport aux paramètres avec les conditions
-            $query = $this->db->prepare('SELECT '. $stringSelect .' FROM '.$this->table . ' WHERE isDeleted = 0 ORDER BY date DESC LIMIT 0 ,' .$nbItem.'');
+            $query = $this->db->prepare('SELECT '. $stringSelect .' FROM '.$this->table . ' WHERE isDeleted = 0 ORDER BY date ASC LIMIT 0 ,' .$nbItem.'');
             $query->execute();
 
             $result = $query->fetchAll(PDO::FETCH_ASSOC);

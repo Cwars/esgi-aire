@@ -24,7 +24,7 @@
         $listOfErrors = [];
 
         //title est déjà utilisé
-        if ($mediafile->populate(['title' => $title])){
+        if ($mediafile->populate(['title' => $title])) {
             //Le titre est déja utilisé
             $listOfErrors[] = "titleUsed";
             $error = true;
@@ -35,85 +35,85 @@
             $listOfErrors[] = "1";
             $error = true;
         }
+        $infoFile = pathinfo($_FILES["mediafile"]["name"]);
+        $fileType = ["png", "jpg", "jpeg", "gif", "mp3", "wav", "mp4", "mov"];
+        $limitSize = 100000000;
 
-        if ($error === false) {
-            $fileType = ["png", "jpg", "jpeg", "gif","mp3","wav","mp4","mov"];
-            $limitSize = 100000000;
+        if (empty($_FILES['mediafile'])) {
+            $listOfErrors[] = 'NoMediafile';
+            $error = true;
+        } else if ($_FILES['mediafile']["error"] > 0) {
 
-            if(empty($_FILES['mediafile'])){
-                $listOfErrors[]='NoMediafile';
+            $error = true;
+            switch ($_FILES["mediafile"]["error"]) {
+                case UPLOAD_ERR_INI_SIZE:
+                    $listOfErrors[] = 'NoMediafile';
+                    break;
+                case UPLOAD_ERR_FORM_SIZE:
+                    $listOfErrors[] = 'NoMediafile';
+                    break;
+                case UPLOAD_ERR_PARTIAL:
+                    $listOfErrors[] = 'NoMediafile';
+                    break;
+                case UPLOAD_ERR_NO_FILE:
+                    $listOfErrors[] = 'NoMediafile';
+                    break;
+                case UPLOAD_ERR_NO_TMP_DIR:
+                    $listOfErrors[] = 'NoMediafile';
+                    break;
+                case UPLOAD_ERR_CANT_WRITE:
+                    $listOfErrors[] = 'NoMediafile';
+                    break;
+                case UPLOAD_ERR_EXTENSION:
+                    $listOfErrors[] = 'NoMediafile';
+                    break;
+                default:
+                    $listOfErrors[] = 'NoMediafile';
+                    break;
+            }
+        } else {
+
+            if (!in_array(strtolower($infoFile["extension"]), $fileType)) {
+                $listOfErrors[] = "10";
                 $error = true;
-            }else if($_FILES['mediafile']["error"] > 0){
+            }
 
+            if ($_FILES["mediafile"]["size"] > $limitSize) {
+                $listOfErrors[] = "11";
                 $error = true;
-                switch ($_FILES["mediafile"]["error"]) {
-                    case UPLOAD_ERR_INI_SIZE:
-                    $listOfErrors[]='NoMediafile';
-                    break;
-                    case UPLOAD_ERR_FORM_SIZE:
-                    $listOfErrors[]='NoMediafile';
-                    break;
-                    case UPLOAD_ERR_PARTIAL:
-                    $listOfErrors[]='NoMediafile';
-                    break;
-                    case UPLOAD_ERR_NO_FILE:
-                    $listOfErrors[]='NoMediafile';
-                    break;
-                    case UPLOAD_ERR_NO_TMP_DIR:
-                    $listOfErrors[]='NoMediafile';
-                    break;
-                    case UPLOAD_ERR_CANT_WRITE:
-                    $listOfErrors[]='NoMediafile';
-                    break;
-                    case UPLOAD_ERR_EXTENSION:
-                    $listOfErrors[]='NoMediafile';
-                    break;
-                    default:
-                    $listOfErrors[]='NoMediafile';
-                    break;
-                }
-            }else{
-                $infoFile = pathinfo($_FILES["mediafile"]["name"]);
+            }
 
-                if(!in_array( strtolower($infoFile["extension"]) , $fileType)){
-                    $listOfErrors[]="10";
-                    $error = true;
-                }
+            if ($error === false) {
 
-                if($_FILES["mediafile"]["size"]>$limitSize){
-                    $listOfErrors[]="11";
-                    $error = true;
-                }
-
-                switch (strtolower($infoFile["extension"])){
+                switch (strtolower($infoFile["extension"])) {
                     case "png":
                     case "jpg":
                     case "jpeg":
                     case "gif":
-                    $type = "image";
-                    break;
+                        $type = "image";
+                        break;
                     case "mp3":
                     case "wav":
-                    $type = "musique";
-                    break;
+                        $type = "musique";
+                        break;
                     case "mp4":
                     case "mov":
-                    $type = "vidéo";
-                    break;
+                        $type = "vidéo";
+                        break;
                 }
 
-            //Est ce que le dossier upload existe
-                $pathUpload =$_SERVER['DOCUMENT_ROOT'].DS."esgi-aire".DS."images".DS."upload";
+                //Est ce que le dossier upload existe
+                $pathUpload = $_SERVER['DOCUMENT_ROOT'] . DS . "esgi-aire" . DS . "images" . DS . "upload";
 
-                if( !file_exists($pathUpload) ){
-                //Sinon le créer
+                if (!file_exists($pathUpload)) {
+                    //Sinon le créer
                     mkdir($pathUpload);
                 }
-            //Déplacer l'avatar dedans
-                $nameFile = uniqid().".". strtolower($infoFile["extension"]);
-                move_uploaded_file($_FILES["mediafile"]["tmp_name"], $pathUpload.DS.$nameFile);
+                //Déplacer l'avatar dedans
+                $nameFile = uniqid() . "." . strtolower($infoFile["extension"]);
+                move_uploaded_file($_FILES["mediafile"]["tmp_name"], $pathUpload . DS . $nameFile);
 
-                $pathServeur = "/images/upload/".$nameFile;
+                $pathServeur = "/images/upload/" . $nameFile;
 
                 $mediafile->setTitle($title);
                 $mediafile->setDescription($description);
@@ -125,14 +125,14 @@
 
                 $mediafile->save();
                 $_SESSION['added'] = 1;
-                header("Location: ".PATH_RELATIVE."back/mediafile/menu/1");
+                header("Location: " . PATH_RELATIVE . "back/mediafile/menu/1");
+            } else {
+                $_SESSION["form_error"] = $listOfErrors;
+                $_SESSION["form_post"] = $_POST;
+                $error = true;
             }
-        }else{
-            $_SESSION["form_error"] = $listOfErrors;
-            $_SESSION["form_post"] = $_POST;
-            $error = true;
         }
-    } else{
+    }else{
         $listOfErrors[] = "allRequired";
         $_SESSION["form_error"] = $listOfErrors;
         $_SESSION["form_post"] = $_POST;
