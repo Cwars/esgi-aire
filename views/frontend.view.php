@@ -24,7 +24,7 @@
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>event/1">Evènement</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>gallery">Galerie</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>contact">Contact</a></li>
-                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>xml">test</a></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>xml">XML</a></li>
                 <?php
                 if(isset($_SESSION['admin']))
                 {
@@ -56,6 +56,7 @@
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>event/1">Evènement</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>gallery">Galerie</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>contact">Contact</a></li>
+                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>xml">XML</a></li>
                 <?php
                 if(isset($_SESSION['admin']))
                 {

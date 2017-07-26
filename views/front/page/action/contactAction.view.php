@@ -1,5 +1,8 @@
 <?php
 include ('assets/PHPMailer/PHPMailerAutoload.php');
+session_start("");
+
+if(!empty($_POST['mail']) && !empty($_POST['name'])  && !empty($_POST['subject']) && isset($_POST["content"])) {
 
 $mailFrom = htmlentities(trim($_POST['mail']));
 $nameFrom = htmlentities(trim($_POST['name']));
@@ -45,3 +48,6 @@ $mail->MsgHTML('from'.$mailFrom.
     }
     ?>
 </div>
+
+<?php }
+?>

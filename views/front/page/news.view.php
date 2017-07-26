@@ -57,32 +57,4 @@
 
         </div>
     </section>
-
-    <section class="un" id="Acomments">
-        <div class="container">
-
-            <div class="un" id="comments">
-                <div class="col1">
-                    <h3>Commentaires</h3>
-                    <div class="comment">
-                        <p class="author">Jean Babouche<em>, le {date}</em></p>
-                        <p class="com-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, asperiores autem deserunt, dolor et facere inventore laudantium.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, asperiores autem deserunt, dolor et facere inventore laudantium</p>
-                    </div>
-
-                    <div class="comment">
-                        <p class="author">Jean Babouche</p>
-                        <p class="com-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, asperiores autem deserunt, dolor et facere inventore laudantium.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, asperiores autem deserunt, dolor et facere inventore laudantium</p>
-                    </div>
-                    <div id="addcomments">
-                        <h3>Ajouter un commentaire</h3>
-                        <?php
-                        $this->includeModal("form", $formCom);
-                        ?>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
 </div>

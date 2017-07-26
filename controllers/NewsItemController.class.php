@@ -7,7 +7,6 @@ class NewsItemController
     {
 
         $news = new News();
-        $com = new Comment();
         $img = new Mediafile();
         //Si News n'existe pas ou si supprimé (!=0)
         if ($news->populate(['id' => $params[0]]) && $news->populate(['id' => $params[0]])->getIsDeleted() == 0) {
@@ -36,8 +35,6 @@ class NewsItemController
             if($isDeleted == 0)
                 $v->assign("path", $path);
                 $v->assign("type", $type);
-
-            $v->assign("formCom", $com->getFormComFront());
 
             } else {
                 $v = new View("page404");
