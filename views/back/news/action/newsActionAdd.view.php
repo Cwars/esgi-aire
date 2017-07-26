@@ -119,7 +119,7 @@ if( !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['title
             $nameFile = uniqid().".". strtolower($infoFile["extension"]);
             move_uploaded_file($_FILES["mediafile"]["tmp_name"], $pathUpload.DS.$nameFile);
 
-            $pathServeur = "images/uploads/".$nameFile;
+            $pathServeur = "/images/upload/".$nameFile;
 
             $news->setTitle($title);
             $news->setAuthor($author);

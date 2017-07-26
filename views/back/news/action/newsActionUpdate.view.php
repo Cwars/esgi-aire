@@ -98,7 +98,7 @@ if( !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['title
         $nameFile = $nameFile[2];
         $path = $pathUpload.DS.$nameFile;
 
-        $pathServeur = "images/uploads/".$nameFile;
+        $pathServeur = "/images/upload/".$nameFile;
 
             $news->setId($id);
             $news->setTitle($title);

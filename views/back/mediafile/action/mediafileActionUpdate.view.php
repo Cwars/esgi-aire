@@ -99,7 +99,7 @@ if( !empty($_POST['title']) && !empty($_POST['description'])) {
         $nameFile = $nameFile[2];
         $path = $pathUpload.DS.$nameFile;
 
-        $pathServeur = "images/uploads/".$nameFile;
+        $pathServeur = "/images/upload/".$nameFile;
 
         $mediafile->setId($id);
             $mediafile->setTitle($title);
