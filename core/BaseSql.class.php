@@ -231,7 +231,7 @@
             $stringSelect = trim(rtrim($stringSelect,","));
 
             //Requète par rapport aux paramètres avec les conditions
-            $query = $this->db->prepare('SELECT '. $stringSelect .' FROM '.$this->table . ' WHERE isDeleted = 0 ORDER BY dateInserted ASC LIMIT 0 ,' .$nbItem.'');
+            $query = $this->db->prepare('SELECT '. $stringSelect .' FROM '.$this->table . ' WHERE isDeleted = 0 ORDER BY dateInserted DESC LIMIT 0 ,' .$nbItem.'');
             $query->execute();
 
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -251,7 +251,7 @@
             $stringSelect = trim(rtrim($stringSelect,","));
 
             //Requète par rapport aux paramètres avec les conditions
-            $query = $this->db->prepare('SELECT '. $stringSelect .' FROM '.$this->table . ' WHERE isDeleted = 0 ORDER BY date ASC LIMIT 0 ,' .$nbItem.'');
+            $query = $this->db->prepare('SELECT '. $stringSelect .' FROM '.$this->table . ' WHERE isDeleted = 0 ORDER BY date DESC LIMIT 0 ,' .$nbItem.'');
             $query->execute();
 
             $result = $query->fetchAll(PDO::FETCH_ASSOC);

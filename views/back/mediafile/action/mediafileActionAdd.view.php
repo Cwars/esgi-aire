@@ -113,7 +113,7 @@
                 $nameFile = uniqid().".". strtolower($infoFile["extension"]);
                 move_uploaded_file($_FILES["mediafile"]["tmp_name"], $pathUpload.DS.$nameFile);
 
-                $pathServeur = PATH_RELATIVE."images/uploads/".$nameFile;
+                $pathServeur = "images/uploads/".$nameFile;
 
                 $mediafile->setTitle($title);
                 $mediafile->setDescription($description);

@@ -8,7 +8,7 @@
         <h2 class="text-center">Formulaire de contact</h2>
         <div class="col1 firstcol">
             <p class="text-center">
-                <?php echo $content; ?>
+                <?php echo htmlspecialchars_decode($content); ?>
 
             <?php $this->includeModal("form", $formContact); ?>
 

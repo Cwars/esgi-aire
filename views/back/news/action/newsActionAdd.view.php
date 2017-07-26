@@ -119,6 +119,8 @@ if( !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['title
             $nameFile = uniqid().".". strtolower($infoFile["extension"]);
             move_uploaded_file($_FILES["mediafile"]["tmp_name"], $pathUpload.DS.$nameFile);
 
+            $pathServeur = "images/uploads/".$nameFile;
+
             $news->setTitle($title);
             $news->setAuthor($author);
             $news->setContent($content);
@@ -126,13 +128,13 @@ if( !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['title
             $news->setDateInserted($now);
             $news->setDateUpdated($now);
             $news->setIsDeleted(0);
-            $news->setTitleChild($titleImage);
+            $news->setPathChild($pathServeur);
             $news->setTypeChild($typeImage);
 
             $mediafile->setTitle($titleImage);
             $mediafile->setDescription($description);
             $mediafile->setIsDeleted(0);
-            $mediafile->setPath($pathUpload.DS.$nameFile);
+            $mediafile->setPath($pathServeur);
             $mediafile->setType($typeImage);
             $mediafile->setDateInserted($now);
             $mediafile->setDateUpdated($now);

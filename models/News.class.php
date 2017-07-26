@@ -150,7 +150,7 @@ class News extends BaseSql  {
         ];
     }
 
-    public function getFormUpdate($id,$title,$content,$type,$titleImage, $description)
+    public function getFormUpdate($id,$title,$content,$type,$titleImage,$description)
     {
         return [
             "options" => [

@@ -18,6 +18,7 @@
             <div class="deux">
                 <div class="col firstcol">
                     <img src="<?php echo $item["pathChild"]; ?>" alt="" class="img-responsive">
+                    <audio src="<?php echo $item["pathChild"]; ?>"></audio>
                 </div>
             </div>
             <div class="col">

@@ -1,12 +1,10 @@
 <?php
 include ('assets/PHPMailer/PHPMailerAutoload.php');
 
-$mailFrom = $_POST['mail'];
-$nameFrom = $_POST['name'];
-$subject = $_POST['subject'];
-$content = $_POST['content'];
-
-var_dump($_POST);
+$mailFrom = htmlentities(trim($_POST['mail']));
+$nameFrom = htmlentities(trim($_POST['name']));
+$subject = htmlentities(trim($_POST['subject']));
+$content = htmlentities(trim($_POST['content']));
 
 $mail = new PHPMailer();
 $mail ->IsSmtp();
@@ -22,7 +20,7 @@ $mail->Username = "esgi.aire@gmail.com";
 $mail->Password = "3iw1Esgi%75013";
 
 // Expéditeur
-$mail->SetFrom($_POST['mail'], $_POST['name']);
+$mail->SetFrom($mailFrom, $nameFrom);
 // Destinataire
 $mail->AddAddress(MAIN_ADMIN_ADRESS, MAIN_ADMIN_NOM);
 // Objet

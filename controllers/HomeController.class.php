@@ -17,7 +17,7 @@ class HomeController
         $isEvent = $page->getHasEvent();
 
         if($isNews == 0){
-            $searchNews = ["id","title","author","content","type","dateInserted"];
+            $searchNews = ["id","title","author","content","type","dateInserted","pathChild"];
             $resNews =(new News())-> getRecentElement($searchNews,1);
             $v->assign("resultNews", $resNews);
         }
