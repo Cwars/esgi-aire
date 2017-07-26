@@ -127,8 +127,7 @@ class News extends BaseSql  {
                     "type" => "select",
                     "option" => [
                         "option1" => "Blog",
-                        "option2" => "News",
-                        "option3" => "Music"
+                        "option2" => "News"
                     ]
                     ],
                 "titleImage" => [
@@ -178,8 +177,7 @@ class News extends BaseSql  {
                     "value" => "".$type."",
                     "option" => [
                         "option1" => "Blog",
-                        "option2" => "News",
-                        "option3" => "Music"
+                        "option2" => "News"
                     ],
                 ],
                 "titleImage" => [

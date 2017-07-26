@@ -20,7 +20,6 @@
                 <li class="navlogo"><img src="<?php echo PATH_RELATIVE ; ?>assets/front/images/logo.png" id="logo" alt="logo"></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>home">Home</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>news/1">Actualité</a></li>
-                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>blog/1">Blog</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>presentation">Présentation</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>event/1">Evènement</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>gallery">Galerie</a></li>
@@ -37,7 +36,7 @@
                         <?php
                     }else {
                         ?>
-                        <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>user">Profil (<?php echo $_SESSION['username']; ?>)</a></li>
+                        <li class="menu">Profil (<?php echo $_SESSION['username']; ?>)</li>
                         <li class="menu"><a href="<?php echo PATH_RELATIVE; ?>logout">Déconnexion</a></li>
                         <?php
                     }
@@ -53,7 +52,6 @@
                 <li class="navlogo"><img src="<?php echo PATH_RELATIVE ; ?>assets/front/images/logo.png" id="logo" alt="logo"></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>home">Home</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>news/1">Actualité</a></li>
-                <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>blog/1">Blog</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>presentation">Présentation</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>event/1">Evènement</a></li>
                 <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>gallery">Galerie</a></li>
@@ -61,7 +59,7 @@
                 <?php
                 if(isset($_SESSION['admin']))
                 {
-                    if($_SESSION['admin'] == 1 || $_SESSION['admin' == 2])
+                    if($_SESSION['admin'] == 1)
                     {
                         ?>
                         <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>back/dashboard/menu">BackOffice (<?php echo $_SESSION['username']; ?>)</a></li>
