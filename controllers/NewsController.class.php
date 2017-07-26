@@ -7,9 +7,10 @@ class NewsController
     {
 
         $news = new News();
-
-            $search = ["id","pathChild","title","author","content","dateInserted"];
+        $img = new Mediafile();
+            $search = ["id","title","author","content","dateInserted"];
             $res = $news->getObj($search,$params[0],NB_ITEM_FRONT);
+
 
             if($params[0]>0 && $params[0]<=$res[1]){
                 $v = new View("listNews");

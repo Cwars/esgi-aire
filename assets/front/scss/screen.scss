@@ -764,3 +764,38 @@ video::-webkit-media-controls-panel {
 video {
   width: 100%;
 }
+.pagination {
+  span {
+    display: table;
+    margin: auto;
+  }
+
+}
+#pagination {
+  display: inline-block;
+}
+#goPage,
+#nextPage,
+#prevPage,
+#pagePagination,
+.button-add{
+  display: inline-block;
+  color: black;
+  padding: 11px;
+  border-radius: 5px;
+  background: white;
+  border: 1px solid #4e9cea;
+  margin: 10px 2px;
+  outline: none;
+  font-size: 14px;
+  font-weight: bold;
+  &:hover {
+    background: #4e9cea;
+    color: #fff;
+  }
+}
+.no-top-img {
+  section {
+    padding: 20px 0;
+  }
+}

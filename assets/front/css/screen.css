@@ -823,3 +823,46 @@ video::-webkit-media-controls-panel {
 video {
   width: 100%;
 }
+
+/* line 768, ../scss/screen.scss */
+.pagination span {
+  display: table;
+  margin: auto;
+}
+
+/* line 774, ../scss/screen.scss */
+#pagination {
+  display: inline-block;
+}
+
+/* line 777, ../scss/screen.scss */
+#goPage,
+#nextPage,
+#prevPage,
+#pagePagination,
+.button-add {
+  display: inline-block;
+  color: black;
+  padding: 11px;
+  border-radius: 5px;
+  background: white;
+  border: 1px solid #4e9cea;
+  margin: 10px 2px;
+  outline: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+/* line 792, ../scss/screen.scss */
+#goPage:hover,
+#nextPage:hover,
+#prevPage:hover,
+#pagePagination:hover,
+.button-add:hover {
+  background: #4e9cea;
+  color: #fff;
+}
+
+/* line 798, ../scss/screen.scss */
+.no-top-img section {
+  padding: 20px 0;
+}

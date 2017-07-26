@@ -37,7 +37,7 @@ if($resultNews) {
                             {
                                 ?>
                                 <video controls="controls" name="media">
-                                    <source src="..<?php echo $path; ?>">
+                                    <source src="../<?php echo $path; ?>">
                                 </video>
                                 <?php
                             }
