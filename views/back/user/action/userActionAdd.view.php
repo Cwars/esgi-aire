@@ -98,5 +98,3 @@ if ($error == true) {
     $_SESSION['form_error'] = $listOfErrors;
 }
 ?>
-
-// Supprimé ca en dessous, stocker valeur du formulaire en session  => une foi de retour sur la page,

@@ -141,6 +141,7 @@ if( !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['title
 
             $news->save();
             $mediafile->save();
+
         }
     }
 }else{

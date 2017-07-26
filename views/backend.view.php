@@ -1,7 +1,7 @@
 <?php
 if(isset($_SESSION['admin']) && $_SESSION['admin'] == '0' || !isset($_SESSION['admin']))
 {
-    $_SESSION['error'] = 14;
+    $_SESSION['error'] = "noAuthorization";
     header("Location: ".PATH_RELATIVE."back/user/Connection");
 }
 /*if($this->view == "back/user/logout")
