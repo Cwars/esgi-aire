@@ -44,86 +44,59 @@ if( !empty($_POST['title']) && !empty($_POST['description'])) {
 
 
     if(isset($_FILES['mediafile']) AND $_FILES['mediafile']['error'] == 0){
-        if ($_FILES['mediafile']["error"] > 0) {
+        $fileType = ["png", "jpg", "jpeg", "gif", "mp3", "wav", "mp4", "mov"];
+        $limitSize = 10000000;
+        $infoFile = pathinfo($_FILES["mediafile"]["name"]);
+
+        if (!in_array(strtolower($infoFile["extension"]), $fileType)) {
+            $listOfErrors[] = "badMediaFileType";
             $error = true;
-            switch ($_FILES["mediafile"]["error"]) {
-                case UPLOAD_ERR_INI_SIZE:
-                    $listOfErrors[] = "NoMediafile";
-                    break;
-                case UPLOAD_ERR_FORM_SIZE:
-                    $listOfErrors[] = "NoMediafile";
-                    break;
-                case UPLOAD_ERR_PARTIAL:
-                    $listOfErrors[] = "NoMediafile";
-                    break;
-                case UPLOAD_ERR_NO_FILE:
-                    $listOfErrors[] = "NoMediafile";
-                    break;
-                case UPLOAD_ERR_NO_TMP_DIR:
-                    $listOfErrors[] = "NoMediafile";
-                    break;
-                case UPLOAD_ERR_CANT_WRITE:
-                    $listOfErrors[] = "NoMediafile";
-                    break;
-                case UPLOAD_ERR_EXTENSION:
-                    $listOfErrors[] = "NoMediafile";
-                    break;
-                default:
-                    $listOfErrors[] = "NoMediafile";
-                    break;
-            }
-        } else {
-            $fileType = ["png", "jpg", "jpeg", "gif", "mp3", "wav", "mp4", "mov"];
-            $limitSize = 10000000;
-            $infoFile = pathinfo($_FILES["mediafile"]["name"]);
-
-            if (!in_array(strtolower($infoFile["extension"]), $fileType)) {
-                $listOfErrors[] = "badMediaFileType";
-                $error = true;
-            }
-
-            if ($_FILES["mediafile"]["size"] > $limitSize) {
-                $listOfErrors[] = "11";
-                $error = true;
-            }
-
-            switch (strtolower($infoFile["extension"])) {
-                case "png":
-                case "jpg":
-                case "jpeg":
-                case "gif":
-                    $type = "image";
-                    break;
-                case "mp3":
-                case "wav":
-                    $type = "musique";
-                    break;
-                case "mp4":
-                case "mov":
-                    $type = "vidéo";
-                    break;
-            }
-
-            if ($typeUpdate != $type) {
-                $listOfErrors[] = "typeDiff";
-                $error = true;
-            }
-
-            //Est ce que le dossier upload existe
-            $pathUpload = $_SERVER['DOCUMENT_ROOT'] . DS . "esgi-aire" . DS . "images" . DS . "upload";
         }
-    }
-    if ($error === false) {
+
+        if ($_FILES["mediafile"]["size"] > $limitSize) {
+            $listOfErrors[] = "11";
+            $error = true;
+        }
+
+        switch (strtolower($infoFile["extension"])) {
+            case "png":
+            case "jpg":
+            case "jpeg":
+            case "gif":
+                $type = "image";
+                break;
+            case "mp3":
+            case "wav":
+                $type = "musique";
+                break;
+            case "mp4":
+            case "mov":
+                $type = "vidéo";
+                break;
+        }
+
+        if ($typeUpdate != $type) {
+            $listOfErrors[] = "typeDiff";
+            $error = true;
+        }
+
+        //Est ce que le dossier upload existe}
+        $pathUpload = $_SERVER['DOCUMENT_ROOT'] . DS . "esgi-aire" . DS . "images" . DS . "upload";
+        $nameFile = explode("/", $pathUpdate);
+        $nameFile = $nameFile[2];
+        move_uploaded_file($_FILES["mediafile"]["tmp_name"],  $pathUpload.DS.$nameFile);
 
         if (!file_exists($pathUpload)) {
             //Sinon le créer
             mkdir($pathUpload);
         }
-        //Déplacer l'avatar dedans
+
+        }
+    if ($error === false) {
+        $pathUpload = $_SERVER['DOCUMENT_ROOT'] . DS . "esgi-aire" . DS . "images" . DS . "upload";
+
         $nameFile = explode("/", $pathUpdate);
         $nameFile = $nameFile[2];
-
-        move_uploaded_file($_FILES["mediafile"]["tmp_name"],  $pathUpload.DS.$nameFile);
         $path = $pathUpload.DS.$nameFile;
 
         $pathServeur = "images/uploads/".$nameFile;
@@ -133,7 +106,7 @@ if( !empty($_POST['title']) && !empty($_POST['description'])) {
             $mediafile->setDescription($description);
             $mediafile->setIsDeleted(0);
             $mediafile->setPath($pathServeur);
-            $mediafile->setType($type);
+            $mediafile->setType($typeUpdate);
             $mediafile->setDateInserted($dateInsertedUpdate);
             $mediafile->setDateUpdated($now);
 

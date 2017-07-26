@@ -7,7 +7,7 @@ class BacknewsController
         $datanews = new News();
 
         $type = "news";
-        $search = ["id","title","author","type","dateInserted"];
+        $search = ["id","title","author","type","dateInserted","pathChild"];
         $res = $datanews->getObj($search,$params[0],NB_ITEM_BACK);
         $pageNum = (int)$params[0];
         $pageMax = (int)$res[1];
@@ -27,7 +27,7 @@ class BacknewsController
         $datanews = new News();
 
         $type = "news";
-        $search = ["id","title","author","type","dateInserted"];
+        $search = ["id","title","author","type","dateInserted","pathChild"];
         $res = $datanews->getArchive($search,$params[0],NB_ITEM_BACK);
         $pageNum = (int)$params[0];
         $pageMax = (int)$res[1];
@@ -62,14 +62,15 @@ class BacknewsController
 
 
         $news=((new News())->populate(['id' => $params[0]]));
-        var_dump($news);
         $id = $params[0];
         $title = $news->getTitle();
         $content = $news->getContent();
         $type = $news->getType();
         $pathChild = $news->getPathChild();
 
-        $media = ((new Mediafile())->populate(['path' => $pathChild]));
+        echo $pathChild;
+
+        $media=((new Mediafile())->populate(['path' => $pathChild]));
         var_dump($media);
 
         $titleMedia = $media->getTitle();
@@ -84,7 +85,20 @@ class BacknewsController
         // Récupère les données pour la news
         $news=((new News())->populate(['id' => $params[0]]));
         $title = $news->getTitle();
+        $pathChild = $news->getPathChild();
+
+        $media=((new Mediafile())->populate(['path' => $pathChild]));
+        $titleMedia = $media->getTitle();
+        $path = $media->getPath();
+        $type = $media->getType();
+        $dateInserted = $media->getDateInserted();
+
+        $v->assign("titleMedia",$titleMedia);
+        $v->assign("pathUpdate",$path);
+        $v->assign("typeUpdate",$type);
         $v->assign("username",$username);
+        $v->assign("dateInsertedUpdate",$dateInserted);
+
         $v->assign("idUpdate",$params[0]);
         $v->assign("titleUpdate",$title);
     }
