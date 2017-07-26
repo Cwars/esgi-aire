@@ -762,3 +762,44 @@ form button:hover, form button:active, form button:focus {
   width: 59%;
   margin: auto;
 }
+
+/* line 722, ../scss/screen.scss */
+.no-top-img {
+  padding-top: 100px;
+}
+
+/* line 725, ../scss/screen.scss */
+.img-item {
+  max-height: 500px;
+  width: auto;
+  display: block;
+  margin: auto;
+}
+
+/* line 732, ../scss/screen.scss */
+#commentsform {
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  /* line 736, ../scss/screen.scss */
+  .img-item {
+    max-height: 250px;
+    width: auto;
+    display: block;
+    margin: auto;
+  }
+
+  /* line 742, ../scss/screen.scss */
+  .img-col {
+    height: auto;
+    width: 100%;
+    display: block;
+    margin: auto;
+  }
+
+  /* line 748, ../scss/screen.scss */
+  .deux {
+    width: 100%;
+  }
+}

@@ -10,49 +10,64 @@
         </div>
     </div>
 </section>
-<section class="deux" id="Dedicaces">
-    <div class="container">
-        <?php
-        function resample($jpgFile, $thumbFile, $width, $orientation) {
-            // Get new dimensions
-            list($width_orig, $height_orig) = getimagesize($jpgFile);
-            $height = (int) (($width / $width_orig) * $height_orig);
-            // Resample
-            $image_p = imagecreatetruecolor($width, $height);
-            $image   = imagecreatefromjpeg($jpgFile);
-            imagecopyresampled($image_p, $image, 0, 0, 0, 0, $width, $height, $width_orig, $height_orig);
-            // Fix Orientation
-            switch($orientation) {
-                case 3:
-                    $image_p = imagerotate($image_p, 180, 0);
-                    break;
-                case 6:
-                    $image_p = imagerotate($image_p, -90, 0);
-                    break;
-                case 8:
-                    $image_p = imagerotate($image_p, 90, 0);
-                    break;
-            }
-            // Output
-            imagejpeg($image_p, $thumbFile, 90);
-        }
-        foreach($resultNews as $item)
-        {    ?>
-            <div class="deux">
-                <div class="col firstcol">
-                    <img src="<?php echo $item["pathChild"]; ?>" alt="" class="img-responsive">
-                    <audio src="<?php echo $item["pathChild"]; ?>"></audio>
-                </div>
-            </div>
-            <div class="col">
-                <h2><?php echo $item["title"]; ?></h2>
-                <?php echo htmlspecialchars_decode($item["content"]); ?>
-            </div>
-        <?php }
-        ?>
-    </div>
-</section>
 
+<?php
+if($resultNews) {
+    ?>
+    <section class="<?php if(isset($path)){ echo "deux";}else{echo "un";} ?>" id="Last-Media">
+        <div class="container">
+            <?php
+
+            foreach ($resultNews as $item) { ?>
+
+                <?php
+                if(isset($path))
+                {
+                    ?>
+                    <div class="deux">
+                        <div class="col firstcol img-col">
+                            <?php
+                            if($item["typeChild"] == "image")
+                            {
+                                ?>
+                                <img src="..<?php echo $item["pathChild"]; ?>" alt="" class="img-item">
+                                <?php
+                            }
+                            elseif($item["typeChild"] == "audio")
+                            {
+                                ?>
+                                <audio src="..<?php echo $item["pathChild"]; ?>"></audio>
+                                <?php
+                            }
+                            if($item["typeChild"] == "video")
+                            {
+                                ?>
+                                <video src="..<?php echo $item["pathChild"]; ?>"></video>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                    <?php
+                }
+                ?>
+                <div class="col">
+                    <h2><?php echo $item["title"]; ?></h2>
+                    <?php echo htmlspecialchars_decode($item["content"]); ?>
+                </div>
+                <?php
+
+                if(isset($path)) {
+                    ?>
+                    </div>
+                    <?php
+                }
+             }
+            ?>
+        </div>
+    </section>
+    <?php
+}
+?>
 <section class="un" id="Event">
     <div class="container">
         <div class="deux">

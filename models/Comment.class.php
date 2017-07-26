@@ -81,7 +81,7 @@
                     "method" => "POST",
                     "action" => "ActionAdd",
                     "class" => "form-group",
-                    "id" => "Register",
+                    "id" => "commentform",
                     "optionName" => "type"
                 ],
                 "struct" => [
@@ -105,7 +105,7 @@
                     "method" => "POST",
                     "action" => "contactAction",
                     "class" => "form-group",
-                    "id" => "Register",
+                    "id" => "Contactform",
                     "optionName" => "type"
                 ],
                 "struct" => [
