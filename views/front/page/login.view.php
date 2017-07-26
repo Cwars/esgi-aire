@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if (password_verify($password, $user->getPassword())) { // Si mdp correspond celui identifiant
 
                     $status = $user->getStatus();
-                    if ($status == 'Admin') {print_r(4);
+                    if ($status == 'Admin') {
                         session_unset();
                         session_destroy();
                         session_start();
@@ -54,10 +54,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1 class="slide-label">Connexion</h1>
 </div>
 
-<section class="un" id="Event">
+<section class="un" id="Login">
     <div class="container">
-        <h2 class="text-center">Formulaire de connexion</h2>
         <div class="col1 firstcol">
+            <h2 class="text-center">Formulaire de connexion</h2>
 
             <?php $this->includeModal("form", $formConnectionFront);
 
@@ -74,8 +74,5 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             ?>
         </div>
-
     </div>
 </section>
-<?php
-

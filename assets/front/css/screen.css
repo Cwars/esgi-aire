@@ -744,23 +744,21 @@ form button:hover, form button:active, form button:focus {
 }
 /* line 706, ../scss/screen.scss */
 .info-error {
-  padding: 15px 5px;
+  padding: 0 5px;
   background-color: rgba(255, 0, 0, 0.5);
   color: #FFFFFF;
   text-align: center;
-  font-weight: bold;
-  width: 39%;
-  margin: 5px auto;
+  width: 59%;
+  margin: auto;
 }
 
-/* line 715, ../scss/screen.scss */
+/* line 714, ../scss/screen.scss */
 .info-blue {
-  padding: 10px 10px;
+  padding: 0 5px;
   font-size: 11px;
   text-align: left;
   background-color: #64a9ed;
   color: #FFFFFF;
-  font-weight: bold;
-  width: 39%;
-  margin: 5px auto;
+  width: 59%;
+  margin: auto;
 }

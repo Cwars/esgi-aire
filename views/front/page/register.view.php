@@ -17,7 +17,9 @@
             <div class="info-error">
                 <?php
                 foreach ($_SESSION['form_error'] as $e) {
+                    echo '<p>';
                     echo $msgError[$e];
+                    echo '</p>';
                 }
                 ?>
             </div>

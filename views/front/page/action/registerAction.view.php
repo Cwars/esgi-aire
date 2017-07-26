@@ -101,6 +101,7 @@ if(!empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST['
 }
 if ($error == true) {
     $_SESSION['form_error'] = $listOfErrors;
+    header("Location: ".PATH_RELATIVE."register");
 } else{
     $_SESSION['form_error'] = $listOfErrors;
 }

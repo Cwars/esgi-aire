@@ -61,16 +61,16 @@
                 <?php
                 if(isset($_SESSION['admin']))
                 {
-                    if($_SESSION['admin'] == 1)
+                    if($_SESSION['admin'] == 1 || $_SESSION['admin' == 2])
                     {
                         ?>
-                        <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>back/dashboard/menu">BackOffice</a></li>
-                        <li class="menu"><a href="<?php echo PATH_RELATIVE; ?>logout">(<?php echo $_SESSION['username']; ?>)Déconnexion</a></li>
+                        <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>back/dashboard/menu">BackOffice (<?php echo $_SESSION['username']; ?>)</a></li>
+                        <li class="menu"><a href="<?php echo PATH_RELATIVE; ?>logout">Déconnexion</a></li>
                         <?php
                     }else {
                         ?>
-                        <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>user">Profil</a></li>
-                        <li class="menu"><a href="<?php echo PATH_RELATIVE; ?>logout">(<?php echo $_SESSION['username']; ?>)Déconnexion</a></li>
+                        <li class="menu"><a href="<?php echo PATH_RELATIVE ; ?>user">Profil (<?php echo $_SESSION['username']; ?>)</a></li>
+                        <li class="menu"><a href="<?php echo PATH_RELATIVE; ?>logout">Déconnexion</a></li>
                         <?php
                     }
                 }else {
