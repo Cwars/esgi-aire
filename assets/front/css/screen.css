@@ -803,3 +803,23 @@ form button:hover, form button:active, form button:focus {
     width: 100%;
   }
 }
+/* line 753, ../scss/screen.scss */
+video::-internal-media-controls-download-button {
+  display: none;
+}
+
+/* line 757, ../scss/screen.scss */
+video::-webkit-media-controls-enclosure {
+  overflow: hidden;
+}
+
+/* line 761, ../scss/screen.scss */
+video::-webkit-media-controls-panel {
+  width: calc(100% + 30px);
+  /* Adjust as needed */
+}
+
+/* line 764, ../scss/screen.scss */
+video {
+  width: 100%;
+}

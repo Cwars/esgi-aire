@@ -17,16 +17,20 @@
                         <img src="..<?php echo $path; ?>" alt="" class="img-item">
                         <?php
                     }
-                    elseif($type == "audio")
+                    elseif($type == "musique")
                     {
                         ?>
-                        <audio src="..<?php echo $path; ?>"></audio>
+                        <video controls="controls" name="media">
+                            <source src="..<?php echo $path; ?>">
+                        </video>
                         <?php
                     }
                     if($type == "video")
                     {
                         ?>
-                        <video src="..<?php echo$path; ?>"></video>
+                        <video controls="controls" name="media">
+                            <source src="..<?php echo $path; ?>">
+                        </video>
                         <?php
                     }
                     ?>

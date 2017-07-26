@@ -33,16 +33,20 @@ if($resultNews) {
                                 <img src="..<?php echo $item["pathChild"]; ?>" alt="" class="img-item">
                                 <?php
                             }
-                            elseif($item["typeChild"] == "audio")
+                            elseif($item["typeChild"] == "musique")
                             {
                                 ?>
-                                <audio src="..<?php echo $item["pathChild"]; ?>"></audio>
+                                <video controls="controls" name="media">
+                                    <source src="..<?php echo $path; ?>">
+                                </video>
                                 <?php
                             }
                             if($item["typeChild"] == "video")
                             {
                                 ?>
-                                <video src="..<?php echo $item["pathChild"]; ?>"></video>
+                                <video controls="controls" name="media">
+                                    <source src="..<?php echo $path; ?>">
+                                </video>
                                 <?php
                             }
                             ?>
@@ -67,24 +71,26 @@ if($resultNews) {
     </section>
     <?php
 }
-?>
-<section class="un" id="Event">
-    <div class="container">
-        <div class="deux">
-            <article class="col firstcol">
-                <h2 class="text-center">Evenements à venir</h2>
-            </article>
-            <?php
-            foreach($resultEvent as $item)
-            {    ?>
-                <article class="col">
-                    <h2><?php echo $item["title"]; ?></h2>
-                    <?php echo htmlspecialchars_decode($item["description"]); ?>
-                    <?php echo $item["date"]; ?>
-                    <?php echo $item["author"]; ?>
+if($resultEvent) {
+    ?>
+    <section class="un" id="Event">
+        <div class="container">
+            <div class="deux">
+                <article class="col firstcol">
+                    <h2 class="text-center">Evenements à venir</h2>
                 </article>
-            <?php }
-            ?>
+                <?php
+                foreach ($resultEvent as $item) { ?>
+                    <article class="col">
+                        <h2><?php echo $item["title"]; ?></h2>
+                        <?php echo htmlspecialchars_decode($item["description"]); ?>
+                        <?php echo $item["date"]; ?>
+                        <?php echo $item["author"]; ?>
+                    </article>
+                <?php }
+                ?>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+    <?php
+}
