@@ -7,9 +7,12 @@
     }
     .graph-container2{
         width: 100%;
+        margin: auto;
+        display: block;
+    }
+    #dash2 {
+        width:400px;
         height: auto;
-        float: right;
-
     }
     .content-wrapper {
         margin: 0 150px 50px 0!important;

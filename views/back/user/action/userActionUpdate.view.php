@@ -59,7 +59,7 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
 
         $user->save();
         $_SESSION['added'] = 1;
-        header("Location: ".PATH_RELATIVE."back/news/menu/1");
+        header("Location: ".PATH_RELATIVE."back/user/menu/1");
     }else{
         $_SESSION["form_error"] = $listOfErrors;
         $_SESSION["form_post"] = $_POST;
@@ -74,5 +74,5 @@ if( !empty($_POST['username']) && !empty($_POST['firstname'])  && !empty($_POST[
 
 if($error==true)
 {
-    header("Location: ".PATH_RELATIVE."back/news/add");
+    header("Location: ".PATH_RELATIVE."back/user/add");
 }

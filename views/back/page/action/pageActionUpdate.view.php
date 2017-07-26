@@ -43,19 +43,17 @@ if(!empty($_POST['content'])) {
             $page->setHasNews(1);
         }
         $page->save();
+        $_SESSION['added'] = 1;
+        header("Location: ".PATH_RELATIVE."back/page/menu/1");
     }
 }else{
     $listOfErrors[] = "allRequired";
     $_SESSION["form_error"] = $listOfErrors;
     $_SESSION["form_post"] = $_POST;
+    $error = true;
+}
+if($error==true)
+{
+    header("Location: ".PATH_RELATIVE."back/page/update");
 }
 
-echo "<div class=\"content-wrapper\">";
-if( isset($_SESSION["form_error"]) ){
-    foreach ($_SESSION["form_error"] as $error) {
-        echo "<li>".$msgError[$error];
-    }
-}
-unset($_SESSION["form_post"]);
-unset($_SESSION["form_error"]);
-echo "</div>";
