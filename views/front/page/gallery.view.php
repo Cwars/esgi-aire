@@ -5,10 +5,8 @@
 
 <section class="un" id="Event">
     <div class="container">
-        <h2 class="text-center">Retrouvez les différents oeuvres des artistes ici</h2>
-        <div class="col1 firstcol">
-            <p class="text-center">
-
+        <div class="col1">
+            <h2 class="text-center">Retrouvez les différentes oeuvres des artistes ici</h2>
 
             <div id="carousel">
 

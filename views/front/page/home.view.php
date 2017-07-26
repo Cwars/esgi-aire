@@ -83,10 +83,10 @@ if(!empty($resultEvent)) {
                 <?php
                 foreach ($resultEvent as $item) { ?>
                     <article class="col">
-                        <h3><?php echo $item["title"]; ?></h3>
-                        <?php echo htmlspecialchars_decode($item["description"]); ?>
-                        <?php echo $item["date"]; ?>
-                        <?php echo $item["author"]; ?>
+                        <h3><?php echo $item["title"]; ?></h3><br>
+                        <?php echo htmlspecialchars_decode($item["description"]); ?><br>
+                        <?php echo "Le ".$item["date"]; ?>
+                        <?php echo ",par ".$item["author"]; ?>
                     </article>
                 <?php }
                 ?>
