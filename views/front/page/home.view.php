@@ -37,7 +37,7 @@ if(!empty($resultNews)) {
                             {
                                 ?>
                                 <video controls="controls" name="media">
-                                    <source src="../<?php echo $path; ?>">
+                                    <source src="..<?php echo $path; ?>">
                                 </video>
                                 <?php
                             }
@@ -75,20 +75,22 @@ if(!empty($resultEvent)) {
     ?>
     <section class="un" id="Event">
         <div class="container">
-            <div class="deux">
-                <article class="col firstcol">
+            <div class="un">
+                <article class="col1">
                     <h2 class="text-center">Evenements à venir</h2>
                 </article>
+                <article class="cinq">
                 <?php
                 foreach ($resultEvent as $item) { ?>
                     <article class="col">
-                        <h2><?php echo $item["title"]; ?></h2>
-                        <?php echo htmlspecialchars_decode($item["description"]); ?>
-                        <?php echo $item["date"]; ?>
-                        <?php echo $item["author"]; ?>
+                        <h3><?php echo $item["title"]; ?></h3><br>
+                        <?php echo htmlspecialchars_decode($item["description"]); ?><br>
+                        <?php echo "Le ".$item["date"]; ?>
+                        <?php echo ",par ".$item["author"]; ?>
                     </article>
                 <?php }
                 ?>
+                </article>
             </div>
         </div>
     </section>

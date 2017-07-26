@@ -13,6 +13,7 @@
     #dash2 {
         width:400px;
         height: auto;
+        margin: auto;
     }
     .content-wrapper {
         margin: 0 150px 50px 0!important;
