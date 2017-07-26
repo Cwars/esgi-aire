@@ -3,13 +3,13 @@
     <h1 class="slide-label">Inscription</h1>
 </div>
 
-<section class="un" id="Event">
+<section class="un" id="Register">
     <div class="container">
-        <h2 class="text-center">Formulaire d'inscription</h2>
-        <div class="col1 firstcol">
 
+        <div class="col1">
+            <h2 class="text-center">Formulaire d'inscription</h2>
             <?php
-            $this->includeModal("form", $formRegister)
+            $this->includeModal("form", $formRegister);
 
             if(isset($_SESSION['form_error']))
             {
@@ -17,7 +17,6 @@
             <div class="info-error">
                 <?php
                 foreach ($_SESSION['form_error'] as $e) {
-                    echo $msgError[$e];
                     echo $msgError[$e];
                 }
                 ?>
